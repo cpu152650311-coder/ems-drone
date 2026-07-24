@@ -250,5 +250,167 @@
     "display": "default",
     "size_bytes": 60276,
     "source": "text-to-image"
+  },
+  "design-guide-matching": {
+    "id": "design-guide-matching",
+    "file": "design-guide-matching.webp",
+    "role": "technical-diagram",
+    "page": "design-guides/index.html",
+    "display": "default",
+    "size_bytes": 60792,
+    "source": "text-to-image"
+  },
+  "cap-fc-detail": {
+    "id": "cap-fc-detail",
+    "file": "cap-fc-detail.webp",
+    "role": "product-showcase",
+    "page": "capabilities/flight-control/index.html",
+    "display": "default",
+    "size_bytes": 171824,
+    "source": "text-to-image"
+  },
+  "cap-esc-detail": {
+    "id": "cap-esc-detail",
+    "file": "cap-esc-detail.webp",
+    "role": "product-showcase",
+    "page": "capabilities/esc-power/index.html",
+    "display": "default",
+    "size_bytes": 69614,
+    "source": "text-to-image"
+  },
+  "cap-propulsion-detail": {
+    "id": "cap-propulsion-detail",
+    "file": "cap-propulsion-detail.webp",
+    "role": "product-showcase",
+    "page": "capabilities/propulsion/index.html",
+    "display": "default",
+    "size_bytes": 128072,
+    "source": "text-to-image"
+  },
+  "cap-airframe-detail": {
+    "id": "cap-airframe-detail",
+    "file": "cap-airframe-detail.webp",
+    "role": "concept-scene",
+    "page": "capabilities/airframe/index.html",
+    "display": "default",
+    "size_bytes": 58442,
+    "source": "text-to-image"
+  },
+  "cap-comms-detail": {
+    "id": "cap-comms-detail",
+    "file": "cap-comms-detail.webp",
+    "role": "product-showcase",
+    "page": "capabilities/communications/index.html",
+    "display": "default",
+    "size_bytes": 119972,
+    "source": "text-to-image"
+  },
+  "cap-payload-detail": {
+    "id": "cap-payload-detail",
+    "file": "cap-payload-detail.webp",
+    "role": "product-showcase",
+    "page": "capabilities/payload/index.html",
+    "display": "default",
+    "size_bytes": 55570,
+    "source": "text-to-image"
+  },
+  "ind-inspection-detail": {
+    "id": "ind-inspection-detail",
+    "file": "ind-inspection-detail.webp",
+    "role": "concept-scene",
+    "page": "industries/inspection/index.html",
+    "display": "default",
+    "size_bytes": 102492,
+    "source": "text-to-image"
+  },
+  "ind-mapping-detail": {
+    "id": "ind-mapping-detail",
+    "file": "ind-mapping-detail.webp",
+    "role": "concept-scene",
+    "page": "industries/mapping-survey/index.html",
+    "display": "default",
+    "size_bytes": 178154,
+    "source": "text-to-image"
+  },
+  "ind-logistics-detail": {
+    "id": "ind-logistics-detail",
+    "file": "ind-logistics-detail.webp",
+    "role": "concept-scene",
+    "page": "industries/logistics/index.html",
+    "display": "default",
+    "size_bytes": 47458,
+    "source": "text-to-image"
+  },
+  "ind-agriculture-detail": {
+    "id": "ind-agriculture-detail",
+    "file": "ind-agriculture-detail.webp",
+    "role": "concept-scene",
+    "page": "industries/agriculture/index.html",
+    "display": "default",
+    "size_bytes": 150252,
+    "source": "text-to-image"
+  },
+  "ind-research-detail": {
+    "id": "ind-research-detail",
+    "file": "ind-research-detail.webp",
+    "role": "concept-scene",
+    "page": "industries/research/index.html",
+    "display": "default",
+    "size_bytes": 90896,
+    "source": "text-to-image"
+  },
+  "cta-engineering": {
+    "id": "cta-engineering",
+    "file": "cta-engineering.webp",
+    "role": "cta-bg",
+    "page": "various",
+    "display": "default",
+    "size_bytes": 41714,
+    "source": "text-to-image"
+  },
+  "cta-systems": {
+    "id": "cta-systems",
+    "file": "cta-systems.webp",
+    "role": "cta-bg",
+    "page": "various",
+    "display": "default",
+    "size_bytes": 62544,
+    "source": "text-to-image"
+  },
+  "texture-carbon": {
+    "id": "texture-carbon",
+    "file": "texture-carbon.webp",
+    "role": "texture-bg",
+    "page": "various",
+    "display": "default",
+    "size_bytes": 15592,
+    "source": "text-to-image"
+  },
+  "texture-circuit": {
+    "id": "texture-circuit",
+    "file": "texture-circuit.webp",
+    "role": "texture-bg",
+    "page": "various",
+    "display": "default",
+    "size_bytes": 17006,
+    "source": "text-to-image"
+  },
+  "stats-drone-bg": {
+    "id": "stats-drone-bg",
+    "file": "stats-drone-bg.webp",
+    "role": "stats-bg",
+    "page": "various",
+    "display": "default",
+    "size_bytes": 35074,
+    "source": "text-to-image"
+  },
+  "process-architecture": {
+    "id": "process-architecture",
+    "file": "process-architecture.webp",
+    "role": "process-flow",
+    "page": "how-it-works/index.html",
+    "display": "default",
+    "size_bytes": 74194,
+    "source": "text-to-image"
   }
 }
