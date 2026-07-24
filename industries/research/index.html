@@ -1,0 +1,294 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>UAV Components for Research &amp; Development | EMS Drone</title>
+  <meta name="description" content="Build UAV platforms for academic and industrial R&amp;D: modular airframes, open-source flight controllers, customizable sensor bays, and prototyping support for drone research projects.">
+  <link rel="canonical" href="https://ems-drone.pages.dev/industries/research/">
+  <meta property="og:title" content="UAV Components for Research &amp; Development | EMS Drone">
+  <meta property="og:description" content="Build UAV platforms for academic and industrial R&amp;D: modular airframes, open-source flight controllers, customizable sensor bays, and prototyping support.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://ems-drone.pages.dev/industries/research/">
+  <meta property="og:image" content="https://ems-drone.pages.dev/generated/og-cover.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <link rel="icon" type="image/x-icon" href="/generated/favicon.ico">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="apple-touch-icon" sizes="180x180" href="/generated/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="/generated/icon-192.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="/generated/icon-512.png">
+  <link rel="stylesheet" href="/design-tokens.css?v=6">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "TechArticle",
+    "name": "UAV Components for Research & Development",
+    "url": "https://ems-drone.pages.dev/industries/research/",
+    "description": "Build UAV platforms for academic and industrial R&D: modular airframes, open-source flight controllers, customizable sensor bays, and prototyping support for drone research projects.",
+    "isPartOf": {
+      "@type": "WebSite",
+      "name": "EMS Drone",
+      "url": "https://ems-drone.pages.dev/"
+    }
+  }
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <svg aria-hidden="true" style="position:absolute;width:0;height:0;overflow:hidden">
+    <symbol id="icon-drone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="2.6"/><path d="m10.2 10.2-4-4m7.6 4 4-4m-7.6 7.6-4 4m7.6-4 4 4"/><circle cx="4.7" cy="4.7" r="2.2"/><circle cx="19.3" cy="4.7" r="2.2"/><circle cx="4.7" cy="19.3" r="2.2"/><circle cx="19.3" cy="19.3" r="2.2"/></symbol>
+    <symbol id="icon-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12h14m-5-5 5 5-5 5"/></symbol>
+    <symbol id="icon-chip" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="7" y="7" width="10" height="10" rx="1"/><path d="M9 2v5m6-5v5M9 17v5m6-5v5M2 9h5m-5 6h5m10-6h5m-5 6h5"/><circle cx="12" cy="12" r="2"/></symbol>
+    <symbol id="icon-radio" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 18h.01M8.5 14.5a5 5 0 0 1 7 0M5 11a10 10 0 0 1 14 0M2 7.5a15 15 0 0 1 20 0"/></symbol>
+    <symbol id="icon-frame" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16v16H4zM4 4l16 16M20 4 4 20"/><circle cx="12" cy="12" r="3"/></symbol>
+    <symbol id="icon-payload" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="4" y="6" width="16" height="12" rx="2"/><circle cx="12" cy="12" r="3"/><path d="M8 6V4h8v2"/></symbol>
+    <symbol id="icon-power" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M13 2 5 14h6l-1 8 8-12h-6l1-8Z"/></symbol>
+  </svg>
+
+  <header class="site-header">
+    <div class="nav-shell">
+      <a class="brand" href="/" aria-label="EMS Drone home">
+        <span class="brand-mark"><svg aria-hidden="true"><use href="/index.html#icon-drone"/></svg></span>
+        <span>EMS Drone</span>
+      </a>
+      <button class="nav-toggle" type="button" aria-label="Open navigation" aria-expanded="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+      <nav class="site-nav" aria-label="Primary navigation">
+        <a href="/capabilities/">Capabilities</a>
+        <a href="/customization/">Customization</a>
+        <a href="/testing/">Testing</a>
+        <a href="/industries/" aria-current="page">Industries</a>
+        <a href="/about/">About</a>
+        <a href="/blog/">Blog</a>
+        <a class="btn btn-primary" href="/contact/">Start Your Build</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="sub-hero">
+      <div class="sub-hero-media">
+        <img src="/generated/sub-hero-industries-research.webp" alt="Conceptual modular UAV research platform with interchangeable sensor bays and open-source flight controller">
+        <span class="concept-badge">Concept illustration</span>
+      </div>
+      <div class="container sub-hero-grid">
+        <div class="reveal">
+          <span class="eyebrow">Research &amp; Development</span>
+          <h1>Build. Test. Iterate. Repeat.</h1>
+          <p>Modular UAV platforms purpose-built for academic and industrial R&amp;D: open-architecture flight controllers, customizable sensor payloads, swarm-capable mesh nodes and prototyping-friendly component sourcing with low minimum order quantities.</p>
+        </div>
+        <div class="sub-meta reveal">
+          <div class="sub-meta-row"><span>Architecture</span><strong>Open / Modular</strong></div>
+          <div class="sub-meta-row"><span>MOQ</span><strong>1-10 Units</strong></div>
+          <div class="sub-meta-row"><span>Platforms</span><strong>PX4 / ArduPilot / Custom</strong></div>
+          <div class="sub-meta-row"><span>Support</span><strong>Iterative Integration</strong></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-dark reveal">
+      <div class="container test-layout">
+        <div class="test-visual reveal">
+          <img src="/generated/sub-hero-industries-research.webp" alt="Modular UAV testbed with swappable payload bays and open-source flight stack">
+        </div>
+        <div class="reveal">
+          <span class="eyebrow">Research UAV Requirements</span>
+          <h2>Research platforms demand modularity, open architectures and sensor flexibility.</h2>
+          <p style="color:var(--muted-dark)">Academic and industrial R&amp;D groups need UAV platforms that adapt to changing experiment parameters. Unlike production UAVs built for a single mission, research aircraft must accommodate swapped sensors, modified control algorithms, repurposed payload bays and evolving communication architectures. This demands a fundamentally different procurement approach: open-source flight stacks with accessible parameter sets, airframes designed for modification rather than sealed integration, power systems with headroom for experimental loads, and suppliers comfortable with low-volume, iterative orders. The goal is not a finished product — it is a capable, documented, modifiable platform that accelerates the research cycle from simulation to flight test.</p>
+          <ul class="check-list">
+            <li>Open-source flight controllers (PX4, ArduPilot) with full parameter access and companion computer support</li>
+            <li>Modular airframes with standardized mounting grids, accessory rails and swappable arm configurations</li>
+            <li>Low minimum order quantities (1-10 units) with consistent component availability across research phases</li>
+            <li>Documentation and integration notes that support lab team onboarding and methodology reproducibility</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-header reveal">
+          <div>
+            <span class="eyebrow">Research Platforms</span>
+            <h2>Four platform archetypes for experimental UAV research.</h2>
+          </div>
+          <p>Each platform type serves a different research methodology — from closed-loop control experiments to field-scale environmental monitoring.</p>
+        </div>
+        <div class="detail-grid reveal">
+          <article class="detail-card">
+            <svg class="card-icon" aria-hidden="true"><use href="#icon-chip"/></svg>
+            <span class="tech-label">Platform A</span>
+            <h3>Modular Testbed Quads</h3>
+            <p>350-550mm wheelbase quadcopters designed for benchtop-to-flight experimentation. Standardized 30.5mm and 20mm FC mounting patterns accept Pixhawk, Cube and custom carrier boards. Open-frame construction with accessible wiring looms, swappable motor arms and configurable battery trays. Ideal for control algorithm development, sensor fusion experiments and flight dynamics research where rapid hardware changes between test sessions are essential.</p>
+            <ul class="tag-list"><li>Modular frame</li><li>PX4/ArduPilot</li><li>Swappable arms</li><li>Accessible wiring</li></ul>
+          </article>
+          <article class="detail-card">
+            <svg class="card-icon" aria-hidden="true"><use href="#icon-frame"/></svg>
+            <span class="tech-label">Platform B</span>
+            <h3>Fixed-Wing Surveyors</h3>
+            <p>1.2-2.0 meter wingspan airframes for aerial mapping, photogrammetry and environmental monitoring research. Removable wing panels for transport and sensor bay access. Multiple payload bays along the fuselage for nadir cameras, multispectral sensors and air sampling equipment. ArduPilot with terrain-following and survey grid automation provides repeatable flight paths for time-series data collection across seasonal field campaigns.</p>
+            <ul class="tag-list"><li>2 m wingspan</li><li>Multi-payload bays</li><li>Survey automation</li><li>60+ min endurance</li></ul>
+          </article>
+          <article class="detail-card">
+            <svg class="card-icon" aria-hidden="true"><use href="#icon-radio"/></svg>
+            <span class="tech-label">Platform C</span>
+            <h3>Swarm-Capable Nodes</h3>
+            <p>Compact 250-350mm quadcopters with onboard Wi-Fi and 868/915 MHz mesh radio for multi-agent research. Each node carries a companion computer (Raspberry Pi 4/5 or Jetson Nano) running ROS 2 with MAVLink bridge for offboard control. Standardized inter-drone communication protocol enables swarm coordination experiments — formation flight, cooperative search, distributed sensing and collision avoidance — with up to 10 simultaneous nodes.</p>
+            <ul class="tag-list"><li>ROS 2 / MAVLink</li><li>Mesh radio</li><li>Companion PC</li><li>10-node swarm</li></ul>
+          </article>
+          <article class="detail-card">
+            <svg class="card-icon" aria-hidden="true"><use href="#icon-power"/></svg>
+            <span class="tech-label">Platform D</span>
+            <h3>Heavy-Lift Experimentals</h3>
+            <p>700-1000mm class platforms with 5-15 kg payload capacity for large-sensor research: hyperspectral cameras, synthetic aperture radar, atmospheric sampling arrays and custom scientific instrumentation. X8 coaxial or hex-rotor configurations with redundant propulsion and dual-battery power architecture. High-voltage 12S power systems with current-monitoring telemetry for precise energy budget tracking during experimental flight profiles.</p>
+            <ul class="tag-list"><li>5-15 kg payload</li><li>12S power</li><li>Redundant propulsion</li><li>Instrument integration</li></ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-alt">
+      <div class="container">
+        <div class="section-header reveal">
+          <div>
+            <span class="eyebrow">Payload Flexibility</span>
+            <h2>Sensors change. The platform should not need to.</h2>
+          </div>
+          <p>Research payloads evolve faster than airframes. A platform built for modular sensor integration protects the hardware investment across multiple research cycles.</p>
+        </div>
+        <div class="detail-grid reveal">
+          <article class="detail-card">
+            <svg class="card-icon" aria-hidden="true"><use href="#icon-payload"/></svg>
+            <span class="tech-label">Interchangeable Sensor Bays</span>
+            <h3>Standardized mechanical and electrical interfaces</h3>
+            <p>Payload mounting rails with NATO-style accessory interfaces, combined with standardized power (5V/12V regulated, battery voltage passthrough) and data connectors (USB 3.0, UART, CAN, Ethernet). Sensor bays accept cameras, LiDAR units, multispectral arrays, air sampling modules and custom instrumentation without airframe modification. Quick-release mechanisms enable sensor swaps between flight sessions in under five minutes.</p>
+          </article>
+          <article class="detail-card">
+            <svg class="card-icon" aria-hidden="true"><use href="#icon-chip"/></svg>
+            <span class="tech-label">Open SDK &amp; API Access</span>
+            <h3>MAVLink, ROS 2 and custom protocol bridges</h3>
+            <p>Full MAVLink v2 telemetry stream accessible on the companion computer interface for real-time sensor data logging, custom mission scripting and closed-loop experimental control. ROS 2 bridge packages for PX4 and ArduPilot enable offboard control from Python and C++ research codebases. Custom MAVLink message definitions supported for experimental sensor data types not covered by the standard dialect.</p>
+          </article>
+          <article class="detail-card">
+            <svg class="card-icon" aria-hidden="true"><use href="#icon-frame"/></svg>
+            <span class="tech-label">Custom Mounting &amp; Integration</span>
+            <h3>From CAD model to flight-ready mount</h3>
+            <p>Custom sensor brackets, vibration-dampened mounting plates and aerodynamic fairings designed to your instrument specifications. 3D-printed prototypes in PLA, PETG or carbon-fiber-reinforced nylon for fit-check and flight testing. CNC-machined aluminum or carbon fiber plate production mounts for flight-weight optimization. Integration support covers center-of-gravity analysis, power budget verification and EMI/EMC isolation guidance.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-header reveal">
+          <div>
+            <span class="eyebrow">Common Research Applications</span>
+            <h2>UAV platforms serve a broad spectrum of research disciplines.</h2>
+          </div>
+          <p>Each application domain places different demands on the platform — and the component stack adapts accordingly.</p>
+        </div>
+        <table class="config-table reveal">
+          <tbody>
+            <tr><th>Computer Vision</th><td>Onboard GPU-accelerated processing (Jetson Orin NX/AGX) with high-bandwidth camera interfaces (MIPI CSI, GMSL2) for real-time object detection, visual SLAM, structure-from-motion and deep learning inference at altitude. Stereo camera rigs with calibrated baseline for depth estimation research.</td></tr>
+            <tr><th>Swarm Algorithms</th><td>Mesh-networked multi-agent platforms with synchronized clock sources, inter-drone ranging (UWB or Bluetooth AoA) and distributed control architectures. ROS 2 multi-machine communication over Wi-Fi 6 or private LTE for outdoor swarm experiments with ground-truth capture via motion-capture or RTK GPS.</td></tr>
+            <tr><th>Environmental Monitoring</th><td>Atmospheric sensing payloads for CO2, CH4, particulate matter (PM2.5/PM10), temperature and humidity vertical profiling. Air sampling canisters with solenoid-actuated collection for post-flight gas chromatography. Long-endurance fixed-wing platforms for transect sampling across kilometer-scale study areas.</td></tr>
+            <tr><th>Agricultural Science</th><td>Multispectral and hyperspectral sensor integration for vegetation index research (NDVI, NDRE, CCCI, SAVI). Thermal cameras for canopy temperature and water stress studies. Variable-rate application payloads for precision treatment trials with geotagged treatment logs synchronized to RTK-positioned flight paths.</td></tr>
+            <tr><th>Aerodynamic Testing</th><td>Instrumented testbed airframes with airspeed sensors (pitot-static), angle-of-attack vanes, multi-axis load cells and tuft-flow visualization cameras. Flight data logging synchronized with motor RPM, current draw and control surface deflection for full aerodynamic state capture during experimental maneuvers.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="section section-dark">
+      <div class="container">
+        <div class="section-header reveal">
+          <div>
+            <span class="eyebrow">Prototyping Support</span>
+            <h2>Low-volume, iterative procurement designed for research timelines.</h2>
+          </div>
+          <p>Research procurement cycles differ from production purchasing. We structure our supply chain to support the way labs and R&amp;D teams actually work.</p>
+        </div>
+        <div class="detail-grid reveal">
+          <article class="detail-card">
+            <span class="tech-label">Low MOQ</span>
+            <h3>Order what you need, when you need it</h3>
+            <p>Minimum order quantities of 1-10 units across all component categories. No volume commitments or long-term contracts. Re-order the same components six months later for the next phase of research with consistent specification — we maintain component availability tracking and can suggest alternatives when a part reaches end-of-life.</p>
+          </article>
+          <article class="detail-card">
+            <span class="tech-label">Custom BOM</span>
+            <h3>Your component list, our procurement</h3>
+            <p>Submit a bill of materials with your preferred flight controller, ESCs, motors, airframe and payload components. We verify interface compatibility, flag potential integration issues and source everything from qualified suppliers. Where a specified component is unavailable, we propose drop-in alternatives with matching mechanical and electrical interfaces.</p>
+          </article>
+          <article class="detail-card">
+            <span class="tech-label">Iterative Integration</span>
+            <h3>Build, test, learn, revise</h3>
+            <p>Partial shipments for phased assembly — start with the airframe and power system while finalizing sensor selection. Add payload and communication components in a subsequent order. Change motor specification after initial flight tests reveal different thrust requirements. The procurement process adapts to the research iteration cycle rather than forcing a single upfront commitment.</p>
+          </article>
+          <article class="detail-card">
+            <span class="tech-label">Documentation</span>
+            <h3>Pinouts, wiring diagrams, parameter files</h3>
+            <p>Each platform ships with a complete documentation package: connector pinout tables, power distribution wiring diagrams, component datasheets, firmware parameter dumps and integration notes. This documentation supports methodology sections in research papers, enables new lab members to reproduce the platform configuration and provides a reference baseline for modifications.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="spec-panel reveal">
+          <div class="spec-panel-inner">
+            <div>
+              <span class="eyebrow">Research Platform Brief</span>
+              <h2>Describe the research objective. We will frame the platform.</h2>
+              <p>Tell us about your research domain, sensor requirements, flight profile and prototype timeline. We will map a modular component stack that accelerates your experimental cycle from bench to field.</p>
+            </div>
+            <div class="spec-actions">
+              <button class="btn btn-primary" type="button" data-open-inquiry>Start Your Build <svg aria-hidden="true"><use href="#icon-arrow"/></svg></button>
+              <a class="btn btn-outline" href="/contact/">Open RFQ Brief</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="brand" href="/"><span class="brand-mark"><svg aria-hidden="true"><use href="/index.html#icon-drone"/></svg></span><span>EMS Drone</span></a>
+          <p>Configurable UAV components, complete systems and engineering support for teams building the next low-altitude applications.</p>
+        </div>
+        <div class="footer-col"><h3>System</h3><a href="/capabilities/">Capabilities</a><a href="/customization/">Customization</a><a href="/testing/">Testing</a></div>
+        <div class="footer-col"><h3>Company</h3><a href="/about/">About</a><a href="/blog/">Blog</a><a href="/contact/">Contact</a></div>
+        <div class="footer-col"><h3>Resources</h3><a href="/faq/">FAQ</a><a href="/how-it-works/">How It Works</a><a href="/design-guides/">Design Guides</a></div>
+      </div>
+      <div class="footer-bottom"><span>&copy; 2026 EMS Drone</span><span>Components &rarr; Systems &rarr; Flight Readiness</span></div>
+    </div>
+  </footer>
+
+  <div class="modal-overlay" id="inquiryModal" aria-hidden="true">
+    <div class="modal-dialog" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <button class="modal-close" type="button" aria-label="Close inquiry">&times;</button>
+      <div class="modal-aside">
+        <span class="tech-label">Research Platform Brief</span>
+        <div><h3 id="modalTitle">Define your research platform requirements.</h3><p>Share your research domain, sensor payload needs, flight profile and prototype timeline. We will frame the modular platform discussion.</p></div>
+      </div>
+      <form class="modal-form" data-preview-form>
+        <div class="field"><label for="modal-name">Name</label><input id="modal-name" name="name" autocomplete="name" required></div>
+        <div class="field" style="margin-top:18px"><label for="modal-email">Email</label><input id="modal-email" name="email" type="email" autocomplete="email" required></div>
+        <div class="field" style="margin-top:18px"><label for="modal-message">Research brief</label><textarea id="modal-message" name="message" required placeholder="Research domain, sensor requirements, flight profile, platform type, prototype timeline"></textarea></div>
+        <p class="form-note">Preview mode: this form is not connected to an unverified recipient.</p>
+        <button class="btn btn-primary" type="submit">Submit Research Brief</button>
+        <div class="form-status" role="status" aria-live="polite" aria-atomic="true"></div>
+      </form>
+    </div>
+  </div>
+  <script src="/site.js?v=6"></script>
+  <script src="/reveal.js?v=6"></script>
+</body>
+</html>

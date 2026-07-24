@@ -1,0 +1,288 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>UAV Payloads — Cameras, Gimbals &amp; Sensors | EMS Drone</title>
+  <meta name="description" content="Source UAV payload systems: RGB cameras, thermal imaging, multispectral sensors, LiDAR, 3-axis gimbals, drop mechanisms and custom payload integration for industrial drone applications.">
+  <link rel="canonical" href="https://ems-drone.pages.dev/capabilities/payload/">
+  <meta property="og:title" content="UAV Payloads — Cameras, Gimbals &amp; Sensors | EMS Drone">
+  <meta property="og:description" content="Source UAV payload systems: RGB cameras, thermal imaging, multispectral sensors, LiDAR, 3-axis gimbals, drop mechanisms and custom payload integration for industrial drone applications.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://ems-drone.pages.dev/capabilities/payload/">
+  <meta property="og:image" content="https://ems-drone.pages.dev/generated/og-cover.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <link rel="icon" type="image/x-icon" href="/generated/favicon.ico">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="apple-touch-icon" sizes="180x180" href="/generated/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="/generated/icon-192.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="/generated/icon-512.png">
+  <link rel="stylesheet" href="/design-tokens.css?v=6">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "TechArticle",
+    "name": "UAV Payloads — Cameras, Gimbals & Sensors",
+    "url": "https://ems-drone.pages.dev/capabilities/payload/",
+    "description": "Source UAV payload systems: RGB cameras, thermal imaging, multispectral sensors, LiDAR, 3-axis gimbals, drop mechanisms and custom payload integration for industrial drone applications.",
+    "isPartOf": {
+      "@type": "WebSite",
+      "name": "EMS Drone",
+      "url": "https://ems-drone.pages.dev/"
+    }
+  }
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <svg aria-hidden="true" style="position:absolute;width:0;height:0;overflow:hidden">
+    <symbol id="icon-drone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="2.6"/><path d="m10.2 10.2-4-4m7.6 4 4-4m-7.6 7.6-4 4m7.6-4 4 4"/><circle cx="4.7" cy="4.7" r="2.2"/><circle cx="19.3" cy="4.7" r="2.2"/><circle cx="4.7" cy="19.3" r="2.2"/><circle cx="19.3" cy="19.3" r="2.2"/></symbol>
+    <symbol id="icon-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12h14m-5-5 5 5-5 5"/></symbol>
+    <symbol id="icon-payload" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="4" y="6" width="16" height="12" rx="2"/><circle cx="12" cy="12" r="3"/><path d="M8 6V4h8v2"/></symbol>
+  </svg>
+
+  <header class="site-header">
+    <div class="nav-shell">
+      <a class="brand" href="/" aria-label="EMS Drone home">
+        <span class="brand-mark"><svg aria-hidden="true"><use href="/index.html#icon-drone"/></svg></span>
+        <span>EMS Drone</span>
+      </a>
+      <button class="nav-toggle" type="button" aria-label="Open navigation" aria-expanded="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+      <nav class="site-nav" aria-label="Primary navigation">
+        <a href="/capabilities/">Capabilities</a>
+        <a href="/customization/">Customization</a>
+        <a href="/testing/">Testing</a>
+        <a href="/industries/">Industries</a>
+        <a href="/about/">About</a>
+        <a href="/blog/">Blog</a>
+        <a class="btn btn-primary" href="/contact/">Start Your Build</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="sub-hero">
+      <div class="sub-hero-media">
+        <img src="/generated/sub-hero-capabilities-payload.webp" alt="Conceptual UAV payload system with camera, gimbal and sensor integration visualization">
+        <span class="concept-badge">Concept illustration</span>
+      </div>
+      <div class="container sub-hero-grid">
+        <div class="reveal">
+          <span class="eyebrow">Capabilities / Payload</span>
+          <h1>Payloads &amp; Sensors</h1>
+          <p>The mission layer: cameras, thermal imagers, LiDAR, spray systems, drop mechanisms and specialist sensors — everything the aircraft carries to do its job.</p>
+        </div>
+        <div class="sub-meta reveal">
+          <div class="sub-meta-row"><span>Role</span><strong>Mission Equipment</strong></div>
+          <div class="sub-meta-row"><span>Types</span><strong>Camera / Sensor / Gimbal / Spray / Drop</strong></div>
+          <div class="sub-meta-row"><span>Key Interfaces</span><strong>Mechanical / Power / Data / Control</strong></div>
+          <div class="sub-meta-row"><span>Scope</span><strong>Single Device → Integrated System</strong></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-header reveal">
+          <div>
+            <span class="eyebrow">Overview</span>
+            <h2>The payload defines why the aircraft flies.</h2>
+          </div>
+          <p>Without a payload, a UAV is just a propulsion system with a flight controller. The payload — camera, sensor, sprayer, gripper or release mechanism — is the reason the aircraft exists. Payload selection influences weight distribution, power budget, vibration isolation, communication architecture and flight endurance. Integrating a payload means solving four interconnected domains: mechanical mounting, electrical power, data transmission and control interface. Each domain must be addressed for mission success; a payload attached but not powered, or powered but not commanded, is dead weight.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-alt">
+      <div class="container">
+        <div class="section-header reveal">
+          <div>
+            <span class="eyebrow">Payload Types</span>
+            <h2>Six payload categories spanning the industrial UAV mission spectrum.</h2>
+          </div>
+          <p>From passive imaging to active delivery, each payload type has distinct integration requirements for mounting, power, data and control.</p>
+        </div>
+        <div class="detail-grid reveal">
+          <article class="detail-card">
+            <span class="tech-label">RGB Cameras</span>
+            <h3>High-resolution visible-light imaging</h3>
+            <p>20–61 MP sensors with mechanical or electronic shutter for photogrammetry, inspection and cinematography. Sony A7R series and Phase One industrial cameras for mapping; Sony UMC-R10C and similar purpose-built survey cameras with intervalometer trigger inputs. The camera must support shutter synchronization with the flight controller for geotagging accuracy — either via hot-shoe trigger adapter, PWM cable or MAVLink camera command. Lens selection (24 mm, 35 mm, 50 mm equivalent) trades ground sample distance against coverage swath width. Onboard recording to SD/SSD with simultaneous HDMI output for a live preview downlink is the standard configuration for professional mapping workflows.</p>
+            <ul class="tag-list"><li>20–61 MP</li><li>Mechanical shutter</li><li>Geotag sync</li><li>HDMI preview</li><li>Photogrammetry</li></ul>
+          </article>
+          <article class="detail-card">
+            <span class="tech-label">Thermal Cameras</span>
+            <h3>Radiometric long-wave infrared</h3>
+            <p>Uncooled microbolometer sensors (FLIR Boson, DJI H20T thermal module) at 320x256 to 640x512 resolution, 7.5–13.5 um waveband. Radiometric models record per-pixel temperature data with accuracy typically within +/-5 degrees C or 5% of reading — essential for solar panel inspection, building thermal audit, electrical substation survey and search-and-rescue. Non-radiometric thermal cameras provide visual heat contrast only, not calibrated temperature measurement. Lens options (wide FOV for area survey, telephoto for standoff inspection) determine the working distance for a given target size. Dual-sensor payloads combine a thermal core with a visible-light camera for overlay and picture-in-picture presentation at the ground station.</p>
+            <ul class="tag-list"><li>640x512 LWIR</li><li>Radiometric</li><li>Solar inspection</li><li>Search & rescue</li><li>Dual-sensor</li></ul>
+          </article>
+          <article class="detail-card">
+            <span class="tech-label">Multispectral</span>
+            <h3>Vegetation index and crop analysis</h3>
+            <p>Multiple narrow-band sensors — typically Red, Green, Blue, Red Edge (717 nm) and Near-Infrared (840 nm) — with a calibrated reflectance panel and downwelling light sensor (DLS) for ambient light correction. MicaSense RedEdge-MX and Altum-PT are the common platforms, with the Altum adding a thermal band for combined vegetation stress and water status analysis. Used for precision agriculture: NDVI, NDRE, NDWI and chlorophyll index mapping. Multispectral data requires post-processing in specialized photogrammetry software (Pix4Dfields, Agisoft Metashape) to generate orthomosaic reflectance maps and vegetation index layers. Flight planning must account for solar angle consistency across the survey area.</p>
+            <ul class="tag-list"><li>5–6 band</li><li>NDVI / NDRE</li><li>DLS correction</li><li>Precision ag</li><li>Calibrated panel</li></ul>
+          </article>
+          <article class="detail-card">
+            <span class="tech-label">LiDAR</span>
+            <h3>3D point cloud generation</h3>
+            <p>Airborne laser scanning payloads (YellowScan, Rock R3 Pro, DJI Zenmuse L2) combining a laser scanner, survey-grade IMU and dual-frequency GNSS into a single integrated unit. Scan rates from 100 kHz to 1.2 MHz with ranging accuracy of 1–3 cm. Multiple returns per pulse enable ground detection under vegetation canopy — a capability that photogrammetry alone cannot provide. Applications: terrain modeling under tree cover, corridor mapping (power lines, pipelines), volumetric stockpile measurement and digital twin creation. LiDAR requires a rigid mechanical mount (any flex between the sensor and IMU introduces point-cloud error), post-processed GNSS trajectory (PPK or RTK), and a dedicated processing workflow (LiDAR360, TerraScan, CloudCompare).</p>
+            <ul class="tag-list"><li>100–1200 kHz</li><li>1–3 cm accuracy</li><li>Multi-return</li><li>Canopy penetration</li><li>PPK/RTK trajectory</li></ul>
+          </article>
+          <article class="detail-card">
+            <span class="tech-label">Spray Systems</span>
+            <h3>Precision aerial application</h3>
+            <p>Liquid spray payloads for agricultural crop treatment, orchard spraying and vector control. Systems include a tank (5–30 L capacity), pump (diaphragm or centrifugal), boom with multiple nozzles (flat fan or cone), and a flow control system that adjusts spray rate based on aircraft ground speed. Pump flow rates range from 1–8 L/min with pressure regulation for consistent droplet size. The spray controller receives PWM or serial commands from the flight controller to start/stop flow and adjust rate based on mission waypoints. Integration considerations: tank baffles to prevent slosh-induced CG shift, quick-drain valve for field cleaning, corrosion-resistant wetted components (stainless steel, EPDM, Viton) for compatibility with common agricultural chemicals, and electrical isolation of the pump circuit from avionics to prevent EMI.</p>
+            <ul class="tag-list"><li>5–30 L tank</li><li>1–8 L/min flow</li><li>PWM rate control</li><li>Slosh baffle</li><li>Chemical resistant</li></ul>
+          </article>
+          <article class="detail-card">
+            <span class="tech-label">Drop Mechanisms</span>
+            <h3>Controlled release and delivery</h3>
+            <p>Mechanical release payloads for package delivery, bait drops, life-preserver deployment, fishing line delivery and payload airdrop applications. Servo-actuated or solenoid-driven release mechanisms with load capacities from 500 g to 25 kg. Single-release (one drop per flight) or multi-release (magazine-style sequential drops) configurations. The release mechanism is commanded via a PWM channel from the RC receiver or a MAVLink servo command from the flight controller. Critical integration requirements: fail-safe behavior on signal loss (do not release), mechanical locking that cannot be defeated by vibration or G-loading, payload attachment point rated for 5x static load, and release confirmation feedback (micro-switch or current sensing) telemetered to the operator. For delivery applications, a parachute or autogyro descent system on the payload itself may be integrated to control drop impact velocity.</p>
+            <ul class="tag-list"><li>0.5–25 kg capacity</li><li>Servo/solenoid</li><li>Multi-release</li><li>Failsafe lock</li><li>Release confirm</li></ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-dark">
+      <div class="container">
+        <div class="section-header reveal">
+          <div>
+            <span class="eyebrow">Gimbal Systems</span>
+            <h2>Keep the sensor pointed where it needs to be — regardless of aircraft motion.</h2>
+          </div>
+          <p>A stabilized gimbal isolates the payload from aircraft attitude changes, vibration and wind gusts. The gimbal's axis count, damping strategy and weight class determine which payloads it can carry and how precisely it can point them.</p>
+        </div>
+        <div class="detail-grid reveal">
+          <article class="detail-card">
+            <span class="tech-label">Axis Configuration</span>
+            <h3>2-axis vs. 3-axis stabilization</h3>
+            <p>2-axis gimbals stabilize pitch and roll — sufficient for mapping cameras that always point nadir (straight down) and do not require yaw control. 3-axis gimbals add yaw (pan) stabilization — required for inspection cameras that must hold a fixed heading independent of aircraft rotation, and for cinematography where smooth panning is an essential creative tool. The third axis adds approximately 150–300 g of weight, 5–15 W of additional power draw, and incremental cost — but is non-negotiable for any off-nadir imaging task where the camera must track a target or hold a specific compass bearing. For survey-grade LiDAR, a rigid fixed mount without any gimbal is often preferred because the LiDAR's own IMU must maintain a known, fixed lever-arm relationship to the sensor head.</p>
+          </article>
+          <article class="detail-card">
+            <span class="tech-label">Damping &amp; Vibration Isolation</span>
+            <h3>Decoupling the sensor from the airframe</h3>
+            <p>Gimbal vibration isolation operates at two levels. First, the gimbal mounting plate uses elastomeric dampers (silicone or TPU balls, Shore A30–A50) to attenuate motor-frequency vibration (100–300 Hz) before it enters the gimbal structure. Second, the gimbal's own stabilization loop — running an independent IMU at 1–8 kHz — corrects for residual motion that passes through the dampers. Damper durometer and quantity must be tuned to the gimbal-plus-payload mass: too soft and the payload oscillates at low frequency (5–15 Hz) on its dampers; too hard and high-frequency vibration reaches the IMU uncut. On larger platforms, a wire-rope isolator system provides broader-bandwidth isolation than elastomer mounts alone.</p>
+          </article>
+          <article class="detail-card">
+            <span class="tech-label">Weight Classes</span>
+            <h3>Micro to industrial gimbal categories</h3>
+            <p>Micro (under 200 g): for action cameras and small sensors on sub-2 kg aircraft. Typically 2-axis with limited payload capacity and basic stabilization. Compact (200–500 g): for mirrorless cameras and medium-format sensors, 3-axis with brushless direct-drive motors, suitable for 2–5 kg multi-rotors. Professional (500 g–1.5 kg): for DSLR and cinema cameras, 3-axis with encoder feedback and 0.01-degree stabilization accuracy, payload capacity 1–3 kg, used on 5–15 kg platforms. Industrial (1.5–5 kg): for large-format cameras, multi-sensor arrays and heavy LiDAR payloads, 3-axis with high-torque motors, payload capacity 3–10 kg, used on 15–50 kg heavy-lift platforms. The gimbal and its payload together should not exceed 30–40% of the aircraft's total payload budget — the remainder is needed for batteries, avionics and structural margin.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-header reveal">
+          <div>
+            <span class="eyebrow">Integration Interface</span>
+            <h2>Three connections that turn a mounted payload into a working system.</h2>
+          </div>
+          <p>Beyond the physical attachment, payload integration requires standardized control, power and data interfaces that work across different payload types and aircraft configurations.</p>
+        </div>
+        <div class="detail-grid reveal">
+          <article class="detail-card">
+            <span class="tech-label">Mechanical</span>
+            <h3>Quick-release mounts and standardized rails</h3>
+            <p>Payload mounting systems that allow rapid swapping between missions — a mapping camera in the morning, a thermal camera in the afternoon — without re-rigging or re-calibrating. Common standards include dual-rail systems (12 mm carbon tubes at 155 mm or 210 mm spacing) with cam-lock clamps, and dovetail plate systems (Arca-Swiss or proprietary) with spring-loaded retention pins. The mount must be repeatable: removing and reinstalling the same payload should return it to within 0.5 mm and 0.5 degrees of its previous position to maintain CG trim and camera alignment. Quick-release mechanisms must include a secondary lock — a pin, latch or threaded collar that prevents accidental release from vibration or impact. For payloads that require a specific orientation (nadir cameras, forward-facing sensors), the mount should include alignment pins or keyed interfaces that prevent incorrect installation.</p>
+          </article>
+          <article class="detail-card">
+            <span class="tech-label">Control Protocol</span>
+            <h3>PWM, S.Bus and CAN bus command</h3>
+            <p>Payload control signals take several forms depending on complexity. Simple on/off or single-axis control: PWM pass-through from an RC receiver channel — a 1000–2000 us pulse commands shutter trigger, spray pump on/off, release mechanism or gimbal pitch angle. This is the simplest and most common interface for single-function payloads. Multi-channel or multi-function control: S.Bus serial protocol carries up to 16 channels over a single wire, allowing independent control of gimbal pitch, yaw, camera zoom, shutter and mode selection from the RC receiver or flight controller. Advanced payload integration: CAN bus enables bidirectional communication — the payload can report status (temperature, activation confirm, remaining capacity) while receiving commands. CAN is the standard for industrial and agricultural payloads where the payload is an intelligent subsystem, not just a dumb actuator. The control architecture must be defined early — retrofitting after the aircraft is built often requires re-working the FC serial port allocation and wiring harness.</p>
+          </article>
+          <article class="detail-card">
+            <span class="tech-label">Power Delivery</span>
+            <h3>Voltage regulation, filtering and payload power budget</h3>
+            <p>Payload power requirements span a wide range: small cameras and sensors draw 5–15 W at 5–12 V; medium gimbals and cameras draw 15–50 W; LiDAR and large spray pumps draw 50–150 W or more. The power architecture must deliver clean, regulated voltage to each payload without introducing electrical noise into the avionics supply, and without the payload's current draw causing voltage sag that affects flight-critical systems. Voltage regulation options: dedicated BEC (battery eliminator circuit) for low-power payloads, isolated DC-DC converter for medium-power payloads where ground-loop isolation matters, or a dedicated payload battery for high-power payloads that would otherwise dominate the flight battery budget. Input filtering (LC filter or ferrite choke) at the payload connector suppresses conducted EMI from ESCs and motors. Connector standardization — XT30 for sub-50 W, XT60 for 50–150 W, XT90 or Anderson Powerpole for 150 W-plus — ensures field-swappable payloads connect reliably without adapters.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-alt">
+      <div class="container">
+        <div class="section-header reveal">
+          <div>
+            <span class="eyebrow">Related Capabilities</span>
+            <h2>Payload connects to structure, control and communications.</h2>
+          </div>
+          <p>The payload defines the mounting, power, data and control requirements that flow into every other subsystem of the aircraft.</p>
+        </div>
+        <div class="detail-grid reveal">
+          <article class="detail-card">
+            <span class="tech-label">Airframe</span>
+            <h3>Mount, clearance and CG envelope</h3>
+            <p>Payload weight, dimensions, required field of view and mounting interface determine the airframe's structural design — landing gear height, payload rail position, CG shift allowance and vibration isolation strategy all start from the payload specification.</p>
+            <a class="inline-link" href="/capabilities/airframe/">Airframe</a>
+          </article>
+          <article class="detail-card">
+            <span class="tech-label">Communications</span>
+            <h3>Payload video downlink and data telemetry</h3>
+            <p>Payload video streaming, sensor data transmission and remote control commands drive the communication frequency plan, bandwidth allocation, antenna placement and ground station architecture.</p>
+            <a class="inline-link" href="/capabilities/communications/">Communications</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="spec-panel reveal">
+          <div class="spec-panel-inner">
+            <div>
+              <span class="eyebrow">Start With the Mission Payload</span>
+              <h2>Bring the application — we will map the sensor and interface.</h2>
+              <p>Tell us what you need to see, measure, spray or deliver from the air. We will define the payload type, gimbal configuration, mounting interface, power architecture and control protocol for your aircraft.</p>
+            </div>
+            <div class="spec-actions">
+              <button class="btn btn-primary" type="button" data-open-inquiry>Start Your Build <svg aria-hidden="true"><use href="#icon-arrow"/></svg></button>
+              <a class="btn btn-outline" href="/contact/">Open the RFQ Brief</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="brand" href="/"><span class="brand-mark"><svg aria-hidden="true"><use href="/index.html#icon-drone"/></svg></span><span>EMS Drone</span></a>
+          <p>Configurable UAV components, complete systems and engineering support for teams building the next low-altitude applications.</p>
+        </div>
+        <div class="footer-col"><h3>System</h3><a href="/capabilities/">Capabilities</a><a href="/customization/">Customization</a><a href="/testing/">Testing</a></div>
+        <div class="footer-col"><h3>Company</h3><a href="/about/">About</a><a href="/blog/">Blog</a><a href="/contact/">Contact</a></div>
+        <div class="footer-col"><h3>Resources</h3><a href="/faq/">FAQ</a><a href="/how-it-works/">How It Works</a><a href="/design-guides/">Design Guides</a></div>
+      </div>
+      <div class="footer-bottom"><span>&copy; 2026 EMS Drone</span><span>Components → Systems → Flight Readiness</span></div>
+    </div>
+  </footer>
+
+  <div class="modal-overlay" id="inquiryModal" aria-hidden="true">
+    <div class="modal-dialog" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <button class="modal-close" type="button" aria-label="Close inquiry">×</button>
+      <div class="modal-aside">
+        <span class="tech-label">Payload / Intake</span>
+        <div><h3 id="modalTitle">Define your mission payload.</h3><p>Share what you need to sense, capture, spray or deliver. We will map the payload type, gimbal, mounting, power and control interfaces.</p></div>
+      </div>
+      <form class="modal-form" data-preview-form>
+        <div class="field"><label for="modal-name">Name</label><input id="modal-name" name="name" autocomplete="name" required></div>
+        <div class="field" style="margin-top:18px"><label for="modal-email">Email</label><input id="modal-email" name="email" type="email" autocomplete="email" required></div>
+        <div class="field" style="margin-top:18px"><label for="modal-message">Project brief</label><textarea id="modal-message" name="message" required placeholder="Payload type (camera/sensor/spray/drop), application, resolution/accuracy needs, gimbal requirements, mounting and control interface preferences"></textarea></div>
+        <p class="form-note">Preview mode: this form is not connected to an unverified recipient.</p>
+        <button class="btn btn-primary" type="submit">Submit Engineering Brief</button>
+        <div class="form-status" role="status" aria-live="polite" aria-atomic="true"></div>
+      </form>
+    </div>
+  </div>
+  <script src="/site.js?v=6"></script>
+  <script src="/reveal.js?v=6"></script>
+</body>
+</html>

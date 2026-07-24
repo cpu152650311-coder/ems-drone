@@ -1,0 +1,305 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>UAV Flight Controllers — Selection, Configuration &amp; Integration | EMS Drone</title>
+  <meta name="description" content="Source and configure UAV flight controllers: ArduPilot, PX4, Betaflight platforms. Sensor integration, navigation, firmware alignment and redundancy planning.">
+  <link rel="canonical" href="https://ems-drone.pages.dev/capabilities/flight-control/">
+  <meta property="og:title" content="UAV Flight Controllers — Selection, Configuration &amp; Integration | EMS Drone">
+  <meta property="og:description" content="Source and configure UAV flight controllers: ArduPilot, PX4, Betaflight platforms. Sensor integration, navigation, firmware alignment and redundancy planning.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://ems-drone.pages.dev/capabilities/flight-control/">
+  <meta property="og:image" content="https://ems-drone.pages.dev/generated/og-cover.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <link rel="icon" type="image/x-icon" href="/generated/favicon.ico">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="apple-touch-icon" sizes="180x180" href="/generated/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/generated/icon-192.png">
+<link rel="icon" type="image/png" sizes="512x512" href="/generated/icon-512.png">
+  <link rel="stylesheet" href="/design-tokens.css?v=6">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "TechArticle",
+    "name": "UAV Flight Controllers — Selection, Configuration & Integration",
+    "url": "https://ems-drone.pages.dev/capabilities/flight-control/",
+    "description": "Source and configure UAV flight controllers: ArduPilot, PX4, Betaflight platforms. Sensor integration, navigation, firmware alignment and redundancy planning.",
+    "isPartOf": {
+      "@type": "WebSite",
+      "name": "EMS Drone",
+      "url": "https://ems-drone.pages.dev/"
+    }
+  }
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <svg aria-hidden="true" style="position:absolute;width:0;height:0;overflow:hidden">
+    <symbol id="icon-drone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="2.6"/><path d="m10.2 10.2-4-4m7.6 4 4-4m-7.6 7.6-4 4m7.6-4 4 4"/><circle cx="4.7" cy="4.7" r="2.2"/><circle cx="19.3" cy="4.7" r="2.2"/><circle cx="4.7" cy="19.3" r="2.2"/><circle cx="19.3" cy="19.3" r="2.2"/></symbol>
+    <symbol id="icon-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12h14m-5-5 5 5-5 5"/></symbol>
+    <symbol id="icon-chip" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="7" y="7" width="10" height="10" rx="1"/><path d="M9 2v5m6-5v5M9 17v5m6-5v5M2 9h5m-5 6h5m10-6h5m-5 6h5"/><circle cx="12" cy="12" r="2"/></symbol>
+    <symbol id="icon-power" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M13 2 5 14h6l-1 8 8-12h-6l1-8Z"/></symbol>
+    <symbol id="icon-radio" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 18h.01M8.5 14.5a5 5 0 0 1 7 0M5 11a10 10 0 0 1 14 0M2 7.5a15 15 0 0 1 20 0"/></symbol>
+  </svg>
+
+  <header class="site-header">
+    <div class="nav-shell">
+      <a class="brand" href="/" aria-label="EMS Drone home">
+        <span class="brand-mark"><svg aria-hidden="true"><use href="/index.html#icon-drone"/></svg></span>
+        <span>EMS Drone</span>
+      </a>
+      <button class="nav-toggle" type="button" aria-label="Open navigation" aria-expanded="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+      <nav class="site-nav" aria-label="Primary navigation">
+        <a href="/capabilities/">Capabilities</a>
+        <a href="/customization/">Customization</a>
+        <a href="/testing/">Testing</a>
+        <a href="/industries/">Industries</a>
+        <a href="/about/">About</a>
+        <a href="/blog/">Blog</a>
+        <a class="btn btn-primary" href="/contact/">Start Your Build</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="sub-hero">
+      <div class="sub-hero-media">
+        <img src="/generated/sub-hero-capabilities-flight-control.webp" alt="Conceptual UAV flight controller board with sensor and interface visualization">
+        <span class="concept-badge">Concept illustration</span>
+      </div>
+      <div class="container sub-hero-grid">
+        <div class="reveal">
+          <span class="eyebrow">Capabilities / Flight Control</span>
+          <h1>Flight Controllers</h1>
+          <p>The decision layer: flight controller hardware, sensor integration, navigation architecture and firmware alignment for the aircraft mission.</p>
+        </div>
+        <div class="sub-meta reveal">
+          <div class="sub-meta-row"><span>Role</span><strong>Brain of the UAV</strong></div>
+          <div class="sub-meta-row"><span>Platforms</span><strong>ArduPilot / PX4 / Betaflight / INAV</strong></div>
+          <div class="sub-meta-row"><span>Key Interfaces</span><strong>ESC, GPS, Radio, Payload</strong></div>
+          <div class="sub-meta-row"><span>Depth</span><strong>Board → Full Stack</strong></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-header reveal">
+          <div>
+            <span class="eyebrow">Overview</span>
+            <h2>The flight controller is the aircraft's decision center.</h2>
+          </div>
+          <p>Every sensor reading, every pilot command and every autonomous waypoint passes through the flight controller. Selecting the right FC means aligning processor architecture, sensor fusion rate, I/O availability and firmware ecosystem with the mission profile — not just the aircraft size.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-alt">
+      <div class="container">
+        <div class="section-header reveal">
+          <div>
+            <span class="eyebrow">FC Platforms</span>
+            <h2>Four firmware ecosystems, each with a distinct strength.</h2>
+          </div>
+          <p>The platform choice determines available flight modes, sensor support, redundancy options and the tooling ecosystem around configuration and tuning.</p>
+        </div>
+        <div class="detail-grid reveal">
+          <article class="detail-card">
+            <span class="tech-label">ArduPilot</span>
+            <h3>Multi-vehicle autonomy</h3>
+            <p>The most mature open-source autopilot ecosystem. Covers multi-rotor, fixed-wing, VTOL, helicopter, rover and boat on a single firmware family. Strong mission planning, geofencing, terrain following and precision landing support. Best choice for industrial applications that need proven autonomous workflow tooling and broad hardware compatibility across STM32H7 and Linux-based flight controllers.</p>
+            <ul class="tag-list"><li>Auto missions</li><li>Geofence</li><li>Terrain follow</li><li>Precision land</li><li>Multi-vehicle</li></ul>
+          </article>
+          <article class="detail-card">
+            <span class="tech-label">PX4</span>
+            <h3>Modular flight stack</h3>
+            <p>A software-in-the-loop-friendly architecture with strong separation between flight core, communication layer and application modules. Preferred in research and development contexts where custom control algorithms, sensor fusion experiments or hardware-in-the-loop testing are part of the workflow. Runs on Pixhawk-format hardware with a growing Linux companion-computer ecosystem for onboard compute.</p>
+            <ul class="tag-list"><li>SITL / HITL</li><li>Modular</li><li>MAVLink v2</li><li>Companion PC</li><li>ROS bridge</li></ul>
+          </article>
+          <article class="detail-card">
+            <span class="tech-label">Betaflight</span>
+            <h3>High-rate control loop</h3>
+            <p>Optimized for multi-rotor agility with sensor fusion rates up to 8 kHz and PID loops tuned for responsive flight. The dominant platform in FPV freestyle and racing, with a large community and wide STM32F4/F7/H7 hardware support. Increasingly used in cinematography builds where precise attitude hold and rapid control response matter more than autonomous mission features.</p>
+            <ul class="tag-list"><li>8 kHz loop</li><li>PID tooling</li><li>FPV OSD</li><li>Wide HW support</li></ul>
+          </article>
+          <article class="detail-card">
+            <span class="tech-label">INAV</span>
+            <h3>Navigation-focused</h3>
+            <p>Built on Betaflight's control heritage but adds GPS navigation, return-to-home, waypoint missions and altitude-hold modes. A practical middle ground for fixed-wing FPV platforms and multi-rotors that need basic autonomous navigation without the full complexity of ArduPilot or PX4. Strong OSD integration and reasonable position-hold performance on modest hardware.</p>
+            <ul class="tag-list"><li>GPS nav</li><li>RTH</li><li>Waypoints</li><li>Fixed-wing</li><li>OSD</li></ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-header reveal">
+          <div>
+            <span class="eyebrow">Sensor Integration</span>
+            <h2>The FC is only as good as the data it reads.</h2>
+          </div>
+          <p>Sensor selection and placement directly affect stability, navigation accuracy and failover behavior.</p>
+        </div>
+        <div class="detail-grid reveal">
+          <article class="detail-card">
+            <span class="tech-label">Inertial &amp; Attitude</span>
+            <h3>IMU, barometer, compass</h3>
+            <p>The core sensor triplet for attitude estimation. Modern FCs use redundant IMU pairs (ICM-42688, BMI270) with vibration-isolated mounting. Barometers (DPS310, MS5611) provide altitude reference with foam-covered ports to reduce wind noise. External compass modules mounted away from power wiring reduce magnetic interference — critical on larger airframes where high-current paths create significant local fields.</p>
+          </article>
+          <article class="detail-card">
+            <span class="tech-label">Position &amp; Velocity</span>
+            <h3>GPS, optical flow, rangefinder</h3>
+            <p>Multi-constellation GNSS modules (u-blox M10, F9) provide position and velocity with RTK centimeter-level accuracy where the mission requires it. Optical flow sensors add position-hold redundancy in GPS-denied environments. LiDAR or ultrasonic rangefinders deliver precision altitude data for terrain following, auto-landing and low-altitude hover — selecting the right range and beam pattern for the operating surface.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-dark">
+      <div class="container">
+        <div class="section-header reveal">
+          <div>
+            <span class="eyebrow">Key Specifications</span>
+            <h2>Parameters that shape the FC decision.</h2>
+          </div>
+          <p>These are the spec dimensions we review when matching a flight controller to a build.</p>
+        </div>
+        <table class="config-table reveal">
+          <tr><th>Processor</th><td>STM32H7, F7, F4 or Linux companion — determines loop rate ceiling, sensor fusion complexity and onboard compute headroom for custom algorithms.</td></tr>
+          <tr><th>Sensor fusion rate</th><td>1–8 kHz IMU update rate. Higher rates improve disturbance rejection for small, agile airframes; lower rates suffice for larger, slower platforms.</td></tr>
+          <tr><th>UART ports</th><td>4–8 serial ports for GPS, telemetry radio, companion computer, serial RX and debug. Count must cover all peripherals plus one spare.</td></tr>
+          <tr><th>CAN bus</th><td>Enables distributed sensor and actuator architecture — particularly valuable on larger aircraft where wiring distance matters.</td></tr>
+          <tr><th>PWM outputs</th><td>8–16 channels for motor ESCs and servo outputs. DShot-capable outputs preferred for multi-rotor motor control; standard PWM for fixed-wing servos.</td></tr>
+          <tr><th>Redundancy</th><td>Dual IMU, dual barometer, dual power input and triple-redundant sensor fusion (EKF3) for applications where single-point failure is unacceptable.</td></tr>
+        </table>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-header reveal">
+          <div>
+            <span class="eyebrow">Firmware &amp; Tuning</span>
+            <h2>Parameters, flight modes and failsafes.</h2>
+          </div>
+          <p>A properly configured FC needs more than default parameters. The tuning process connects aircraft dynamics, pilot expectations and safety behavior.</p>
+        </div>
+        <div class="detail-grid reveal">
+          <article class="detail-card">
+            <h3>Parameter configuration</h3>
+            <p>Frame class, motor layout, ESC protocol, sensor orientation, battery monitoring and failsafe thresholds are set at the parameter level. Each platform has hundreds of parameters — but the core set that defines safe flight behavior is manageable when approached systematically. We review these against the aircraft configuration so critical settings are not left at defaults that assume a different airframe type or mission profile.</p>
+          </article>
+          <article class="detail-card">
+            <h3>PID tuning &amp; flight modes</h3>
+            <p>Rate PID loops for multi-rotors, attitude controllers for fixed-wing — each aircraft category has a different tuning methodology. Flight mode setup maps pilot switches to stabilized, altitude-hold, position-hold, auto and return-to-home modes. Failsafe programming defines behavior on radio loss, GPS loss and low battery — sequenced actions that must be tested, not just configured.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-alt">
+      <div class="container">
+        <div class="section-header reveal">
+          <div>
+            <span class="eyebrow">Selection Guidance</span>
+            <h2>Match the FC to the aircraft, not the other way around.</h2>
+          </div>
+          <p>The right flight controller depends on aircraft type, mission autonomy requirements and the interfaces it must serve.</p>
+        </div>
+        <table class="config-table reveal">
+          <tr><th>Multi-rotor inspection</th><td>ArduPilot or PX4 on H7 hardware with RTK GPS, dual IMU, LiDAR rangefinder and 8+ PWM outputs for motor mixing. Position-hold accuracy and sensor redundancy are the priority.</td></tr>
+          <tr><th>FPV cinematography</th><td>Betaflight on F7/H7 hardware with high-rate gyro, barometer, GPS for return-to-home and BLHeli passthrough. Control responsiveness and OSD quality drive the choice.</td></tr>
+          <tr><th>Fixed-wing mapping</th><td>ArduPilot or INAV with airspeed sensor, multi-constellation GNSS, terrain following and large waypoint storage. Endurance, wind handling and mission reliability are the key factors.</td></tr>
+          <tr><th>VTOL hybrid</th><td>ArduPilot or PX4 on H7 with dual GPS, airspeed sensor, tilt-servo or lift-motor outputs and transition logic. The firmware must handle multi-rotor and fixed-wing control laws with seamless transition.</td></tr>
+          <tr><th>Research / custom</th><td>PX4 with companion computer running ROS 2, MAVLink bridge and custom offboard control. Modular architecture allows replacing or extending control modules without touching the flight core.</td></tr>
+        </table>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-header reveal">
+          <div>
+            <span class="eyebrow">Related Capabilities</span>
+            <h2>The FC connects to power, comms and motion.</h2>
+          </div>
+          <p>Flight controller choices ripple into every other subsystem. These are the most tightly coupled layers.</p>
+        </div>
+        <div class="detail-grid reveal">
+          <article class="detail-card">
+            <span class="tech-label">ESC &amp; Power</span>
+            <h3>Protocol and voltage alignment</h3>
+            <p>FC protocol output (DShot, PWM, CAN) must match the ESC input. Voltage monitoring, BEC requirements and power distribution follow from the FC architecture.</p>
+            <a class="inline-link" href="/capabilities/esc-power/">ESC &amp; Power</a>
+          </article>
+          <article class="detail-card">
+            <span class="tech-label">Communications</span>
+            <h3>Telemetry and control links</h3>
+            <p>FC UART allocation, telemetry radio protocol (MAVLink, CRSF, SmartPort) and RC receiver interface are all defined at the FC level and must be coordinated with the comms architecture.</p>
+            <a class="inline-link" href="/capabilities/communications/">Communications</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="spec-panel reveal">
+          <div class="spec-panel-inner">
+            <div>
+              <span class="eyebrow">Start With the Control Layer</span>
+              <h2>Bring the aircraft type and the mission profile.</h2>
+              <p>Tell us the aircraft category, payload, operating range and autonomy requirements. We will map the FC platform, sensor architecture and interface plan to your build.</p>
+            </div>
+            <div class="spec-actions">
+              <button class="btn btn-primary" type="button" data-open-inquiry>Start Your Build <svg aria-hidden="true"><use href="#icon-arrow"/></svg></button>
+              <a class="btn btn-outline" href="/contact/">Open the RFQ Brief</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="brand" href="/"><span class="brand-mark"><svg aria-hidden="true"><use href="/index.html#icon-drone"/></svg></span><span>EMS Drone</span></a>
+          <p>Configurable UAV components, complete systems and engineering support for teams building the next low-altitude applications.</p>
+        </div>
+        <div class="footer-col"><h3>System</h3><a href="/capabilities/">Capabilities</a><a href="/customization/">Customization</a><a href="/testing/">Testing</a></div>
+        <div class="footer-col"><h3>Company</h3><a href="/about/">About</a><a href="/blog/">Blog</a><a href="/contact/">Contact</a></div>
+        <div class="footer-col"><h3>Resources</h3><a href="/faq/">FAQ</a><a href="/how-it-works/">How It Works</a><a href="/design-guides/">Design Guides</a></div>
+      </div>
+      <div class="footer-bottom"><span>&copy; 2026 EMS Drone</span><span>Components → Systems → Flight Readiness</span></div>
+    </div>
+  </footer>
+
+  <div class="modal-overlay" id="inquiryModal" aria-hidden="true">
+    <div class="modal-dialog" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <button class="modal-close" type="button" aria-label="Close inquiry">×</button>
+      <div class="modal-aside">
+        <span class="tech-label">Flight Control / Intake</span>
+        <div><h3 id="modalTitle">Define your control requirements.</h3><p>Share aircraft type, mission profile, autonomy level and sensor needs. We will frame the FC platform and interface discussion.</p></div>
+      </div>
+      <form class="modal-form" data-preview-form>
+        <div class="field"><label for="modal-name">Name</label><input id="modal-name" name="name" autocomplete="name" required></div>
+        <div class="field" style="margin-top:18px"><label for="modal-email">Email</label><input id="modal-email" name="email" type="email" autocomplete="email" required></div>
+        <div class="field" style="margin-top:18px"><label for="modal-message">Project brief</label><textarea id="modal-message" name="message" required placeholder="Aircraft type, mission, autonomy requirements, sensor needs, preferred FC platform"></textarea></div>
+        <p class="form-note">Preview mode: this form is not connected to an unverified recipient.</p>
+        <button class="btn btn-primary" type="submit">Submit Engineering Brief</button>
+        <div class="form-status" role="status" aria-live="polite" aria-atomic="true"></div>
+      </form>
+    </div>
+  </div>
+  <script src="/site.js?v=6"></script>
+  <script src="/reveal.js?v=6"></script>
+</body>
+</html>

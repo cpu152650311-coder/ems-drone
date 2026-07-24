@@ -1,0 +1,279 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>UAV Propulsion — Motors, Propellers &amp; Powertrain Matching | EMS Drone</title>
+  <meta name="description" content="Source UAV propulsion components: brushless motors, carbon fiber and plastic propellers, motor-prop matching, thrust-to-weight optimization for multi-rotor and fixed-wing aircraft.">
+  <link rel="canonical" href="https://ems-drone.pages.dev/capabilities/propulsion/">
+  <meta property="og:title" content="UAV Propulsion — Motors, Propellers &amp; Powertrain Matching | EMS Drone">
+  <meta property="og:description" content="Source UAV propulsion: brushless motors, carbon fiber and plastic propellers, motor-prop matching, thrust-to-weight optimization for multi-rotor and fixed-wing.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://ems-drone.pages.dev/capabilities/propulsion/">
+  <meta property="og:image" content="https://ems-drone.pages.dev/generated/og-cover.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <link rel="icon" type="image/x-icon" href="/generated/favicon.ico">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="apple-touch-icon" sizes="180x180" href="/generated/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/generated/icon-192.png">
+<link rel="icon" type="image/png" sizes="512x512" href="/generated/icon-512.png">
+  <link rel="stylesheet" href="/design-tokens.css?v=6">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <svg aria-hidden="true" style="position:absolute;width:0;height:0;overflow:hidden">
+    <symbol id="icon-drone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="2.6"/><path d="m10.2 10.2-4-4m7.6 4 4-4m-7.6 7.6-4 4m7.6-4 4 4"/><circle cx="4.7" cy="4.7" r="2.2"/><circle cx="19.3" cy="4.7" r="2.2"/><circle cx="4.7" cy="19.3" r="2.2"/><circle cx="19.3" cy="19.3" r="2.2"/></symbol>
+    <symbol id="icon-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12h14m-5-5 5 5-5 5"/></symbol>
+    <symbol id="icon-prop" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="2"/><path d="M10.7 10.6C7 5.3 8 2.5 11 2.2c2.3-.2 2 4.9 1.4 7.8m1 1.2c5.3-3.7 8.1-2.7 8.4.3.2 2.3-4.9 2-7.8 1.4m-.8 1.1c3.7 5.3 2.7 8.1-.3 8.4-2.3.2-2-4.9-1.4-7.8m-1.1-1C5.1 17.3 2.3 16.3 2 13.3c-.2-2.3 4.9-2 7.8-1.4"/></symbol>
+    <symbol id="icon-power" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M13 2 5 14h6l-1 8 8-12h-6l1-8Z"/></symbol>
+    <symbol id="icon-frame" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16v16H4zM4 4l16 16M20 4 4 20"/><circle cx="12" cy="12" r="3"/></symbol>
+  </svg>
+
+  <header class="site-header">
+    <div class="nav-shell">
+      <a class="brand" href="/" aria-label="EMS Drone home">
+        <span class="brand-mark"><svg aria-hidden="true"><use href="/index.html#icon-drone"/></svg></span>
+        <span>EMS Drone</span>
+      </a>
+      <button class="nav-toggle" type="button" aria-label="Open navigation" aria-expanded="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+      <nav class="site-nav" aria-label="Primary navigation">
+        <a href="/capabilities/">Capabilities</a>
+        <a href="/customization/">Customization</a>
+        <a href="/testing/">Testing</a>
+        <a href="/industries/">Industries</a>
+        <a href="/about/">About</a>
+        <a href="/blog/">Blog</a>
+        <a class="btn btn-primary" href="/contact/">Start Your Build</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="sub-hero">
+      <div class="sub-hero-media">
+        <img src="/generated/sub-hero-capabilities-propulsion.webp" alt="Conceptual UAV brushless motor and carbon fiber propeller visualization">
+        <span class="concept-badge">Concept illustration</span>
+      </div>
+      <div class="container sub-hero-grid">
+        <div class="reveal">
+          <span class="eyebrow">Capabilities / Propulsion</span>
+          <h1>Propulsion</h1>
+          <p>Motors, propellers and powertrain matching — the thrust layer that converts electrical power into controlled lift, maneuverability and endurance.</p>
+        </div>
+        <div class="sub-meta reveal">
+          <div class="sub-meta-row"><span>Role</span><strong>Thrust Generation</strong></div>
+          <div class="sub-meta-row"><span>Motor Types</span><strong>Brushless Outrunner / Inrunner</strong></div>
+          <div class="sub-meta-row"><span>Prop Materials</span><strong>Carbon Fiber / Plastic / Wood</strong></div>
+          <div class="sub-meta-row"><span>Key Metric</span><strong>Thrust-to-Weight Ratio</strong></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-header reveal">
+          <div>
+            <span class="eyebrow">Overview</span>
+            <h2>The motor and propeller are one system, not two choices.</h2>
+          </div>
+          <p>Motor KV, stator volume and winding resistance define the electrical load. Propeller diameter, pitch and blade count define the aerodynamic load. Match them correctly and the system runs at peak efficiency. Mismatch them and you get excess heat, wasted battery capacity or insufficient thrust. Every other component decision — ESC rating, battery capacity, airframe strength — follows from this match.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-alt">
+      <div class="container">
+        <div class="section-header reveal">
+          <div>
+            <span class="eyebrow">Motor Types</span>
+            <h2>Stator size, KV and efficiency define the motor's character.</h2>
+          </div>
+          <p>Brushless outrunner motors dominate multi-rotor and fixed-wing UAV propulsion. Understanding the naming convention and performance parameters is the first step in selection.</p>
+        </div>
+        <div class="detail-grid reveal">
+          <article class="detail-card">
+            <span class="tech-label">Motor Sizing</span>
+            <h3>Stator dimensions and naming</h3>
+            <p>Motor names encode stator dimensions: a 2812 motor has a 28 mm stator diameter and 12 mm stator height. Larger stator volume handles more current and produces more torque — but adds weight. The relationship is not linear: a 2812 at 900 KV on 6S might produce 1.8 kg of thrust with a 9-inch prop, while a 4014 at 400 KV on 6S produces 3.5 kg with a 15-inch prop. Stator width contributes more to torque than height because torque scales with the square of radius.</p>
+            <ul class="tag-list"><li>2207–2812 (3–7 inch)</li><li>3510–4014 (7–15 inch)</li><li>5010–6215 (15–22 inch)</li><li>8318+ (24+ inch)</li></ul>
+          </article>
+          <article class="detail-card">
+            <span class="tech-label">KV Rating</span>
+            <h3>RPM per volt — but not the whole story</h3>
+            <p>KV is RPM per volt with no load. Low KV (300–600) suits large propellers on high voltage — high torque, low RPM, efficient cruise. High KV (1800–2700) suits small propellers on lower voltage — high RPM, responsive throttle, shorter flight times. The practical KV choice is constrained by the battery voltage and propeller size: a 6S battery at 2400 KV would spin a 5-inch prop at over 50,000 RPM — exceeding the structural limits of most plastic propellers. KV must be selected in the context of both voltage and prop diameter.</p>
+            <ul class="tag-list"><li>Low KV: 300–600</li><li>Mid KV: 800–1200</li><li>High KV: 1800–2700</li></ul>
+          </article>
+          <article class="detail-card">
+            <span class="tech-label">Efficiency Curves</span>
+            <h3>Every motor has a sweet spot</h3>
+            <p>Motor efficiency (grams of thrust per watt) peaks at 40–60% of max throttle for most outrunners. Above 80% throttle efficiency drops sharply as copper losses (I²R) dominate. For endurance-focused builds, the cruise throttle should sit in the motor's efficiency plateau. For agile builds, peak efficiency matters less than power-to-weight ratio and throttle response time. High-quality motors publish thrust tables across throttle positions with multiple propellers — the essential reference for matching.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-header reveal">
+          <div>
+            <span class="eyebrow">Propeller Selection</span>
+            <h2>Material, diameter, pitch and blade count.</h2>
+          </div>
+          <p>The propeller converts motor torque into thrust. Four parameters define its performance envelope.</p>
+        </div>
+        <table class="config-table reveal">
+          <tr><th>Material</th><td>Carbon fiber: stiffest, lightest, most efficient — and most expensive. The standard for professional multi-rotors above 10-inch diameter. Plastic (polycarbonate/nylon composite): flexible, durable on impact, cheaper — acceptable below 7-inch where tip deflection is small. Wood: used on large fixed-wing props for vibration damping and tradition, less common in multi-rotor.</td></tr>
+          <tr><th>Diameter</th><td>Larger diameter moves more air per revolution at lower RPM — more thrust per watt but slower response. A 15-inch prop at 5000 RPM produces roughly the same static thrust as a 10-inch at 8500 RPM, but with 30–40% less power draw. The trade-off is disc area: larger props need wider motor spacing and a bigger airframe.</td></tr>
+          <tr><th>Pitch</th><td>Pitch (inches of forward travel per revolution, theoretically) determines the blade's angle of attack. Higher pitch (4.5–6.0 inch) gives higher top speed but loads the motor more at low RPM — higher current draw, more heat. Lower pitch (2.5–3.5 inch) gives better low-speed thrust and efficiency but lower maximum speed. Multi-rotors hovering at zero airspeed want lower pitch; fixed-wing cruising at 15–20 m/s can use higher pitch.</td></tr>
+          <tr><th>Blade count</th><td>Two-blade: most efficient in isolation. Three-blade: smoother, more thrust per disc area (important when prop diameter is constrained), slightly less efficient. Four-blade and above: used where disc loading is extremely high or for scale appearance — significant efficiency penalty. Most multi-rotors use 2-blade or 3-blade depending on whether diameter or smoothness is the priority.</td></tr>
+        </table>
+      </div>
+    </section>
+
+    <section class="section section-dark">
+      <div class="container">
+        <div class="section-header reveal">
+          <div>
+            <span class="eyebrow">Motor-Prop Matching</span>
+            <h2>Methodology for finding the efficiency sweet spot.</h2>
+          </div>
+          <p>Matching is an iterative process using manufacturer thrust tables — not guesswork.</p>
+        </div>
+        <div class="detail-grid reveal">
+          <article class="detail-card">
+            <h3>Using thrust tables</h3>
+            <p>Manufacturer data tables list thrust (g), current (A), power (W) and efficiency (g/W) for a motor at multiple throttle positions with specific propellers and voltages. Start with the aircraft's all-up weight, divide by the number of motors, multiply by 1.5–2.0 for hover headroom (hover at 50–65% throttle) — that is the target thrust per motor. Scan the thrust table for a prop that delivers that thrust at 50% throttle on the target voltage. The current at that throttle point tells you the ESC rating. The efficiency at that point tells you the expected flight time.</p>
+          </article>
+          <article class="detail-card">
+            <h3>Common pitfalls</h3>
+            <p>Over-propping: too large a propeller for the motor's current rating — the motor overheats and the ESC may desync or burn. Under-propping: too small a propeller leaves thrust on the table and forces high RPM to hover — wasting battery and generating unnecessary noise. Wrong voltage-KV combination: high KV on high voltage with even a moderate prop can pull destructive current. Always check that the propeller-motor-voltage triplet lands within the manufacturer's specified current range at full throttle, with headroom.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-header reveal">
+          <div>
+            <span class="eyebrow">Thrust-to-Weight Guidance</span>
+            <h2>How much thrust does your aircraft need?</h2>
+          </div>
+          <p>Thrust-to-weight ratio (TWR) is the single number that defines flight performance. Different missions demand different TWR.</p>
+        </div>
+        <table class="config-table reveal">
+          <tr><th>Hover-capable (TWR 1.5–2.0:1)</th><td>Minimum for stable multi-rotor hover with control authority. Hover at 50–65% throttle leaves headroom for climb, wind correction and maneuver. Suitable for slow inspection platforms where endurance matters more than agility.</td></tr>
+          <tr><th>General purpose (TWR 2.0–3.0:1)</th><td>Standard for professional multi-rotors. Hover at 33–50% throttle. Responsive climb, confident wind handling and reserve for payload variation. Most mapping, survey and light delivery platforms operate in this range.</td></tr>
+          <tr><th>Agile / heavy payload (TWR 3.0–4.0:1)</th><td>For cinematography platforms that need rapid attitude changes, or heavy-lift platforms carrying payloads near the aircraft's structural limit. Hover at 25–33% throttle. Thermal management becomes critical because of the high installed power.</td></tr>
+          <tr><th>Fixed-wing (TWR 0.5–1.0:1)</th><td>Fixed-wing aircraft generate lift from the wing, not just thrust. TWR below 1.0 is normal — the wing does the lifting, the motor provides forward speed. Hand-launch and climb performance set the minimum TWR; cruise efficiency sets the motor-prop match.</td></tr>
+        </table>
+      </div>
+    </section>
+
+    <section class="section section-alt">
+      <div class="container">
+        <div class="section-header reveal">
+          <div>
+            <span class="eyebrow">Vibration &amp; Balancing</span>
+            <h2>Unbalanced propulsion degrades everything.</h2>
+          </div>
+          <p>Propeller and motor balance directly affect flight controller sensor noise, video quality and structural fatigue.</p>
+        </div>
+        <div class="detail-grid reveal">
+          <article class="detail-card">
+            <h3>Propeller balancing</h3>
+            <p>Even factory-balanced carbon fiber props can have residual imbalance — especially at larger diameters where a small mass asymmetry creates significant centrifugal force. A prop balancer (magnetic suspension type) and fine-grit sanding or tape on the lighter blade are the standard correction method. Dynamic balancing (balancing the hub as well as the blades) becomes important above 12-inch diameter where hub asymmetry is a noticeable vibration source.</p>
+          </article>
+          <article class="detail-card">
+            <h3>Motor balance and mounting</h3>
+            <p>Motor bell imbalance transfers vibration through the arm to the flight controller's IMU. Soft-mounting the FC with silicone grommets helps isolate gyro data from motor vibration, but does not fix the source. Motor bells should be checked for runout and balance — particularly on larger motors (35XX stator and above) where the rotating mass is significant. Prop adapter concentricity matters equally: an off-center prop creates a once-per-revolution vibration that is hard to filter.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-header reveal">
+          <div>
+            <span class="eyebrow">Related Capabilities</span>
+            <h2>Propulsion connects to power and structure.</h2>
+          </div>
+          <p>Motor current defines the ESC. Propeller disc area shapes the airframe. Thrust loads flow through the structure.</p>
+        </div>
+        <div class="detail-grid reveal">
+          <article class="detail-card">
+            <span class="tech-label">ESC &amp; Power</span>
+            <h3>Motor current sizes the ESC</h3>
+            <p>The motor-prop match determines current draw at every throttle position. ESC selection follows directly — the ESC must handle the motor's max current with 20–30% headroom at the operating voltage.</p>
+            <a class="inline-link" href="/capabilities/esc-power/">ESC &amp; Power</a>
+          </article>
+          <article class="detail-card">
+            <span class="tech-label">Airframe</span>
+            <h3>Motor mount and arm geometry</h3>
+            <p>Thrust forces, motor mounting patterns and prop clearance define arm length, motor mount design and structural reinforcement requirements.</p>
+            <a class="inline-link" href="/capabilities/airframe/">Airframe</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="spec-panel reveal">
+          <div class="spec-panel-inner">
+            <div>
+              <span class="eyebrow">Start With Thrust Requirements</span>
+              <h2>Bring the aircraft weight and performance targets.</h2>
+              <p>Tell us the all-up weight, desired thrust-to-weight ratio, preferred voltage and any diameter constraints. We will map the motor-prop match and verify it against your ESC and battery architecture.</p>
+            </div>
+            <div class="spec-actions">
+              <button class="btn btn-primary" type="button" data-open-inquiry>Start Your Build <svg aria-hidden="true"><use href="#icon-arrow"/></svg></button>
+              <a class="btn btn-outline" href="/contact/">Open the RFQ Brief</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="brand" href="/"><span class="brand-mark"><svg aria-hidden="true"><use href="/index.html#icon-drone"/></svg></span><span>EMS Drone</span></a>
+          <p>Configurable UAV components, complete systems and engineering support for teams building the next low-altitude applications.</p>
+        </div>
+        <div class="footer-col"><h3>System</h3><a href="/capabilities/">Capabilities</a><a href="/customization/">Customization</a><a href="/testing/">Testing</a></div>
+        <div class="footer-col"><h3>Company</h3><a href="/about/">About</a><a href="/blog/">Blog</a><a href="/contact/">Contact</a></div>
+        <div class="footer-col"><h3>Resources</h3><a href="/faq/">FAQ</a><a href="/how-it-works/">How It Works</a><a href="/design-guides/">Design Guides</a></div>
+      </div>
+      <div class="footer-bottom"><span>&copy; 2026 EMS Drone</span><span>Components → Systems → Flight Readiness</span></div>
+    </div>
+  </footer>
+
+  <div class="modal-overlay" id="inquiryModal" aria-hidden="true">
+    <div class="modal-dialog" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <button class="modal-close" type="button" aria-label="Close inquiry">×</button>
+      <div class="modal-aside">
+        <span class="tech-label">Propulsion / Intake</span>
+        <div><h3 id="modalTitle">Define your thrust requirements.</h3><p>Share aircraft weight, motor count, desired performance and any prop size constraints. We will work through the motor-prop match.</p></div>
+      </div>
+      <form class="modal-form" data-preview-form>
+        <div class="field"><label for="modal-name">Name</label><input id="modal-name" name="name" autocomplete="name" required></div>
+        <div class="field" style="margin-top:18px"><label for="modal-email">Email</label><input id="modal-email" name="email" type="email" autocomplete="email" required></div>
+        <div class="field" style="margin-top:18px"><label for="modal-message">Project brief</label><textarea id="modal-message" name="message" required placeholder="Aircraft weight, motor count, target TWR, voltage, prop size constraints"></textarea></div>
+        <p class="form-note">Preview mode: this form is not connected to an unverified recipient.</p>
+        <button class="btn btn-primary" type="submit">Submit Engineering Brief</button>
+        <div class="form-status" role="status" aria-live="polite" aria-atomic="true"></div>
+      </form>
+    </div>
+  </div>
+  <script src="/site.js?v=6"></script>
+  <script src="/reveal.js?v=6"></script>
+</body>
+</html>

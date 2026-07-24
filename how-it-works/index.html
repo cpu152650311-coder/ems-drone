@@ -1,0 +1,274 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>How UAV Component Sourcing &amp; Engineering Works | EMS Drone</title>
+  <meta name="description" content="From RFQ to delivery — the EMS Drone engineering engagement process: define requirements, architect the system, configure components, integrate, test, and ship.">
+  <meta property="og:title" content="How UAV Component Sourcing &amp; Engineering Works | EMS Drone">
+  <meta property="og:description" content="From RFQ to delivery: define requirements, architect the system, configure components, integrate subsystems, verify and ship your UAV build.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://ems-drone.pages.dev/generated/og-cover.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <link rel="canonical" href="https://ems-drone.pages.dev/how-it-works/">
+  <link rel="icon" type="image/x-icon" href="/generated/favicon.ico">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="apple-touch-icon" sizes="180x180" href="/generated/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/generated/icon-192.png">
+<link rel="icon" type="image/png" sizes="512x512" href="/generated/icon-512.png">
+  <link rel="stylesheet" href="/design-tokens.css?v=6">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    "name": "How UAV Component Sourcing & Engineering Works at EMS Drone",
+    "description": "From RFQ to delivery — the six-step engineering engagement process for UAV component sourcing, system architecture, configuration, integration, verification and shipping.",
+    "step": [
+      {
+        "@type": "HowToStep",
+        "position": 1,
+        "name": "Define",
+        "text": "Share your mission, payload, aircraft type, operating environment and target cost. This is the requirements brief that shapes every downstream decision in the engineering engagement."
+      },
+      {
+        "@type": "HowToStep",
+        "position": 2,
+        "name": "Architect",
+        "text": "We map the control, power, propulsion and communication stack around your requirements. Each layer is reviewed for interface compatibility across the system — not as isolated component selections."
+      },
+      {
+        "@type": "HowToStep",
+        "position": 3,
+        "name": "Configure",
+        "text": "Select specific components, firmware versions, interface protocols and kit depth. Every selection is documented with rationale linked to the architecture and mission requirements."
+      },
+      {
+        "@type": "HowToStep",
+        "position": 4,
+        "name": "Integrate",
+        "text": "Assemble matched subsystems or complete-aircraft platforms. Wiring harnesses, mechanical fit, firmware loading and initial bench checks are performed as a structured integration sequence."
+      },
+      {
+        "@type": "HowToStep",
+        "position": 5,
+        "name": "Verify",
+        "text": "Bench testing, parameter review and flight-readiness checks confirm that the integrated system behaves as designed. Test records are maintained per batch with traceable documentation."
+      },
+      {
+        "@type": "HowToStep",
+        "position": 6,
+        "name": "Deliver",
+        "text": "Protective packaging, complete export documentation and your selected shipping method deliver the verified build to your location — ready for final commissioning."
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <svg aria-hidden="true" style="position:absolute;width:0;height:0;overflow:hidden">
+    <symbol id="icon-drone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="2.6"/><path d="m10.2 10.2-4-4m7.6 4 4-4m-7.6 7.6-4 4m7.6-4 4 4"/><circle cx="4.7" cy="4.7" r="2.2"/><circle cx="19.3" cy="4.7" r="2.2"/><circle cx="4.7" cy="19.3" r="2.2"/><circle cx="19.3" cy="19.3" r="2.2"/></symbol>
+    <symbol id="icon-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12h14m-5-5 5 5-5 5"/></symbol>
+  </svg>
+
+  <header class="site-header">
+    <div class="nav-shell">
+      <a class="brand" href="/" aria-label="EMS Drone home">
+        <span class="brand-mark"><svg aria-hidden="true"><use href="#icon-drone"/></svg></span>
+        <span>EMS Drone</span>
+      </a>
+      <button class="nav-toggle" type="button" aria-label="Open navigation" aria-expanded="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+      <nav class="site-nav" aria-label="Primary navigation">
+        <a href="/capabilities/">Capabilities</a>
+        <a href="/customization/">Customization</a>
+        <a href="/testing/">Testing</a>
+        <a href="/industries/">Industries</a>
+        <a href="/about/">About</a>
+        <a href="/blog/">Blog</a>
+        <a class="btn btn-primary" href="/contact/">Start Your Build</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="sub-hero">
+      <div class="sub-hero-media">
+        <img src="/generated/sub-hero-how-it-works.webp" alt="Conceptual UAV engineering workflow showing the six-step development and delivery process">
+        <span class="concept-badge">Concept illustration</span>
+      </div>
+      <div class="container sub-hero-grid">
+        <div class="reveal">
+          <span class="eyebrow">Resources / Process</span>
+          <h1>How We Work</h1>
+          <p>Six structured steps from your requirements brief to a verified UAV component stack or complete aircraft, delivered to your location with full documentation.</p>
+        </div>
+        <div class="sub-meta reveal">
+          <div class="sub-meta-row"><span>Steps</span><strong>6 Stages</strong></div>
+          <div class="sub-meta-row"><span>Entry</span><strong>Requirements Brief</strong></div>
+          <div class="sub-meta-row"><span>Output</span><strong>Verified Build</strong></div>
+          <div class="sub-meta-row"><span>Timeline</span><strong>3–8 Weeks</strong></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-header reveal">
+          <div>
+            <span class="eyebrow">The Six-Step Process</span>
+            <h2>From mission brief to flight-ready delivery — every step is connected.</h2>
+          </div>
+          <p>Our engineering engagement is organized as a defined sequence. Each step produces a clear output that feeds into the next, keeping the build traceable and the decisions documented.</p>
+        </div>
+        <div class="process-rail reveal">
+          <article class="process-step">
+            <span class="step-number">01</span>
+            <h3>Define</h3>
+            <p>Share your mission profile, payload requirements, aircraft type, operating environment and target cost parameters. If you already have a BOM or component preference, include it. This requirements brief becomes the reference document for all downstream engineering decisions. The more specific you are — altitude, endurance target, payload weight, communication range, regulatory context — the more precisely we can frame the architecture.</p>
+          </article>
+          <article class="process-step">
+            <span class="step-number">02</span>
+            <h3>Architect</h3>
+            <p>We map the control, power, propulsion and communication stack around your requirements. Each system layer is reviewed for interface compatibility: flight controller to ESC protocol, battery voltage to motor sizing, receiver to antenna configuration, payload interface to data link bandwidth. The architecture document identifies critical interfaces and flags compatibility constraints before any component is selected.</p>
+          </article>
+          <article class="process-step">
+            <span class="step-number">03</span>
+            <h3>Configure</h3>
+            <p>With the architecture confirmed, we select specific components, firmware versions, interface protocols and kit depth. Each selection is documented with rationale linked to the architecture and mission requirements. The configuration output is a structured BOM with part numbers, specifications and interface notes — organized so you can review every choice before proceeding to integration.</p>
+          </article>
+          <article class="process-step">
+            <span class="step-number">04</span>
+            <h3>Integrate</h3>
+            <p>Components move through our integration stations in a defined sequence: incoming inspection, subsystem assembly, wiring harness preparation, firmware loading and mechanical fit checks. Each subsystem layer — control, power, propulsion, communication — is assembled and confirmed before integration with the next layer. For complete-aircraft builds, this includes airframe assembly, motor mounting and payload interface installation.</p>
+          </article>
+          <article class="process-step">
+            <span class="step-number">05</span>
+            <h3>Verify</h3>
+            <p>Bench-level functional testing confirms that the integrated system behaves as designed. We check power-up sequence, sensor data flow, motor response, communication link quality and firmware parameter alignment. For subsystem deliveries, verification focuses on the configured assembly. For complete aircraft, system-level checks include control response, propulsion coordination and a pre-flight readiness review with documented test results.</p>
+          </article>
+          <article class="process-step">
+            <span class="step-number">06</span>
+            <h3>Deliver</h3>
+            <p>Verified components and systems are packaged to our shipping standards: ESD-safe, moisture-protected and shock-isolated. Complete export documentation — commercial invoice, packing list, HS codes, certificate of origin — accompanies every international shipment. You select the shipping method based on timeline and budget. The build arrives documented, verified and ready for final commissioning at your location.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-alt">
+      <div class="container">
+        <div class="section-header reveal">
+          <div>
+            <span class="eyebrow">Timeline Estimates</span>
+            <h2>How long does a typical engagement take?</h2>
+          </div>
+          <p>Actual timelines depend on build complexity, component availability and configuration depth. These ranges reflect typical project cadences.</p>
+        </div>
+        <div class="detail-grid">
+          <article class="detail-card reveal">
+            <span class="tech-label">PHASE / A</span>
+            <h3>Requirements &amp; architecture</h3>
+            <p>The define and architect stages typically take 3 to 7 business days from initial brief to architecture review. This includes back-and-forth clarification, interface mapping and preliminary component research. Complex or novel platform types may extend this phase.</p>
+            <ul class="tag-list"><li>3–7 days</li><li>Interactive review</li><li>Architecture document</li></ul>
+          </article>
+          <article class="detail-card reveal">
+            <span class="tech-label">PHASE / B</span>
+            <h3>Configuration &amp; integration</h3>
+            <p>The configure and integrate stages typically span 2 to 6 weeks depending on build depth. A component-only BOM may take 1 to 2 weeks. A matched subsystem build takes 2 to 4 weeks. A complete-aircraft integration with full assembly, wiring and firmware loading takes 4 to 6 weeks.</p>
+            <ul class="tag-list"><li>2–6 weeks</li><li>Depth-dependent</li><li>Structured BOM</li></ul>
+          </article>
+          <article class="detail-card reveal">
+            <span class="tech-label">PHASE / C</span>
+            <h3>Verification &amp; delivery</h3>
+            <p>The verify and deliver stages typically take 3 to 7 business days for bench testing, documentation preparation and packaging. Shipping transit time is additional and depends on the selected freight method: 3 to 7 days for express courier, 5 to 12 days for air freight, or 20 to 40 days for sea freight.</p>
+            <ul class="tag-list"><li>3–7 days + transit</li><li>Documented results</li><li>Method-dependent</li></ul>
+          </article>
+          <article class="detail-card reveal wide">
+            <span class="tech-label">SUMMARY</span>
+            <h3>Total engagement: 3 to 8 weeks from brief to delivery</h3>
+            <p>A component-level order with standard parts typically completes in 3 to 4 weeks. A matched subsystem build runs 4 to 6 weeks. A full custom-aircraft integration with verification runs 6 to 8 weeks. Rush processing may be available for time-critical projects — discuss your timeline during the RFQ stage and we will assess what is achievable for your specific configuration. All timelines are confirmed in the quotation and updated throughout the project.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-dark">
+      <div class="container">
+        <div class="section-header reveal">
+          <div>
+            <span class="eyebrow">What You Receive</span>
+            <h2>Every engagement delivers more than hardware.</h2>
+          </div>
+          <p>The output of our process is a documented, traceable, verified build — whether that is a single component family, a matched subsystem or a complete aircraft.</p>
+        </div>
+        <ul class="check-list reveal">
+          <li>Structured BOM with part numbers, specifications and interface notes</li>
+          <li>Architecture document mapping system layers and interface decisions</li>
+          <li>Incoming inspection records per component batch</li>
+          <li>Bench test logs with signal measurements and verification results</li>
+          <li>Firmware version documentation and baseline parameter files</li>
+          <li>Integration assembly records linking components to subsystems</li>
+          <li>Complete export documentation package for international shipments</li>
+          <li>Post-delivery technical support as defined in the project scope</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="spec-panel reveal">
+          <div class="spec-panel-inner">
+            <div>
+              <span class="eyebrow">Start Your Engagement</span>
+              <h2>Begin with your requirements brief.</h2>
+              <p>The define stage starts when you share your mission, platform type, payload and target parameters. We will respond with an architecture overview and next-step timeline within 3 business days.</p>
+            </div>
+            <div class="spec-actions">
+              <button class="btn btn-primary" type="button" data-open-inquiry>Start Your Build <svg aria-hidden="true"><use href="#icon-arrow"/></svg></button>
+              <a class="btn btn-outline" href="/contact/">Open RFQ Brief</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="brand" href="/"><span class="brand-mark"><svg aria-hidden="true"><use href="#icon-drone"/></svg></span><span>EMS Drone</span></a>
+          <p>Configurable UAV components, complete systems and engineering support for teams building the next low-altitude applications.</p>
+        </div>
+        <div class="footer-col"><h3>System</h3><a href="/capabilities/">Capabilities</a><a href="/customization/">Customization</a><a href="/testing/">Testing</a></div>
+        <div class="footer-col"><h3>Company</h3><a href="/about/">About</a><a href="/blog/">Blog</a><a href="/contact/">Contact</a></div>
+        <div class="footer-col"><h3>Resources</h3><a href="/faq/">FAQ</a><a href="/how-it-works/">How It Works</a><a href="/design-guides/">Design Guides</a></div>
+      </div>
+      <div class="footer-bottom"><span>&copy; 2026 EMS Drone</span><span>Components &rarr; Systems &rarr; Flight Readiness</span></div>
+    </div>
+  </footer>
+
+  <div class="modal-overlay" id="inquiryModal" aria-hidden="true">
+    <div class="modal-dialog" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <button class="modal-close" type="button" aria-label="Close inquiry">&times;</button>
+      <div class="modal-aside">
+        <span class="tech-label">Engineering Intake</span>
+        <div><h3 id="modalTitle">Start with your mission.</h3><p>Tell us what you are building and where you need support: component sourcing, a matched stack or a complete UAV.</p></div>
+      </div>
+      <form class="modal-form" data-preview-form>
+        <div class="field"><label for="modal-name">Name</label><input id="modal-name" name="name" autocomplete="name" required></div>
+        <div class="field" style="margin-top:18px"><label for="modal-email">Email</label><input id="modal-email" name="email" type="email" autocomplete="email" required></div>
+        <div class="field" style="margin-top:18px"><label for="modal-message">Project brief</label><textarea id="modal-message" name="message" required placeholder="Aircraft type, payload, environment, component list or complete-system goal"></textarea></div>
+        <button class="btn btn-primary" type="submit">Submit Engineering Brief</button>
+        <div class="form-status" role="status" aria-live="polite" aria-atomic="true"></div>
+      </form>
+    </div>
+  </div>
+  <script src="/site.js?v=6"></script>
+  <script src="/reveal.js?v=6"></script>
+</body>
+</html>

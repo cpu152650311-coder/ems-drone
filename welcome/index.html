@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Your UAV System, Engineered from Component to Aircraft | EMS Drone</title>
+  <meta name="description" content="EMS Drone delivers configurable UAV components, custom subsystem integration, and complete aircraft engineering. From flight controllers to full airframes — one partner, end to end.">
+  <meta property="og:title" content="Your UAV System, Engineered from Component to Aircraft | EMS Drone">
+  <meta property="og:description" content="EMS Drone delivers configurable UAV components, custom subsystem integration, and complete aircraft engineering. One partner, end to end.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://ems-drone.pages.dev/welcome/">
+  <meta property="og:image" content="https://ems-drone.pages.dev/generated/og-welcome.webp">
+  <meta property="og:site_name" content="EMS Drone">
+  <meta name="twitter:card" content="summary_large_image">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #080d0e;
+      --bg-secondary: #0c1416;
+      --bg-card: #101a1d;
+      --bg-card-hover: #152025;
+      --text: #e8edee;
+      --text-secondary: #9aaeb3;
+      --accent: #b8f34a;
+      --accent-dark: #9fd63d;
+      --accent-muted: rgba(184, 243, 74, 0.08);
+      --border: rgba(255, 255, 255, 0.06);
+      --border-strong: rgba(255, 255, 255, 0.1);
+      --radius: 6px;
+      --radius-lg: 12px;
+      --container: 1140px;
+      --transition: 0.2s ease;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      padding-bottom: 80px; /* space for sticky CTA on mobile */
+    }
+
+    img { max-width: 100%; height: auto; display: block; }
+
+    .container { max-width: var(--container); margin: 0 auto; padding: 0 24px; }
+
+    /* ===== TYPOGRAPHY ===== */
+    h1, h2, h3 { color: #fff; line-height: 1.2; }
+    h1 { font-size: clamp(2rem, 5vw, 3.2rem); font-weight: 800; letter-spacing: -0.02em; }
+    h2 { font-size: clamp(1.5rem, 3.5vw, 2.2rem); font-weight: 700; letter-spacing: -0.01em; }
+    h3 { font-size: 1.1rem; font-weight: 600; }
+    p { color: var(--text-secondary); margin-bottom: 1rem; }
+    p:last-child { margin-bottom: 0; }
+
+    .eyebrow {
+      display: inline-block;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 12px;
+    }
+
+    /* ===== BUTTONS ===== */
+    .btn-primary {
+      background: var(--accent);
+      color: #080d0e;
+      font-weight: 700;
+      padding: 14px 32px;
+      border-radius: 4px;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 0.95rem;
+      border: none;
+      cursor: pointer;
+      transition: background var(--transition), transform var(--transition), box-shadow var(--transition);
+      text-align: center;
+    }
+    .btn-primary:hover, .btn-primary:focus-visible {
+      background: #c8ff55;
+      transform: translateY(-1px);
+      box-shadow: 0 8px 24px rgba(184, 243, 74, 0.25);
+    }
+    .btn-primary:active { transform: translateY(0); }
+
+    .btn-outline {
+      background: transparent;
+      color: #fff;
+      font-weight: 600;
+      padding: 13px 32px;
+      border-radius: 4px;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 0.95rem;
+      border: 1.5px solid var(--border-strong);
+      cursor: pointer;
+      transition: border-color var(--transition), background var(--transition);
+      text-align: center;
+    }
+    .btn-outline:hover, .btn-outline:focus-visible {
+      border-color: var(--accent);
+      background: var(--accent-muted);
+    }
+
+    .btn-group { display: flex; gap: 16px; flex-wrap: wrap; justify-content: center; }
+
+    /* ===== SECTION SPACING ===== */
+    section { padding: 72px 0; }
+    section.hero-section { padding: 96px 0 72px; }
+    section.cta-section { padding: 80px 0; }
+    section.alt { background: var(--bg-secondary); }
+
+    .section-divider { height: 1px; background: var(--border); border: none; margin: 0; }
+
+    /* ===== HERO ===== */
+    .hero-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
+    .hero-content h1 { margin-bottom: 20px; }
+    .hero-content .hero-subhead {
+      font-size: 1.15rem;
+      color: var(--text-secondary);
+      line-height: 1.7;
+      margin-bottom: 32px;
+      max-width: 480px;
+    }
+    .hero-visual {
+      position: relative;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      border: 1px solid var(--border);
+    }
+    .hero-visual img { width: 100%; aspect-ratio: 16/10; object-fit: cover; }
+    .hero-visual .visual-tag {
+      position: absolute; bottom: 12px; right: 12px;
+      background: rgba(0,0,0,0.7);
+      color: var(--text-secondary);
+      font-size: 0.7rem;
+      padding: 4px 10px;
+      border-radius: 3px;
+      letter-spacing: 0.04em;
+    }
+
+    /* ===== TRUST BAR ===== */
+    .trust-bar { background: var(--bg-secondary); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 20px 0; }
+    .trust-track {
+      display: flex; align-items: center; justify-content: center; gap: 32px;
+      flex-wrap: wrap; font-size: 0.85rem; font-weight: 600;
+      color: var(--text-secondary); letter-spacing: 0.03em;
+    }
+    .trust-track .sep { color: var(--accent); opacity: 0.5; font-weight: 400; }
+
+    /* ===== 3-COLUMN GRID ===== */
+    .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 32px;
+      transition: border-color var(--transition), background var(--transition);
+    }
+    .card:hover { border-color: var(--border-strong); background: var(--bg-card-hover); }
+    .card-icon {
+      width: 48px; height: 48px; border-radius: var(--radius);
+      background: var(--accent-muted);
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 20px;
+    }
+    .card-icon svg { width: 24px; height: 24px; color: var(--accent); }
+    .card h3 { margin-bottom: 10px; }
+    .card p { font-size: 0.92rem; }
+
+    /* ===== 4-STEP ===== */
+    .steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+    .step {
+      text-align: center; padding: 28px 16px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      position: relative;
+    }
+    .step-number {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 40px; height: 40px; border-radius: 50%;
+      background: var(--accent);
+      color: #080d0e;
+      font-weight: 800;
+      font-size: 1rem;
+      margin-bottom: 16px;
+    }
+    .step h3 { margin-bottom: 8px; }
+    .step p { font-size: 0.88rem; }
+    .step-arrow {
+      position: absolute; right: -18px; top: 50%; transform: translateY(-50%);
+      color: var(--accent); font-size: 1.5rem; opacity: 0.6;
+    }
+
+    /* ===== 6-ITEM GRID ===== */
+    .grid-6 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .comp-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 20px;
+      display: flex; align-items: center; gap: 16px;
+      transition: border-color var(--transition);
+    }
+    .comp-card:hover { border-color: var(--border-strong); }
+    .comp-card .comp-dot {
+      width: 10px; height: 10px; border-radius: 50%; background: var(--accent);
+      flex-shrink: 0;
+    }
+    .comp-card .comp-label { font-weight: 600; font-size: 0.95rem; }
+    .comp-card .comp-sublabel { font-size: 0.8rem; color: var(--text-secondary); }
+
+    /* ===== CHECK LIST ===== */
+    .check-list { list-style: none; }
+    .check-list li {
+      padding-left: 28px; position: relative; margin-bottom: 14px;
+      color: var(--text-secondary); font-size: 0.93rem;
+    }
+    .check-list li::before {
+      content: '';
+      position: absolute; left: 0; top: 5px;
+      width: 16px; height: 16px;
+      background: var(--accent);
+      border-radius: 3px;
+    }
+    .check-list li::after {
+      content: '';
+      position: absolute; left: 4px; top: 9px;
+      width: 8px; height: 5px;
+      border-left: 2px solid #080d0e;
+      border-bottom: 2px solid #080d0e;
+      transform: rotate(-45deg);
+    }
+    .check-list li strong { color: #fff; }
+
+    /* ===== TAG ROW (Applications) ===== */
+    .tag-row { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; }
+    .tag {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 40px;
+      padding: 10px 24px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--text);
+    }
+
+    /* ===== FORM ===== */
+    .form-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-strong);
+      border-radius: var(--radius-lg);
+      padding: 40px;
+      max-width: 560px;
+      margin: 0 auto;
+    }
+    .field { margin-bottom: 20px; }
+    .field label {
+      display: block; font-size: 0.85rem; font-weight: 600;
+      color: var(--text); margin-bottom: 6px;
+    }
+    .field input, .field textarea {
+      width: 100%; padding: 12px 16px;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      color: var(--text);
+      font-family: inherit;
+      font-size: 0.95rem;
+      transition: border-color var(--transition);
+      resize: vertical;
+    }
+    .field input:focus, .field textarea:focus {
+      outline: none;
+      border-color: var(--accent);
+    }
+    .field input::placeholder, .field textarea::placeholder { color: rgba(154, 174, 179, 0.4); }
+
+    .form-submit-row { margin-top: 24px; }
+    .form-submit-row .btn-primary { width: 100%; font-size: 1rem; padding: 16px 32px; }
+    .form-note { font-size: 0.78rem; color: var(--text-secondary); margin-top: 14px; text-align: center; }
+    .form-result { margin-top: 16px; text-align: center; font-weight: 600; font-size: 0.9rem; display: none; }
+    .form-result.success { display: block; color: var(--accent); }
+    .form-result.error { display: block; color: #f87171; }
+
+    /* ===== FAQ ===== */
+    .faq-item {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px;
+      margin-bottom: 12px;
+    }
+    .faq-item h3 { margin-bottom: 8px; font-size: 1rem; }
+    .faq-item p { font-size: 0.9rem; margin: 0; }
+
+    /* ===== FOOTER ===== */
+    .page-footer {
+      text-align: center; padding: 32px 0;
+      border-top: 1px solid var(--border);
+      color: var(--text-secondary); font-size: 0.82rem;
+    }
+
+    /* ===== STICKY MOBILE CTA ===== */
+    .sticky-cta {
+      display: none; position: fixed; bottom: 0; left: 0; right: 0;
+      background: var(--bg-secondary);
+      border-top: 1px solid var(--border);
+      padding: 12px 24px;
+      z-index: 100;
+    }
+    .sticky-cta .btn-primary { display: block; width: 100%; }
+
+    .concept-badge {
+      display: inline-block;
+      font-size: 0.7rem;
+      color: var(--text-secondary);
+      margin-top: 8px;
+      font-style: italic;
+    }
+
+    /* ===== MOBILE ===== */
+    @media (max-width: 768px) {
+      section { padding: 56px 0; }
+      section.hero-section { padding: 64px 0 48px; }
+      .hero-inner { grid-template-columns: 1fr; gap: 32px; text-align: center; }
+      .hero-content .hero-subhead { max-width: 100%; }
+      .hero-content .btn-group { justify-content: center; }
+      .grid-3, .grid-6 { grid-template-columns: 1fr; }
+      .steps { grid-template-columns: 1fr; }
+      .step-arrow { display: none; }
+      .trust-track { gap: 12px; font-size: 0.78rem; }
+      .form-card { padding: 24px; }
+      .tag-row { gap: 8px; }
+      .tag { padding: 8px 16px; font-size: 0.82rem; }
+      .sticky-cta { display: block; }
+    }
+
+    @media (min-width: 769px) {
+      .sticky-cta { display: none !important; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ===== 1. HERO ===== -->
+<section class="hero-section">
+  <div class="container">
+    <div class="hero-inner">
+      <div class="hero-content">
+        <p class="eyebrow">EMS Drone — UAV Component Engineering</p>
+        <h1>Your UAV System, Engineered from Component to Aircraft</h1>
+        <p class="hero-subhead">One partner for flight controllers, propulsion, power systems, airframes, and complete aircraft configuration. We source, integrate, test, and deliver — so your team focuses on the mission.</p>
+        <div class="btn-group">
+          <a href="#cta-form" class="btn-primary">Start Your Build</a>
+          <a href="#how-it-works" class="btn-outline">How It Works</a>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <img src="/generated/sub-hero-welcome.webp" alt="UAV system components — flight controller, ESCs, motors, carbon fiber airframe — arranged on an engineering workstation" width="640" height="400" loading="eager">
+        <span class="visual-tag">Concept illustration</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 2. TRUST BAR ===== -->
+<div class="trust-bar">
+  <div class="container">
+    <div class="trust-track">
+      <span>Flight Control</span><span class="sep">&rarr;</span>
+      <span>Power</span><span class="sep">&rarr;</span>
+      <span>Propulsion</span><span class="sep">&rarr;</span>
+      <span>Airframe</span><span class="sep">&rarr;</span>
+      <span>Complete Aircraft</span>
+    </div>
+  </div>
+</div>
+
+<!-- ===== 3. WHAT WE DO ===== -->
+<section>
+  <div class="container">
+    <p class="eyebrow">What We Do</p>
+    <h2>Three Ways We Deliver</h2>
+    <p style="max-width:640px;margin-bottom:40px;">Whether you need individual components sourced against a BOM, a custom-engineered subsystem, or a fully configured flight-tested aircraft — we operate at the depth your project requires.</p>
+    <div class="grid-3">
+      <div class="card">
+        <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div>
+        <h3>Component Sourcing</h3>
+        <p>Flight controllers, ESCs, motors, batteries, communication modules, airframe parts — sourced from verified manufacturers at competitive pricing. Single BOM, single invoice, single point of accountability.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></div>
+        <h3>Custom Engineering</h3>
+        <p>Propulsion matching, power distribution design, payload integration, communication stack architecture. Our engineers model your requirements and return a validated component configuration — not just a parts list.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 0 0 1.946-.806 3.42 3.42 0 0 1 4.438 0 3.42 3.42 0 0 0 1.946.806 3.42 3.42 0 0 1 3.138 3.138 3.42 3.42 0 0 0 .806 1.946 3.42 3.42 0 0 1 0 4.438 3.42 3.42 0 0 0-.806 1.946 3.42 3.42 0 0 1-3.138 3.138 3.42 3.42 0 0 0-1.946.806 3.42 3.42 0 0 1-4.438 0 3.42 3.42 0 0 0-1.946-.806 3.42 3.42 0 0 1-3.138-3.138 3.42 3.42 0 0 0-.806-1.946 3.42 3.42 0 0 1 0-4.438 3.42 3.42 0 0 0 .806-1.946 3.42 3.42 0 0 1 3.138-3.138z"/></svg></div>
+        <h3>Testing &amp; Verification</h3>
+        <p>Ground testing, flight validation, and compliance verification. Before any aircraft leaves our facility, it passes a structured test protocol — propulsion characterization, vibration analysis, link budget verification, and flight envelope testing.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 4. HOW IT WORKS ===== -->
+<section class="alt" id="how-it-works">
+  <div class="container">
+    <p class="eyebrow">Process</p>
+    <h2>How We Work</h2>
+    <p style="max-width:600px;margin-bottom:40px;">Four steps from your requirements to a delivered, validated system. Typical turnaround: 2-4 weeks depending on complexity.</p>
+    <div class="steps">
+      <div class="step">
+        <div class="step-number">1</div>
+        <h3>Define</h3>
+        <p>Share your payload, endurance, environment, and budget. We clarify requirements and document the engineering specification.</p>
+        <div class="step-arrow">&rarr;</div>
+      </div>
+      <div class="step">
+        <div class="step-number">2</div>
+        <h3>Configure</h3>
+        <p>We model multiple component configurations, evaluate tradeoffs, and present a recommended BOM with rationale.</p>
+        <div class="step-arrow">&rarr;</div>
+      </div>
+      <div class="step">
+        <div class="step-number">3</div>
+        <h3>Verify</h3>
+        <p>Components are procured, assembled, and tested. We run ground tests, flight envelope validation, and compliance checks.</p>
+        <div class="step-arrow">&rarr;</div>
+      </div>
+      <div class="step">
+        <div class="step-number">4</div>
+        <h3>Deliver</h3>
+        <p>Your configured system ships with full documentation — schematics, test reports, configuration files, and BOM.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 5. COMPONENT CATEGORIES ===== -->
+<section>
+  <div class="container">
+    <p class="eyebrow">Components</p>
+    <h2>Six Subsystems We Cover</h2>
+    <p style="max-width:600px;margin-bottom:40px;">Every critical UAV subsystem — from the flight controller silicon to the airframe fastener torque spec — handled under one roof.</p>
+    <div class="grid-6">
+      <div class="comp-card">
+        <div class="comp-dot"></div>
+        <div>
+          <div class="comp-label">Flight Controllers</div>
+          <div class="comp-sublabel">ArduPilot, PX4, proprietary stacks</div>
+        </div>
+      </div>
+      <div class="comp-card">
+        <div class="comp-dot"></div>
+        <div>
+          <div class="comp-label">ESCs &amp; Propulsion</div>
+          <div class="comp-sublabel">BLHeli_32, FOC, CAN protocol</div>
+        </div>
+      </div>
+      <div class="comp-card">
+        <div class="comp-dot"></div>
+        <div>
+          <div class="comp-label">Motors &amp; Propellers</div>
+          <div class="comp-sublabel">Matched thrust curves, thermal rated</div>
+        </div>
+      </div>
+      <div class="comp-card">
+        <div class="comp-dot"></div>
+        <div>
+          <div class="comp-label">Airframes</div>
+          <div class="comp-sublabel">Carbon fiber, aluminum, composite</div>
+        </div>
+      </div>
+      <div class="comp-card">
+        <div class="comp-dot"></div>
+        <div>
+          <div class="comp-label">Communication</div>
+          <div class="comp-sublabel">868/915 MHz, 2.4 GHz, 4G/LTE</div>
+        </div>
+      </div>
+      <div class="comp-card">
+        <div class="comp-dot"></div>
+        <div>
+          <div class="comp-label">Payload Interfaces</div>
+          <div class="comp-sublabel">Gimbals, sensors, drop mechanisms</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 6. WHY EMS DRONE ===== -->
+<section class="alt">
+  <div class="container">
+    <p class="eyebrow">Why EMS Drone</p>
+    <h2>Engineered Partnership, Not Just a Supplier</h2>
+    <p style="max-width:600px;margin-bottom:40px;">Four ways we are different from a generic component distributor.</p>
+    <div class="grid-3">
+      <div class="card">
+        <ul class="check-list">
+          <li><strong>Engineering review on every order.</strong> We do not just ship a parts list — we verify compatibility, flag potential issues, and suggest improvements before you pay.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <ul class="check-list">
+          <li><strong>Direct manufacturer relationships.</strong> No gray market components. Every part is traceable to the original manufacturer with full warranty support.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <ul class="check-list">
+          <li><strong>Pre-shipment testing.</strong> Critical components — flight controllers, ESCs, communication modules — are powered up and functionally checked before dispatch.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <ul class="check-list">
+          <li><strong>Post-delivery support.</strong> Integration questions, configuration tuning, and troubleshooting assistance are part of the engagement — not an extra line item.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 7. APPLICATIONS ===== -->
+<section>
+  <div class="container" style="text-align:center;">
+    <p class="eyebrow">Applications</p>
+    <h2>Industries We Serve</h2>
+    <p style="margin-bottom:32px;">From precision agriculture to critical infrastructure inspection — our components fly in demanding environments.</p>
+    <div class="tag-row">
+      <span class="tag">Infrastructure Inspection</span>
+      <span class="tag">Mapping &amp; Survey</span>
+      <span class="tag">Agricultural Spraying</span>
+      <span class="tag">Logistics &amp; Delivery</span>
+      <span class="tag">Academic Research</span>
+      <span class="tag">Public Safety</span>
+      <span class="tag">Environmental Monitoring</span>
+      <span class="tag">Defense &amp; Security</span>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 8. CTA + FORM ===== -->
+<section class="cta-section alt" id="cta-form">
+  <div class="container" style="text-align:center;">
+    <p class="eyebrow">Start Your Build</p>
+    <h2>Ready to Configure Your UAV System?</h2>
+    <p style="max-width:520px;margin:0 auto 36px;">Tell us about your project. Our engineering team responds within 2-3 business days with a preliminary configuration and cost estimate.</p>
+    <div class="form-card">
+      <form id="welcome-form">
+        <input type="hidden" name="form-type" value="welcome-landing">
+        <input type="hidden" name="site" value="ems-drone">
+        <div class="field">
+          <label for="wf-name">Full Name</label>
+          <input type="text" id="wf-name" name="name" required autocomplete="name" placeholder="Your full name">
+        </div>
+        <div class="field">
+          <label for="wf-email">Email Address</label>
+          <input type="email" id="wf-email" name="email" required autocomplete="email" placeholder="you@company.com">
+        </div>
+        <div class="field">
+          <label for="wf-message">What are you building?</label>
+          <textarea id="wf-message" name="message" rows="4" required placeholder="Briefly describe your UAV project — payload, endurance, operating environment, or component needs."></textarea>
+        </div>
+        <div class="form-submit-row">
+          <button type="submit" class="btn-primary">Send My Requirements</button>
+        </div>
+        <p class="form-note">No spam. Your project details stay confidential.</p>
+        <div class="form-result" id="form-result"></div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 9. FAQ ===== -->
+<section>
+  <div class="container">
+    <p class="eyebrow">Quick Answers</p>
+    <h2>Frequently Asked Questions</h2>
+    <div style="max-width:700px;margin-top:32px;">
+      <div class="faq-item">
+        <h3>Do I need to be an engineer to work with you?</h3>
+        <p>Most of our customers have an engineering or technical background — but not all. If you can describe your mission requirements (payload mass, endurance, operating conditions), our team can translate that into a component configuration. For complete aircraft, we take care of the engineering detail.</p>
+      </div>
+      <div class="faq-item">
+        <h3>What is the minimum order?</h3>
+        <p>There is no hard minimum. Individual components can be ordered in single units. For custom engineering or complete aircraft, the engagement typically starts from a single prototype unit. Volume discounts apply for production quantities.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Do you ship internationally?</h3>
+        <p>Yes. We ship to North America, Europe, Asia-Pacific, and the Middle East. Shipping method and cost depend on component type, quantity, and destination. Battery shipments follow IATA Dangerous Goods regulations.</p>
+      </div>
+      <div class="faq-item">
+        <h3>What if a component fails during testing?</h3>
+        <p>All components carry manufacturer warranty. We handle warranty claims on your behalf. For pre-shipment failures caught during our testing, we replace the component before it reaches you — at no additional cost.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 10. FOOTER ===== -->
+<footer class="page-footer">
+  <div class="container">
+    <p>&copy; 2026 EMS Drone. Components &rarr; Systems &rarr; Flight Readiness.</p>
+  </div>
+</footer>
+
+<!-- ===== STICKY MOBILE CTA ===== -->
+<div class="sticky-cta">
+  <a href="#cta-form" class="btn-primary">Start Your Build</a>
+</div>
+
+<!-- ===== INLINE FORM HANDLER ===== -->
+<script>
+  (function() {
+    var form = document.getElementById('welcome-form');
+    var result = document.getElementById('form-result');
+    if (!form) return;
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      var data = new FormData(form);
+      var body = new URLSearchParams(data).toString();
+      result.className = 'form-result';
+      result.textContent = 'Submitting...';
+      result.style.display = 'block';
+      fetch('https://inquiry-proxy.workers.dev', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: body
+      })
+      .then(function(res) {
+        if (res.ok) {
+          result.className = 'form-result success';
+          result.textContent = 'Thank you. We will be in touch within 2-3 business days.';
+          form.reset();
+        } else {
+          result.className = 'form-result error';
+          result.textContent = 'Something went wrong. Please email us directly at contact@ems-drone.pages.dev.';
+        }
+      })
+      .catch(function() {
+        result.className = 'form-result error';
+        result.textContent = 'Network error. Please try again or email us directly.';
+      });
+    });
+  })();
+</script>
+
+</body>
+</html>

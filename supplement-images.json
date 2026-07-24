@@ -1,0 +1,285 @@
+{
+  "images": [
+    {
+      "id": "sub-hero-factory",
+      "role": "sub-hero-bg",
+      "page": "factory/index.html",
+      "prompt": "Professional B2B engineering photography style, UAV drone components and systems context, dark technical aesthetic with subtle acid green accent hints, industrial yet clean atmosphere, no people faces, no text, no logos, upper portion with space for title text overlay, abstract technology texture suitable as website page header background, 1024x1024"
+    },
+    {
+      "id": "sub-hero-quality",
+      "role": "sub-hero-bg",
+      "page": "quality/index.html",
+      "prompt": "Professional B2B engineering photography style, UAV drone components and systems context, dark technical aesthetic with subtle acid green accent hints, industrial yet clean atmosphere, no people faces, no text, no logos, upper portion with space for title text overlay, abstract technology texture suitable as website page header background, 1024x1024"
+    },
+    {
+      "id": "sub-hero-shipping",
+      "role": "sub-hero-bg",
+      "page": "shipping/index.html",
+      "prompt": "Professional B2B engineering photography style, UAV drone components and systems context, dark technical aesthetic with subtle acid green accent hints, industrial yet clean atmosphere, no people faces, no text, no logos, upper portion with space for title text overlay, abstract technology texture suitable as website page header background, 1024x1024"
+    },
+    {
+      "id": "sub-hero-faq",
+      "role": "sub-hero-bg",
+      "page": "faq/index.html",
+      "prompt": "Professional B2B engineering photography style, UAV drone components and systems context, dark technical aesthetic with subtle acid green accent hints, industrial yet clean atmosphere, no people faces, no text, no logos, upper portion with space for title text overlay, abstract technology texture suitable as website page header background, 1024x1024"
+    },
+    {
+      "id": "sub-hero-how-it-works",
+      "role": "sub-hero-bg",
+      "page": "how-it-works/index.html",
+      "prompt": "Professional B2B engineering photography style, UAV drone components and systems context, dark technical aesthetic with subtle acid green accent hints, industrial yet clean atmosphere, no people faces, no text, no logos, upper portion with space for title text overlay, abstract technology texture suitable as website page header background, 1024x1024"
+    },
+    {
+      "id": "sub-hero-design-guides",
+      "role": "sub-hero-bg",
+      "page": "design-guides/index.html",
+      "prompt": "Professional B2B engineering photography style, UAV drone components and systems context, dark technical aesthetic with subtle acid green accent hints, industrial yet clean atmosphere, no people faces, no text, no logos, upper portion with space for title text overlay, abstract technology texture suitable as website page header background, 1024x1024"
+    },
+    {
+      "id": "sub-hero-projects",
+      "role": "sub-hero-bg",
+      "page": "projects/index.html",
+      "prompt": "Professional B2B engineering photography style, UAV drone components and systems context, dark technical aesthetic with subtle acid green accent hints, industrial yet clean atmosphere, no people faces, no text, no logos, upper portion with space for title text overlay, abstract technology texture suitable as website page header background, 1024x1024"
+    },
+    {
+      "id": "sub-hero-quote",
+      "role": "sub-hero-bg",
+      "page": "quote/index.html",
+      "prompt": "Professional B2B engineering photography style, UAV drone components and systems context, dark technical aesthetic with subtle acid green accent hints, industrial yet clean atmosphere, no people faces, no text, no logos, upper portion with space for title text overlay, abstract technology texture suitable as website page header background, 1024x1024"
+    },
+    {
+      "id": "sub-hero-capabilities",
+      "role": "sub-hero-bg",
+      "page": "capabilities/index.html",
+      "prompt": "Professional B2B engineering photography style, UAV drone components and systems context, dark technical aesthetic with subtle acid green accent hints, industrial yet clean atmosphere, no people faces, no text, no logos, upper portion with space for title text overlay, abstract technology texture suitable as website page header background, 1024x1024"
+    },
+    {
+      "id": "sub-hero-capabilities-flight-control",
+      "role": "sub-hero-bg",
+      "page": "capabilities/flight-control/index.html",
+      "prompt": "Professional B2B engineering photography style, UAV drone components and systems context, dark technical aesthetic with subtle acid green accent hints, industrial yet clean atmosphere, no people faces, no text, no logos, upper portion with space for title text overlay, abstract technology texture suitable as website page header background, 1024x1024"
+    },
+    {
+      "id": "sub-hero-capabilities-esc-power",
+      "role": "sub-hero-bg",
+      "page": "capabilities/esc-power/index.html",
+      "prompt": "Professional B2B engineering photography style, UAV drone components and systems context, dark technical aesthetic with subtle acid green accent hints, industrial yet clean atmosphere, no people faces, no text, no logos, upper portion with space for title text overlay, abstract technology texture suitable as website page header background, 1024x1024"
+    },
+    {
+      "id": "sub-hero-capabilities-propulsion",
+      "role": "sub-hero-bg",
+      "page": "capabilities/propulsion/index.html",
+      "prompt": "Professional B2B engineering photography style, UAV drone components and systems context, dark technical aesthetic with subtle acid green accent hints, industrial yet clean atmosphere, no people faces, no text, no logos, upper portion with space for title text overlay, abstract technology texture suitable as website page header background, 1024x1024"
+    },
+    {
+      "id": "sub-hero-capabilities-airframe",
+      "role": "sub-hero-bg",
+      "page": "capabilities/airframe/index.html",
+      "prompt": "Professional B2B engineering photography style, UAV drone components and systems context, dark technical aesthetic with subtle acid green accent hints, industrial yet clean atmosphere, no people faces, no text, no logos, upper portion with space for title text overlay, abstract technology texture suitable as website page header background, 1024x1024"
+    },
+    {
+      "id": "sub-hero-capabilities-communications",
+      "role": "sub-hero-bg",
+      "page": "capabilities/communications/index.html",
+      "prompt": "Professional B2B engineering photography style, UAV drone components and systems context, dark technical aesthetic with subtle acid green accent hints, industrial yet clean atmosphere, no people faces, no text, no logos, upper portion with space for title text overlay, abstract technology texture suitable as website page header background, 1024x1024"
+    },
+    {
+      "id": "sub-hero-capabilities-payload",
+      "role": "sub-hero-bg",
+      "page": "capabilities/payload/index.html",
+      "prompt": "Professional B2B engineering photography style, UAV drone components and systems context, dark technical aesthetic with subtle acid green accent hints, industrial yet clean atmosphere, no people faces, no text, no logos, upper portion with space for title text overlay, abstract technology texture suitable as website page header background, 1024x1024"
+    },
+    {
+      "id": "sub-hero-industries",
+      "role": "sub-hero-bg",
+      "page": "industries/index.html",
+      "prompt": "Professional B2B engineering photography style, UAV drone components and systems context, dark technical aesthetic with subtle acid green accent hints, industrial yet clean atmosphere, no people faces, no text, no logos, upper portion with space for title text overlay, abstract technology texture suitable as website page header background, 1024x1024"
+    },
+    {
+      "id": "sub-hero-industries-inspection",
+      "role": "sub-hero-bg",
+      "page": "industries/inspection/index.html",
+      "prompt": "Professional B2B engineering photography style, UAV drone components and systems context, dark technical aesthetic with subtle acid green accent hints, industrial yet clean atmosphere, no people faces, no text, no logos, upper portion with space for title text overlay, abstract technology texture suitable as website page header background, 1024x1024"
+    },
+    {
+      "id": "sub-hero-industries-mapping-survey",
+      "role": "sub-hero-bg",
+      "page": "industries/mapping-survey/index.html",
+      "prompt": "Professional B2B engineering photography style, UAV drone components and systems context, dark technical aesthetic with subtle acid green accent hints, industrial yet clean atmosphere, no people faces, no text, no logos, upper portion with space for title text overlay, abstract technology texture suitable as website page header background, 1024x1024"
+    },
+    {
+      "id": "sub-hero-industries-logistics",
+      "role": "sub-hero-bg",
+      "page": "industries/logistics/index.html",
+      "prompt": "Professional B2B engineering photography style, UAV drone components and systems context, dark technical aesthetic with subtle acid green accent hints, industrial yet clean atmosphere, no people faces, no text, no logos, upper portion with space for title text overlay, abstract technology texture suitable as website page header background, 1024x1024"
+    },
+    {
+      "id": "sub-hero-industries-agriculture",
+      "role": "sub-hero-bg",
+      "page": "industries/agriculture/index.html",
+      "prompt": "Professional B2B engineering photography style, UAV drone components and systems context, dark technical aesthetic with subtle acid green accent hints, industrial yet clean atmosphere, no people faces, no text, no logos, upper portion with space for title text overlay, abstract technology texture suitable as website page header background, 1024x1024"
+    },
+    {
+      "id": "sub-hero-industries-research",
+      "role": "sub-hero-bg",
+      "page": "industries/research/index.html",
+      "prompt": "Professional B2B engineering photography style, UAV drone components and systems context, dark technical aesthetic with subtle acid green accent hints, industrial yet clean atmosphere, no people faces, no text, no logos, upper portion with space for title text overlay, abstract technology texture suitable as website page header background, 1024x1024"
+    },
+    {
+      "id": "factory-bench",
+      "role": "product-showcase",
+      "page": "factory/index.html",
+      "prompt": "Professional UAV electronics test bench setup with oscilloscope, power supply, and flight controller mounted on anti-static mat, clean engineering workspace environment, dark technical aesthetic, no people, no text, no logos, professional B2B photography"
+    },
+    {
+      "id": "factory-integration",
+      "role": "concept-scene",
+      "page": "factory/index.html",
+      "prompt": "UAV drone mid-assembly on integration workbench, electronic components and tools laid out methodically, clean engineering workspace with organized parts trays, professional environment, no people faces, no text, no logos"
+    },
+    {
+      "id": "quality-equipment",
+      "role": "product-showcase",
+      "page": "quality/index.html",
+      "prompt": "Electronic test and measurement equipment for UAV component quality verification, oscilloscopes multimeters and signal analyzers arranged professionally, clean technical environment, dark aesthetic, no people, no text, no logos"
+    },
+    {
+      "id": "shipping-pack",
+      "role": "concept-scene",
+      "page": "shipping/index.html",
+      "prompt": "Professional export packaging for UAV components, ESD-safe anti-static packaging with foam inserts for electronic parts, shipping-ready crate with protective materials, clean logistics aesthetic, no text, no logos"
+    },
+    {
+      "id": "projects-inspection-drone",
+      "role": "concept-scene",
+      "page": "projects/index.html",
+      "prompt": "Industrial inspection hexacopter UAV conceptual visualization near infrastructure, thermal camera payload visible underneath, professional engineering photography context, dark moody atmosphere, no people faces, no text, no logos"
+    },
+    {
+      "id": "projects-agriculture-drone",
+      "role": "concept-scene",
+      "page": "projects/index.html",
+      "prompt": "Large agricultural spraying octocopter UAV conceptual visualization, tank and spray boom visible, over farmland at golden hour, professional engineering photography, no people faces, no text, no logos"
+    },
+    {
+      "id": "design-guide-fc",
+      "role": "technical-diagram",
+      "page": "design-guides/index.html",
+      "prompt": "Flight controller architecture decision flowchart concept, visual diagram showing processor sensor firmware selection paths, clean vector technical illustration style, dark background, no text labels, no logos"
+    },
+    {
+      "id": "design-guide-matching",
+      "role": "technical-diagram",
+      "page": "design-guides/index.html",
+      "prompt": "ESC and motor matching concept diagram showing voltage current propeller size relationships, clean engineering schematic style, dark background with subtle grid, no text labels, no logos"
+    },
+    {
+      "id": "cap-fc-detail",
+      "role": "product-showcase",
+      "page": "capabilities/flight-control/index.html",
+      "prompt": "Range of UAV flight controller boards displayed in a grid showing product diversity, different sizes and configurations, professional studio lighting on dark surface, no people, no text, no logos"
+    },
+    {
+      "id": "cap-esc-detail",
+      "role": "product-showcase",
+      "page": "capabilities/esc-power/index.html",
+      "prompt": "Range of UAV electronic speed controllers displayed showing product line diversity from small to large current ratings, professional studio lighting, dark technical background, no people, no text, no logos"
+    },
+    {
+      "id": "cap-propulsion-detail",
+      "role": "product-showcase",
+      "page": "capabilities/propulsion/index.html",
+      "prompt": "Range of UAV brushless motors in various sizes displayed alongside carbon fiber propellers, showing product diversity, professional studio arrangement on dark surface, no people, no text, no logos"
+    },
+    {
+      "id": "cap-airframe-detail",
+      "role": "concept-scene",
+      "page": "capabilities/airframe/index.html",
+      "prompt": "Carbon fiber UAV frame components displayed aesthetically, arms and center plates arranged artistically, professional engineering aesthetic, clean dark background with subtle reflection, no people, no text, no logos"
+    },
+    {
+      "id": "cap-comms-detail",
+      "role": "product-showcase",
+      "page": "capabilities/communications/index.html",
+      "prompt": "UAV radio telemetry modules and antennas displayed, communication hardware range from small receivers to long-range modules, professional studio lighting, dark technical background, no people, no text, no logos"
+    },
+    {
+      "id": "cap-payload-detail",
+      "role": "product-showcase",
+      "page": "capabilities/payload/index.html",
+      "prompt": "UAV camera payloads and 3-axis gimbals displayed, thermal camera RGB camera and multispectral sensor arranged professionally, dark studio background, no people, no text, no logos"
+    },
+    {
+      "id": "ind-inspection-detail",
+      "role": "concept-scene",
+      "page": "industries/inspection/index.html",
+      "prompt": "UAV drone inspecting industrial infrastructure conceptual visualization, bridge or power line inspection context, thermal camera payload visible, dramatic lighting, no people faces, no text, no logos"
+    },
+    {
+      "id": "ind-mapping-detail",
+      "role": "concept-scene",
+      "page": "industries/mapping-survey/index.html",
+      "prompt": "Fixed-wing mapping UAV conceptual visualization in flight over terrain, aerial survey context with photogrammetry camera, geospatial data theme, clean professional aesthetic, no people faces, no text, no logos"
+    },
+    {
+      "id": "ind-logistics-detail",
+      "role": "concept-scene",
+      "page": "industries/logistics/index.html",
+      "prompt": "Delivery UAV quadcopter with cargo package bay conceptual visualization, last-mile logistics context, approaching delivery point, professional engineering aesthetic, no people faces, no text, no logos"
+    },
+    {
+      "id": "ind-agriculture-detail",
+      "role": "concept-scene",
+      "page": "industries/agriculture/index.html",
+      "prompt": "Large agricultural spraying UAV octocopter over crop field conceptual visualization, spray tank visible, farming context with green fields below, professional photography, no people faces, no text, no logos"
+    },
+    {
+      "id": "ind-research-detail",
+      "role": "concept-scene",
+      "page": "industries/research/index.html",
+      "prompt": "Modular research UAV platform with customizable sensor bay conceptual visualization, interchangeable payload modules visible, clean laboratory aesthetic, no people faces, no text, no logos"
+    },
+    {
+      "id": "cta-engineering",
+      "role": "cta-bg",
+      "page": "various",
+      "prompt": "Abstract UAV engineering texture with subtle geometric patterns evoking circuit board traces and aerospace instrumentation, dark background with very subtle acid green highlights, low contrast suitable as CTA section background overlay, no text, no logos"
+    },
+    {
+      "id": "cta-systems",
+      "role": "cta-bg",
+      "page": "various",
+      "prompt": "Abstract drone systems architecture texture, subtle interconnected node patterns and geometric mesh, dark background with very subtle aero blue hints, low contrast for text overlay, no text, no logos"
+    },
+    {
+      "id": "texture-carbon",
+      "role": "texture-bg",
+      "page": "various",
+      "prompt": "Subtle abstract carbon fiber weave texture, very low contrast, dark monochromatic, suitable as card or section background overlay, almost invisible pattern, no text, no logos"
+    },
+    {
+      "id": "texture-circuit",
+      "role": "texture-bg",
+      "page": "various",
+      "prompt": "Very subtle abstract circuit board trace texture, extremely low contrast, dark monochromatic, aerospace instrumentation panel aesthetic, suitable as section background, barely visible, no text, no logos"
+    },
+    {
+      "id": "stats-drone-bg",
+      "role": "stats-bg",
+      "page": "various",
+      "prompt": "Abstract UAV and aerospace themed background with subtle geometric drone silhouette patterns, dark background, very subtle industrial texture, space for statistics text overlay, no logos, no text"
+    },
+    {
+      "id": "process-architecture",
+      "role": "process-flow",
+      "page": "how-it-works/index.html",
+      "prompt": "Abstract engineering process flow visualization from component to complete UAV system, sequential interconnected nodes, clean technical diagram style, dark background, no text labels, no logos"
+    }
+  ],
+  "meta": {
+    "total": 46,
+    "note": "Supplement images for ems-drone site completion — Phase S2",
+    "referenceBaseUrl": ""
+  }
+}

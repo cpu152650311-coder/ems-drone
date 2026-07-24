@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UAV Design Guides — Component Selection &amp; System Architecture | EMS Drone</title>
+  <meta name="description" content="Technical design guides for UAV system architects — flight controller selection, ESC and motor matching, power system design, communication architecture, and airframe integration.">
+  <link rel="icon" type="image/x-icon" href="/generated/favicon.ico">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="apple-touch-icon" sizes="180x180" href="/generated/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/generated/icon-192.png">
+<link rel="icon" type="image/png" sizes="512x512" href="/generated/icon-512.png">
+<link rel="canonical" href="https://ems-drone.pages.dev/design-guides/">
+  <meta property="og:title" content="UAV Design Guides — Component Selection &amp; System Architecture | EMS Drone">
+  <meta property="og:description" content="Technical design guides for UAV system architects — flight controller selection, ESC and motor matching, power system design, communication architecture, and airframe integration.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://ems-drone.pages.dev/design-guides/">
+  <meta property="og:image" content="https://ems-drone.pages.dev/generated/og-design-guides.webp">
+  <meta property="og:site_name" content="EMS Drone">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="UAV Design Guides — Component Selection &amp; System Architecture | EMS Drone">
+  <meta name="twitter:description" content="Technical design guides for UAV system architects — flight controller selection, ESC and motor matching, power system design, communication architecture, and airframe integration.">
+  <meta name="twitter:image" content="https://ems-drone.pages.dev/generated/og-design-guides.webp">
+  <link rel="stylesheet" href="/design-tokens.css?v=6">
+  <link rel="preload" as="image" href="/generated/sub-hero-design-guides.webp">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="nav-shell">
+    <a class="brand" href="/" aria-label="EMS Drone home">
+      <span class="brand-mark"><svg aria-hidden="true"><use href="/index.html#icon-drone"/></svg></span>
+      <span>EMS Drone</span>
+    </a>
+    <button class="nav-toggle" type="button" aria-label="Open navigation" aria-expanded="false">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
+    <nav class="site-nav" aria-label="Primary navigation">
+      <a href="/capabilities/">Capabilities</a>
+      <a href="/customization/">Customization</a>
+      <a href="/testing/">Testing</a>
+      <a href="/industries/">Industries</a>
+      <a href="/about/">About</a>
+      <a href="/blog/">Blog</a>
+      <a class="btn btn-primary" href="/contact/">Start Your Build</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- Sub-Hero -->
+  <section class="sub-hero reveal">
+    <div class="container">
+      <div class="sub-hero-content">
+        <p class="eyebrow">Engineering Knowledge Base</p>
+        <h1>Design Guides</h1>
+        <p class="sub-hero-lede">Component selection frameworks, system architecture patterns, and integration best practices for UAV engineering teams building mission-critical aircraft.</p>
+      </div>
+      <div class="sub-hero-media">
+        <img src="/generated/sub-hero-design-guides.webp" alt="Technical blueprint and 3D exploded view of UAV components — flight controller, ESCs, motors, and airframe assembly" width="640" height="400" loading="eager">
+        <span class="concept-badge">Concept illustration</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Introduction -->
+  <section class="section reveal">
+    <div class="container">
+      <p class="eyebrow">Why Design Guides</p>
+      <h2>Making Informed Component Decisions</h2>
+      <p>Selecting the right components for a UAV system is a multi-dimensional engineering challenge. Every decision — from the flight controller microcontroller to the gauge of power distribution wiring — cascades through weight, endurance, reliability, and total system cost. These guides distill our engineering team's experience across hundreds of aircraft configurations into actionable decision frameworks.</p>
+      <p>Whether you are designing an agricultural spraying multi-rotor, a long-endurance fixed-wing survey platform, or a research aircraft with custom sensor payloads, these guides provide the technical depth needed to evaluate tradeoffs and converge on a well-matched component set.</p>
+    </div>
+  </section>
+
+  <!-- Guide Cards Grid -->
+  <section class="section section-alt reveal">
+    <div class="container">
+      <p class="eyebrow">Guide Library</p>
+      <h2>Six Core Engineering Domains</h2>
+      <p>Each guide addresses a critical subsystem. Read them in sequence for a full-system perspective, or jump directly to the domain most relevant to your current design phase.</p>
+
+      <div class="detail-grid">
+        <!-- Guide 1: Flight Controller -->
+        <div class="detail-card">
+          <div class="detail-card-icon">
+            <svg aria-hidden="true" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="var(--signal)" stroke-width="1.6"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+          </div>
+          <h3>1. Flight Controller Selection</h3>
+          <p>Processor architecture, sensor fusion, firmware ecosystem compatibility, and redundancy topologies. Covers MCU performance tiers, IMU selection criteria (vibration rejection, update rate, redundancy), barometer and GNSS integration, and the tradeoffs between open-source (ArduPilot, PX4) and proprietary flight stacks for different mission profiles.</p>
+          <p><strong>Key considerations:</strong> loop rate vs. computational load, triple-redundant IMU architectures, RTK GNSS precision tiers, and hardware-in-the-loop testing compatibility.</p>
+        </div>
+
+        <!-- Guide 2: ESC & Motor -->
+        <div class="detail-card">
+          <div class="detail-card-icon">
+            <svg aria-hidden="true" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="var(--aero)" stroke-width="1.6"><circle cx="12" cy="12" r="10"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10"/><path d="M12 2a15.3 15.3 0 0 0-4 10 15.3 15.3 0 0 0 4 10"/></svg>
+          </div>
+          <h3>2. ESC &amp; Motor Matching</h3>
+          <p>Voltage, current, and protocol alignment across the propulsion chain. Covers ESC firmware options (BLHeli_32, AM32, proprietary FOC), communication protocols (DShot, CAN, PWM), and motor sizing methodology — KV selection, stator dimensions, and thermal derating under sustained load.</p>
+          <p><strong>Key considerations:</strong> thermal headroom at max continuous current, active freewheeling efficiency gains, CAN vs. DShot for large aircraft, and motor-ESC connector standardization.</p>
+        </div>
+
+        <!-- Guide 3: Power System -->
+        <div class="detail-card">
+          <div class="detail-card-icon">
+            <svg aria-hidden="true" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="var(--signal)" stroke-width="1.6"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+          </div>
+          <h3>3. Power System Architecture</h3>
+          <p>Battery chemistry selection, power distribution bus design, BMS integration, and wiring gauge calculations. Covers LiPo vs. Li-Ion vs. semi-solid-state tradeoffs for different endurance and discharge-rate requirements, PDB architecture (centralized vs. distributed), and voltage sag compensation strategies.</p>
+          <p><strong>Key considerations:</strong> cell internal resistance at target current draw, connector current ratings with safety margin, parallel battery configurations, and BMS communication bus selection.</p>
+        </div>
+
+        <!-- Guide 4: Communication -->
+        <div class="detail-card">
+          <div class="detail-card-icon">
+            <svg aria-hidden="true" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="var(--aero)" stroke-width="1.6"><path d="M23 1l-7 7"/><path d="M17 1h6v6"/><path d="M1 23l1.5-6.5L17 3l4 4L6.5 21.5z"/></svg>
+          </div>
+          <h3>4. Communication Stack Design</h3>
+          <p>Radio frequency selection, telemetry architecture, data link redundancy, and antenna placement. Covers frequency band tradeoffs (433 MHz, 868/915 MHz, 2.4 GHz) for range vs. bandwidth, dual-link redundancy patterns, and antenna diversity strategies for composite airframes.</p>
+          <p><strong>Key considerations:</strong> link budget calculations, antenna polarization matching, RF-transparent airframe materials, and spectrum regulatory compliance by region.</p>
+        </div>
+
+        <!-- Guide 5: Airframe -->
+        <div class="detail-card">
+          <div class="detail-card-icon">
+            <svg aria-hidden="true" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="var(--signal)" stroke-width="1.6"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+          </div>
+          <h3>5. Airframe Integration</h3>
+          <p>Materials selection, component mounting geometries, vibration isolation techniques, and center-of-gravity optimization. Covers carbon fiber vs. aluminum vs. composite frame tradeoffs, vibration damping materials and mounting patterns, and CG calculation methodology for asymmetric payload configurations.</p>
+          <p><strong>Key considerations:</strong> frame resonance frequencies vs. motor RPM bands, fastener torque specifications for carbon fiber, and modular vs. monolithic frame design for field repair.</p>
+        </div>
+
+        <!-- Guide 6: Payload -->
+        <div class="detail-card">
+          <div class="detail-card-icon">
+            <svg aria-hidden="true" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="var(--aero)" stroke-width="1.6"><rect x="2" y="6" width="20" height="12" rx="2"/><circle cx="12" cy="12" r="3"/><path d="M12 3v2M12 19v2M3 12H1M23 12h-2"/></svg>
+          </div>
+          <h3>6. Payload Interface Design</h3>
+          <p>Mechanical mounting standards, electrical power and signal interfaces, and data protocol integration. Covers quick-release mechanism selection, gimbal communication protocols (PWM, SBUS, CAN, serial), and payload power budgeting within the total aircraft power envelope.</p>
+          <p><strong>Key considerations:</strong> hot-swap payload connector specifications, data bandwidth for real-time payload telemetry, and EMI isolation between payload and aircraft electronics.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- File Format Requirements -->
+  <section class="section reveal">
+    <div class="container">
+      <p class="eyebrow">Engineering Inputs</p>
+      <h2>File Format Requirements</h2>
+      <p>When engaging our engineering team for component selection support or custom integration work, providing design files in standardized formats accelerates the review and quotation process.</p>
+
+      <div class="detail-grid">
+        <div class="detail-card">
+          <h3>Mechanical CAD</h3>
+          <ul class="check-list">
+            <li><strong>STEP (.stp / .step)</strong> — Preferred for 3D models; universal compatibility across CAD platforms</li>
+            <li><strong>DXF (.dxf)</strong> — For 2D profiles, mounting patterns, and frame plate layouts</li>
+            <li><strong>PDF (.pdf)</strong> — Dimensioned drawings with tolerances for quick review</li>
+          </ul>
+        </div>
+        <div class="detail-card">
+          <h3>Configuration &amp; Data</h3>
+          <ul class="check-list">
+            <li><strong>JSON (.json)</strong> — Preferred for component BOM, configuration parameters, and telemetry schema definitions</li>
+            <li><strong>XML (.xml)</strong> — For parameter files and flight controller configuration exports</li>
+            <li><strong>CSV (.csv)</strong> — Acceptable for motor thrust tables and test data</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Common Design Pitfalls -->
+  <section class="section section-dark reveal">
+    <div class="container">
+      <p class="eyebrow">Lessons from the Field</p>
+      <h2>Common Design Pitfalls</h2>
+      <p>Our engineering team has seen these mistakes repeated across dozens of projects. Avoiding them early saves weeks of rework and thousands in component costs.</p>
+      <ul class="check-list">
+        <li><strong>Under-specifying ESC current rating.</strong> Operating at or near the rated continuous current leaves zero thermal margin. Apply at minimum a 1.3x derating factor for sustained hover and a 1.5x factor for aggressive maneuvering.</li>
+        <li><strong>Ignoring vibration resonance.</strong> A motor-propeller combination that excites frame resonant frequencies can saturate IMU sensors and degrade flight controller performance — even on otherwise well-designed aircraft.</li>
+        <li><strong>Mismatched connector standards across subsystems.</strong> Different vendors using different connectors for the same voltage rail leads to adapter proliferation, added weight, and additional failure points. Standardize connectors early in the design phase.</li>
+        <li><strong>Insufficient power distribution margin.</strong> Designing the PDB for nominal current draw ignores voltage sag, connector heating, and inrush current during rapid throttle changes. Size traces and connectors for peak, not average.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- CTA Spec Panel -->
+  <section class="section reveal">
+    <div class="container">
+      <div class="spec-panel">
+        <div class="spec-panel-inner">
+          <p class="eyebrow">Engineering Support</p>
+          <h2>Need Design Help?</h2>
+          <p>Our applications engineering team can review your concept, recommend component pairings, and provide preliminary BOM costing — typically within 3 business days.</p>
+          <div class="spec-actions">
+            <a class="btn btn-primary" href="/contact/">Schedule a Design Review</a>
+            <a class="btn btn-outline" href="/quote/">Request a Quote</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a class="brand" href="/"><span class="brand-mark"><svg aria-hidden="true"><use href="/index.html#icon-drone"/></svg></span><span>EMS Drone</span></a>
+        <p>Configurable UAV components, complete systems and engineering support for teams building the next low-altitude applications.</p>
+      </div>
+      <div class="footer-col"><h3>System</h3><a href="/capabilities/">Capabilities</a><a href="/customization/">Customization</a><a href="/testing/">Testing</a></div>
+      <div class="footer-col"><h3>Company</h3><a href="/about/">About</a><a href="/blog/">Blog</a><a href="/contact/">Contact</a></div>
+      <div class="footer-col"><h3>Resources</h3><a href="/faq/">FAQ</a><a href="/how-it-works/">How It Works</a><a href="/design-guides/">Design Guides</a></div>
+    </div>
+    <div class="footer-bottom"><span>&copy; 2026 EMS Drone</span><span>Components &rarr; Systems &rarr; Flight Readiness</span></div>
+  </div>
+</footer>
+
+<script src="/site.js?v=6"></script>
+<script src="/reveal.js?v=6"></script>
+</body>
+</html>

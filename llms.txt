@@ -1,0 +1,33 @@
+# EMS Drone — UAV Components, Customization & System Integration
+Configurable UAV supply chain: flight controllers, ESCs, propulsion, airframes, communications, payload and complete aircraft. Engineering support from component sourcing to flight-ready systems.
+
+## Core Pages
+- / : Home — UAV supply chain and system integration overview
+- /capabilities/ : Component capabilities hub — flight control, ESC, propulsion, airframe, comms, payload
+- /capabilities/flight-control/ : Flight controllers — selection, configuration, sensor integration
+- /capabilities/esc-power/ : ESC and power systems — speed controllers, distribution, batteries
+- /capabilities/propulsion/ : Motors, propellers and powertrain matching
+- /capabilities/airframe/ : Frames, structures and platform integration
+- /capabilities/communications/ : Radio, telemetry and data links
+- /capabilities/payload/ : Cameras, sensors, gimbals and mission kits
+- /customization/ : Custom UAV engineering and configuration process
+- /testing/ : Tuning, integration checks and testing support
+- /industries/ : Industry applications hub
+- /industries/inspection/ : Industrial inspection UAV solutions
+- /industries/mapping-survey/ : Mapping and survey UAV solutions
+- /industries/logistics/ : Logistics and delivery UAV solutions
+- /industries/agriculture/ : Agricultural UAV solutions
+- /industries/research/ : Research platform UAV solutions
+- /about/ : About EMS Drone — engineering approach and team
+- /factory/ : Engineering and integration facility
+- /quality/ : Quality assurance and component verification
+- /shipping/ : Global logistics and packaging
+- /faq/ : Frequently asked questions
+- /how-it-works/ : From RFQ to delivery process
+- /design-guides/ : Technical design guides for UAV system architects
+- /projects/ : Engineering case studies
+- /quote/ : Request a quote
+- /contact/ : Start an engineering conversation
+- /blog/ : UAV engineering blog
+- /privacy/ : Privacy policy
+- /terms/ : Terms of service

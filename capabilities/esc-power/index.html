@@ -1,0 +1,282 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>UAV ESC &amp; Power Systems — Speed Controllers, Distribution &amp; Batteries | EMS Drone</title>
+  <meta name="description" content="Configure UAV electronic speed controllers and power systems. ESC protocols (PWM, DShot, CAN), BEC, power distribution boards, battery selection and wiring architecture.">
+  <link rel="canonical" href="https://ems-drone.pages.dev/capabilities/esc-power/">
+  <meta property="og:title" content="UAV ESC &amp; Power Systems — Speed Controllers, Distribution &amp; Batteries | EMS Drone">
+  <meta property="og:description" content="Configure UAV electronic speed controllers and power systems. ESC protocols, BEC, power distribution, battery selection and wiring architecture.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://ems-drone.pages.dev/capabilities/esc-power/">
+  <meta property="og:image" content="https://ems-drone.pages.dev/generated/og-cover.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <link rel="icon" type="image/x-icon" href="/generated/favicon.ico">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="apple-touch-icon" sizes="180x180" href="/generated/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/generated/icon-192.png">
+<link rel="icon" type="image/png" sizes="512x512" href="/generated/icon-512.png">
+  <link rel="stylesheet" href="/design-tokens.css?v=6">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <svg aria-hidden="true" style="position:absolute;width:0;height:0;overflow:hidden">
+    <symbol id="icon-drone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="2.6"/><path d="m10.2 10.2-4-4m7.6 4 4-4m-7.6 7.6-4 4m7.6-4 4 4"/><circle cx="4.7" cy="4.7" r="2.2"/><circle cx="19.3" cy="4.7" r="2.2"/><circle cx="4.7" cy="19.3" r="2.2"/><circle cx="19.3" cy="19.3" r="2.2"/></symbol>
+    <symbol id="icon-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12h14m-5-5 5 5-5 5"/></symbol>
+    <symbol id="icon-power" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M13 2 5 14h6l-1 8 8-12h-6l1-8Z"/></symbol>
+    <symbol id="icon-chip" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="7" y="7" width="10" height="10" rx="1"/><path d="M9 2v5m6-5v5M9 17v5m6-5v5M2 9h5m-5 6h5m10-6h5m-5 6h5"/><circle cx="12" cy="12" r="2"/></symbol>
+    <symbol id="icon-prop" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="2"/><path d="M10.7 10.6C7 5.3 8 2.5 11 2.2c2.3-.2 2 4.9 1.4 7.8m1 1.2c5.3-3.7 8.1-2.7 8.4.3.2 2.3-4.9 2-7.8 1.4m-.8 1.1c3.7 5.3 2.7 8.1-.3 8.4-2.3.2-2-4.9-1.4-7.8m-1.1-1C5.1 17.3 2.3 16.3 2 13.3c-.2-2.3 4.9-2 7.8-1.4"/></symbol>
+  </svg>
+
+  <header class="site-header">
+    <div class="nav-shell">
+      <a class="brand" href="/" aria-label="EMS Drone home">
+        <span class="brand-mark"><svg aria-hidden="true"><use href="/index.html#icon-drone"/></svg></span>
+        <span>EMS Drone</span>
+      </a>
+      <button class="nav-toggle" type="button" aria-label="Open navigation" aria-expanded="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+      <nav class="site-nav" aria-label="Primary navigation">
+        <a href="/capabilities/">Capabilities</a>
+        <a href="/customization/">Customization</a>
+        <a href="/testing/">Testing</a>
+        <a href="/industries/">Industries</a>
+        <a href="/about/">About</a>
+        <a href="/blog/">Blog</a>
+        <a class="btn btn-primary" href="/contact/">Start Your Build</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="sub-hero">
+      <div class="sub-hero-media">
+        <img src="/generated/sub-hero-capabilities-esc-power.webp" alt="Conceptual UAV ESC board and power distribution system visualization">
+        <span class="concept-badge">Concept illustration</span>
+      </div>
+      <div class="container sub-hero-grid">
+        <div class="reveal">
+          <span class="eyebrow">Capabilities / ESC &amp; Power</span>
+          <h1>ESC &amp; Power Systems</h1>
+          <p>The energy path from battery terminal to motor winding: speed controllers, power distribution, battery architecture and wiring — selected as one coordinated power system.</p>
+        </div>
+        <div class="sub-meta reveal">
+          <div class="sub-meta-row"><span>Role</span><strong>Energy Conversion</strong></div>
+          <div class="sub-meta-row"><span>Protocols</span><strong>DShot / PWM / CAN</strong></div>
+          <div class="sub-meta-row"><span>Voltage Range</span><strong>4S–12S (14.8–50.4 V)</strong></div>
+          <div class="sub-meta-row"><span>Key Interfaces</span><strong>FC, Motor, Battery</strong></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-header reveal">
+          <div>
+            <span class="eyebrow">Overview</span>
+            <h2>Every watt matters between battery and propeller.</h2>
+          </div>
+          <p>The power path — battery to PDB to ESC to motor — is a chain of decisions that affects flight time, thrust response, electrical noise and thermal behavior. Selecting an ESC is not a standalone choice. It is the midpoint of a power architecture that must be consistent from cell chemistry to motor winding.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-alt">
+      <div class="container">
+        <div class="section-header reveal">
+          <div>
+            <span class="eyebrow">ESC Types &amp; Protocols</span>
+            <h2>The communication layer between FC and motor.</h2>
+          </div>
+          <p>ESC protocol determines throttle resolution, update rate, telemetry availability and noise immunity — each with different trade-offs for different aircraft categories.</p>
+        </div>
+        <div class="detail-grid reveal">
+          <article class="detail-card">
+            <span class="tech-label">BLHeli_32 / AM32</span>
+            <h3>DShot digital protocol</h3>
+            <p>Digital ESC protocol operating at DShot300–DShot1200 with 10.7–42.6 kbps data rates. Eliminates throttle calibration, provides CRC error checking and supports bidirectional DShot for RPM telemetry. BLHeli_32 and its open-source successor AM32 cover the majority of multi-rotor ESCs from 20 A to 80 A per channel. RPM filtering in Betaflight and INAV uses this telemetry stream to suppress motor-noise bands in the gyro data — a significant improvement in flight smoothness on smaller airframes.</p>
+            <ul class="tag-list"><li>DShot300–1200</li><li>RPM telemetry</li><li>CRC protected</li><li>20–80 A</li></ul>
+          </article>
+          <article class="detail-card">
+            <span class="tech-label">CAN ESC</span>
+            <h3>Distributed power architecture</h3>
+            <p>CAN bus ESCs replace individual PWM/DShot signal wires with a two-wire differential bus. Each ESC reports current, voltage, temperature, RPM and error status back to the flight controller over the same bus. This architecture reduces wiring complexity on larger aircraft (8+ motors), enables individual motor health monitoring and supports firmware updates over CAN. Common in ArduPilot and PX4 builds above 25 kg all-up weight where per-motor diagnostics matter.</p>
+            <ul class="tag-list"><li>CAN bus</li><li>Per-motor telemetry</li><li>Reduced wiring</li><li>OTA firmware</li></ul>
+          </article>
+          <article class="detail-card">
+            <span class="tech-label">PWM ESC</span>
+            <h3>Universal analog fallback</h3>
+            <p>Standard 50–400 Hz PWM input — the most widely compatible ESC interface. Used on fixed-wing motor ESCs, large multi-rotor ESCs (80 A+) and any application where protocol compatibility across mixed hardware matters more than update rate. Requires throttle calibration per ESC. Typically combined with a separate BEC for flight controller and servo power. Still the default for industrial fixed-wing builds where the autopilot outputs standard PWM to both motor and servo channels.</p>
+            <ul class="tag-list"><li>50–400 Hz</li><li>Universal</li><li>Fixed-wing</li><li>80 A+ capable</li></ul>
+          </article>
+          <article class="detail-card">
+            <span class="tech-label">4-in-1 / AIO</span>
+            <h3>Integrated ESC boards</h3>
+            <p>Four ESCs on a single PCB sharing power input and signal routing. Common in 3–7 inch multi-rotors below 2 kg. Reduces wiring, saves weight and simplifies the build — but concentrates thermal load and creates a single point of failure for all four motors. Stack-mounted with the flight controller for a compact electronics package. Available in 20×20 mm and 30.5×30.5 mm mounting patterns with current ratings from 15 A to 65 A per channel.</p>
+            <ul class="tag-list"><li>4-in-1</li><li>20×20 / 30.5×30.5</li><li>15–65 A/ch</li><li>Compact</li></ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-header reveal">
+          <div>
+            <span class="eyebrow">Current &amp; Voltage Architecture</span>
+            <h2>Size the power path for the load — with headroom.</h2>
+          </div>
+          <p>Current rating and voltage selection are driven by motor draw, not battery label. Underspecifying either leads to thermal shutdown, voltage sag or failure.</p>
+        </div>
+        <table class="config-table reveal">
+          <tr><th>Voltage (cell count)</th><td>4S (14.8 V) for sub-250 g and 3-inch builds. 6S (22.2 V) standard for 5–7 inch multi-rotors. 8S (29.6 V) for 7–10 inch and heavy-lift. 12S (44.4–50.4 V) for industrial platforms above 15 kg. Higher voltage reduces current for the same power — less I²R loss, cooler wiring, more efficient.</td></tr>
+          <tr><th>Current rating</th><td>ESC current rating should exceed motor max continuous draw by 20–30%. A motor pulling 35 A at full throttle on 6S needs a 45–50 A ESC. Peak (burst) ratings are for seconds only — sustained hovering and climb profiles must stay within the continuous rating.</td></tr>
+          <tr><th>Thermal management</th><td>ESC temperature rise depends on current, airflow and ambient temperature. Enclosed airframes and high-altitude operation (thinner air, less convective cooling) both demand more conservative current derating. Heatsink and active cooling become necessary above 80 A continuous per channel.</td></tr>
+        </table>
+      </div>
+    </section>
+
+    <section class="section section-dark">
+      <div class="container">
+        <div class="section-header reveal">
+          <div>
+            <span class="eyebrow">Power Distribution</span>
+            <h2>Get power from the battery to every consumer.</h2>
+          </div>
+          <p>Power distribution is not just a PCB or wiring harness — it is the electrical architecture that feeds ESCs, flight controller, servos, payload and accessories at their required voltages.</p>
+        </div>
+        <div class="detail-grid reveal">
+          <article class="detail-card">
+            <h3>PDB and wiring harness</h3>
+            <p>A power distribution board (PDB) takes battery voltage and routes it to each ESC pad with appropriate copper weight (2–4 oz) for the total system current. On smaller builds an AIO FC+ESC stack eliminates the separate PDB. On larger aircraft a centralized PDB or a distributed wiring harness with XT60/XT90/AS150 connectors feeds each ESC individually. Wire gauge follows the current path: 12–14 AWG for battery leads, 16–18 AWG for individual ESC power feeds on sub-10 kg platforms.</p>
+          </article>
+          <article class="detail-card">
+            <h3>BEC and voltage regulation</h3>
+            <p>A battery eliminator circuit (BEC) steps battery voltage down to 5 V, 9 V or 12 V for the flight controller, receiver, servos and accessories. Standalone BECs (switching, 3–10 A) provide cleaner power than integrated ESC BECs and isolate the FC supply from motor-noise spikes. Servo-heavy fixed-wing builds need separate BECs rated for peak servo stall current. Redundant BEC configurations add a second regulated supply with diode-OR for power-path failover on critical platforms.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-header reveal">
+          <div>
+            <span class="eyebrow">Battery Selection</span>
+            <h2>Chemistry, capacity and C-rating define the energy budget.</h2>
+          </div>
+          <p>The battery determines flight endurance, peak power availability and physical weight — the single heaviest component on most electric UAVs.</p>
+        </div>
+        <table class="config-table reveal">
+          <tr><th>LiPo (lithium polymer)</th><td>High discharge rates (30 C–120 C continuous) at the cost of lower energy density. The standard for multi-rotors where burst power matters. 6S 22.2 V packs from 1000 mAh (sub-250 g) to 22,000 mAh (heavy-lift) cover most builds. Requires careful storage voltage management and physical protection from puncture.</td></tr>
+          <tr><th>Li-Ion (lithium-ion)</th><td>Higher energy density (200–260 Wh/kg vs 140–180 Wh/kg for LiPo) but lower discharge rates (5 C–15 C continuous). Preferred for long-endurance fixed-wing mapping platforms where constant cruise current is low. 6S Li-Ion packs built from 18650 or 21700 cells can deliver 60–90 minute flight times on efficient airframes.</td></tr>
+          <tr><th>Capacity vs. weight</th><td>Battery mass scales roughly linearly with capacity at a given cell count. A 6S 5000 mAh LiPo weighs approximately 700–800 g. Doubling capacity approximately doubles weight — but does not double flight time because the aircraft must lift the added mass. The endurance optimum is found at the point where marginal energy gain is offset by the power required to lift it.</td></tr>
+          <tr><th>C-rating and real draw</th><td>C-rating times capacity gives the theoretical max current. In practice, sustained draw should stay well below the continuous C-rating to limit voltage sag and heating. A 5000 mAh pack rated 50 C claims 250 A — but sustained draw above 100 A (20 C) will cause significant sag. Temperature rise above 60 C degrades pack life rapidly.</td></tr>
+        </table>
+      </div>
+    </section>
+
+    <section class="section section-alt">
+      <div class="container">
+        <div class="section-header reveal">
+          <div>
+            <span class="eyebrow">Selection Guidance</span>
+            <h2>Power architecture by aircraft type.</h2>
+          </div>
+          <p>Common power-system starting points for different UAV categories.</p>
+        </div>
+        <table class="config-table reveal">
+          <tr><th>Sub-250 g micro</th><td>AIO FC+ESC board, 3S–4S 450–850 mAh LiPo, integrated BEC. Weight is the overriding constraint — every gram saved on power components extends flight time.</td></tr>
+          <tr><th>5-inch freestyle / cine</th><td>4-in-1 BLHeli_32/AM32 ESC 45–55 A, 6S 1300–1800 mAh LiPo, stack-mounted with FC. DShot600 with bidirectional RPM filtering for smooth flight video.</td></tr>
+          <tr><th>7–10 inch heavy-lift</th><td>Individual ESCs 50–80 A or 4-in-1 65 A board, 6S–8S 5000–10000 mAh LiPo, separate switching BEC. Focus on thermal headroom and low-ESR capacitor banks at the PDB.</td></tr>
+          <tr><th>Industrial multi-rotor (15+ kg)</th><td>CAN bus ESCs 80–120 A per channel, 12S 16000–22000 mAh LiPo or Li-Ion pack, distributed wiring harness with AS150 connectors. Redundant BEC, per-motor current monitoring, active cooling.</td></tr>
+          <tr><th>Fixed-wing endurance</th><td>Single PWM ESC 40–60 A, 6S Li-Ion 10000–21000 mAh pack, separate BEC for servo rail. Cruise current is the design point — the ESC must be efficient at 30–50% throttle, not just peak.</td></tr>
+        </table>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-header reveal">
+          <div>
+            <span class="eyebrow">Related Capabilities</span>
+            <h2>Power connects to control and motion.</h2>
+          </div>
+          <p>The power architecture is the bridge between the flight controller's commands and the propulsion system's response.</p>
+        </div>
+        <div class="detail-grid reveal">
+          <article class="detail-card">
+            <span class="tech-label">Flight Control</span>
+            <h3>Protocol and voltage handoff</h3>
+            <p>ESC protocol selection (DShot, PWM, CAN) is defined by FC output capability. BEC voltage must match FC input spec. Current sensor calibration ties the power path into the flight controller's battery monitoring.</p>
+            <a class="inline-link" href="/capabilities/flight-control/">Flight Control</a>
+          </article>
+          <article class="detail-card">
+            <span class="tech-label">Propulsion</span>
+            <h3>Motor current defines ESC sizing</h3>
+            <p>ESC current rating is sized to motor max draw with headroom. Motor-ESC-prop matching is a single optimization problem — change one and the other two shift.</p>
+            <a class="inline-link" href="/capabilities/propulsion/">Propulsion</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="spec-panel reveal">
+          <div class="spec-panel-inner">
+            <div>
+              <span class="eyebrow">Start With the Power Path</span>
+              <h2>Bring the aircraft size and performance targets.</h2>
+              <p>Tell us the all-up weight, motor count, desired flight time and payload power requirements. We will map the voltage architecture, ESC selection and distribution design.</p>
+            </div>
+            <div class="spec-actions">
+              <button class="btn btn-primary" type="button" data-open-inquiry>Start Your Build <svg aria-hidden="true"><use href="#icon-arrow"/></svg></button>
+              <a class="btn btn-outline" href="/contact/">Open the RFQ Brief</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="brand" href="/"><span class="brand-mark"><svg aria-hidden="true"><use href="/index.html#icon-drone"/></svg></span><span>EMS Drone</span></a>
+          <p>Configurable UAV components, complete systems and engineering support for teams building the next low-altitude applications.</p>
+        </div>
+        <div class="footer-col"><h3>System</h3><a href="/capabilities/">Capabilities</a><a href="/customization/">Customization</a><a href="/testing/">Testing</a></div>
+        <div class="footer-col"><h3>Company</h3><a href="/about/">About</a><a href="/blog/">Blog</a><a href="/contact/">Contact</a></div>
+        <div class="footer-col"><h3>Resources</h3><a href="/faq/">FAQ</a><a href="/how-it-works/">How It Works</a><a href="/design-guides/">Design Guides</a></div>
+      </div>
+      <div class="footer-bottom"><span>&copy; 2026 EMS Drone</span><span>Components → Systems → Flight Readiness</span></div>
+    </div>
+  </footer>
+
+  <div class="modal-overlay" id="inquiryModal" aria-hidden="true">
+    <div class="modal-dialog" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <button class="modal-close" type="button" aria-label="Close inquiry">×</button>
+      <div class="modal-aside">
+        <span class="tech-label">ESC &amp; Power / Intake</span>
+        <div><h3 id="modalTitle">Define your power requirements.</h3><p>Share aircraft weight, motor count, flight time target and payload power needs. We will map the voltage, ESC and distribution architecture.</p></div>
+      </div>
+      <form class="modal-form" data-preview-form>
+        <div class="field"><label for="modal-name">Name</label><input id="modal-name" name="name" autocomplete="name" required></div>
+        <div class="field" style="margin-top:18px"><label for="modal-email">Email</label><input id="modal-email" name="email" type="email" autocomplete="email" required></div>
+        <div class="field" style="margin-top:18px"><label for="modal-message">Project brief</label><textarea id="modal-message" name="message" required placeholder="Aircraft type, all-up weight, motor count, flight time target, payload power requirements"></textarea></div>
+        <p class="form-note">Preview mode: this form is not connected to an unverified recipient.</p>
+        <button class="btn btn-primary" type="submit">Submit Engineering Brief</button>
+        <div class="form-status" role="status" aria-live="polite" aria-atomic="true"></div>
+      </form>
+    </div>
+  </div>
+  <script src="/site.js?v=6"></script>
+  <script src="/reveal.js?v=6"></script>
+</body>
+</html>

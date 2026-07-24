@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Request a UAV Component Quote | EMS Drone</title>
+  <meta name="description" content="Get a preliminary quote for UAV components, subsystems or complete aircraft. Share your BOM, mission requirements or configuration goals for an engineering assessment.">
+  <link rel="icon" type="image/x-icon" href="/generated/favicon.ico">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="apple-touch-icon" sizes="180x180" href="/generated/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/generated/icon-192.png">
+<link rel="icon" type="image/png" sizes="512x512" href="/generated/icon-512.png">
+<link rel="canonical" href="https://ems-drone.pages.dev/quote/">
+  <meta property="og:title" content="Request a UAV Component Quote | EMS Drone">
+  <meta property="og:description" content="Get a preliminary quote for UAV components, subsystems or complete aircraft. Share your BOM, mission requirements or configuration goals for an engineering assessment.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://ems-drone.pages.dev/quote/">
+  <meta property="og:image" content="https://ems-drone.pages.dev/generated/og-quote.webp">
+  <meta property="og:site_name" content="EMS Drone">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Request a UAV Component Quote | EMS Drone">
+  <meta name="twitter:description" content="Get a preliminary quote for UAV components, subsystems or complete aircraft. Share your BOM, mission requirements or configuration goals for an engineering assessment.">
+  <meta name="twitter:image" content="https://ems-drone.pages.dev/generated/og-quote.webp">
+  <link rel="stylesheet" href="/design-tokens.css?v=6">
+  <link rel="preload" as="image" href="/generated/sub-hero-quote.webp">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="nav-shell">
+    <a class="brand" href="/" aria-label="EMS Drone home">
+      <span class="brand-mark"><svg aria-hidden="true"><use href="/index.html#icon-drone"/></svg></span>
+      <span>EMS Drone</span>
+    </a>
+    <button class="nav-toggle" type="button" aria-label="Open navigation" aria-expanded="false">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
+    <nav class="site-nav" aria-label="Primary navigation">
+      <a href="/capabilities/">Capabilities</a>
+      <a href="/customization/">Customization</a>
+      <a href="/testing/">Testing</a>
+      <a href="/industries/">Industries</a>
+      <a href="/about/">About</a>
+      <a href="/blog/">Blog</a>
+      <a class="btn btn-primary" href="/contact/">Start Your Build</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- Sub-Hero -->
+  <section class="sub-hero reveal">
+    <div class="container">
+      <div class="sub-hero-content">
+        <p class="eyebrow">Commercial</p>
+        <h1>Request a Quote</h1>
+        <p class="sub-hero-lede">Share your BOM, mission requirements, or aircraft configuration goals. Our engineering team evaluates every inquiry and returns a detailed component recommendation with preliminary pricing.</p>
+      </div>
+      <div class="sub-hero-media">
+        <img src="/generated/sub-hero-quote.webp" alt="Engineering workstation with UAV component BOM spreadsheet, calipers, and a flight controller module under review" width="640" height="400" loading="eager">
+        <span class="concept-badge">Concept illustration</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Quote Form Section -->
+  <section class="section reveal">
+    <div class="container">
+      <p class="eyebrow">Get Started</p>
+      <h2>Quick Quote Request</h2>
+      <p>Fill out the form below with as much detail as you can provide. The more specific your requirements, the more accurate our preliminary assessment. Typical response time is 2-3 business days.</p>
+
+      <form class="inquiry-form" action="https://inquiry-proxy.workers.dev" method="POST" id="quote-form">
+        <input type="hidden" name="form-type" value="quote">
+        <input type="hidden" name="site" value="ems-drone">
+
+        <div class="form-grid">
+          <div class="field">
+            <label for="name">Full Name <span aria-hidden="true">*</span></label>
+            <input type="text" id="name" name="name" required autocomplete="name" placeholder="Your full name">
+          </div>
+          <div class="field">
+            <label for="email">Email Address <span aria-hidden="true">*</span></label>
+            <input type="email" id="email" name="email" required autocomplete="email" placeholder="you@company.com">
+          </div>
+          <div class="field">
+            <label for="company">Company <span class="field-optional">(optional)</span></label>
+            <input type="text" id="company" name="company" autocomplete="organization" placeholder="Your company or organization">
+          </div>
+          <div class="field">
+            <label for="project-type">Project Type</label>
+            <select id="project-type" name="project-type">
+              <option value="">Select project type</option>
+              <option value="components">Individual components (BOM sourcing)</option>
+              <option value="subsystem">Subsystem integration kit</option>
+              <option value="complete">Complete aircraft configuration</option>
+              <option value="custom">Custom engineering project</option>
+              <option value="consultation">Engineering consultation</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="message">BOM, Requirements, or Project Description <span aria-hidden="true">*</span></label>
+          <textarea id="message" name="message" rows="8" required placeholder="Please include: component types and quantities (attach BOM if available), target specifications (payload, endurance, range), operating environment considerations, approximate budget and timeline, and any certification or compliance requirements."></textarea>
+        </div>
+
+        <div class="field">
+          <label for="budget">Approximate Budget Range</label>
+          <select id="budget" name="budget">
+            <option value="">Select budget range</option>
+            <option value="under-5k">Under $5,000</option>
+            <option value="5k-20k">$5,000 - $20,000</option>
+            <option value="20k-50k">$20,000 - $50,000</option>
+            <option value="50k-100k">$50,000 - $100,000</option>
+            <option value="100k-plus">$100,000+</option>
+            <option value="undecided">Not yet determined</option>
+          </select>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit Quote Request</button>
+        <p class="form-note">We will never share your project details. All inquiries are treated as confidential under NDA-level discretion.</p>
+      </form>
+    </div>
+  </section>
+
+  <!-- Price Reference -->
+  <section class="section section-alt reveal">
+    <div class="container">
+      <p class="eyebrow">Planning</p>
+      <h2>Typical Price Reference</h2>
+      <p>These ranges are informational and reflect typical component-tier market pricing. Final quotation always follows an engineering review of your specific requirements.</p>
+      <p class="pricing-note"><strong>Note:</strong> Prices are indicative. Final quotation follows engineering review.</p>
+
+      <div class="detail-grid">
+        <div class="detail-card">
+          <h3>Flight Controllers</h3>
+          <p>Varies by capability tier — from open-source hobby-grade flight controllers with basic IMU and barometer, to industrial units with triple-redundant IMUs, heated IMUs for high-altitude operation, and RTK GNSS integration. Pricing reflects sensor quality, processor capability, and redundancy level.</p>
+          <p><strong>Typical range:</strong> Budget-conscious through to premium industrial-grade systems.</p>
+        </div>
+        <div class="detail-card">
+          <h3>ESCs and Motors</h3>
+          <p>ESCs depend on current rating (from 20A to 120A+), communication protocol (PWM, DShot, CAN), and firmware type. Motors are based on size class, KV rating, construction quality, and performance tier. Higher-current, FOC-based ESCs with CAN telemetry command a premium over basic BLHeli PWM units.</p>
+          <p><strong>Typical range:</strong> Per-unit pricing scales with current rating, protocol, and motor class.</p>
+        </div>
+        <div class="detail-card">
+          <h3>Complete Aircraft</h3>
+          <p>Configuration-dependent — a basic quadcopter kit differs substantially from a heavy-lift hexacopter with redundant systems, custom payload integration, and industrial communication links. The largest cost drivers are the propulsion system, battery configuration, and payload integration complexity.</p>
+          <p><strong>Typical range:</strong> Highly variable based on aircraft class, payload capacity, and redundancy requirements.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Process: What Happens After Submit -->
+  <section class="section reveal">
+    <div class="container">
+      <p class="eyebrow">Process</p>
+      <h2>What Happens After You Submit</h2>
+      <p>Every quote request follows a structured review pipeline. Here is what to expect.</p>
+
+      <div class="process-rail">
+        <div class="process-step">
+          <div class="step-number">1</div>
+          <div>
+            <h3>Initial Review</h3>
+            <p>Our applications engineering team reviews your submission within one business day. If the requirements are clear and complete, we proceed directly to assessment. If we need clarification, we will reach out by email with specific questions — typically about payload mass, target endurance, or operating environment.</p>
+          </div>
+        </div>
+        <div class="process-step">
+          <div class="step-number">2</div>
+          <div>
+            <h3>Engineering Assessment</h3>
+            <p>We model your requirements against our component database, evaluating multiple candidate configurations. This includes propulsion system matching, power budget verification, structural compatibility checks, and communication link budget calculations. The output is a shortlist of recommended components with rationale.</p>
+          </div>
+        </div>
+        <div class="process-step">
+          <div class="step-number">3</div>
+          <div>
+            <h3>Quote Delivery</h3>
+            <p>You receive a detailed quotation document including: recommended component list with specifications and quantities, unit and extended pricing, lead time estimates, and an engineering commentary explaining key selection decisions. You can then approve, request modifications, or schedule a design review call.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Snippet -->
+  <section class="section section-alt reveal">
+    <div class="container">
+      <p class="eyebrow">Common Questions</p>
+      <h2>About the Quoting Process</h2>
+
+      <div class="detail-grid">
+        <div class="detail-card">
+          <h3>Do I need a complete BOM to request a quote?</h3>
+          <p>No. Many customers come to us with mission requirements rather than a finalized BOM. Provide your target payload, endurance, operating environment, and any preferred standards or protocols — we will propose a component set from there.</p>
+        </div>
+        <div class="detail-card">
+          <h3>How long does quoting take?</h3>
+          <p>Standard response is within 2-3 business days. Complex projects requiring extensive modeling or supplier coordination may take up to 5 business days. We will confirm the timeline in our initial acknowledgment.</p>
+        </div>
+        <div class="detail-card">
+          <h3>Are quoted prices binding?</h3>
+          <p>Quoted prices are valid for 30 days from the date of issue. Component prices can fluctuate with supply chain conditions, particularly for semiconductors and lithium cells. We proactively communicate any significant changes before order confirmation.</p>
+        </div>
+        <div class="detail-card">
+          <h3>What if I need to modify the quote after receiving it?</h3>
+          <p>Quote revisions are standard. If you need to adjust quantities, swap components, or explore alternative configurations after reviewing the quote, simply reply to the quote email with your requested changes. Minor revisions are typically returned within one business day.</p>
+        </div>
+      </div>
+
+      <p style="margin-top: var(--space-4);">More questions? Visit our <a class="inline-link" href="/faq/">FAQ page</a> for additional information on ordering, shipping, warranty, and technical support.</p>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section reveal">
+    <div class="container">
+      <div class="spec-panel">
+        <div class="spec-panel-inner">
+          <p class="eyebrow">Ready to Proceed</p>
+          <h2>Need a Faster Response?</h2>
+          <p>For urgent project timelines or volume procurement inquiries, contact our sales engineering team directly. We can often provide same-day preliminary estimates for well-defined component requirements.</p>
+          <div class="spec-actions">
+            <a class="btn btn-primary" href="/contact/">Contact Sales Engineering</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a class="brand" href="/"><span class="brand-mark"><svg aria-hidden="true"><use href="/index.html#icon-drone"/></svg></span><span>EMS Drone</span></a>
+        <p>Configurable UAV components, complete systems and engineering support for teams building the next low-altitude applications.</p>
+      </div>
+      <div class="footer-col"><h3>System</h3><a href="/capabilities/">Capabilities</a><a href="/customization/">Customization</a><a href="/testing/">Testing</a></div>
+      <div class="footer-col"><h3>Company</h3><a href="/about/">About</a><a href="/blog/">Blog</a><a href="/contact/">Contact</a></div>
+      <div class="footer-col"><h3>Resources</h3><a href="/faq/">FAQ</a><a href="/how-it-works/">How It Works</a><a href="/design-guides/">Design Guides</a></div>
+    </div>
+    <div class="footer-bottom"><span>&copy; 2026 EMS Drone</span><span>Components &rarr; Systems &rarr; Flight Readiness</span></div>
+  </div>
+</footer>
+
+<script src="/site.js?v=6"></script>
+<script src="/reveal.js?v=6"></script>
+</body>
+</html>

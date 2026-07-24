@@ -1,0 +1,254 @@
+{
+  "sub-hero-factory": {
+    "id": "sub-hero-factory",
+    "file": "sub-hero-factory.webp",
+    "role": "sub-hero-bg",
+    "page": "factory/index.html",
+    "display": "default",
+    "size_bytes": 34944,
+    "source": "text-to-image"
+  },
+  "sub-hero-quality": {
+    "id": "sub-hero-quality",
+    "file": "sub-hero-quality.webp",
+    "role": "sub-hero-bg",
+    "page": "quality/index.html",
+    "display": "default",
+    "size_bytes": 54060,
+    "source": "text-to-image"
+  },
+  "sub-hero-shipping": {
+    "id": "sub-hero-shipping",
+    "file": "sub-hero-shipping.webp",
+    "role": "sub-hero-bg",
+    "page": "shipping/index.html",
+    "display": "default",
+    "size_bytes": 43984,
+    "source": "text-to-image"
+  },
+  "sub-hero-faq": {
+    "id": "sub-hero-faq",
+    "file": "sub-hero-faq.webp",
+    "role": "sub-hero-bg",
+    "page": "faq/index.html",
+    "display": "default",
+    "size_bytes": 46294,
+    "source": "text-to-image"
+  },
+  "sub-hero-how-it-works": {
+    "id": "sub-hero-how-it-works",
+    "file": "sub-hero-how-it-works.webp",
+    "role": "sub-hero-bg",
+    "page": "how-it-works/index.html",
+    "display": "default",
+    "size_bytes": 40464,
+    "source": "text-to-image"
+  },
+  "sub-hero-design-guides": {
+    "id": "sub-hero-design-guides",
+    "file": "sub-hero-design-guides.webp",
+    "role": "sub-hero-bg",
+    "page": "design-guides/index.html",
+    "display": "default",
+    "size_bytes": 49304,
+    "source": "text-to-image"
+  },
+  "sub-hero-projects": {
+    "id": "sub-hero-projects",
+    "file": "sub-hero-projects.webp",
+    "role": "sub-hero-bg",
+    "page": "projects/index.html",
+    "display": "default",
+    "size_bytes": 61802,
+    "source": "text-to-image"
+  },
+  "sub-hero-quote": {
+    "id": "sub-hero-quote",
+    "file": "sub-hero-quote.webp",
+    "role": "sub-hero-bg",
+    "page": "quote/index.html",
+    "display": "default",
+    "size_bytes": 29772,
+    "source": "text-to-image"
+  },
+  "sub-hero-capabilities": {
+    "id": "sub-hero-capabilities",
+    "file": "sub-hero-capabilities.webp",
+    "role": "sub-hero-bg",
+    "page": "capabilities/index.html",
+    "display": "default",
+    "size_bytes": 41950,
+    "source": "text-to-image"
+  },
+  "sub-hero-capabilities-flight-control": {
+    "id": "sub-hero-capabilities-flight-control",
+    "file": "sub-hero-capabilities-flight-control.webp",
+    "role": "sub-hero-bg",
+    "page": "capabilities/flight-control/index.html",
+    "display": "default",
+    "size_bytes": 54644,
+    "source": "text-to-image"
+  },
+  "sub-hero-capabilities-esc-power": {
+    "id": "sub-hero-capabilities-esc-power",
+    "file": "sub-hero-capabilities-esc-power.webp",
+    "role": "sub-hero-bg",
+    "page": "capabilities/esc-power/index.html",
+    "display": "default",
+    "size_bytes": 47876,
+    "source": "text-to-image"
+  },
+  "sub-hero-capabilities-propulsion": {
+    "id": "sub-hero-capabilities-propulsion",
+    "file": "sub-hero-capabilities-propulsion.webp",
+    "role": "sub-hero-bg",
+    "page": "capabilities/propulsion/index.html",
+    "display": "default",
+    "size_bytes": 35956,
+    "source": "text-to-image"
+  },
+  "sub-hero-capabilities-airframe": {
+    "id": "sub-hero-capabilities-airframe",
+    "file": "sub-hero-capabilities-airframe.webp",
+    "role": "sub-hero-bg",
+    "page": "capabilities/airframe/index.html",
+    "display": "default",
+    "size_bytes": 44340,
+    "source": "text-to-image"
+  },
+  "sub-hero-capabilities-communications": {
+    "id": "sub-hero-capabilities-communications",
+    "file": "sub-hero-capabilities-communications.webp",
+    "role": "sub-hero-bg",
+    "page": "capabilities/communications/index.html",
+    "display": "default",
+    "size_bytes": 51188,
+    "source": "text-to-image"
+  },
+  "sub-hero-capabilities-payload": {
+    "id": "sub-hero-capabilities-payload",
+    "file": "sub-hero-capabilities-payload.webp",
+    "role": "sub-hero-bg",
+    "page": "capabilities/payload/index.html",
+    "display": "default",
+    "size_bytes": 35864,
+    "source": "text-to-image"
+  },
+  "sub-hero-industries": {
+    "id": "sub-hero-industries",
+    "file": "sub-hero-industries.webp",
+    "role": "sub-hero-bg",
+    "page": "industries/index.html",
+    "display": "default",
+    "size_bytes": 50496,
+    "source": "text-to-image"
+  },
+  "sub-hero-industries-inspection": {
+    "id": "sub-hero-industries-inspection",
+    "file": "sub-hero-industries-inspection.webp",
+    "role": "sub-hero-bg",
+    "page": "industries/inspection/index.html",
+    "display": "default",
+    "size_bytes": 45170,
+    "source": "text-to-image"
+  },
+  "sub-hero-industries-mapping-survey": {
+    "id": "sub-hero-industries-mapping-survey",
+    "file": "sub-hero-industries-mapping-survey.webp",
+    "role": "sub-hero-bg",
+    "page": "industries/mapping-survey/index.html",
+    "display": "default",
+    "size_bytes": 40970,
+    "source": "text-to-image"
+  },
+  "sub-hero-industries-logistics": {
+    "id": "sub-hero-industries-logistics",
+    "file": "sub-hero-industries-logistics.webp",
+    "role": "sub-hero-bg",
+    "page": "industries/logistics/index.html",
+    "display": "default",
+    "size_bytes": 46764,
+    "source": "text-to-image"
+  },
+  "sub-hero-industries-agriculture": {
+    "id": "sub-hero-industries-agriculture",
+    "file": "sub-hero-industries-agriculture.webp",
+    "role": "sub-hero-bg",
+    "page": "industries/agriculture/index.html",
+    "display": "default",
+    "size_bytes": 39582,
+    "source": "text-to-image"
+  },
+  "sub-hero-industries-research": {
+    "id": "sub-hero-industries-research",
+    "file": "sub-hero-industries-research.webp",
+    "role": "sub-hero-bg",
+    "page": "industries/research/index.html",
+    "display": "default",
+    "size_bytes": 43504,
+    "source": "text-to-image"
+  },
+  "factory-bench": {
+    "id": "factory-bench",
+    "file": "factory-bench.webp",
+    "role": "product-showcase",
+    "page": "factory/index.html",
+    "display": "default",
+    "size_bytes": 67006,
+    "source": "text-to-image"
+  },
+  "factory-integration": {
+    "id": "factory-integration",
+    "file": "factory-integration.webp",
+    "role": "concept-scene",
+    "page": "factory/index.html",
+    "display": "default",
+    "size_bytes": 120936,
+    "source": "text-to-image"
+  },
+  "quality-equipment": {
+    "id": "quality-equipment",
+    "file": "quality-equipment.webp",
+    "role": "product-showcase",
+    "page": "quality/index.html",
+    "display": "default",
+    "size_bytes": 84936,
+    "source": "text-to-image"
+  },
+  "shipping-pack": {
+    "id": "shipping-pack",
+    "file": "shipping-pack.webp",
+    "role": "concept-scene",
+    "page": "shipping/index.html",
+    "display": "default",
+    "size_bytes": 174874,
+    "source": "text-to-image"
+  },
+  "projects-inspection-drone": {
+    "id": "projects-inspection-drone",
+    "file": "projects-inspection-drone.webp",
+    "role": "concept-scene",
+    "page": "projects/index.html",
+    "display": "default",
+    "size_bytes": 58168,
+    "source": "text-to-image"
+  },
+  "projects-agriculture-drone": {
+    "id": "projects-agriculture-drone",
+    "file": "projects-agriculture-drone.webp",
+    "role": "concept-scene",
+    "page": "projects/index.html",
+    "display": "default",
+    "size_bytes": 136792,
+    "source": "text-to-image"
+  },
+  "design-guide-fc": {
+    "id": "design-guide-fc",
+    "file": "design-guide-fc.webp",
+    "role": "technical-diagram",
+    "page": "design-guides/index.html",
+    "display": "default",
+    "size_bytes": 60276,
+    "source": "text-to-image"
+  }
+}

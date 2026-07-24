@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UAV Engineering Projects &amp; Case Studies | EMS Drone</title>
+  <meta name="description" content="Selected UAV engineering projects — component sourcing, custom subsystem integration, and complete aircraft configuration case studies from EMS Drone.">
+  <link rel="icon" type="image/x-icon" href="/generated/favicon.ico">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="apple-touch-icon" sizes="180x180" href="/generated/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/generated/icon-192.png">
+<link rel="icon" type="image/png" sizes="512x512" href="/generated/icon-512.png">
+<link rel="canonical" href="https://ems-drone.pages.dev/projects/">
+  <meta property="og:title" content="UAV Engineering Projects &amp; Case Studies | EMS Drone">
+  <meta property="og:description" content="Selected UAV engineering projects — component sourcing, custom subsystem integration, and complete aircraft configuration case studies from EMS Drone.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://ems-drone.pages.dev/projects/">
+  <meta property="og:image" content="https://ems-drone.pages.dev/generated/og-projects.webp">
+  <meta property="og:site_name" content="EMS Drone">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="UAV Engineering Projects &amp; Case Studies | EMS Drone">
+  <meta name="twitter:description" content="Selected UAV engineering projects — component sourcing, custom subsystem integration, and complete aircraft configuration case studies from EMS Drone.">
+  <meta name="twitter:image" content="https://ems-drone.pages.dev/generated/og-projects.webp">
+  <link rel="stylesheet" href="/design-tokens.css?v=6">
+  <link rel="preload" as="image" href="/generated/sub-hero-projects.webp">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="nav-shell">
+    <a class="brand" href="/" aria-label="EMS Drone home">
+      <span class="brand-mark"><svg aria-hidden="true"><use href="/index.html#icon-drone"/></svg></span>
+      <span>EMS Drone</span>
+    </a>
+    <button class="nav-toggle" type="button" aria-label="Open navigation" aria-expanded="false">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
+    <nav class="site-nav" aria-label="Primary navigation">
+      <a href="/capabilities/">Capabilities</a>
+      <a href="/customization/">Customization</a>
+      <a href="/testing/">Testing</a>
+      <a href="/industries/">Industries</a>
+      <a href="/about/">About</a>
+      <a href="/blog/">Blog</a>
+      <a class="btn btn-primary" href="/contact/">Start Your Build</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- Sub-Hero -->
+  <section class="sub-hero reveal">
+    <div class="container">
+      <div class="sub-hero-content">
+        <p class="eyebrow">Case Studies</p>
+        <h1>Engineering Projects</h1>
+        <p class="sub-hero-lede">Real aircraft. Real constraints. A look inside component selection decisions, subsystem integration challenges, and complete aircraft configurations we have delivered for UAV engineering teams.</p>
+      </div>
+      <div class="sub-hero-media">
+        <img src="/generated/sub-hero-projects.webp" alt="Hexacopter in flight during an industrial inspection mission over a power transmission tower, demonstrating real-world UAV deployment" width="640" height="400" loading="eager">
+        <span class="concept-badge">Concept illustration</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Introduction -->
+  <section class="section reveal">
+    <div class="container">
+      <p class="eyebrow">Project Portfolio</p>
+      <h2>From Component to Mission-Ready Aircraft</h2>
+      <p>Every project below represents a unique set of engineering constraints — payload mass, endurance targets, operating environment, and regulatory requirements. Our role spans from sourcing individual components against a customer BOM to delivering fully configured, flight-tested aircraft ready for integration.</p>
+      <p>These case studies are representative of the project types we engage with most frequently. Each documents the original challenge, our engineering approach, the key components selected, and the verified outcome.</p>
+    </div>
+  </section>
+
+  <!-- Case Study 1: Industrial Inspection Hexacopter -->
+  <section class="section section-alt reveal">
+    <div class="container">
+      <div class="detail-card" style="margin-bottom: var(--space-5);">
+        <div class="detail-card-icon">
+          <svg aria-hidden="true" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="var(--signal)" stroke-width="1.6"><polygon points="12 2 19 21 12 17 5 21 12 2"/></svg>
+        </div>
+        <span class="tech-label">Heavy-Lift Multi-Rotor</span>
+        <h3>Industrial Inspection Hexacopter</h3>
+
+        <h4>Challenge</h4>
+        <p>A power utility operator needed a hexacopter platform capable of carrying a 2.8 kg dual-sensor payload (visible + thermal) for transmission tower inspection at altitudes up to 4,500 m ASL. The aircraft required 35-minute endurance at payload capacity, redundant flight control, and reliable operation in 15 m/s wind conditions.</p>
+
+        <h4>Approach</h4>
+        <p>We modeled the propulsion system across six candidate motor-ESC-propeller combinations, evaluating thrust-to-weight ratio with altitude derating. The airframe selection prioritized modular arm attachment for field transport and vibration-isolated payload mounting. A triple-redundant IMU flight controller was specified for the safety-critical inspection mission profile.</p>
+
+        <h4>Components Selected</h4>
+        <div class="detail-grid">
+          <div>
+            <ul class="check-list">
+              <li><strong>Flight Controller:</strong> CUAV X7+ Pro with triple-redundant IMU, running ArduPilot</li>
+              <li><strong>ESCs:</strong> T-Motor F55A Pro II 6S, BLHeli_32, DShot600</li>
+              <li><strong>Motors:</strong> T-Motor MN5212 340KV, 6S LiPo, 18-inch folding propellers</li>
+            </ul>
+          </div>
+          <div>
+            <ul class="check-list">
+              <li><strong>Airframe:</strong> Custom carbon fiber 960 mm wheelbase hexacopter, quick-release arms</li>
+              <li><strong>Power:</strong> Dual 6S 22,000 mAh LiPo in parallel, XT90-S anti-spark connectors</li>
+              <li><strong>Payload Integration:</strong> Dampened quick-release mount with isolated power rail</li>
+            </ul>
+          </div>
+        </div>
+
+        <h4>Outcome</h4>
+        <p>Flight testing confirmed 38-minute hover endurance at 2.8 kg payload at sea level, derating to 31 minutes at 4,500 m. The aircraft demonstrated stable attitude hold in 17 m/s gusting wind during field validation. The customer deployed three identical units for a province-wide inspection program.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Case Study 2: Agricultural Spraying UAV -->
+  <section class="section reveal">
+    <div class="container">
+      <div class="detail-card" style="margin-bottom: var(--space-5);">
+        <div class="detail-card-icon">
+          <svg aria-hidden="true" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="var(--aero)" stroke-width="1.6"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg>
+        </div>
+        <span class="tech-label">Large-Frame Agricultural</span>
+        <h3>Agricultural Spraying UAV</h3>
+
+        <h4>Challenge</h4>
+        <p>An agricultural technology company required a 30-liter spraying platform with 15-minute endurance per tank fill. The aircraft needed to operate in humid, dusty conditions across rice paddies and orchard terrain, with terrain-following radar and RTK GNSS for centimeter-level positioning. Budget constraints required competitive component pricing without compromising reliability.</p>
+
+        <h4>Approach</h4>
+        <p>We focused on the high-current power distribution architecture — the spraying pump and eight propulsion motors draw significant sustained current. We evaluated ESC options with active cooling, oversized PCB power distribution traces, and corrosion-resistant connector plating. The airframe selection prioritized sealed electronics bays and tool-less tank attachment.</p>
+
+        <h4>Components Selected</h4>
+        <div class="detail-grid">
+          <div>
+            <ul class="check-list">
+              <li><strong>Flight Controller:</strong> CUAV V5+ with Here3 RTK GNSS, running PX4</li>
+              <li><strong>ESCs:</strong> Hobbywing XRotor 80A 12S, CAN protocol with telemetry feedback</li>
+              <li><strong>Motors:</strong> 100KV outrunner, 12S, 30-inch carbon fiber propellers</li>
+            </ul>
+          </div>
+          <div>
+            <ul class="check-list">
+              <li><strong>Airframe:</strong> 1,600 mm folding octocopter frame, IP54-sealed center hub</li>
+              <li><strong>Power:</strong> 12S 30,000 mAh LiPo, 400A total PDB with redundant BEC</li>
+              <li><strong>Spraying System:</strong> 30L tank, centrifugal pump, 4-nozzle boom, flow rate sensor</li>
+            </ul>
+          </div>
+        </div>
+
+        <h4>Outcome</h4>
+        <p>Field testing demonstrated 14-minute endurance at 30L payload with 8 m/s spray speed, covering approximately 1.2 hectares per flight. The CAN-based ESC telemetry provided real-time temperature and RPM data, enabling proactive maintenance scheduling. The customer ordered an initial batch of 20 units.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Case Study 3: Mapping & Survey Fixed-Wing -->
+  <section class="section section-alt reveal">
+    <div class="container">
+      <div class="detail-card" style="margin-bottom: var(--space-5);">
+        <div class="detail-card-icon">
+          <svg aria-hidden="true" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="var(--signal)" stroke-width="1.6"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+        </div>
+        <span class="tech-label">Long-Endurance Fixed-Wing</span>
+        <h3>Mapping &amp; Survey Fixed-Wing UAV</h3>
+
+        <h4>Challenge</h4>
+        <p>A geospatial services company needed a fixed-wing platform for 100+ hectare photogrammetry missions. Requirements included 90-minute flight endurance, integrated RTK GNSS, a 42 MP full-frame camera payload, and beyond-visual-line-of-sight (BVLOS) communication capability. The aircraft had to launch from unprepared surfaces and land in constrained areas.</p>
+
+        <h4>Approach</h4>
+        <p>We optimized for aerodynamic efficiency with a pusher-propeller configuration and high-aspect-ratio wing. The propulsion system prioritized cruise efficiency over thrust — a lower KV motor with a large-diameter folding propeller. For communication, we designed a dual-link architecture with 868 MHz Telemetry for long-range command and control and 2.4 GHz high-bandwidth link for mission data.</p>
+
+        <h4>Components Selected</h4>
+        <div class="detail-grid">
+          <div>
+            <ul class="check-list">
+              <li><strong>Flight Controller:</strong> Cube Orange+ with HerePro RTK, ArduPilot fixed-wing firmware</li>
+              <li><strong>ESC:</strong> 40A FOC ESC with active braking for gliding efficiency</li>
+              <li><strong>Motor:</strong> 480KV outrunner, 4S Li-Ion, 12-inch folding pusher propeller</li>
+            </ul>
+          </div>
+          <div>
+            <ul class="check-list">
+              <li><strong>Airframe:</strong> EPO foam, 1,800 mm wingspan, detachable wing for transport</li>
+              <li><strong>Power:</strong> 4S4P 12,000 mAh Li-Ion pack (Samsung 50E cells)</li>
+              <li><strong>Comms:</strong> RFD900x 868 MHz telemetry + Ubiquiti 2.4 GHz data link</li>
+            </ul>
+          </div>
+        </div>
+
+        <h4>Outcome</h4>
+        <p>The aircraft achieved 102-minute endurance in cruise configuration at 17 m/s airspeed, mapping 140 hectares per flight at 3 cm GSD. The dual-link architecture maintained command-and-control link at ranges exceeding 15 km. The customer successfully completed a 5,000-hectare topographic survey contract with two aircraft operating in rotation.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Case Study 4: Research Platform Multi-rotor -->
+  <section class="section reveal">
+    <div class="container">
+      <div class="detail-card" style="margin-bottom: var(--space-5);">
+        <div class="detail-card-icon">
+          <svg aria-hidden="true" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="var(--aero)" stroke-width="1.6"><path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-2.5 2.5"/><path d="M14.5 2A2.5 2.5 0 0 0 12 4.5v15a2.5 2.5 0 0 0 2.5 2.5"/></svg>
+        </div>
+        <span class="tech-label">Modular Research Platform</span>
+        <h3>Research Platform Multi-Rotor</h3>
+
+        <h4>Challenge</h4>
+        <p>A university robotics lab required a modular quadcopter platform for rapid sensor prototyping. The aircraft needed to support hot-swappable payload bays, an open-source flight controller with full parameter access, and a modular airframe that students could reconfigure between quad, hexa, and coaxial configurations within a single lab session.</p>
+
+        <h4>Approach</h4>
+        <p>We designed around a standardized payload interface — a mechanical quick-release with a unified 40-pin connector carrying regulated power, UART, I2C, SPI, and CAN. The airframe used a central core module with bolt-on arm assemblies enabling configuration changes without soldering. The flight controller was selected for its open parameter set and extensive MAVLink documentation.</p>
+
+        <h4>Components Selected</h4>
+        <div class="detail-grid">
+          <div>
+            <ul class="check-list">
+              <li><strong>Flight Controller:</strong> Pixhawk 6X with IMU and barometer redundancy, PX4 Autopilot</li>
+              <li><strong>ESCs:</strong> 35A BLHeli_32, DShot300, with telemetry</li>
+              <li><strong>Motors:</strong> 2216 900KV, 4S, 10-inch propellers in quad configuration</li>
+            </ul>
+          </div>
+          <div>
+            <ul class="check-list">
+              <li><strong>Airframe:</strong> Custom 450 mm modular frame, bolt-on arm assemblies, aluminum standoffs</li>
+              <li><strong>Power:</strong> 4S 5,200 mAh LiPo with XT60, PDB with regulated 5V/12V outputs</li>
+              <li><strong>Payload Interface:</strong> 40-pin unified connector, quick-release dovetail mount</li>
+            </ul>
+          </div>
+        </div>
+
+        <h4>Outcome</h4>
+        <p>The lab deployed six identical platforms across four research projects — multi-spectral crop analysis, indoor SLAM navigation, swarm coordination, and atmospheric sampling. Students reported configuration changes between quad and hex took under 15 minutes. The standardized payload interface enabled sensor swaps without flight controller reconfiguration.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Trust Signals -->
+  <section class="section section-dark reveal">
+    <div class="container">
+      <p class="eyebrow">Who We Are</p>
+      <h2>Engineering Team &amp; Methodology</h2>
+      <p>Our team combines backgrounds in aerospace engineering, embedded systems, and electronics manufacturing. Before any component recommendation or aircraft configuration is finalized, it passes through a structured review process.</p>
+      <div class="detail-grid">
+        <div class="detail-card">
+          <h3>Team Background</h3>
+          <p>Senior engineers with experience across UAV OEMs, EMS manufacturing, and avionics integration. Our procurement specialists maintain direct relationships with component manufacturers, ensuring genuine parts and competitive pricing.</p>
+        </div>
+        <div class="detail-card">
+          <h3>Engineering Methodology</h3>
+          <p>Every project follows a gated process: Requirements Capture, Component Shortlisting, Compatibility Verification, Performance Modeling, Prototype Assembly, Ground Testing, and Flight Validation. Documentation is delivered at each gate.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Spec Panel -->
+  <section class="section reveal">
+    <div class="container">
+      <div class="spec-panel">
+        <div class="spec-panel-inner">
+          <p class="eyebrow">Start Your Project</p>
+          <h2>Have a Similar Challenge?</h2>
+          <p>Share your requirements — payload, endurance, operating environment, and budget envelope — and our team will prepare a preliminary component recommendation and cost estimate.</p>
+          <div class="spec-actions">
+            <a class="btn btn-primary" href="/contact/">Start Your Build</a>
+            <a class="btn btn-outline" href="/quote/">Request a Quote</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a class="brand" href="/"><span class="brand-mark"><svg aria-hidden="true"><use href="/index.html#icon-drone"/></svg></span><span>EMS Drone</span></a>
+        <p>Configurable UAV components, complete systems and engineering support for teams building the next low-altitude applications.</p>
+      </div>
+      <div class="footer-col"><h3>System</h3><a href="/capabilities/">Capabilities</a><a href="/customization/">Customization</a><a href="/testing/">Testing</a></div>
+      <div class="footer-col"><h3>Company</h3><a href="/about/">About</a><a href="/blog/">Blog</a><a href="/contact/">Contact</a></div>
+      <div class="footer-col"><h3>Resources</h3><a href="/faq/">FAQ</a><a href="/how-it-works/">How It Works</a><a href="/design-guides/">Design Guides</a></div>
+    </div>
+    <div class="footer-bottom"><span>&copy; 2026 EMS Drone</span><span>Components &rarr; Systems &rarr; Flight Readiness</span></div>
+  </div>
+</footer>
+
+<script src="/site.js?v=6"></script>
+<script src="/reveal.js?v=6"></script>
+</body>
+</html>

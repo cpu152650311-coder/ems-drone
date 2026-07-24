@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>How UAV Supply-Chain Layers Connect | EMS Drone Blog</title>
+  <meta name="description" content="An industry primer on UAV control, power, propulsion and mission layers—and why interface mapping matters before you finalize a BOM.">
+  <link rel="canonical" href="https://ems-drone.pages.dev/blog/uav-supply-chain-layers/">
+  <meta property="og:title" content="How UAV Supply-Chain Layers Connect">
+  <meta property="og:description" content="Map control, power, motion and mission as one system—not four separate catalogs.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://ems-drone.pages.dev/blog/uav-supply-chain-layers/">
+  <meta property="og:image" content="https://ems-drone.pages.dev/generated/og-cover.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <link rel="icon" type="image/x-icon" href="/generated/favicon.ico">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="apple-touch-icon" sizes="180x180" href="/generated/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/generated/icon-192.png">
+<link rel="icon" type="image/png" sizes="512x512" href="/generated/icon-512.png">
+  <link rel="stylesheet" href="/design-tokens.css?v=5">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "How UAV Supply-Chain Layers Connect",
+    "description": "An industry primer on UAV control, power, propulsion and mission layers—and why interface mapping matters before you finalize a BOM.",
+    "image": "https://ems-drone.pages.dev/generated/blog-cover-supply.webp",
+    "author": { "@type": "Organization", "name": "EMS Drone" },
+    "publisher": {
+      "@type": "Organization",
+      "name": "EMS Drone",
+      "url": "https://ems-drone.pages.dev/",
+      "logo": { "@type": "ImageObject", "url": "https://ems-drone.pages.dev/favicon.svg" }
+    },
+    "mainEntityOfPage": "https://ems-drone.pages.dev/blog/uav-supply-chain-layers/",
+    "datePublished": "2026-03-12",
+    "dateModified": "2026-03-12"
+  }
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <svg aria-hidden="true" style="position:absolute;width:0;height:0;overflow:hidden">
+    <symbol id="icon-drone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="2.6"/><path d="m10.2 10.2-4-4m7.6 4 4-4m-7.6 7.6-4 4m7.6-4 4 4"/><circle cx="4.7" cy="4.7" r="2.2"/><circle cx="19.3" cy="4.7" r="2.2"/><circle cx="4.7" cy="19.3" r="2.2"/><circle cx="19.3" cy="19.3" r="2.2"/></symbol>
+    <symbol id="icon-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12h14m-5-5 5 5-5 5"/></symbol>
+  </svg>
+
+  <header class="site-header">
+    <div class="nav-shell">
+      <a class="brand" href="/" aria-label="EMS Drone home"><span class="brand-mark"><svg aria-hidden="true"><use href="#icon-drone"/></svg></span><span>EMS Drone</span></a>
+      <button class="nav-toggle" type="button" aria-label="Open navigation" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+                  <nav class="site-nav" aria-label="Primary navigation">
+        <a href="/capabilities/">Capabilities</a>
+        <a href="/customization/">Customization</a>
+        <a href="/testing/">Testing</a>
+        <a href="/industries/">Industries</a>
+        <a href="/about/">About</a>
+        <a href="/blog/" aria-current="page">Blog</a>
+        <a class="btn btn-primary" href="/contact/">Start Your Build</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <header class="article-hero">
+      <div class="container reveal">
+        <span class="eyebrow"><a href="/blog/" style="color:inherit;text-decoration:none">Blog</a> · Architecture</span>
+        <h1>How UAV supply-chain layers connect</h1>
+        <p style="color:var(--muted-dark);max-width:640px">A drone is not a shopping list. Control, power, propulsion and mission layers share interfaces—and those interfaces decide whether a BOM becomes a flyable system.</p>
+        <div class="article-cover">
+          <img src="/generated/blog-cover-supply.webp" alt="Conceptual illustration of layered UAV supply-chain architecture">
+        </div>
+      </div>
+    </header>
+
+    <article class="article-body">
+      <div class="container reveal">
+        <p>Teams often begin UAV sourcing with a familiar pattern: pick a flight controller, then an ESC, then motors, then a frame. That sequence can work for a known platform. For a new mission profile, it often hides the real risk—mismatched assumptions between layers.</p>
+
+        <h2>Four layers, one interface map</h2>
+        <p>A practical supply-chain view groups the aircraft into connected layers:</p>
+        <ul>
+          <li><strong>Control</strong> — sensing, computation, navigation and command generation</li>
+          <li><strong>Power</strong> — energy storage, distribution and electronic speed control</li>
+          <li><strong>Motion</strong> — motors, propellers and the mechanical structure that holds them</li>
+          <li><strong>Mission</strong> — communications, payload interfaces and operating context</li>
+        </ul>
+        <p>Each layer has its own options. The project risk lives in the connections: protocol, voltage, connector pinouts, firmware expectations, mounting geometry and thermal margins.</p>
+
+        <h2>Why catalog thinking breaks builds</h2>
+        <p>Catalog pages are useful for discovering part families. They are less useful for deciding whether those parts will behave as a system. A controller that looks ideal on paper can still force awkward ESC protocols, radio wiring or sensor placement. An airframe that fits the motors may leave no clean path for harnesses or payload mounts.</p>
+        <p>Interface-first planning does not require a finished specification. It only requires listing what is known—and what is still open—across layers before locking major parts.</p>
+
+        <h2>A lightweight checklist before the BOM</h2>
+        <ul>
+          <li>What mission and environment define success for this aircraft?</li>
+          <li>Which layer is already constrained (payload, voltage, frame size, radio stack)?</li>
+          <li>Which interfaces must be compatible on day one versus later?</li>
+          <li>Are you sourcing a part, a matched stack or a complete platform?</li>
+        </ul>
+        <p>Those answers change the sourcing conversation. A component RFQ, a subsystem configuration and a complete-aircraft brief ask different questions—even when they share the same component taxonomy.</p>
+
+        <h2>Education, not a case study</h2>
+        <p>This article is an industry primer on how supply-chain layers relate. It does not describe a customer deployment, capacity claim or certified production outcome. Exact options and ranges should be reviewed against your project brief.</p>
+
+        <p style="margin-top:42px"><a class="btn btn-primary" href="/capabilities/">Explore the component architecture</a> <a class="btn btn-outline" href="/blog/" style="margin-left:12px">Back to Blog</a></p>
+      </div>
+    </article>
+
+    <section class="section section-alt">
+      <div class="container">
+        <div class="spec-panel reveal">
+          <div class="spec-panel-inner">
+            <div>
+              <span class="eyebrow">Apply the Map</span>
+              <h2>Share your layer constraints.</h2>
+              <p>Send a BOM, interface question or mission brief and we will help frame the next engineering conversation.</p>
+            </div>
+            <div class="spec-actions">
+              <button class="btn btn-primary" type="button" data-open-inquiry>Start Your Build <svg aria-hidden="true"><use href="#icon-arrow"/></svg></button>
+              <a class="btn btn-outline" href="/contact/">Open RFQ Brief</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="brand" href="/"><span class="brand-mark"><svg aria-hidden="true"><use href="#icon-drone"/></svg></span><span>EMS Drone</span></a>
+          <p>Configurable UAV components, complete systems and engineering support.</p>
+        </div>
+        <div class="footer-col"><h3>System</h3><a href="/capabilities/">Capabilities</a><a href="/customization/">Customization</a><a href="/testing/">Testing</a></div>
+        <div class="footer-col"><h3>Context</h3><a href="/industries/">Industries</a><a href="/about/">About</a><a href="/blog/">Blog</a></div>
+        <div class="footer-col"><h3>More reading</h3><a href="/blog/flight-controller-esc-matching/">FC–ESC match</a><a href="/blog/low-altitude-economy-components/">Low-altitude</a><a href="/contact/">RFQ Brief</a></div>
+      </div>
+      <div class="footer-bottom"><span>© 2026 EMS Drone</span><span>Layers → Interfaces → Build</span></div>
+    </div>
+  </footer>
+
+  <div class="modal-overlay" id="inquiryModal" aria-hidden="true">
+    <div class="modal-dialog" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <button class="modal-close" type="button" aria-label="Close inquiry">×</button>
+      <div class="modal-aside">
+        <span class="tech-label">Article / Intake</span>
+        <div><h3 id="modalTitle">Map your stack.</h3><p>Share known layers, open interfaces or a draft BOM to begin the review.</p></div>
+      </div>
+      <form class="modal-form" data-preview-form>
+        <div class="field"><label for="modal-name">Name</label><input id="modal-name" name="name" autocomplete="name" required></div>
+        <div class="field" style="margin-top:18px"><label for="modal-email">Email</label><input id="modal-email" name="email" type="email" autocomplete="email" required></div>
+        <div class="field" style="margin-top:18px"><label for="modal-message">Project brief</label><textarea id="modal-message" name="message" required></textarea></div>
+        <p class="form-note">Preview mode: this form is not connected to an unverified recipient.</p>
+        <button class="btn btn-primary" type="submit">Submit Preview Brief</button>
+        <div class="form-status" role="status" aria-live="polite" aria-atomic="true"></div>
+      </form>
+    </div>
+  </div>
+  <script src="/site.js?v=5"></script>
+  <script src="/reveal.js?v=5"></script>
+</body>
+</html>
