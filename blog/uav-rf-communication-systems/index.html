@@ -1,0 +1,303 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>UAV RF Communication Systems: How to Choose the Right Data Link | EMS Drone</title>
+  <meta name="description" content="Compare 433 MHz, 868/915 MHz, 2.4 GHz and 4G/LTE data links for industrial UAVs. Covers range, throughput, latency, regulatory compliance and redundancy architectures for procurement teams building configurable drone stacks.">
+  <link rel="canonical" href="https://ems-drone.pages.dev/blog/uav-rf-communication-systems/">
+  <meta property="og:title" content="UAV RF Communication Systems: How to Choose the Right Data Link">
+  <meta property="og:description" content="Compare 433 MHz, 868/915 MHz, 2.4 GHz and 4G/LTE data links for industrial UAVs. Range, throughput, latency, regulatory compliance and redundancy architectures.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://ems-drone.pages.dev/blog/uav-rf-communication-systems/">
+  <meta property="og:image" content="https://ems-drone.pages.dev/generated/blog-cover-rf-systems.webp">
+  <meta property="og:image:type" content="image/webp">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <link rel="icon" type="image/x-icon" href="/generated/favicon.ico">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="apple-touch-icon" sizes="180x180" href="/generated/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/generated/icon-192.png">
+<link rel="icon" type="image/png" sizes="512x512" href="/generated/icon-512.png">
+  <link rel="stylesheet" href="/design-tokens.css?v=20">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "UAV RF Communication Systems: How to Choose the Right Data Link for Your Drone",
+    "description": "Compare 433 MHz, 868/915 MHz, 2.4 GHz and 4G/LTE data links for industrial UAVs. Covers range, throughput, latency, regulatory compliance and redundancy architectures.",
+    "image": "https://ems-drone.pages.dev/generated/blog-cover-rf-systems.webp",
+    "author": { "@type": "Organization", "name": "EMS Drone" },
+    "publisher": {
+      "@type": "Organization",
+      "name": "EMS Drone",
+      "url": "https://ems-drone.pages.dev/",
+      "logo": { "@type": "ImageObject", "url": "https://ems-drone.pages.dev/favicon.svg" }
+    },
+    "mainEntityOfPage": "https://ems-drone.pages.dev/blog/uav-rf-communication-systems/",
+    "datePublished": "2026-07-27",
+    "dateModified": "2026-07-27"
+  }
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <svg aria-hidden="true" style="position:absolute;width:0;height:0;overflow:hidden">
+    <symbol id="icon-drone" viewBox="0 0 24 24" fill="none" stroke="#b8f34a" stroke-width="1.5"><circle cx="12" cy="12" r="2.6"/><path d="m10.2 10.2-4-4m7.6 4 4-4m-7.6 7.6-4 4m7.6-4 4 4"/><circle cx="4.7" cy="4.7" r="2.2"/><circle cx="19.3" cy="4.7" r="2.2"/><circle cx="4.7" cy="19.3" r="2.2"/><circle cx="19.3" cy="19.3" r="2.2"/></symbol>
+    <symbol id="icon-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12h14m-5-5 5 5-5 5"/></symbol>
+  </svg>
+
+  <header class="site-header">
+    <div class="nav-shell">
+      <a class="brand" href="/" aria-label="EMS Drone home"><span class="brand-mark"><svg aria-hidden="true"><use href="#icon-drone"/></svg></span><span>EMS Drone</span></a>
+      <button class="nav-toggle" type="button" aria-label="Open navigation" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+                                        <nav class="site-nav" aria-label="Primary navigation"><a href="/">Home</a>
+        <div class="nav-dropdown">
+          <a href="/capabilities/" class="nav-parent">Capabilities</a>
+          <div class="nav-submenu">
+            <a href="/capabilities/flight-control/">Flight Controllers</a>
+            <a href="/capabilities/esc-power/">ESC &amp; Power Systems</a>
+            <a href="/capabilities/propulsion/">Propulsion</a>
+            <a href="/capabilities/airframe/">Airframes &amp; Structures</a>
+            <a href="/capabilities/communications/">Communications &amp; RF</a>
+            <a href="/capabilities/payload/">Payloads &amp; Gimbals</a>
+          </div>
+        </div>
+        <div class="nav-dropdown">
+          <a href="/customization/" class="nav-parent">Services</a>
+          <div class="nav-submenu">
+            <a href="/customization/">Custom Engineering</a>
+            <a href="/testing/">Testing &amp; Validation</a>
+          </div>
+        </div>
+        <div class="nav-dropdown">
+          <a href="/industries/" class="nav-parent">Industries</a>
+          <div class="nav-submenu">
+            <a href="/industries/inspection/">Industrial Inspection</a>
+            <a href="/industries/mapping-survey/">Mapping &amp; Survey</a>
+            <a href="/industries/logistics/">Logistics &amp; Delivery</a>
+            <a href="/industries/agriculture/">Precision Agriculture</a>
+            <a href="/industries/research/">Research &amp; Development</a>
+          </div>
+        </div>
+        <div class="nav-dropdown">
+          <a href="/resources/" class="nav-parent">Resources</a>
+          <div class="nav-submenu">
+            <a href="/design-guides/">Design Guides</a>
+            <a href="/projects/">Engineering Projects</a>
+            <a href="/how-it-works/">How We Work</a>
+            <a href="/faq/">FAQ</a>
+            <a href="/blog/" aria-current="page">Blog</a>
+          </div>
+        </div>
+        <div class="nav-dropdown">
+          <a href="/about/" class="nav-parent">Company</a>
+          <div class="nav-submenu">
+            <a href="/about/">About Us</a>
+            <a href="/factory/">Factory Tour</a>
+            <a href="/quality/">Quality &amp; Certifications</a>
+            <a href="/shipping/">Global Shipping</a>
+            <a href="/contact/">Contact</a>
+          </div>
+        </div>
+        <button class="btn btn-primary" data-open-inquiry>Start Your Build</button>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <header class="article-hero">
+      <div class="container reveal">
+        <span class="eyebrow"><a href="/blog/" style="color:inherit;text-decoration:none">Blog</a> · Communications</span>
+        <h1>UAV RF communication systems: how to choose the right data link for your drone</h1>
+        <p style="color:var(--muted-dark);max-width:640px">The radio link is the invisible architecture of every UAV. Pick the wrong frequency band or protocol and you trade range for latency, or throughput for regulatory compliance. This guide maps the four primary bands, their engineering trade-offs, and the decision framework that keeps your aircraft connected when it matters.</p>
+        <div class="article-cover">
+          <img src="/generated/blog-cover-rf-systems.webp" alt="UAV RF communication systems concept — radio antennas and signal waveforms in dark tech aesthetic">
+        </div>
+      </div>
+    </header>
+
+    <article class="article-body">
+      <div class="container reveal">
+        <p>Every UAV programme has a radio link decision buried inside it, and that decision propagates through the entire system architecture. The band you choose sets hard limits on range, data throughput and latency. The protocol layer determines whether your telemetry stream arrives as clean packets or as a stuttering sequence of retransmissions. And the regulatory environment — CE in Europe, FCC in North America, SRRC in China — dictates which bands you can legally operate in your target market.</p>
+
+        <p>For procurement teams and system integrators, the communication layer is one of the easiest places to over-spec or under-spec. A 2.4 GHz link that works beautifully on a 500-metre inspection flight may drop packets at 5 km over open water. A 433 MHz link with 30 km range will struggle if your aircraft streams 1080p video. Matching the link to the mission is a structural decision — it shapes antenna placement, power budget, EMI management and payload compatibility — and it deserves the same engineering attention as motor sizing or <a href="/blog/flight-controller-esc-matching/">flight controller and ESC matching</a>.</p>
+
+        <h2>The four frequency bands at a glance</h2>
+        <p>Industrial UAVs operate across four primary frequency bands, each occupying a distinct position on the range-versus-throughput curve. The table below captures the headline numbers; the sections that follow unpack the real-world behaviour behind them.</p>
+
+        <table style="width:100%;border-collapse:collapse;margin:24px 0;font-size:0.95em">
+          <thead>
+            <tr style="background:var(--ink-2);color:var(--paper)">
+              <th style="padding:10px 14px;text-align:left">Band</th>
+              <th style="padding:10px 14px;text-align:left">Typical Range</th>
+              <th style="padding:10px 14px;text-align:left">Data Rate</th>
+              <th style="padding:10px 14px;text-align:left">Latency</th>
+              <th style="padding:10px 14px;text-align:left">Best For</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style="border-bottom:1px solid var(--line-dark)">
+              <td style="padding:10px 14px"><strong>433 MHz</strong></td>
+              <td style="padding:10px 14px">15–50 km</td>
+              <td style="padding:10px 14px">Low (~10–50 kbps)</td>
+              <td style="padding:10px 14px">High (100–300 ms)</td>
+              <td style="padding:10px 14px">Long-range telemetry only</td>
+            </tr>
+            <tr style="border-bottom:1px solid var(--line-dark)">
+              <td style="padding:10px 14px"><strong>868/915 MHz</strong></td>
+              <td style="padding:10px 14px">10–30 km</td>
+              <td style="padding:10px 14px">Moderate (~50–250 kbps)</td>
+              <td style="padding:10px 14px">Medium (50–150 ms)</td>
+              <td style="padding:10px 14px">Telemetry + low-res video</td>
+            </tr>
+            <tr style="border-bottom:1px solid var(--line-dark)">
+              <td style="padding:10px 14px"><strong>2.4 GHz</strong></td>
+              <td style="padding:10px 14px">0.5–15 km</td>
+              <td style="padding:10px 14px">High (up to 20+ Mbps)</td>
+              <td style="padding:10px 14px">Low (10–40 ms)</td>
+              <td style="padding:10px 14px">HD video + low-latency control</td>
+            </tr>
+            <tr style="border-bottom:1px solid var(--line-dark)">
+              <td style="padding:10px 14px"><strong>4G/LTE</strong></td>
+              <td style="padding:10px 14px">Unlimited (cellular coverage)</td>
+              <td style="padding:10px 14px">Variable (5–50 Mbps)</td>
+              <td style="padding:10px 14px">Variable (30–100 ms)</td>
+              <td style="padding:10px 14px">BVLOS, multi-vehicle fleets</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <p>These numbers are starting points, not guarantees. Real-world performance depends on antenna gain patterns, terrain, RF noise floor at the operating site, and the quality of the transceiver's error-correction implementation. A well-engineered 868 MHz link with a directional tracking antenna will outperform a poorly integrated 2.4 GHz system at any range beyond 2 km, regardless of what the datasheet says.</p>
+
+        <div class="media-visual reveal" style="max-width:640px;margin:32px auto">
+          <img src="/generated/blog-inline-rf-spectrum.webp" alt="Abstract visualization of RF spectrum with four frequency bands highlighted in signal green against dark background" loading="lazy">
+          <span class="concept-badge">Concept illustration</span>
+        </div>
+
+        <h2>433 MHz — When range trumps everything</h2>
+        <p>The 433 MHz ISM band occupies the lowest frequency slot in the UAV communications toolkit, and that low frequency is both its superpower and its limitation. Sub-gigahertz signals diffract around obstacles rather than being absorbed by them. At 433 MHz, a 1-watt transmitter with a quarter-wave dipole antenna can push telemetry packets through foliage, light urban clutter and moderate terrain that would completely block a 2.4 GHz signal. This is why long-endurance fixed-wing mapping platforms and environmental monitoring UAVs operating in remote terrain often carry a 433 MHz telemetry link as their primary command-and-control channel.</p>
+
+        <p>The trade-off is data rate. At 433 MHz, available bandwidth is narrow — typically 25 kHz to 200 kHz per channel — which caps throughput at roughly 10 to 50 kbps with modern LoRa or FSK modulation. That is sufficient for MAVLink telemetry packets, GNSS position updates, and low-frequency sensor data. It is not sufficient for video. A 433 MHz link transmitting at 50 kbps can carry approximately six MAVLink 2 messages per second plus GPS position — enough for waypoint navigation and system health monitoring, but not for real-time attitude streaming or camera gimbal control at high update rates.</p>
+
+        <p>Antenna size is another practical constraint. A resonant quarter-wave antenna at 433 MHz is approximately 16.5 cm long. That is manageable on a 2-metre-wingspan fixed-wing but becomes an integration challenge on a compact quadcopter. Procurement teams specifying 433 MHz links for multirotor platforms should budget for antenna placement early — the ground plane geometry and distance from carbon fibre frame members directly affect radiation pattern and effective range. For platforms where <a href="/blog/uav-airframe-materials-guide/">airframe materials</a> include carbon fibre (which is conductive and acts as an RF shield), antenna placement becomes one of the most constrained physical design decisions.</p>
+
+        <h2>868/915 MHz — The regulatory sweet spot for industrial UAVs</h2>
+        <p>The 868 MHz band (Europe, ETSI EN 300 220) and 915 MHz band (North America, FCC Part 15.247) represent the most widely adopted industrial UAV telemetry frequencies, and for good reason. They occupy the engineering sweet spot where range, throughput and antenna practicality intersect. At 868/915 MHz, a 500 mW transceiver with a modest 3 dBi omnidirectional antenna can sustain a 10 to 30 km link in clear air — the exact range band cited in the <a href="/blog/low-altitude-economy-components/">low-altitude economy component priorities</a> article for civil UAV applications.</p>
+
+        <p>Data rates in this band typically range from 50 to 250 kbps depending on modulation scheme and channel bandwidth. LoRa modulation at spreading factor 7 can deliver roughly 5.5 kbps at the longest ranges, while GFSK or 4-FSK modulation on a 200 kHz channel can push 200 to 250 kbps at shorter range. Most industrial-grade 868/915 MHz radio modules — SiK, RFDesign, Holybro Telemetry — operate in the 50 to 200 kbps range, which is adequate for MAVLink telemetry, RTCM3 GNSS corrections for RTK positioning, and compressed low-frame-rate video (1–2 fps QCIF).</p>
+
+        <p>Regulatory compliance is the most important due-diligence item in this band. A module that is legal at 868 MHz under CE is not automatically legal at 915 MHz under FCC, even if the hardware supports both frequencies through firmware configuration. The duty cycle limits differ: ETSI limits 868 MHz sub-band G (869.4–869.65 MHz) to 10% duty cycle at 500 mW ERP, while FCC Part 15.247 allows higher duty cycles but imposes hopping or digital modulation requirements. Procurement teams shipping to multiple regions should verify that the radio module carries both CE and FCC grants, with the grant covering the specific modulation and output power the system will use in operation. The <a href="/blog/uav-supplier-evaluation-checklist/">supplier evaluation checklist</a> includes radio certification verification as a specific audit item — cross-check FCC IDs against the FCC OET database before accepting a supplier's compliance claim.</p>
+
+        <div class="media-visual reveal" style="max-width:640px;margin:32px auto">
+          <img src="/generated/blog-inline-rf-hardware.webp" alt="UAV telemetry radio module with antenna on engineering test bench, dark tech aesthetic with green accent lighting" loading="lazy">
+          <span class="concept-badge">Concept illustration</span>
+        </div>
+
+        <div class="media-visual reveal" style="max-width:640px;margin:32px auto">
+          <img src="/generated/blog-inline-rf-antennas.webp" alt="Three UAV antenna types — helical, patch and dipole — arranged on dark carbon fiber surface" loading="lazy">
+          <span class="concept-badge">Concept illustration</span>
+        </div>
+
+        <h2>2.4 GHz — Bandwidth, ecosystem and the interference problem</h2>
+        <p>The 2.4 GHz ISM band dominates consumer and prosumer UAV communication for one reason: bandwidth. With 83.5 MHz of available spectrum (versus roughly 2 MHz for 868 MHz in Europe), 2.4 GHz can sustain data rates of 20 Mbps and beyond using OFDM modulation — enough for 1080p30 video with room for telemetry, control and payload data on the same link. The ecosystem is vast: off-the-shelf chipsets from Qualcomm, Broadcom and MediaTek, mature Wi-Fi and proprietary protocol stacks, and a global allocation that makes 2.4 GHz legal in virtually every jurisdiction without band-specific certification aside from the standard FCC/CE radio emissions approval.</p>
+
+        <p>The limitation is range and interference resilience. At 2.4 GHz, free-space path loss is approximately 8.5 dB higher than at 868 MHz for the same distance — a factor of roughly 7× in linear power terms. A 100 mW 868 MHz transmitter reaches the same signal strength at 10 km that a 100 mW 2.4 GHz transmitter reaches at roughly 3.7 km, all else equal. In practice, the range gap is often wider because the 2.4 GHz band carries Wi-Fi access points, Bluetooth devices, microwave ovens, and other UAVs' video downlinks — all of which raise the noise floor and reduce effective sensitivity.</p>
+
+        <p>For industrial UAVs operating in urban or semi-urban environments, 2.4 GHz interference is not an edge case — it is the normal operating condition. A survey flight over an industrial park may encounter 50 to 200 Wi-Fi access points within receive range. FHSS (frequency-hopping spread spectrum) and DSSS (direct-sequence) modulation schemes provide some resilience, but they cannot create spectrum that is not there. The practical ceiling for 2.4 GHz range in a congested RF environment is often 500 metres to 2 km for a reliable link, well short of the 10+ km achievable in a rural environment. For teams building platforms that must operate in both environments, a dual-band architecture — 2.4 GHz for high-bandwidth short-range, 868/915 MHz for long-range telemetry — is the standard pattern, and it ties directly to the powertrain matching conversation in <a href="/blog/drone-powertrain-matching/">UAV powertrain matching</a>, where onboard power budget must accommodate two independent RF chains.</p>
+
+        <h2>4G/LTE — Beyond visual line of sight, with caveats</h2>
+        <p>Cellular connectivity rewrites the range equation entirely. A UAV equipped with a 4G/LTE modem and a properly provisioned SIM card can maintain a command-and-control link anywhere within cellular coverage — which, in most of Europe, North America and developed Asia, means effectively everywhere below 120 metres AGL. This is the architectural foundation of beyond-visual-line-of-sight (BVLOS) operations, multi-vehicle fleet management, and cloud-connected UAV services.</p>
+
+        <p>The bandwidth is shared and variable. In good signal conditions on an uncongested LTE cell, a UAV modem can sustain 5 to 20 Mbps downlink and 2 to 10 Mbps uplink, with latency in the 30 to 80 ms range. In poor conditions — cell edge, network congestion, handover between towers — latency can spike to 200 to 500 ms and throughput can drop below 1 Mbps. For a UAV flying at 15 m/s, a 500 ms latency spike represents 7.5 metres of travel between sending a command and receiving confirmation. That is acceptable for waypoint navigation but unacceptable for precision landing or obstacle avoidance at low altitude.</p>
+
+        <p>Network handover is the hardest engineering problem in cellular UAV links. A ground-based phone transitions between towers while moving at pedestrian or vehicle speeds on a roughly two-dimensional plane. A UAV transitions between towers while moving in three dimensions at potentially higher speeds, and the antenna radiation pattern of a cell tower is optimised for ground-level coverage — not for a transmitter 100 metres above the tower. At altitude, a UAV may see multiple towers with similar signal strength, causing rapid ping-pong handovers that degrade link quality. Industrial-grade cellular UAV modems address this with multi-SIM aggregation, antenna diversity (typically 2×2 or 4×4 MIMO), and firmware-level handover optimisation — but these features add cost and integration complexity.</p>
+
+        <p>For procurement teams, the cellular question is operational rather than purely technical. A platform that flies exclusively within cellular coverage and tolerates occasional latency spikes can operate on a single 4G link. A platform that must fly beyond cellular coverage or cannot tolerate latency variability needs a hybrid architecture — 4G for cloud connectivity and high-bandwidth payload data, paired with a licensed or ISM-band telemetry link for safety-critical command and control.</p>
+
+        <h2>Redundancy architectures: two links are safer than one</h2>
+        <p>Single-link UAV communication architectures create a single point of failure between the aircraft and the ground. For any platform carrying a payload worth more than the radio hardware, a redundant link architecture is usually the right engineering investment. The three most common patterns are:</p>
+
+        <ul>
+          <li><strong>Dual-band telemetry</strong> — one 868/915 MHz link and one 433 MHz link carrying the same MAVLink stream. The 868/915 MHz link provides primary telemetry at higher data rates; the 433 MHz link provides a fallback with deeper signal penetration. If the primary link drops, the flight controller automatically routes telemetry through the secondary link. This is the standard architecture for long-range mapping and survey platforms.</li>
+          <li><strong>Telemetry + cellular</strong> — an ISM-band telemetry link for low-latency C2 (command and control), paired with a 4G/LTE link for payload data, cloud telemetry logging and fleet management. The ISM link is safety-critical; the cellular link is mission-critical but not flight-critical. If cellular drops, the aircraft continues flying on ISM-band C2 and buffers payload data for later upload.</li>
+          <li><strong>Dual cellular with satellite fallback</strong> — two independent cellular modems on different carrier networks, with an Iridium or Inmarsat satellite terminal for C2 in areas without any cellular coverage. This architecture is expensive but is required for truly global BVLOS operations such as maritime surveillance or cross-continent pipeline inspection.</li>
+        </ul>
+
+        <p>Redundancy adds weight, power draw, antenna count and integration complexity — all of which feed back into the <a href="/blog/uav-component-build-vs-buy/">build versus buy sourcing decision</a>. A matched propulsion-and-communications subsystem from a single vendor may integrate antenna placement, power distribution and EMI shielding better than a team assembling radios, cables and antennas from four different suppliers.</p>
+
+        <div class="media-visual reveal" style="max-width:640px;margin:32px auto">
+          <img src="/generated/blog-inline-rf-signal.webp" alt="Radio signal waves propagating across varied terrain — urban, water, forested hills — with signal paths bending and reflecting" loading="lazy">
+          <span class="concept-badge">Concept illustration</span>
+        </div>
+
+        <h2>How to choose: a decision framework</h2>
+        <p>Radio link selection does not start with a frequency — it starts with the mission profile. Until you know the range, the payload data type, and the operating environment, frequency band comparisons are abstract. The following framework walks through the five questions that narrow the decision to one or two bands, at which point vendor selection and certification verification become the next steps.</p>
+
+        <p><strong>Question 1: What is your maximum operational range, including safety margin?</strong> Take the longest distance the aircraft will fly from the ground station and add 30%. If that number is below 2 km and the operating environment is not RF-congested, 2.4 GHz is viable. Between 2 and 15 km, 868/915 MHz becomes the primary candidate. Above 15 km, 433 MHz or cellular — and above 30 km, cellular or satellite — become the only practical options.</p>
+
+        <p><strong>Question 2: What data must the link carry?</strong> Telemetry only (MAVLink at 10–50 kbps): any band works. Telemetry plus compressed video at 1–2 fps: 868/915 MHz or above. HD video at 1080p: 2.4 GHz or 4G/LTE. Multi-sensor payload data at 10+ Mbps: 4G/LTE or a dedicated 2.4 GHz OFDM link. Be honest about the data budget — a link that is saturated at cruise throttle leaves no headroom for emergency retransmissions or firmware updates over the air.</p>
+
+        <p><strong>Question 3: What is the RF environment at the operating site?</strong> Urban: expect heavy 2.4 GHz congestion, moderate 868/915 MHz, and reliable 4G. Rural: 2.4 GHz opens up to longer ranges, 868/915 MHz performs close to theoretical maximums, and 4G may be patchy. Industrial: expect electromagnetic interference from machinery, power lines and metal structures across all bands — favour lower frequencies for penetration and budget for antenna diversity. Maritime or over-water: signal reflection off the water surface creates multipath fading that affects all bands; antenna height and circular polarisation matter more than frequency choice.</p>
+
+        <p><strong>Question 4: Which regulatory domains must the platform operate in?</strong> Map your target markets to frequency allocations. CE (Europe): 868 MHz SRD band, 2.4 GHz, 4G. FCC (North America): 915 MHz ISM, 2.4 GHz, 4G. Other jurisdictions: check local allocations — 433 MHz is not universally available for airborne use, and some countries restrict 900 MHz to fixed services only. If the platform ships to multiple regions, either specify a multi-band radio with region-locked firmware or accept the cost and weight of carrying two radio modules with different bands. The <a href="/blog/uav-supply-chain-layers/">UAV supply chain layers</a> article covers the procurement implication: a radio module that needs separate SKUs for CE and FCC markets doubles the qualification and inventory burden.</p>
+
+        <p><strong>Question 5: Does the mission require redundancy?</strong> If a lost link means a lost aircraft or a safety incident, the answer is yes. Budget for two independent RF paths — different bands, different antennas, different power supplies if possible. The cost of a second radio module and antenna is almost always less than the cost of a single lost-aircraft incident, even before accounting for downtime and reputation.</p>
+
+        <p style="margin-top:42px"><a class="btn btn-primary" href="/capabilities/communications/">Explore communications &amp; RF capabilities</a> <a class="btn btn-outline" href="/blog/" style="margin-left:12px">Back to Blog</a></p>
+      </div>
+    </article>
+
+    <section class="section section-alt" style="--cta-bg:url(/generated/blog-cta-rf-systems.webp)">
+      <div class="container">
+        <div class="spec-panel reveal">
+          <div class="spec-panel-inner">
+            <div>
+              <span class="eyebrow">RF Engineering Support</span>
+              <h2>Have a link budget to review?</h2>
+              <p>Share your mission range, payload data requirements and target regulatory domain. We will help frame the communication architecture for your platform.</p>
+            </div>
+            <div class="spec-actions">
+              <button class="btn btn-primary" type="button" data-open-inquiry>Start Your Build <svg aria-hidden="true"><use href="#icon-arrow"/></svg></button>
+              <button class="btn btn-outline" data-open-inquiry>Open RFQ Brief</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="brand" href="/" aria-label="EMS Drone home"><span class="brand-mark"><svg aria-hidden="true"><use href="#icon-drone"/></svg></span><span>EMS Drone</span></a>
+          <p>Configurable UAV components, complete systems and engineering support.</p>
+        </div>
+        <div class="footer-col"><h3>System</h3><a href="/capabilities/">Capabilities</a><a href="/customization/">Customization</a><a href="/testing/">Testing</a></div>
+        <div class="footer-col"><h3>Context</h3><a href="/industries/">Industries</a><a href="/about/">About</a><a href="/blog/">Blog</a></div>
+        <div class="footer-col"><h3>More reading</h3><a href="/blog/flight-controller-esc-matching/">FC–ESC match</a><a href="/blog/drone-powertrain-matching/">Powertrain</a><a href="/contact/">RFQ Brief</a></div>
+      </div>
+      <div class="footer-bottom"><span>© 2026 EMS Drone</span><span>Link → Command → Fly</span></div>
+    </div>
+  </footer>
+  <div class="modal-overlay" id="inquiryModal" aria-hidden="true">
+    <div class="modal-dialog" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <button class="modal-close" type="button" aria-label="Close inquiry">&times;</button>
+      <div class="modal-aside">
+        <span class="tech-label">Engineering Intake</span>
+        <div><h3 id="modalTitle">Start with your mission.</h3><p>Tell us what you are building and where you need support: component sourcing, a matched stack or a complete UAV.</p></div>
+      </div>
+      <form class="modal-form" data-preview-form>
+        <div class="field"><label for="modal-name">Name</label><input id="modal-name" name="name" autocomplete="name" required></div>
+        <div class="field" style="margin-top:18px"><label for="modal-email">Email</label><input id="modal-email" name="email" type="email" autocomplete="email" required></div>
+        <div class="field" style="margin-top:18px"><label for="modal-message">Project brief</label><textarea id="modal-message" name="message" required placeholder="Aircraft type, payload, environment, component list or complete-system goal"></textarea></div>
+        <button class="btn btn-primary" type="submit">Submit Engineering Brief</button>
+        <div class="form-status" role="status" aria-live="polite" aria-atomic="true"></div>
+      </form>
+    </div>
+  </div>
+<script src="/site.js?v=9"></script>
+  <script src="/reveal.js?v=9"></script>
+</body>
+</html>
