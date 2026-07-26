@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Heavy-Lift Agricultural UAV — Engineering Project Reference | EMS Drone</title>
+  <meta name="description" content="Engineering reference for a heavy-lift multirotor platform configured for agricultural spraying. Covers component architecture, powertrain decisions, and integration lessons.">
+  <link rel="icon" type="image/x-icon" href="/generated/favicon.ico">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="apple-touch-icon" sizes="180x180" href="/generated/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/generated/icon-192.png">
+<link rel="icon" type="image/png" sizes="512x512" href="/generated/icon-512.png">
+<link rel="canonical" href="https://ems-drone.pages.dev/projects/heavy-lift-agriculture/">
+  <meta property="og:title" content="Heavy-Lift Agricultural UAV — Engineering Project Reference | EMS Drone">
+  <meta property="og:description" content="Engineering reference for a heavy-lift multirotor platform configured for agricultural spraying. Covers component architecture, powertrain decisions, and integration lessons.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://ems-drone.pages.dev/projects/heavy-lift-agriculture/">
+  <meta property="og:image" content="https://ems-drone.pages.dev/generated/og-cover.png">
+  <meta property="og:site_name" content="EMS Drone">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Heavy-Lift Agricultural UAV — Engineering Project Reference | EMS Drone">
+  <meta name="twitter:description" content="Engineering reference for a heavy-lift multirotor platform configured for agricultural spraying. Covers component architecture, powertrain decisions, and integration lessons.">
+  <meta name="twitter:image" content="https://ems-drone.pages.dev/generated/og-cover.png">
+  <link rel="stylesheet" href="/design-tokens.css?v=16">
+  <link rel="preload" as="image" href="/generated/sub-hero-projects.webp">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<svg aria-hidden="true" style="position:absolute;width:0;height:0;overflow:hidden">
+  <symbol id="icon-drone" viewBox="0 0 24 24" fill="none" stroke="#b8f34a" stroke-width="1.5">
+    <circle cx="12" cy="12" r="2.6"/><path d="m10.2 10.2-4-4m7.6 4 4-4m-7.6 7.6-4 4m7.6-4 4 4"/>
+    <circle cx="4.7" cy="4.7" r="2.2"/><circle cx="19.3" cy="4.7" r="2.2"/><circle cx="4.7" cy="19.3" r="2.2"/><circle cx="19.3" cy="19.3" r="2.2"/>
+  </symbol>
+  <symbol id="icon-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+    <path d="M5 12h14m-5-5 5 5-5 5"/>
+  </symbol>
+</svg>
+
+<header class="site-header">
+  <div class="nav-shell">
+    <a class="brand" href="/" aria-label="EMS Drone home"><span class="brand-mark"><svg aria-hidden="true"><use href="#icon-drone"/></svg></span><span>EMS Drone</span></a>
+    <button class="nav-toggle" type="button" aria-label="Open navigation" aria-expanded="false">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
+                          <nav class="site-nav" aria-label="Primary navigation"><a href="/">Home</a>
+        <div class="nav-dropdown">
+          <a href="/capabilities/" class="nav-parent">Capabilities</a>
+          <div class="nav-submenu">
+            <a href="/capabilities/flight-control/">Flight Controllers</a>
+            <a href="/capabilities/esc-power/">ESC &amp; Power Systems</a>
+            <a href="/capabilities/propulsion/">Propulsion</a>
+            <a href="/capabilities/airframe/">Airframes &amp; Structures</a>
+            <a href="/capabilities/communications/">Communications &amp; RF</a>
+            <a href="/capabilities/payload/">Payloads &amp; Gimbals</a>
+          </div>
+        </div>
+        <div class="nav-dropdown">
+          <a href="/customization/" class="nav-parent">Services</a>
+          <div class="nav-submenu">
+            <a href="/customization/">Custom Engineering</a>
+            <a href="/testing/">Testing &amp; Validation</a>
+          </div>
+        </div>
+        <div class="nav-dropdown">
+          <a href="/industries/" class="nav-parent">Industries</a>
+          <div class="nav-submenu">
+            <a href="/industries/inspection/">Industrial Inspection</a>
+            <a href="/industries/mapping-survey/">Mapping &amp; Survey</a>
+            <a href="/industries/logistics/">Logistics &amp; Delivery</a>
+            <a href="/industries/agriculture/">Precision Agriculture</a>
+            <a href="/industries/research/">Research &amp; Development</a>
+          </div>
+        </div>
+        <div class="nav-dropdown">
+          <a href="/resources/" class="nav-parent">Resources</a>
+          <div class="nav-submenu">
+            <a href="/design-guides/">Design Guides</a>
+            <a href="/projects/" aria-current="page">Engineering Projects</a>
+            <a href="/how-it-works/">How We Work</a>
+            <a href="/faq/">FAQ</a>
+            <a href="/blog/">Blog</a>
+          </div>
+        </div>
+        <div class="nav-dropdown">
+          <a href="/about/" class="nav-parent">Company</a>
+          <div class="nav-submenu">
+            <a href="/about/">About Us</a>
+            <a href="/factory/">Factory Tour</a>
+            <a href="/quality/">Quality &amp; Certifications</a>
+            <a href="/shipping/">Global Shipping</a>
+            <a href="/contact/">Contact</a>
+          </div>
+        </div>
+        <button class="btn btn-primary" data-open-inquiry>Start Your Build</button>
+      </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- Sub-Hero -->
+  <section class="sub-hero">
+    <div class="sub-hero-media">
+      <img src="/generated/sub-hero-projects.webp" alt="Heavy-lift agricultural octocopter spraying platform conceptual visualization">
+      <span class="concept-badge">Concept illustration</span>
+    </div>
+    <div class="container sub-hero-grid">
+      <div class="reveal">
+        <span class="eyebrow">Projects &middot; Agriculture</span>
+        <h1>Heavy-lift agricultural spraying platform</h1>
+        <p>An architecture reference for an eight-rotor, 30-liter liquid-payload multirotor platform. This document walks through the component stack, the engineering rationale behind each subsystem selection, and the integration lessons learned during ground-up configuration of a heavy-lift agricultural UAV.</p>
+      </div>
+      <div class="sub-meta reveal">
+        <div class="sub-meta-row"><span>Configuration</span><strong>X8 Coaxial Octocopter</strong></div>
+        <div class="sub-meta-row"><span>Payload</span><strong>30L Spray System</strong></div>
+        <div class="sub-meta-row"><span>MTOW</span><strong>~25 kg</strong></div>
+        <div class="sub-meta-row"><span>Type</span><strong>Architecture Reference</strong></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Project Overview -->
+  <section class="section reveal">
+    <div class="container">
+      <div class="media-split">
+        <div class="reveal">
+          <span class="eyebrow">Engineering Reference</span>
+          <h2>Platform overview</h2>
+          <p>This reference architecture describes an X8 coaxial octocopter configuration — four arms, each carrying a coaxial motor pair — designed for sustained low-altitude agricultural spraying operations. The aircraft lifts a 30-liter liquid payload with a maximum take-off weight (MTOW) of 25 kg, providing approximately 12 to 15 minutes of active spray endurance per tank fill.</p>
+        </div>
+        <div class="media-visual reveal">
+          <img src="/generated/proj-agri-spray-field.webp" alt="Heavy-lift agricultural octocopter spraying over rice paddy field" loading="lazy">
+          <span class="concept-badge">Concept illustration</span>
+        </div>
+      </div>
+      <p style="margin-top:var(--space-5)">The mission profile assumes repeated short-duration sorties: take-off from a field-adjacent staging point, a low-altitude grid pass at 4 to 6 meters above crop at speeds of 5 to 8 m/s, return-to-land for tank refill and battery swap, then relaunch. This operating rhythm places distinct demands on the powertrain — sustained high current draw during the spray pass, followed by a brief thermal soak during turnaround, repeated across a full operational day.</p>
+      <p>Unlike an inspection or mapping aircraft that cruises at partial throttle, an agricultural sprayer spends the majority of its flight at high throttle settings with a near-constant liquid mass that decreases as the tank empties. This changing center of gravity, combined with the aerodynamic disturbance from rotor downwash interacting with crop canopy, makes flight controller tuning and vibration management central engineering concerns.</p>
+    </div>
+  </section>
+
+  <!-- Component Architecture -->
+  <section class="section section-alt reveal">
+    <div class="container">
+      <p class="eyebrow">Subsystem Selection</p>
+      <h2>Component architecture</h2>
+      <p>Each subsystem was evaluated against the platform's specific demands: high thrust-to-weight ratio at low altitude, tolerance for particulate and moisture ingress, and electrical architecture that supports sustained high-current operation across eight propulsion channels plus an independent spray pump circuit.</p>
+
+      <div class="detail-grid" style="margin-top: var(--space-5);">
+        <!-- Flight Controller -->
+        <div class="detail-card">
+          <h3>Flight controller &amp; navigation</h3>
+          <p>A Cube Orange+ running ArduPilot was selected as the primary flight controller, paired with a Here3 RTK GNSS module for centimeter-level positioning accuracy. The decision was driven by three factors: the controller's triple-redundant IMU architecture provides the vibration tolerance needed for a large coaxial octocopter; ArduPilot's built-in sprayer control logic supports variable-rate flow control tied to ground speed; and the dual CAN bus ports enable direct connection to CAN-protocol ESCs without an intermediate signal converter.</p>
+          <p>The RTK base station is configured as a local reference — a tripod-mounted unit deployed at the field edge — eliminating dependency on NTRIP corrections in areas with unreliable cellular coverage. Terrain-following is handled through a downward-facing lidar rangefinder (LightWare SF11/C) interfaced over I2C, providing 0 to 100 meter range with a 100 Hz update rate.</p>
+        </div>
+
+        <!-- ESC & Motor Configuration -->
+        <div class="detail-card">
+          <h3>ESC &amp; motor configuration</h3>
+          <p>The propulsion system uses eight Hobbywing XRotor 80A 12S ESCs communicating over CAN bus with full telemetry feedback — per-channel RPM, current draw, MOSFET temperature, and error flags. CAN was chosen over PWM or DShot for this application because the telemetry data enables proactive detection of a failing ESC before it manifests as in-flight instability, a critical consideration on a single-point-of-failure octocopter platform.</p>
+          <div class="media-visual reveal" style="max-width:640px;margin:24px auto">
+            <img src="/generated/proj-agri-motor-esc-overhead.webp" alt="Eight brushless motors and CAN-bus ESCs arranged for heavy-lift octocopter" loading="lazy">
+            <span class="concept-badge">Concept illustration</span>
+          </div>
+          <p>Motors are 100KV outrunners wound for 12S operation, each driving a 30-inch carbon-fiber folding propeller. The low KV rating matches the large propeller diameter — 30-inch props on a 100KV motor at 12S (approximately 44.4 V nominal) produce a theoretical no-load RPM of roughly 4,440, with loaded RPM settling into the 3,200 to 3,600 range where these props develop optimal thrust efficiency. The coaxial arrangement recovers approximately 15 to 18 percent more thrust per arm compared to a flat octocopter layout at the same wheelbase, at the cost of slightly reduced efficiency on the lower propeller due to inflow interference from the upper rotor.</p>
+        </div>
+
+        <!-- Power System -->
+        <div class="detail-card">
+          <h3>Power distribution &amp; energy storage</h3>
+          <p>The power architecture centers on a 400-amp-rated power distribution board (PDB) with 4-ounce copper traces on all high-current paths. Input is from dual 6S 22,000 mAh LiPo packs wired in series for 12S nominal (44.4 V), connected through XT90-S anti-spark connectors. The PDB provides eight dedicated ESC power pads plus an isolated 12 V regulated output for the spray pump controller, preventing pump motor noise from coupling back onto the avionics power rail.</p>
+          <p>A dual-redundant BEC configuration supplies regulated 5.3 V to the flight controller and companion electronics. The primary BEC draws from the main battery bus; a secondary independent BEC powered by a small 2S buffer battery provides fallback power to the flight controller and GNSS receiver, ensuring controlled return-to-launch capability in the event of a main power system failure.</p>
+        </div>
+
+        <!-- Airframe -->
+        <div class="detail-card">
+          <h3>Airframe &amp; structural design</h3>
+          <p>The airframe is a 1,600 mm wheelbase folding octocopter platform constructed from carbon-fiber tube arms (30 mm diameter) with CNC-machined aluminum motor mounts and a central hub assembly. The hub incorporates an IP54-rated sealed electronics bay with a breather valve to equalize pressure without admitting moisture or agricultural chemical mist. Arm attachment uses a dual-pin locking mechanism that folds for transport without disconnecting motor wiring — a practical necessity for field operations where the aircraft moves between paddies on a utility vehicle.</p>
+          <p>The 30-liter spray tank mounts to the underside of the hub via four vibration-dampened quick-release brackets with tool-less attachment. Tank positioning was modeled to place the liquid payload center of mass directly beneath the aircraft center of thrust, minimizing pitch and roll trim changes as the tank empties. The landing gear is a tall-profile skid design providing 350 mm of ground clearance — necessary to accommodate the spray boom when the aircraft is loaded and sitting on uneven terrain.</p>
+        </div>
+
+        <!-- Spray System -->
+        <div class="detail-card">
+          <h3>Spray system integration</h3>
+          <p>The liquid delivery system comprises a centrifugal pump driven by a dedicated brushless motor controller, a 4-nozzle spray boom spanning 1,800 mm, and an inline electromagnetic flow rate sensor that feeds actual discharge data back to the flight controller. The pump controller accepts a PWM command signal from the flight controller auxiliary output, scaled against ground speed from the GNSS receiver to maintain a constant application rate per hectare regardless of aircraft speed.</p>
+          <div class="media-visual reveal" style="max-width:640px;margin:24px auto">
+            <img src="/generated/proj-agri-spray-nozzle.webp" alt="Close-up of precision agricultural spray nozzle emitting fine droplets" loading="lazy">
+            <span class="concept-badge">Concept illustration</span>
+          </div>
+          <p>Nozzle selection — hollow-cone ceramic tips with 1.0 mm orifice — was determined by the target droplet size range of 120 to 180 microns, balancing coverage uniformity against drift risk. The flow rate sensor provides closed-loop verification: if actual flow deviates beyond a configurable threshold from the commanded rate, the flight controller logs a warning and can trigger an automatic return-to-land. Power for the pump system runs on an isolated circuit from the main PDB, with a dedicated 30 A fuse and LC filter to suppress conducted EMI back onto the avionics bus.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Key Engineering Decisions -->
+  <section class="section reveal">
+    <div class="container">
+      <p class="eyebrow">Design Rationale</p>
+      <h2>Key engineering decisions &amp; trade-offs</h2>
+      <p>Several architectural decisions involved trade-offs between competing priorities. These are documented here because they represent recurring judgment calls in heavy-lift multirotor design that apply beyond this specific reference platform.</p>
+
+      <div class="detail-card" style="margin-bottom: var(--space-4);">
+        <h3>Coaxial X8 vs. flat octocopter</h3>
+        <p>The coaxial configuration reduces the wheelbase requirement by approximately 30 percent for a given propeller diameter — a 1,600 mm coaxial frame carries eight 30-inch props, whereas a flat octocopter would require a wheelbase exceeding 2,100 mm to clear the same prop arc. The trade-off is propeller efficiency: the lower rotor on each arm operates in the upper rotor's induced downwash, losing roughly 8 to 12 percent aerodynamic efficiency. For an agricultural platform where compact footprint for field transport outweighs the endurance penalty of coaxial losses, the X8 configuration is the pragmatic choice.</p>
+      </div>
+
+      <div class="detail-card" style="margin-bottom: var(--space-4);">
+        <h3>CAN ESC protocol over DShot or PWM</h3>
+        <p>DShot offers simpler wiring and lower latency, but provides no telemetry feedback — the flight controller knows what command was sent but not what the ESC actually delivered. CAN protocol ESCs report per-channel current, temperature, and RPM at 10 Hz or faster. On an eight-motor platform where a single failing ESC can precipitate a crash, the diagnostic value of per-channel telemetry justifies the additional CAN transceiver hardware and the marginally more complex wiring harness. The flight controller runs a background health monitor that compares per-channel current draw against the fleet average, flagging outliers as potential pre-failure indicators.</p>
+      </div>
+
+      <div class="detail-card" style="margin-bottom: var(--space-4);">
+        <h3>12S high-voltage architecture vs. 6S</h3>
+        <p>Operating at 12S (44.4 V nominal) rather than 6S (22.2 V) halves the current for the same total power output, which reduces I²R losses in the PDB, wiring, and ESC FETs. For a platform drawing 3,000 to 4,000 watts total during a spray pass, the difference between 12S at roughly 80 A and 6S at roughly 160 A is substantial in terms of connector heating, wire gauge requirements, and MOSFET thermal margin. The trade-off is that 12S battery management requires careful cell balancing across a 12-cell series string, and the higher voltage demands more attention to creepage and clearance distances on the PDB layout.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Lessons & Education Disclaimer -->
+  <section class="section section-dark reveal">
+    <div class="container">
+      <p class="eyebrow">Integration Lessons</p>
+      <h2>What this reference teaches</h2>
+      <p>This document is an engineering reference — it describes the component architecture and design rationale for a representative heavy-lift agricultural platform, not a specific customer deployment. The configuration reflects decisions that any engineering team would encounter when designing a large-frame multirotor for sustained high-thrust liquid-payload operations.</p>
+      <p>Several integration patterns documented here apply broadly: the use of CAN-bus ESC telemetry for predictive maintenance on multi-motor platforms, the dual-BEC architecture for redundant avionics power, the isolated spray-pump power rail to prevent motor noise coupling, and the coaxial-versus-flat layout analysis that informs frame sizing. Teams building platforms in adjacent categories — large-frame logistics delivery, firefighting water-drop, or heavy sensor gimbals — will recognize the same powertrain scaling and vibration management challenges.</p>
+      <p><strong>Educational purpose:</strong> EMS Drone publishes these references to support informed component selection and subsystem integration. Every aircraft configuration must be validated against the specific operating environment, regulatory framework, and mission profile of its intended deployment. This reference is a starting point for engineering discussion, not a certified or type-approved design.</p>
+    </div>
+  </section>
+
+  <!-- CTA Panel -->
+  <section class="section reveal">
+    <div class="container">
+      <div class="spec-panel">
+        <div class="spec-panel-inner">
+          <p class="eyebrow">Build Your Platform</p>
+          <h2>Planning a heavy-lift agricultural aircraft?</h2>
+          <p>Share your target payload, endurance, operating environment, and build depth — component list, matched stack, or complete airframe — and our engineering team will prepare a preliminary architecture recommendation and component BOM.</p>
+          <div class="spec-actions">
+            <button class="btn btn-primary" data-open-inquiry>Start Your Build</button>
+            <a class="btn btn-outline" href="/projects/">View All Projects</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a class="brand" href="/" aria-label="EMS Drone home"><span class="brand-mark"><svg aria-hidden="true"><use href="#icon-drone"/></svg></span><span>EMS Drone</span></a>
+        <p>Configurable UAV components, complete systems and engineering support for teams building the next low-altitude applications.</p>
+      </div>
+      <div class="footer-col"><h3>System</h3><a href="/capabilities/">Capabilities</a><a href="/customization/">Customization</a><a href="/testing/">Testing</a></div>
+      <div class="footer-col"><h3>Company</h3><a href="/about/">About</a><a href="/blog/">Blog</a><a href="/contact/">Contact</a></div>
+      <div class="footer-col"><h3>Resources</h3><a href="/faq/">FAQ</a><a href="/how-it-works/">How It Works</a><a href="/design-guides/">Design Guides</a></div>
+    </div>
+    <div class="footer-bottom"><span>&copy; 2026 EMS Drone</span><span>Components &rarr; Systems &rarr; Flight Readiness</span></div>
+  </div>
+</footer>
+  <div class="modal-overlay" id="inquiryModal" aria-hidden="true">
+    <div class="modal-dialog" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <button class="modal-close" type="button" aria-label="Close inquiry">&times;</button>
+      <div class="modal-aside">
+        <span class="tech-label">Engineering Intake</span>
+        <div><h3 id="modalTitle">Start with your mission.</h3><p>Tell us what you are building and where you need support: component sourcing, a matched stack or a complete UAV.</p></div>
+      </div>
+      <form class="modal-form" data-preview-form>
+        <div class="field"><label for="modal-name">Name</label><input id="modal-name" name="name" autocomplete="name" required></div>
+        <div class="field" style="margin-top:18px"><label for="modal-email">Email</label><input id="modal-email" name="email" type="email" autocomplete="email" required></div>
+        <div class="field" style="margin-top:18px"><label for="modal-message">Project brief</label><textarea id="modal-message" name="message" required placeholder="Aircraft type, payload, environment, component list or complete-system goal"></textarea></div>
+        <button class="btn btn-primary" type="submit">Submit Engineering Brief</button>
+        <div class="form-status" role="status" aria-live="polite" aria-atomic="true"></div>
+      </form>
+    </div>
+  </div>
+<script src="/site.js?v=9"></script>
+<script src="/reveal.js?v=8"></script>
+</body>
+</html>

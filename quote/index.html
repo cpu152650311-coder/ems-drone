@@ -21,7 +21,7 @@
   <meta name="twitter:title" content="Request a UAV Component Quote | EMS Drone">
   <meta name="twitter:description" content="Get a preliminary quote for UAV components, subsystems or complete aircraft. Share your BOM, mission requirements or configuration goals for an engineering assessment.">
   <meta name="twitter:image" content="https://ems-drone.pages.dev/generated/og-quote.webp">
-  <link rel="stylesheet" href="/design-tokens.css?v=6">
+  <link rel="stylesheet" href="/design-tokens.css?v=16">
   <link rel="preload" as="image" href="/generated/sub-hero-quote.webp">
 </head>
 <body>
@@ -29,38 +29,83 @@
 
 <header class="site-header">
   <div class="nav-shell">
-    <a class="brand" href="/" aria-label="EMS Drone home">
-      <span class="brand-mark"><svg aria-hidden="true"><use href="/index.html#icon-drone"/></svg></span>
-      <span>EMS Drone</span>
-    </a>
+    <a class="brand" href="/" aria-label="EMS Drone home"><span class="brand-mark"><svg aria-hidden="true"><use href="#icon-drone"/></svg></span><span>EMS Drone</span></a>
     <button class="nav-toggle" type="button" aria-label="Open navigation" aria-expanded="false">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
     </button>
-    <nav class="site-nav" aria-label="Primary navigation">
-      <a href="/capabilities/">Capabilities</a>
-      <a href="/customization/">Customization</a>
-      <a href="/testing/">Testing</a>
-      <a href="/industries/">Industries</a>
-      <a href="/about/">About</a>
-      <a href="/blog/">Blog</a>
-      <a class="btn btn-primary" href="/contact/">Start Your Build</a>
-    </nav>
+                          <nav class="site-nav" aria-label="Primary navigation"><a href="/">Home</a>
+        <div class="nav-dropdown">
+          <a href="/capabilities/" class="nav-parent">Capabilities</a>
+          <div class="nav-submenu">
+            <a href="/capabilities/flight-control/">Flight Controllers</a>
+            <a href="/capabilities/esc-power/">ESC &amp; Power Systems</a>
+            <a href="/capabilities/propulsion/">Propulsion</a>
+            <a href="/capabilities/airframe/">Airframes &amp; Structures</a>
+            <a href="/capabilities/communications/">Communications &amp; RF</a>
+            <a href="/capabilities/payload/">Payloads &amp; Gimbals</a>
+          </div>
+        </div>
+        <div class="nav-dropdown">
+          <a href="/customization/" class="nav-parent">Services</a>
+          <div class="nav-submenu">
+            <a href="/customization/">Custom Engineering</a>
+            <a href="/testing/">Testing &amp; Validation</a>
+          </div>
+        </div>
+        <div class="nav-dropdown">
+          <a href="/industries/" class="nav-parent">Industries</a>
+          <div class="nav-submenu">
+            <a href="/industries/inspection/">Industrial Inspection</a>
+            <a href="/industries/mapping-survey/">Mapping &amp; Survey</a>
+            <a href="/industries/logistics/">Logistics &amp; Delivery</a>
+            <a href="/industries/agriculture/">Precision Agriculture</a>
+            <a href="/industries/research/">Research &amp; Development</a>
+          </div>
+        </div>
+        <div class="nav-dropdown">
+          <a href="/resources/" class="nav-parent">Resources</a>
+          <div class="nav-submenu">
+            <a href="/design-guides/">Design Guides</a>
+            <a href="/projects/">Engineering Projects</a>
+            <a href="/how-it-works/">How We Work</a>
+            <a href="/faq/">FAQ</a>
+            <a href="/blog/">Blog</a>
+          </div>
+        </div>
+        <div class="nav-dropdown">
+          <a href="/about/" class="nav-parent">Company</a>
+          <div class="nav-submenu">
+            <a href="/about/">About Us</a>
+            <a href="/factory/">Factory Tour</a>
+            <a href="/quality/">Quality &amp; Certifications</a>
+            <a href="/shipping/">Global Shipping</a>
+            <a href="/contact/">Contact</a>
+          </div>
+        </div>
+        <button class="btn btn-primary" data-open-inquiry>Start Your Build</button>
+      </nav>
   </div>
 </header>
 
 <main id="main">
 
   <!-- Sub-Hero -->
-  <section class="sub-hero reveal">
-    <div class="container">
-      <div class="sub-hero-content">
-        <p class="eyebrow">Commercial</p>
+  <section class="sub-hero">
+    <div class="sub-hero-media">
+      <img src="/generated/sub-hero-quote.webp" alt="Engineering workstation with UAV component BOM spreadsheet, calipers, and a flight controller module under review">
+      <span class="concept-badge">Concept illustration</span>
+    </div>
+    <div class="container sub-hero-grid">
+      <div class="reveal">
+        <span class="eyebrow">Commercial</span>
         <h1>Request a Quote</h1>
-        <p class="sub-hero-lede">Share your BOM, mission requirements, or aircraft configuration goals. Our engineering team evaluates every inquiry and returns a detailed component recommendation with preliminary pricing.</p>
+        <p>Share your BOM, mission requirements, or aircraft configuration goals. Our engineering team evaluates every inquiry and returns a detailed component recommendation with preliminary pricing.</p>
       </div>
-      <div class="sub-hero-media">
-        <img src="/generated/sub-hero-quote.webp" alt="Engineering workstation with UAV component BOM spreadsheet, calipers, and a flight controller module under review" width="640" height="400" loading="eager">
-        <span class="concept-badge">Concept illustration</span>
+      <div class="sub-meta reveal">
+        <div class="sub-meta-row"><span>Response</span><strong>2–3 Business Days</strong></div>
+        <div class="sub-meta-row"><span>Scope</span><strong>Part → Aircraft</strong></div>
+        <div class="sub-meta-row"><span>Format</span><strong>BOM + Rationale</strong></div>
+        <div class="sub-meta-row"><span>Validity</span><strong>30 Days</strong></div>
       </div>
     </div>
   </section>
@@ -68,11 +113,19 @@
   <!-- Quote Form Section -->
   <section class="section reveal">
     <div class="container">
-      <p class="eyebrow">Get Started</p>
-      <h2>Quick Quote Request</h2>
-      <p>Fill out the form below with as much detail as you can provide. The more specific your requirements, the more accurate our preliminary assessment. Typical response time is 2-3 business days.</p>
+      <div class="media-split">
+        <div class="reveal">
+          <span class="eyebrow">Get Started</span>
+          <h2>Quick Quote Request</h2>
+          <p>Fill out the form below with as much detail as you can provide. The more specific your requirements, the more accurate our preliminary assessment. Typical response time is 2-3 business days.</p>
+        </div>
+        <div class="media-visual reveal">
+          <img src="/generated/quote-calc.webp" alt="Component specification sheets and cost estimation workspace for UAV BOM pricing" loading="lazy">
+          <span class="concept-badge">Concept illustration</span>
+        </div>
+      </div>
 
-      <form class="inquiry-form" action="https://inquiry-proxy.workers.dev" method="POST" id="quote-form">
+      <form class="inquiry-form" data-preview-form id="quote-form" style="margin-top:var(--space-5)">
         <input type="hidden" name="form-type" value="quote">
         <input type="hidden" name="site" value="ems-drone">
 
@@ -225,7 +278,7 @@
           <h2>Need a Faster Response?</h2>
           <p>For urgent project timelines or volume procurement inquiries, contact our sales engineering team directly. We can often provide same-day preliminary estimates for well-defined component requirements.</p>
           <div class="spec-actions">
-            <a class="btn btn-primary" href="/contact/">Contact Sales Engineering</a>
+            <button class="btn btn-primary" data-open-inquiry>Contact Sales Engineering</button>
           </div>
         </div>
       </div>
@@ -238,7 +291,7 @@
   <div class="container">
     <div class="footer-grid">
       <div class="footer-brand">
-        <a class="brand" href="/"><span class="brand-mark"><svg aria-hidden="true"><use href="/index.html#icon-drone"/></svg></span><span>EMS Drone</span></a>
+        <a class="brand" href="/" aria-label="EMS Drone home"><span class="brand-mark"><svg aria-hidden="true"><use href="#icon-drone"/></svg></span><span>EMS Drone</span></a>
         <p>Configurable UAV components, complete systems and engineering support for teams building the next low-altitude applications.</p>
       </div>
       <div class="footer-col"><h3>System</h3><a href="/capabilities/">Capabilities</a><a href="/customization/">Customization</a><a href="/testing/">Testing</a></div>
@@ -249,7 +302,7 @@
   </div>
 </footer>
 
-<script src="/site.js?v=6"></script>
-<script src="/reveal.js?v=6"></script>
+<script src="/site.js?v=9"></script>
+<script src="/reveal.js?v=8"></script>
 </body>
 </html>

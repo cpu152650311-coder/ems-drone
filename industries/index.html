@@ -19,7 +19,7 @@
 <link rel="apple-touch-icon" sizes="180x180" href="/generated/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="192x192" href="/generated/icon-192.png">
 <link rel="icon" type="image/png" sizes="512x512" href="/generated/icon-512.png">
-  <link rel="stylesheet" href="/design-tokens.css?v=6">
+  <link rel="stylesheet" href="/design-tokens.css?v=16">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -38,7 +38,7 @@
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
   <svg aria-hidden="true" style="position:absolute;width:0;height:0;overflow:hidden">
-    <symbol id="icon-drone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="2.6"/><path d="m10.2 10.2-4-4m7.6 4 4-4m-7.6 7.6-4 4m7.6-4 4 4"/><circle cx="4.7" cy="4.7" r="2.2"/><circle cx="19.3" cy="4.7" r="2.2"/><circle cx="4.7" cy="19.3" r="2.2"/><circle cx="19.3" cy="19.3" r="2.2"/></symbol>
+    <symbol id="icon-drone" viewBox="0 0 24 24" fill="none" stroke="#b8f34a" stroke-width="1.5"><circle cx="12" cy="12" r="2.6"/><path d="m10.2 10.2-4-4m7.6 4 4-4m-7.6 7.6-4 4m7.6-4 4 4"/><circle cx="4.7" cy="4.7" r="2.2"/><circle cx="19.3" cy="4.7" r="2.2"/><circle cx="4.7" cy="19.3" r="2.2"/><circle cx="19.3" cy="19.3" r="2.2"/></symbol>
     <symbol id="icon-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12h14m-5-5 5 5-5 5"/></symbol>
     <symbol id="icon-inspect" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="4"/><path d="M15 15 21 21"/><path d="M3 12h2m14 0h2M12 3v2m0 14v2"/></symbol>
     <symbol id="icon-map" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 7v11l6-3 6 3 6-3V4l-6 3-6-3-6 3Z"/><circle cx="9" cy="9" r="1.2"/></symbol>
@@ -49,21 +49,60 @@
 
   <header class="site-header">
     <div class="nav-shell">
-      <a class="brand" href="/" aria-label="EMS Drone home">
-        <span class="brand-mark"><svg aria-hidden="true"><use href="/index.html#icon-drone"/></svg></span>
-        <span>EMS Drone</span>
-      </a>
+      <a class="brand" href="/" aria-label="EMS Drone home"><span class="brand-mark"><svg aria-hidden="true"><use href="#icon-drone"/></svg></span><span>EMS Drone</span></a>
       <button class="nav-toggle" type="button" aria-label="Open navigation" aria-expanded="false">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
       </button>
-      <nav class="site-nav" aria-label="Primary navigation">
-        <a href="/capabilities/">Capabilities</a>
-        <a href="/customization/">Customization</a>
-        <a href="/testing/">Testing</a>
-        <a href="/industries/" aria-current="page">Industries</a>
-        <a href="/about/">About</a>
-        <a href="/blog/">Blog</a>
-        <a class="btn btn-primary" href="/contact/">Start Your Build</a>
+                            <nav class="site-nav" aria-label="Primary navigation"><a href="/">Home</a>
+        <div class="nav-dropdown">
+          <a href="/capabilities/" class="nav-parent">Capabilities</a>
+          <div class="nav-submenu">
+            <a href="/capabilities/flight-control/">Flight Controllers</a>
+            <a href="/capabilities/esc-power/">ESC &amp; Power Systems</a>
+            <a href="/capabilities/propulsion/">Propulsion</a>
+            <a href="/capabilities/airframe/">Airframes &amp; Structures</a>
+            <a href="/capabilities/communications/">Communications &amp; RF</a>
+            <a href="/capabilities/payload/">Payloads &amp; Gimbals</a>
+          </div>
+        </div>
+        <div class="nav-dropdown">
+          <a href="/customization/" class="nav-parent">Services</a>
+          <div class="nav-submenu">
+            <a href="/customization/">Custom Engineering</a>
+            <a href="/testing/">Testing &amp; Validation</a>
+          </div>
+        </div>
+        <div class="nav-dropdown">
+          <a href="/industries/" class="nav-parent" aria-current="page">Industries</a>
+          <div class="nav-submenu">
+            <a href="/industries/inspection/">Industrial Inspection</a>
+            <a href="/industries/mapping-survey/">Mapping &amp; Survey</a>
+            <a href="/industries/logistics/">Logistics &amp; Delivery</a>
+            <a href="/industries/agriculture/">Precision Agriculture</a>
+            <a href="/industries/research/">Research &amp; Development</a>
+          </div>
+        </div>
+        <div class="nav-dropdown">
+          <a href="/resources/" class="nav-parent">Resources</a>
+          <div class="nav-submenu">
+            <a href="/design-guides/">Design Guides</a>
+            <a href="/projects/">Engineering Projects</a>
+            <a href="/how-it-works/">How We Work</a>
+            <a href="/faq/">FAQ</a>
+            <a href="/blog/">Blog</a>
+          </div>
+        </div>
+        <div class="nav-dropdown">
+          <a href="/about/" class="nav-parent">Company</a>
+          <div class="nav-submenu">
+            <a href="/about/">About Us</a>
+            <a href="/factory/">Factory Tour</a>
+            <a href="/quality/">Quality &amp; Certifications</a>
+            <a href="/shipping/">Global Shipping</a>
+            <a href="/contact/">Contact</a>
+          </div>
+        </div>
+        <button class="btn btn-primary" data-open-inquiry>Start Your Build</button>
       </nav>
     </div>
   </header>
@@ -91,12 +130,16 @@
 
     <section class="section">
       <div class="container">
-        <div class="section-header reveal">
-          <div>
+        <div class="media-split">
+          <div class="reveal">
             <span class="eyebrow">Mission-Driven Architecture</span>
             <h2>The application defines the aircraft, not the other way around.</h2>
+            <p>An inspection drone flying close to a wind turbine blade needs different sensors, flight time, positioning accuracy and safety redundancy than a mapping drone covering square kilometers of farmland. Starting from the industry application ensures the component architecture is right for the job — not generic.</p>
           </div>
-          <p>An inspection drone flying close to a wind turbine blade needs different sensors, flight time, positioning accuracy and safety redundancy than a mapping drone covering square kilometers of farmland. Starting from the industry application ensures the component architecture is right for the job — not generic.</p>
+          <div class="media-visual reveal">
+            <img src="/generated/industries-application-collage.webp" alt="Split composition showing five UAV application sectors — inspection, mapping, logistics, agriculture, and research" loading="lazy">
+            <span class="concept-badge">Concept illustration</span>
+          </div>
         </div>
       </div>
     </section>
@@ -219,7 +262,7 @@
             </div>
             <div class="spec-actions">
               <button class="btn btn-primary" type="button" data-open-inquiry>Start Your Build <svg aria-hidden="true"><use href="#icon-arrow"/></svg></button>
-              <a class="btn btn-outline" href="/contact/">Open the RFQ Brief</a>
+              <button class="btn btn-outline" data-open-inquiry>Open the RFQ Brief</button>
             </div>
           </div>
         </div>
@@ -231,7 +274,7 @@
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
-          <a class="brand" href="/"><span class="brand-mark"><svg aria-hidden="true"><use href="/index.html#icon-drone"/></svg></span><span>EMS Drone</span></a>
+          <a class="brand" href="/" aria-label="EMS Drone home"><span class="brand-mark"><svg aria-hidden="true"><use href="#icon-drone"/></svg></span><span>EMS Drone</span></a>
           <p>Configurable UAV components, complete systems and engineering support for teams building the next low-altitude applications.</p>
         </div>
         <div class="footer-col"><h3>System</h3><a href="/capabilities/">Capabilities</a><a href="/customization/">Customization</a><a href="/testing/">Testing</a></div>
@@ -241,25 +284,23 @@
       <div class="footer-bottom"><span>&copy; 2026 EMS Drone</span><span>Components → Systems → Flight Readiness</span></div>
     </div>
   </footer>
-
   <div class="modal-overlay" id="inquiryModal" aria-hidden="true">
     <div class="modal-dialog" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
-      <button class="modal-close" type="button" aria-label="Close inquiry">×</button>
+      <button class="modal-close" type="button" aria-label="Close inquiry">&times;</button>
       <div class="modal-aside">
-        <span class="tech-label">Industries / Intake</span>
-        <div><h3 id="modalTitle">Define your industry application.</h3><p>Share the sector, operational requirements, payload goals and target build depth. We will map the component architecture.</p></div>
+        <span class="tech-label">Engineering Intake</span>
+        <div><h3 id="modalTitle">Start with your mission.</h3><p>Tell us what you are building and where you need support: component sourcing, a matched stack or a complete UAV.</p></div>
       </div>
       <form class="modal-form" data-preview-form>
         <div class="field"><label for="modal-name">Name</label><input id="modal-name" name="name" autocomplete="name" required></div>
         <div class="field" style="margin-top:18px"><label for="modal-email">Email</label><input id="modal-email" name="email" type="email" autocomplete="email" required></div>
-        <div class="field" style="margin-top:18px"><label for="modal-message">Project brief</label><textarea id="modal-message" name="message" required placeholder="Industry sector, operational requirements, payload goals, target build depth (component / stack / complete aircraft)"></textarea></div>
-        <p class="form-note">Preview mode: this form is not connected to an unverified recipient.</p>
+        <div class="field" style="margin-top:18px"><label for="modal-message">Project brief</label><textarea id="modal-message" name="message" required placeholder="Aircraft type, payload, environment, component list or complete-system goal"></textarea></div>
         <button class="btn btn-primary" type="submit">Submit Engineering Brief</button>
         <div class="form-status" role="status" aria-live="polite" aria-atomic="true"></div>
       </form>
     </div>
   </div>
-  <script src="/site.js?v=6"></script>
-  <script src="/reveal.js?v=6"></script>
+<script src="/site.js?v=9"></script>
+  <script src="/reveal.js?v=8"></script>
 </body>
 </html>

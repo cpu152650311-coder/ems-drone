@@ -3,6 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/x-icon" href="/generated/favicon.ico">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="apple-touch-icon" sizes="180x180" href="/generated/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="/generated/icon-192.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="/generated/icon-512.png">
   <meta name="robots" content="noindex, nofollow">
   <title>Your UAV System, Engineered from Component to Aircraft | EMS Drone</title>
   <meta name="description" content="EMS Drone delivers configurable UAV components, custom subsystem integration, and complete aircraft engineering. From flight controllers to full airframes — one partner, end to end.">
@@ -365,7 +370,7 @@
         </div>
       </div>
       <div class="hero-visual">
-        <img src="/generated/sub-hero-welcome.webp" alt="UAV system components — flight controller, ESCs, motors, carbon fiber airframe — arranged on an engineering workstation" width="640" height="400" loading="eager">
+        <img src="/generated/hero-bg-centered.webp" alt="UAV system components — flight controller, ESCs, motors, carbon fiber airframe — arranged on an engineering workstation" width="640" height="400" loading="eager">
         <span class="visual-tag">Concept illustration</span>
       </div>
     </div>
@@ -638,9 +643,7 @@
       })
       .then(function(res) {
         if (res.ok) {
-          result.className = 'form-result success';
-          result.textContent = 'Thank you. We will be in touch within 2-3 business days.';
-          form.reset();
+          window.location.href = '/thanks.html';
         } else {
           result.className = 'form-result error';
           result.textContent = 'Something went wrong. Please email us directly at contact@ems-drone.pages.dev.';

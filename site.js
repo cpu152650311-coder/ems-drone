@@ -105,11 +105,7 @@ function submitForm(form) {
   })
     .then((res) => {
       if (!res.ok) throw new Error("Server error " + res.status);
-      if (status) {
-        status.textContent = "Thank you. We will review your brief and respond within 1 business day.";
-        status.classList.add("visible");
-      }
-      form.reset();
+      window.location.href = "/thanks.html";
     })
     .catch(() => {
       if (status) {

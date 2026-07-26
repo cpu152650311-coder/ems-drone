@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LiDAR Survey &amp; Mapping UAV — Engineering Project Reference | EMS Drone</title>
+  <meta name="description" content="Engineering reference for a long-endurance fixed-wing VTOL platform configured for LiDAR mapping and photogrammetry. Covers sensor integration, vibration isolation, and communication architecture.">
+  <link rel="icon" type="image/x-icon" href="/generated/favicon.ico">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="apple-touch-icon" sizes="180x180" href="/generated/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/generated/icon-192.png">
+<link rel="icon" type="image/png" sizes="512x512" href="/generated/icon-512.png">
+<link rel="canonical" href="https://ems-drone.pages.dev/projects/lidar-mapping-platform/">
+  <meta property="og:title" content="LiDAR Survey &amp; Mapping UAV — Engineering Project Reference | EMS Drone">
+  <meta property="og:description" content="Engineering reference for a long-endurance fixed-wing VTOL platform configured for LiDAR mapping and photogrammetry. Covers sensor integration, vibration isolation, and communication architecture.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://ems-drone.pages.dev/projects/lidar-mapping-platform/">
+  <meta property="og:image" content="https://ems-drone.pages.dev/generated/og-cover.png">
+  <meta property="og:site_name" content="EMS Drone">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="LiDAR Survey &amp; Mapping UAV — Engineering Project Reference | EMS Drone">
+  <meta name="twitter:description" content="Engineering reference for a long-endurance fixed-wing VTOL platform configured for LiDAR mapping and photogrammetry. Covers sensor integration, vibration isolation, and communication architecture.">
+  <meta name="twitter:image" content="https://ems-drone.pages.dev/generated/og-cover.png">
+  <link rel="stylesheet" href="/design-tokens.css?v=16">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="nav-shell">
+    <a class="brand" href="/" aria-label="EMS Drone home"><span class="brand-mark"><svg aria-hidden="true"><use href="#icon-drone"/></svg></span><span>EMS Drone</span></a>
+    <button class="nav-toggle" type="button" aria-label="Open navigation" aria-expanded="false">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
+                          <nav class="site-nav" aria-label="Primary navigation"><a href="/">Home</a>
+        <div class="nav-dropdown">
+          <a href="/capabilities/" class="nav-parent">Capabilities</a>
+          <div class="nav-submenu">
+            <a href="/capabilities/flight-control/">Flight Controllers</a>
+            <a href="/capabilities/esc-power/">ESC &amp; Power Systems</a>
+            <a href="/capabilities/propulsion/">Propulsion</a>
+            <a href="/capabilities/airframe/">Airframes &amp; Structures</a>
+            <a href="/capabilities/communications/">Communications &amp; RF</a>
+            <a href="/capabilities/payload/">Payloads &amp; Gimbals</a>
+          </div>
+        </div>
+        <div class="nav-dropdown">
+          <a href="/customization/" class="nav-parent">Services</a>
+          <div class="nav-submenu">
+            <a href="/customization/">Custom Engineering</a>
+            <a href="/testing/">Testing &amp; Validation</a>
+          </div>
+        </div>
+        <div class="nav-dropdown">
+          <a href="/industries/" class="nav-parent">Industries</a>
+          <div class="nav-submenu">
+            <a href="/industries/inspection/">Industrial Inspection</a>
+            <a href="/industries/mapping-survey/">Mapping &amp; Survey</a>
+            <a href="/industries/logistics/">Logistics &amp; Delivery</a>
+            <a href="/industries/agriculture/">Precision Agriculture</a>
+            <a href="/industries/research/">Research &amp; Development</a>
+          </div>
+        </div>
+        <div class="nav-dropdown">
+          <a href="/resources/" class="nav-parent">Resources</a>
+          <div class="nav-submenu">
+            <a href="/design-guides/">Design Guides</a>
+            <a href="/projects/" aria-current="page">Engineering Projects</a>
+            <a href="/how-it-works/">How We Work</a>
+            <a href="/faq/">FAQ</a>
+            <a href="/blog/">Blog</a>
+          </div>
+        </div>
+        <div class="nav-dropdown">
+          <a href="/about/" class="nav-parent">Company</a>
+          <div class="nav-submenu">
+            <a href="/about/">About Us</a>
+            <a href="/factory/">Factory Tour</a>
+            <a href="/quality/">Quality &amp; Certifications</a>
+            <a href="/shipping/">Global Shipping</a>
+            <a href="/contact/">Contact</a>
+          </div>
+        </div>
+        <button class="btn btn-primary" data-open-inquiry>Start Your Build</button>
+      </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- Sub-Hero -->
+  <section class="sub-hero">
+    <div class="sub-hero-media">
+      <img src="/generated/sub-hero-projects.webp" alt="VTOL fixed-wing LiDAR mapping platform conceptual visualization">
+      <span class="concept-badge">Concept illustration</span>
+    </div>
+    <div class="container sub-hero-grid">
+      <div class="reveal">
+        <span class="eyebrow">Projects &middot; Mapping</span>
+        <h1>LiDAR survey and mapping platform</h1>
+        <p>An engineering reference for a long-endurance fixed-wing VTOL platform configured for high-density LiDAR mapping and photogrammetry. This document covers the component architecture, sensor integration logic, vibration isolation strategy, and communication stack — not as a customer case study, but as a reusable engineering framework for teams building similar survey-grade UAV systems.</p>
+      </div>
+      <div class="sub-meta reveal">
+        <div class="sub-meta-row"><span>Configuration</span><strong>VTOL Fixed-Wing</strong></div>
+        <div class="sub-meta-row"><span>Endurance</span><strong>120 min</strong></div>
+        <div class="sub-meta-row"><span>Payload</span><strong>5 kg</strong></div>
+        <div class="sub-meta-row"><span>Type</span><strong>Architecture Reference</strong></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Project Overview -->
+  <section class="section reveal">
+    <div class="container">
+      <div class="detail-card">
+        <div class="detail-card-icon">
+          <svg aria-hidden="true" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="var(--signal)" stroke-width="1.6"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+        </div>
+        <span class="tech-label">VTOL Fixed-Wing · 120 min Endurance</span>
+        <h2>Project Overview</h2>
+        <div class="media-split" style="margin-top:var(--space-4)">
+          <div>
+            <p>This platform is designed around a fixed-wing VTOL airframe with a target endurance of 120 minutes and a payload capacity of 5 kg. The mission profile assumes corridor mapping and area survey operations at 100–120 m AGL with a cruise speed of 16–18 m/s. The airframe transitions between vertical takeoff/landing and fixed-wing cruise via four lift motors and a dedicated pusher motor, enabling operation from unprepared sites without runway infrastructure.</p>
+          </div>
+          <div class="media-visual reveal">
+            <img src="/generated/proj-lidar-vtol-flight.webp" alt="VTOL fixed-wing mapping drone in flight over forest canopy with LiDAR sensor pod" loading="lazy">
+            <span class="concept-badge">Concept illustration</span>
+          </div>
+        </div>
+        <p style="margin-top:var(--space-4)">The primary payload is an integrated LiDAR scanner with an RGB camera for simultaneous point cloud and orthophoto capture. Secondary payload provisions include a multispectral sensor bay with a standardised mechanical and electrical interface for mission-swappable sensor heads. The platform is intended to serve survey teams conducting topographic mapping, vegetation canopy analysis, and corridor inspection over linear infrastructure assets.</p>
+        <p>The design emphasis is on component interoperability — flight controller, RTK receiver, LiDAR IMU, and onboard computer share a common time-synchronisation bus, ensuring that every laser return is accurately geo-referenced without post-processing drift. This architecture reduces the integration burden that typically arises when mixing components from different manufacturers with incompatible timing protocols.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Component Architecture -->
+  <section class="section section-alt reveal">
+    <div class="container">
+      <div class="detail-card" style="margin-bottom: var(--space-5);">
+        <div class="detail-card-icon">
+          <svg aria-hidden="true" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="var(--aero)" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 3v18"/></svg>
+        </div>
+        <span class="tech-label">System Architecture</span>
+        <h3>Component Architecture</h3>
+
+        <h4>Flight Controller &amp; Navigation</h4>
+        <p>The core is a Cube Orange+ running ArduPilot with fixed-wing VTOL firmware. Navigation relies on a Here3 RTK GNSS unit providing centimetre-level positioning via local NTRIP correction. A redundant external compass and dual barometers supply the sensor fusion needed for reliable transition between hover and forward flight modes. The flight controller outputs PWM to the lift motors and a dedicated CAN channel to the pusher ESC, allowing independent throttle curves for vertical and cruise propulsion.</p>
+
+        <h4>Payload Integration — LiDAR + RGB</h4>
+        <p>The payload bay accommodates a Hesai PandarXT mid-range LiDAR (360-degree FOV, 120 m range at 10% reflectivity) paired with a 42 MP Sony A7R IV full-frame camera. Both sensors are mounted on a shared aluminium isolation plate decoupled from the airframe via four wire-rope isolators. The LiDAR's internal IMU shares a hardware synchronisation line with the flight controller's GPS PPS output, ensuring that every laser pulse timestamp aligns with the RTK position solution. An onboard NVIDIA Jetson Orin NX handles real-time point cloud registration and stores raw data to a 2 TB NVMe SSD.</p>
+        <div class="media-visual reveal" style="max-width:640px;margin:24px auto">
+          <img src="/generated/proj-lidar-sensor-closeup.webp" alt="Close-up of LiDAR sensor mounted on vibration-dampened gimbal plate" loading="lazy">
+          <span class="concept-badge">Concept illustration</span>
+        </div>
+
+        <h4>Communication Stack</h4>
+        <p>A dual-band architecture separates command-and-control from payload telemetry. The 868 MHz RFD900x link carries MAVLink telemetry and RC override at ranges up to 20 km, while a 5.8 GHz Ubiquiti Bullet AC link streams the LiDAR point cloud preview and camera video feed to the ground control station. Both antennas are embedded within the composite airframe to preserve the laminar flow over the fuselage and reduce drag. An Iridium satellite short-burst modem provides position reporting as a fail-safe for beyond-visual-line-of-sight operations.</p>
+        <div class="media-visual reveal" style="max-width:640px;margin:24px auto">
+          <img src="/generated/proj-lidar-antenna-placement.webp" alt="Dual-band antenna array on RF-transparent composite mounting plate" loading="lazy">
+          <span class="concept-badge">Concept illustration</span>
+        </div>
+
+        <h4>Power System</h4>
+        <p>Endurance targets drive the power architecture. A 6S8P Li-Ion pack built from Samsung 50E cells delivers 40,000 mAh at a nominal 22.2 V — approximately 888 Wh of onboard energy. A central PDB with Hall-effect current sensors monitors total system draw and individual branch currents for the pusher motor, lift motors, payload, and avionics. The VTOL motors draw from the same pack through dedicated ESCs, with the flight controller managing a power budget that limits combined lift-motor duty to the transition phase only, preserving cruise energy for survey legs.</p>
+        <div class="media-visual reveal" style="max-width:640px;margin:24px auto">
+          <img src="/generated/proj-lidar-power-system.webp" alt="Li-Ion battery packs with power distribution board and connectors" loading="lazy">
+          <span class="concept-badge">Concept illustration</span>
+        </div>
+
+        <h4>Vibration Isolation</h4>
+        <p>LiDAR point cloud quality is directly degraded by high-frequency vibration from the propulsion system. We specify a two-stage isolation approach: the motor mounts use silicone grommets sized to the dominant frequency of each lift rotor (approximately 120 Hz at hover RPM), and the payload plate floats on four GG-type wire-rope isolators with a natural frequency below 15 Hz. This arrangement attenuates motor-induced vibration by approximately 30 dB at frequencies above 80 Hz, well within the noise tolerance of the LiDAR's internal IMU. The isolator mounts bolt to the airframe's main carbon fibre spar, distributing the 5 kg payload mass across the primary load path rather than cantilevering from a secondary structure.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Key Engineering Decisions -->
+  <section class="section reveal">
+    <div class="container">
+      <div class="detail-card">
+        <span class="tech-label">Design Tradeoffs</span>
+        <h3>Key Engineering Decisions</h3>
+
+        <h4>Sensor Mounting Tradeoffs</h4>
+        <p>The LiDAR scanner could have been mounted in a belly pod for an unobstructed 360-degree field of view, or in a nose-cone integration for aerodynamic cleanliness. A belly pod simplifies cabling and provides the best scan geometry for corridor mapping, but adds approximately 0.8 kg of structural mass and increases parasite drag by an estimated 12%. The nose integration preserves cruise efficiency but requires a cutout in the composite shell and a custom radome that is transparent to 905 nm laser wavelength. For survey missions where endurance directly determines hectares covered per flight, the nose-integration path yields a higher area-throughput despite the manufacturing complexity.</p>
+
+        <h4>Antenna Placement on Composite Airframe</h4>
+        <p>Carbon fibre is conductive and acts as an RF shield. The fuselage uses a fibreglass-epoxy layup in the antenna bay section to create an RF-transparent window, with the 868 MHz and 5.8 GHz antennas mounted on a shared PCB carrier that maintains minimum 1/4-wavelength separation. The GPS patch antenna sits in a dedicated ground-plane cavity on the upper fuselage, isolated from the carbon fibre by a 15 mm foam standoff. This arrangement was validated with a VNA sweep across 400 MHz to 6 GHz, confirming return loss below -10 dB across all operating bands.</p>
+
+        <h4>Power Budget Balancing</h4>
+        <p>The 888 Wh battery supports approximately 85 W cruise draw (pusher motor at 55% throttle, avionics, and payload), yielding a theoretical 10.4 hours of cruise flight. In practice, the VTOL transition and a 20% reserve reduce usable endurance to 120 minutes of survey operation. The LiDAR and onboard computer consume a combined 38 W, while the flight controller, RTK receiver, and telemetry radios draw 12 W. The lift motors spike to 1,200 W combined during takeoff and transition but operate for under 90 seconds per flight. The resulting energy per mission breaks down as roughly 68% cruise propulsion, 22% payload systems, 7% avionics, and 3% transition energy. Moving to higher-energy-density cells (e.g., Samsung 50S at 21700 format) could extend endurance by 15–18% within the same pack volume.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Lessons & Disclaimer -->
+  <section class="section section-alt reveal">
+    <div class="container">
+      <div class="detail-card" style="margin-bottom: var(--space-5);">
+        <span class="tech-label">Lessons</span>
+        <h3>Engineering Lessons &amp; Education Disclaimer</h3>
+        <p>Several integration challenges surfaced during the prototyping phase that are worth documenting for teams pursuing similar architectures. Time synchronisation between the LiDAR IMU and the RTK GNSS receiver required a dedicated PPS line — relying on software timestamps over MAVLink introduced 15–30 ms of jitter that produced visible striping in the point cloud. The carbon fibre spar that carries the payload isolators needed a localised reinforcement patch at the bolt locations; without it, micro-cracking appeared around the fastener holes after approximately 50 flight cycles. Battery cell balancing across the 48-cell Li-Ion pack proved sensitive to the wiring harness layout: cells at the far end of the series string drifted by up to 45 mV per cycle when the balance leads exceeded 300 mm in length.</p>
+        <p><strong>Education disclaimer.</strong> This engineering reference is provided for educational and informational purposes. It describes a representative UAV system architecture, component selection methodology, and integration approach. It is not a certified aircraft design, build manual, or flight-ready specification. Any team reconstructing a similar platform must conduct their own structural analysis, RF compliance verification, and flight safety assessment appropriate to their operating jurisdiction and mission profile. EMS Drone assumes no liability for designs derived from this reference material.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Panel -->
+  <section class="section reveal">
+    <div class="container">
+      <div class="spec-panel">
+        <div class="spec-panel-inner">
+          <p class="eyebrow">Build a Similar Platform</p>
+          <h2>Discuss your mapping UAV architecture</h2>
+          <p>Share your survey requirements — area throughput, point density targets, operating altitude, and endurance goals — and our engineering team will prepare a preliminary component recommendation and integration roadmap.</p>
+          <div class="spec-actions">
+            <button class="btn btn-primary" data-open-inquiry>Start Your Build</button>
+            <a class="btn btn-outline" href="/quote/">Request a Quote</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a class="brand" href="/" aria-label="EMS Drone home"><span class="brand-mark"><svg aria-hidden="true"><use href="#icon-drone"/></svg></span><span>EMS Drone</span></a>
+        <p>Configurable UAV components, complete systems and engineering support for teams building the next low-altitude applications.</p>
+      </div>
+      <div class="footer-col"><h3>System</h3><a href="/capabilities/">Capabilities</a><a href="/customization/">Customization</a><a href="/testing/">Testing</a></div>
+      <div class="footer-col"><h3>Company</h3><a href="/about/">About</a><a href="/blog/">Blog</a><a href="/contact/">Contact</a></div>
+      <div class="footer-col"><h3>Resources</h3><a href="/faq/">FAQ</a><a href="/how-it-works/">How It Works</a><a href="/design-guides/">Design Guides</a></div>
+    </div>
+    <div class="footer-bottom"><span>&copy; 2026 EMS Drone</span><span>Components &rarr; Systems &rarr; Flight Readiness</span></div>
+  </div>
+</footer>
+  <div class="modal-overlay" id="inquiryModal" aria-hidden="true">
+    <div class="modal-dialog" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <button class="modal-close" type="button" aria-label="Close inquiry">&times;</button>
+      <div class="modal-aside">
+        <span class="tech-label">Engineering Intake</span>
+        <div><h3 id="modalTitle">Start with your mission.</h3><p>Tell us what you are building and where you need support: component sourcing, a matched stack or a complete UAV.</p></div>
+      </div>
+      <form class="modal-form" data-preview-form>
+        <div class="field"><label for="modal-name">Name</label><input id="modal-name" name="name" autocomplete="name" required></div>
+        <div class="field" style="margin-top:18px"><label for="modal-email">Email</label><input id="modal-email" name="email" type="email" autocomplete="email" required></div>
+        <div class="field" style="margin-top:18px"><label for="modal-message">Project brief</label><textarea id="modal-message" name="message" required placeholder="Aircraft type, payload, environment, component list or complete-system goal"></textarea></div>
+        <button class="btn btn-primary" type="submit">Submit Engineering Brief</button>
+        <div class="form-status" role="status" aria-live="polite" aria-atomic="true"></div>
+      </form>
+    </div>
+  </div>
+<script src="/site.js?v=9"></script>
+<script src="/reveal.js?v=8"></script>
+</body>
+</html>

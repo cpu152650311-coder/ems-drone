@@ -1,0 +1,29 @@
+{
+  "sub-hero-capabilities": {
+    "id": "sub-hero-capabilities",
+    "file": "sub-hero-capabilities.webp",
+    "role": "sub-hero-bg",
+    "page": "capabilities/index.html",
+    "display": "full-bleed",
+    "size_bytes": 190576,
+    "source": "text-to-image"
+  },
+  "sub-hero-capabilities-flight-control": {
+    "id": "sub-hero-capabilities-flight-control",
+    "file": "sub-hero-capabilities-flight-control.webp",
+    "role": "sub-hero-bg",
+    "page": "capabilities/flight-control/index.html",
+    "display": "full-bleed",
+    "size_bytes": 156404,
+    "source": "text-to-image"
+  },
+  "sub-hero-capabilities-esc-power": {
+    "id": "sub-hero-capabilities-esc-power",
+    "file": "sub-hero-capabilities-esc-power.webp",
+    "role": "sub-hero-bg",
+    "page": "capabilities/esc-power/index.html",
+    "display": "full-bleed",
+    "size_bytes": 168040,
+    "source": "text-to-image"
+  }
+}

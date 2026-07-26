@@ -68,7 +68,7 @@
     "role": "sub-hero-bg",
     "page": "quote/index.html",
     "display": "default",
-    "size_bytes": 29772,
+    "size_bytes": 39904,
     "source": "text-to-image"
   },
   "sub-hero-capabilities": {
@@ -77,7 +77,7 @@
     "role": "sub-hero-bg",
     "page": "capabilities/index.html",
     "display": "default",
-    "size_bytes": 41950,
+    "size_bytes": 29808,
     "source": "text-to-image"
   },
   "sub-hero-capabilities-flight-control": {
@@ -86,7 +86,7 @@
     "role": "sub-hero-bg",
     "page": "capabilities/flight-control/index.html",
     "display": "default",
-    "size_bytes": 54644,
+    "size_bytes": 46250,
     "source": "text-to-image"
   },
   "sub-hero-capabilities-esc-power": {
@@ -95,7 +95,7 @@
     "role": "sub-hero-bg",
     "page": "capabilities/esc-power/index.html",
     "display": "default",
-    "size_bytes": 47876,
+    "size_bytes": 47250,
     "source": "text-to-image"
   },
   "sub-hero-capabilities-propulsion": {
@@ -104,7 +104,7 @@
     "role": "sub-hero-bg",
     "page": "capabilities/propulsion/index.html",
     "display": "default",
-    "size_bytes": 35956,
+    "size_bytes": 59746,
     "source": "text-to-image"
   },
   "sub-hero-capabilities-airframe": {
@@ -113,7 +113,7 @@
     "role": "sub-hero-bg",
     "page": "capabilities/airframe/index.html",
     "display": "default",
-    "size_bytes": 44340,
+    "size_bytes": 42618,
     "source": "text-to-image"
   },
   "sub-hero-capabilities-communications": {
@@ -122,7 +122,7 @@
     "role": "sub-hero-bg",
     "page": "capabilities/communications/index.html",
     "display": "default",
-    "size_bytes": 51188,
+    "size_bytes": 56976,
     "source": "text-to-image"
   },
   "sub-hero-capabilities-payload": {
@@ -131,7 +131,7 @@
     "role": "sub-hero-bg",
     "page": "capabilities/payload/index.html",
     "display": "default",
-    "size_bytes": 35864,
+    "size_bytes": 39182,
     "source": "text-to-image"
   },
   "sub-hero-industries": {
@@ -140,7 +140,7 @@
     "role": "sub-hero-bg",
     "page": "industries/index.html",
     "display": "default",
-    "size_bytes": 50496,
+    "size_bytes": 47960,
     "source": "text-to-image"
   },
   "sub-hero-industries-inspection": {
@@ -149,7 +149,7 @@
     "role": "sub-hero-bg",
     "page": "industries/inspection/index.html",
     "display": "default",
-    "size_bytes": 45170,
+    "size_bytes": 46682,
     "source": "text-to-image"
   },
   "sub-hero-industries-mapping-survey": {
@@ -158,7 +158,7 @@
     "role": "sub-hero-bg",
     "page": "industries/mapping-survey/index.html",
     "display": "default",
-    "size_bytes": 40970,
+    "size_bytes": 51566,
     "source": "text-to-image"
   },
   "sub-hero-industries-logistics": {
@@ -167,7 +167,7 @@
     "role": "sub-hero-bg",
     "page": "industries/logistics/index.html",
     "display": "default",
-    "size_bytes": 46764,
+    "size_bytes": 50098,
     "source": "text-to-image"
   },
   "sub-hero-industries-agriculture": {
@@ -176,7 +176,7 @@
     "role": "sub-hero-bg",
     "page": "industries/agriculture/index.html",
     "display": "default",
-    "size_bytes": 39582,
+    "size_bytes": 61956,
     "source": "text-to-image"
   },
   "sub-hero-industries-research": {
@@ -185,7 +185,7 @@
     "role": "sub-hero-bg",
     "page": "industries/research/index.html",
     "display": "default",
-    "size_bytes": 43504,
+    "size_bytes": 52372,
     "source": "text-to-image"
   },
   "factory-bench": {
@@ -194,7 +194,7 @@
     "role": "product-showcase",
     "page": "factory/index.html",
     "display": "default",
-    "size_bytes": 67006,
+    "size_bytes": 100958,
     "source": "text-to-image"
   },
   "factory-integration": {
@@ -203,7 +203,7 @@
     "role": "concept-scene",
     "page": "factory/index.html",
     "display": "default",
-    "size_bytes": 120936,
+    "size_bytes": 120398,
     "source": "text-to-image"
   },
   "quality-equipment": {
@@ -212,7 +212,7 @@
     "role": "product-showcase",
     "page": "quality/index.html",
     "display": "default",
-    "size_bytes": 84936,
+    "size_bytes": 81766,
     "source": "text-to-image"
   },
   "shipping-pack": {
@@ -221,7 +221,7 @@
     "role": "concept-scene",
     "page": "shipping/index.html",
     "display": "default",
-    "size_bytes": 174874,
+    "size_bytes": 176470,
     "source": "text-to-image"
   },
   "projects-inspection-drone": {
@@ -230,7 +230,7 @@
     "role": "concept-scene",
     "page": "projects/index.html",
     "display": "default",
-    "size_bytes": 58168,
+    "size_bytes": 57030,
     "source": "text-to-image"
   },
   "projects-agriculture-drone": {
@@ -239,7 +239,7 @@
     "role": "concept-scene",
     "page": "projects/index.html",
     "display": "default",
-    "size_bytes": 136792,
+    "size_bytes": 120756,
     "source": "text-to-image"
   },
   "design-guide-fc": {
@@ -248,7 +248,7 @@
     "role": "technical-diagram",
     "page": "design-guides/index.html",
     "display": "default",
-    "size_bytes": 60276,
+    "size_bytes": 60332,
     "source": "text-to-image"
   },
   "design-guide-matching": {
@@ -257,7 +257,7 @@
     "role": "technical-diagram",
     "page": "design-guides/index.html",
     "display": "default",
-    "size_bytes": 60792,
+    "size_bytes": 52190,
     "source": "text-to-image"
   },
   "cap-fc-detail": {
@@ -266,7 +266,7 @@
     "role": "product-showcase",
     "page": "capabilities/flight-control/index.html",
     "display": "default",
-    "size_bytes": 171824,
+    "size_bytes": 148850,
     "source": "text-to-image"
   },
   "cap-esc-detail": {
@@ -275,7 +275,7 @@
     "role": "product-showcase",
     "page": "capabilities/esc-power/index.html",
     "display": "default",
-    "size_bytes": 69614,
+    "size_bytes": 100438,
     "source": "text-to-image"
   },
   "cap-propulsion-detail": {
@@ -284,7 +284,7 @@
     "role": "product-showcase",
     "page": "capabilities/propulsion/index.html",
     "display": "default",
-    "size_bytes": 128072,
+    "size_bytes": 117288,
     "source": "text-to-image"
   },
   "cap-airframe-detail": {
@@ -293,7 +293,7 @@
     "role": "concept-scene",
     "page": "capabilities/airframe/index.html",
     "display": "default",
-    "size_bytes": 58442,
+    "size_bytes": 60984,
     "source": "text-to-image"
   },
   "cap-comms-detail": {
@@ -302,7 +302,7 @@
     "role": "product-showcase",
     "page": "capabilities/communications/index.html",
     "display": "default",
-    "size_bytes": 119972,
+    "size_bytes": 81494,
     "source": "text-to-image"
   },
   "cap-payload-detail": {
@@ -311,7 +311,7 @@
     "role": "product-showcase",
     "page": "capabilities/payload/index.html",
     "display": "default",
-    "size_bytes": 55570,
+    "size_bytes": 51872,
     "source": "text-to-image"
   },
   "ind-inspection-detail": {
@@ -320,7 +320,7 @@
     "role": "concept-scene",
     "page": "industries/inspection/index.html",
     "display": "default",
-    "size_bytes": 102492,
+    "size_bytes": 70234,
     "source": "text-to-image"
   },
   "ind-mapping-detail": {
@@ -329,7 +329,7 @@
     "role": "concept-scene",
     "page": "industries/mapping-survey/index.html",
     "display": "default",
-    "size_bytes": 178154,
+    "size_bytes": 136360,
     "source": "text-to-image"
   },
   "ind-logistics-detail": {
@@ -338,7 +338,7 @@
     "role": "concept-scene",
     "page": "industries/logistics/index.html",
     "display": "default",
-    "size_bytes": 47458,
+    "size_bytes": 91718,
     "source": "text-to-image"
   },
   "ind-agriculture-detail": {
@@ -347,7 +347,7 @@
     "role": "concept-scene",
     "page": "industries/agriculture/index.html",
     "display": "default",
-    "size_bytes": 150252,
+    "size_bytes": 167608,
     "source": "text-to-image"
   },
   "ind-research-detail": {
@@ -356,7 +356,7 @@
     "role": "concept-scene",
     "page": "industries/research/index.html",
     "display": "default",
-    "size_bytes": 90896,
+    "size_bytes": 72460,
     "source": "text-to-image"
   },
   "cta-engineering": {
@@ -365,7 +365,7 @@
     "role": "cta-bg",
     "page": "various",
     "display": "default",
-    "size_bytes": 41714,
+    "size_bytes": 21030,
     "source": "text-to-image"
   },
   "cta-systems": {
@@ -374,7 +374,7 @@
     "role": "cta-bg",
     "page": "various",
     "display": "default",
-    "size_bytes": 62544,
+    "size_bytes": 57736,
     "source": "text-to-image"
   },
   "texture-carbon": {
@@ -383,7 +383,7 @@
     "role": "texture-bg",
     "page": "various",
     "display": "default",
-    "size_bytes": 15592,
+    "size_bytes": 16374,
     "source": "text-to-image"
   },
   "texture-circuit": {
@@ -392,7 +392,7 @@
     "role": "texture-bg",
     "page": "various",
     "display": "default",
-    "size_bytes": 17006,
+    "size_bytes": 14614,
     "source": "text-to-image"
   },
   "stats-drone-bg": {
@@ -401,7 +401,7 @@
     "role": "stats-bg",
     "page": "various",
     "display": "default",
-    "size_bytes": 35074,
+    "size_bytes": 31814,
     "source": "text-to-image"
   },
   "process-architecture": {
@@ -410,7 +410,16 @@
     "role": "process-flow",
     "page": "how-it-works/index.html",
     "display": "default",
-    "size_bytes": 74194,
+    "size_bytes": 38474,
+    "source": "text-to-image"
+  },
+  "logo-combined": {
+    "id": "logo-combined",
+    "file": "logo-combined.webp",
+    "role": "logo",
+    "page": "/index.html",
+    "display": "logo",
+    "size_bytes": 22252,
     "source": "text-to-image"
   }
 }

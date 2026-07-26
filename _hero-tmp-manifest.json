@@ -1,0 +1,11 @@
+{
+  "hero-bg-centered": {
+    "id": "hero-bg-centered",
+    "file": "hero-bg-centered.webp",
+    "role": "hero-bg",
+    "page": "index.html",
+    "display": "full-bleed",
+    "size_bytes": 69258,
+    "source": "text-to-image"
+  }
+}

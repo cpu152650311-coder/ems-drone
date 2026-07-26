@@ -1,0 +1,6 @@
+# EMS Drone — Cloudflare Pages
+name = "ems-drone"
+compatibility_date = "2026-07-26"
+pages_build_output_dir = "."
+
+# Deploy: npx wrangler pages deploy ./ --branch=main --commit-dirty=true

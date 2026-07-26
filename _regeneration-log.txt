@@ -1,0 +1,125 @@
+Images: 32  Start: 0  Limit: all  Output: ./generated
+Style prefix: Professional B2B industrial photography style. Tight composition filling the entire frame edge to ed...
+============================================================
+[1/32] hero-bg-centered  role=hero-bg  page=index.html
+  Prompt: Wide atmospheric shot inside a modern drone electronics manufacturing cleanroom. In the foreground, a spotless engineering workstation with a half-ass...
+  Mode: text-to-image
+  => OK (128,324 bytes, text-to-image)
+[2/32] SKIP sub-hero-capabilities (source=text-to-image)
+[3/32] SKIP sub-hero-capabilities-flight-control (source=text-to-image)
+[4/32] SKIP sub-hero-capabilities-esc-power (source=text-to-image)
+[5/32] sub-hero-capabilities-propulsion  role=sub-hero-bg  page=capabilities/propulsion/index.html
+  Prompt: Dynamic 15-degree dutch tilt shot of a large brushless UAV motor with carbon fiber propeller mounted. Motor stator windings visible through side openi...
+  Mode: text-to-image
+  => OK (89,242 bytes, text-to-image)
+[6/32] sub-hero-capabilities-airframe  role=sub-hero-bg  page=capabilities/airframe/index.html
+  Prompt: Eye-level immersive shot inside a carbon fiber UAV airframe assembly area. A partially assembled quadcopter frame on a workbench, visible carbon weave...
+  Mode: text-to-image
+  => OK (149,390 bytes, text-to-image)
+[7/32] sub-hero-capabilities-communications  role=sub-hero-bg  page=capabilities/communications/index.html
+  Prompt: Shot through a foreground spectrum analyzer screen showing RF frequency bands, framing a telemetry radio module and GPS antenna on a test bench behind...
+  Mode: text-to-image
+  => OK (128,350 bytes, text-to-image)
+[8/32] sub-hero-capabilities-payload  role=sub-hero-bg  page=capabilities/payload/index.html
+  Prompt: Split diptych composition: left side shows a gimbal-stabilized camera payload in exploded view with lens, IMU board, and damping mounts separated; rig...
+  Mode: text-to-image
+  => OK (117,110 bytes, text-to-image)
+[9/32] sub-hero-industries  role=sub-hero-bg  page=industries/index.html
+  Prompt: Bird's eye collage showing five UAV application scenes arranged around a central drone: industrial inspection drone inspecting a pipeline (top-left), ...
+  Mode: text-to-image
+  => OK (241,436 bytes, text-to-image)
+[10/32] sub-hero-industries-inspection  role=sub-hero-bg  page=industries/inspection/index.html
+  Prompt: Low angle shot from beneath a drone inspecting an industrial pipe rack. The drone hovers above, its downward-facing camera and thermal sensor pointing...
+  Mode: text-to-image
+  => OK (91,596 bytes, text-to-image)
+[11/32] sub-hero-industries-mapping-survey  role=sub-hero-bg  page=industries/mapping-survey/index.html
+  Prompt: High angle drone POV shot looking down at a LIDAR-equipped mapping UAV flying over varied terrain. The UAV's shadow visible on the ground below with c...
+  Mode: text-to-image
+  => OK (310,970 bytes, text-to-image)
+[12/32] sub-hero-industries-logistics  role=sub-hero-bg  page=industries/logistics/index.html
+  Prompt: Eye-level immersive shot inside a drone delivery hub at golden hour. A cargo drone with open package bay sits on a landing pad marked with helipad gra...
+  Mode: text-to-image
+  => OK (160,794 bytes, text-to-image)
+[13/32] sub-hero-industries-agriculture  role=sub-hero-bg  page=industries/agriculture/index.html
+  Prompt: Bird's eye top-down view of an agricultural spray drone hovering low over bright green crop rows. The drone centered in frame with its spray boom arms...
+  Mode: text-to-image
+  => OK (372,300 bytes, text-to-image)
+[14/32] sub-hero-industries-research  role=sub-hero-bg  page=industries/research/index.html
+  Prompt: Macro close-up of a research UAV's modular sensor bay with multiple scientific instruments exposed. A hyperspectral camera lens in center focus, air q...
+  Mode: text-to-image
+  => OK (83,538 bytes, text-to-image)
+[15/32] sub-hero-about  role=sub-hero-bg  page=about/index.html
+  Prompt: Eye-level immersive wide shot of a UAV engineering office space. Engineers at workstations with dual monitors showing 3D CAD models of drone frames an...
+  Mode: text-to-image
+  => OK (142,032 bytes, text-to-image)
+[16/32] sub-hero-factory  role=sub-hero-bg  page=factory/index.html
+  Prompt: Low angle wide shot across a drone component production floor. Rows of pick-and-place SMT machines assembling PCBs in foreground, reflow ovens with or...
+  Mode: text-to-image
+  => OK (231,444 bytes, text-to-image)
+[17/32] sub-hero-quality  role=sub-hero-bg  page=quality/index.html
+  Prompt: Macro close-up of quality inspection: a technician's gloved hands holding a flight controller PCB under a magnifying lamp. The magnifying lens creates...
+  Mode: text-to-image
+  => OK (112,534 bytes, text-to-image)
+[18/32] sub-hero-shipping  role=sub-hero-bg  page=shipping/index.html
+  Prompt: Dynamic 15-degree dutch tilt of finished UAV component kits being packed for export. Open shipping crate with custom-cut foam inserts holding flight c...
+  Mode: text-to-image
+  => OK (164,162 bytes, text-to-image)
+[19/32] sub-hero-how-it-works  role=sub-hero-bg  page=how-it-works/index.html
+  Prompt: Split diptych composition: left side shows an initial concept sketch and component BOM on a desk with coffee cup, representing project start; right si...
+  Mode: text-to-image
+  => OK (137,096 bytes, text-to-image)
+[20/32] sub-hero-projects  role=sub-hero-bg  page=projects/index.html
+  Prompt: Bird's eye flat lay of three completed UAV projects on a dark technical surface: a heavy-lift agricultural hexacopter with spray system, a compact ins...
+  Mode: text-to-image
+  => OK (133,020 bytes, text-to-image)
+[21/32] sub-hero-design-guides  role=sub-hero-bg  page=design-guides/index.html
+  Prompt: Overhead bird's eye view of a designer's desk with an open engineering notebook showing hand-drawn UAV system block diagrams. A tablet displaying a 3D...
+  Mode: text-to-image
+  => OK (171,588 bytes, text-to-image)
+[22/32] sub-hero-faq  role=sub-hero-bg  page=faq/index.html
+  Prompt: Eye-level shot of an applications engineer at a desk, facing a large display showing a UAV component compatibility matrix. The engineer's hand gesture...
+  Mode: text-to-image
+  => OK (118,800 bytes, text-to-image)
+[23/32] sub-hero-blog  role=sub-hero-bg  page=blog/index.html
+  Prompt: Shot through a partially disassembled drone frame in foreground, looking through the carbon fiber arms to a desk with open technical articles and comp...
+  Mode: text-to-image
+  => OK (112,670 bytes, text-to-image)
+[24/32] sub-hero-contact  role=sub-hero-bg  page=contact/index.html
+  Prompt: Eye-level shot of an engineering consultation in progress. Two people at a desk ¡ª one pointing at a UAV component specification sheet, the other takin...
+  Mode: text-to-image
+  => OK (153,360 bytes, text-to-image)
+[25/32] sub-hero-customization  role=sub-hero-bg  page=customization/index.html
+  Prompt: Split composition showing modular UAV configuration: left side shows individual component options laid out in a selection matrix (3 FC options, 3 ESC ...
+  Mode: text-to-image
+  => OK (116,874 bytes, text-to-image)
+[26/32] sub-hero-testing  role=sub-hero-bg  page=testing/index.html
+  Prompt: Macro close-up of a UAV powertrain on a test bench with instrumentation probes attached. An oscilloscope screen in background shows PWM waveforms. A t...
+  Mode: text-to-image
+  => OK (105,352 bytes, text-to-image)
+[27/32] sub-hero-quote  role=sub-hero-bg  page=quote/index.html
+  Prompt: Eye-level shot of a clean engineering workspace with a tablet showing a component configuration interface, a printed BOM with handwritten notes beside...
+  Mode: text-to-image
+  => OK (118,454 bytes, text-to-image)
+[28/32] sub-hero-privacy  role=sub-hero-bg  page=privacy/index.html
+  Prompt: Abstract composition: a server rack viewed through a frosted glass partition with subtle green LED indicators glowing through the glass. The frosted g...
+  Mode: text-to-image
+  => OK (284,876 bytes, text-to-image)
+[29/32] sub-hero-terms  role=sub-hero-bg  page=terms/index.html
+  Prompt: Abstract composition: a close-up of a precision-machined metal surface with laser-etched specification numbers and tolerance markings. The etched text...
+  Mode: text-to-image
+  => OK (115,466 bytes, text-to-image)
+[30/32] cta-engineering  role=cta-bg  page=index.html
+  Prompt: Atmospheric shot of a clean engineering lab at dusk. A single workstation with a fully assembled drone prototype sits under warm focused light, surrou...
+  Mode: text-to-image
+  => OK (106,914 bytes, text-to-image)
+[31/32] process-architecture  role=technical-diagram  page=index.html
+  Prompt: Clean technical visualization showing the layers of a UAV electronic system architecture. From bottom to top: power management layer (battery, BMS, vo...
+  Mode: text-to-image
+  => OK (105,768 bytes, text-to-image)
+[32/32] stats-drone-bg  role=stats-bg  page=index.html
+  Prompt: Abstract dark geometric composition based on a hexacopter drone silhouette viewed from directly above. Six arms radiating from a central hub create a ...
+  Mode: text-to-image
+  => OK (122,354 bytes, text-to-image)
+============================================================
+Done. Success: 32  Failed: 0
+Manifest: image-manifest-full.json

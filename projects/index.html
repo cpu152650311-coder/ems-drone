@@ -21,7 +21,7 @@
   <meta name="twitter:title" content="UAV Engineering Projects &amp; Case Studies | EMS Drone">
   <meta name="twitter:description" content="Selected UAV engineering projects — component sourcing, custom subsystem integration, and complete aircraft configuration case studies from EMS Drone.">
   <meta name="twitter:image" content="https://ems-drone.pages.dev/generated/og-projects.webp">
-  <link rel="stylesheet" href="/design-tokens.css?v=6">
+  <link rel="stylesheet" href="/design-tokens.css?v=16">
   <link rel="preload" as="image" href="/generated/sub-hero-projects.webp">
 </head>
 <body>
@@ -29,38 +29,83 @@
 
 <header class="site-header">
   <div class="nav-shell">
-    <a class="brand" href="/" aria-label="EMS Drone home">
-      <span class="brand-mark"><svg aria-hidden="true"><use href="/index.html#icon-drone"/></svg></span>
-      <span>EMS Drone</span>
-    </a>
+    <a class="brand" href="/" aria-label="EMS Drone home"><span class="brand-mark"><svg aria-hidden="true"><use href="#icon-drone"/></svg></span><span>EMS Drone</span></a>
     <button class="nav-toggle" type="button" aria-label="Open navigation" aria-expanded="false">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
     </button>
-    <nav class="site-nav" aria-label="Primary navigation">
-      <a href="/capabilities/">Capabilities</a>
-      <a href="/customization/">Customization</a>
-      <a href="/testing/">Testing</a>
-      <a href="/industries/">Industries</a>
-      <a href="/about/">About</a>
-      <a href="/blog/">Blog</a>
-      <a class="btn btn-primary" href="/contact/">Start Your Build</a>
-    </nav>
+                          <nav class="site-nav" aria-label="Primary navigation"><a href="/">Home</a>
+        <div class="nav-dropdown">
+          <a href="/capabilities/" class="nav-parent">Capabilities</a>
+          <div class="nav-submenu">
+            <a href="/capabilities/flight-control/">Flight Controllers</a>
+            <a href="/capabilities/esc-power/">ESC &amp; Power Systems</a>
+            <a href="/capabilities/propulsion/">Propulsion</a>
+            <a href="/capabilities/airframe/">Airframes &amp; Structures</a>
+            <a href="/capabilities/communications/">Communications &amp; RF</a>
+            <a href="/capabilities/payload/">Payloads &amp; Gimbals</a>
+          </div>
+        </div>
+        <div class="nav-dropdown">
+          <a href="/customization/" class="nav-parent">Services</a>
+          <div class="nav-submenu">
+            <a href="/customization/">Custom Engineering</a>
+            <a href="/testing/">Testing &amp; Validation</a>
+          </div>
+        </div>
+        <div class="nav-dropdown">
+          <a href="/industries/" class="nav-parent">Industries</a>
+          <div class="nav-submenu">
+            <a href="/industries/inspection/">Industrial Inspection</a>
+            <a href="/industries/mapping-survey/">Mapping &amp; Survey</a>
+            <a href="/industries/logistics/">Logistics &amp; Delivery</a>
+            <a href="/industries/agriculture/">Precision Agriculture</a>
+            <a href="/industries/research/">Research &amp; Development</a>
+          </div>
+        </div>
+        <div class="nav-dropdown">
+          <a href="/resources/" class="nav-parent">Resources</a>
+          <div class="nav-submenu">
+            <a href="/design-guides/">Design Guides</a>
+            <a href="/projects/" aria-current="page">Engineering Projects</a>
+            <a href="/how-it-works/">How We Work</a>
+            <a href="/faq/">FAQ</a>
+            <a href="/blog/">Blog</a>
+          </div>
+        </div>
+        <div class="nav-dropdown">
+          <a href="/about/" class="nav-parent">Company</a>
+          <div class="nav-submenu">
+            <a href="/about/">About Us</a>
+            <a href="/factory/">Factory Tour</a>
+            <a href="/quality/">Quality &amp; Certifications</a>
+            <a href="/shipping/">Global Shipping</a>
+            <a href="/contact/">Contact</a>
+          </div>
+        </div>
+        <button class="btn btn-primary" data-open-inquiry>Start Your Build</button>
+      </nav>
   </div>
 </header>
 
 <main id="main">
 
   <!-- Sub-Hero -->
-  <section class="sub-hero reveal">
-    <div class="container">
-      <div class="sub-hero-content">
-        <p class="eyebrow">Case Studies</p>
+  <section class="sub-hero">
+    <div class="sub-hero-media">
+      <img src="/generated/sub-hero-projects.webp" alt="Hexacopter in flight during an industrial inspection mission over a power transmission tower">
+      <span class="concept-badge">Concept illustration</span>
+    </div>
+    <div class="container sub-hero-grid">
+      <div class="reveal">
+        <span class="eyebrow">Case Studies</span>
         <h1>Engineering Projects</h1>
-        <p class="sub-hero-lede">Real aircraft. Real constraints. A look inside component selection decisions, subsystem integration challenges, and complete aircraft configurations we have delivered for UAV engineering teams.</p>
+        <p>Real aircraft. Real constraints. A look inside component selection decisions, subsystem integration challenges, and complete aircraft configurations we have delivered for UAV engineering teams.</p>
       </div>
-      <div class="sub-hero-media">
-        <img src="/generated/sub-hero-projects.webp" alt="Hexacopter in flight during an industrial inspection mission over a power transmission tower, demonstrating real-world UAV deployment" width="640" height="400" loading="eager">
-        <span class="concept-badge">Concept illustration</span>
+      <div class="sub-meta reveal">
+        <div class="sub-meta-row"><span>Projects</span><strong>2 Architecture References</strong></div>
+        <div class="sub-meta-row"><span>Format</span><strong>Component Decisions</strong></div>
+        <div class="sub-meta-row"><span>Depth</span><strong>Engineering Rationale</strong></div>
+        <div class="sub-meta-row"><span>Updated</span><strong>July 2026</strong></div>
       </div>
     </div>
   </section>
@@ -235,6 +280,35 @@
     </div>
   </section>
 
+  <!-- Detailed Project References -->
+  <section class="section section-alt reveal">
+    <div class="container">
+      <div class="section-header reveal">
+        <div>
+          <span class="eyebrow">Deep-Dive References</span>
+          <h2>Detailed architecture walkthroughs.</h2>
+        </div>
+        <p>In-depth engineering breakdowns of component selection, subsystem integration and lessons learned for specific platform configurations.</p>
+      </div>
+      <div class="detail-grid">
+        <a class="detail-card reveal" href="/projects/heavy-lift-agriculture/" style="text-decoration:none;color:inherit">
+          <span class="tech-label">ARCHITECTURE REFERENCE</span>
+          <h3>Heavy-Lift Agricultural Spraying Platform</h3>
+          <p>X8 coaxial octocopter with 30L tank capacity and 25kg MTOW. Covers high-current power distribution, CAN ESC telemetry, 12S voltage architecture trade-offs, and coaxial vs flat configuration analysis.</p>
+          <ul class="tag-list"><li>Powertrain</li><li>Airframe</li><li>Spray Integration</li></ul>
+          <span class="inline-link">Read full architecture</span>
+        </a>
+        <a class="detail-card reveal" href="/projects/lidar-mapping-platform/" style="text-decoration:none;color:inherit">
+          <span class="tech-label">ARCHITECTURE REFERENCE</span>
+          <h3>LiDAR Survey &amp; Mapping Platform</h3>
+          <p>VTOL fixed-wing with 120-minute endurance and 5kg payload capacity. Covers sensor integration, precision time protocol, dual-band communication with satellite fail-safe, and vibration isolation design.</p>
+          <ul class="tag-list"><li>Sensor Integration</li><li>Communications</li><li>Power Budget</li></ul>
+          <span class="inline-link">Read full architecture</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
   <!-- Trust Signals -->
   <section class="section section-dark reveal">
     <div class="container">
@@ -263,7 +337,7 @@
           <h2>Have a Similar Challenge?</h2>
           <p>Share your requirements — payload, endurance, operating environment, and budget envelope — and our team will prepare a preliminary component recommendation and cost estimate.</p>
           <div class="spec-actions">
-            <a class="btn btn-primary" href="/contact/">Start Your Build</a>
+            <button class="btn btn-primary" data-open-inquiry>Start Your Build</button>
             <a class="btn btn-outline" href="/quote/">Request a Quote</a>
           </div>
         </div>
@@ -277,7 +351,7 @@
   <div class="container">
     <div class="footer-grid">
       <div class="footer-brand">
-        <a class="brand" href="/"><span class="brand-mark"><svg aria-hidden="true"><use href="/index.html#icon-drone"/></svg></span><span>EMS Drone</span></a>
+        <a class="brand" href="/" aria-label="EMS Drone home"><span class="brand-mark"><svg aria-hidden="true"><use href="#icon-drone"/></svg></span><span>EMS Drone</span></a>
         <p>Configurable UAV components, complete systems and engineering support for teams building the next low-altitude applications.</p>
       </div>
       <div class="footer-col"><h3>System</h3><a href="/capabilities/">Capabilities</a><a href="/customization/">Customization</a><a href="/testing/">Testing</a></div>
@@ -288,7 +362,7 @@
   </div>
 </footer>
 
-<script src="/site.js?v=6"></script>
-<script src="/reveal.js?v=6"></script>
+<script src="/site.js?v=9"></script>
+<script src="/reveal.js?v=8"></script>
 </body>
 </html>

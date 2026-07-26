@@ -1,0 +1,294 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>UAV Engineering Resources — Design Guides, Projects &amp; Support | EMS Drone</title>
+  <meta name="description" content="Engineering resources for UAV system builders: design guides, project references, how we work, FAQ and industry blog. Tools to plan before you source.">
+  <link rel="canonical" href="https://ems-drone.pages.dev/resources/">
+  <meta property="og:title" content="EMS Drone Engineering Resources">
+  <meta property="og:description" content="Design guides, engineering projects, process documentation and industry primers for UAV system builders.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://ems-drone.pages.dev/resources/">
+  <meta property="og:image" content="https://ems-drone.pages.dev/generated/og-cover.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <link rel="icon" type="image/x-icon" href="/generated/favicon.ico">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="apple-touch-icon" sizes="180x180" href="/generated/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/generated/icon-192.png">
+<link rel="icon" type="image/png" sizes="512x512" href="/generated/icon-512.png">
+  <link rel="stylesheet" href="/design-tokens.css?v=16">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <svg aria-hidden="true" style="position:absolute;width:0;height:0;overflow:hidden">
+    <symbol id="icon-drone" viewBox="0 0 24 24" fill="none" stroke="#b8f34a" stroke-width="1.5"><circle cx="12" cy="12" r="2.6"/><path d="m10.2 10.2-4-4m7.6 4 4-4m-7.6 7.6-4 4m7.6-4 4 4"/><circle cx="4.7" cy="4.7" r="2.2"/><circle cx="19.3" cy="4.7" r="2.2"/><circle cx="4.7" cy="19.3" r="2.2"/><circle cx="19.3" cy="19.3" r="2.2"/></symbol>
+    <symbol id="icon-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12h14m-5-5 5 5-5 5"/></symbol>
+  </svg>
+
+  <header class="site-header">
+    <div class="nav-shell">
+      <a class="brand" href="/" aria-label="EMS Drone home"><span class="brand-mark"><svg aria-hidden="true"><use href="#icon-drone"/></svg></span><span>EMS Drone</span></a>
+      <button class="nav-toggle" type="button" aria-label="Open navigation" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+                                        <nav class="site-nav" aria-label="Primary navigation"><a href="/">Home</a>
+        <div class="nav-dropdown">
+          <a href="/capabilities/" class="nav-parent">Capabilities</a>
+          <div class="nav-submenu">
+            <a href="/capabilities/flight-control/">Flight Controllers</a>
+            <a href="/capabilities/esc-power/">ESC &amp; Power Systems</a>
+            <a href="/capabilities/propulsion/">Propulsion</a>
+            <a href="/capabilities/airframe/">Airframes &amp; Structures</a>
+            <a href="/capabilities/communications/">Communications &amp; RF</a>
+            <a href="/capabilities/payload/">Payloads &amp; Gimbals</a>
+          </div>
+        </div>
+        <div class="nav-dropdown">
+          <a href="/customization/" class="nav-parent">Services</a>
+          <div class="nav-submenu">
+            <a href="/customization/">Custom Engineering</a>
+            <a href="/testing/">Testing &amp; Validation</a>
+          </div>
+        </div>
+        <div class="nav-dropdown">
+          <a href="/industries/" class="nav-parent">Industries</a>
+          <div class="nav-submenu">
+            <a href="/industries/inspection/">Industrial Inspection</a>
+            <a href="/industries/mapping-survey/">Mapping &amp; Survey</a>
+            <a href="/industries/logistics/">Logistics &amp; Delivery</a>
+            <a href="/industries/agriculture/">Precision Agriculture</a>
+            <a href="/industries/research/">Research &amp; Development</a>
+          </div>
+        </div>
+        <div class="nav-dropdown">
+          <a href="/resources/" class="nav-parent" aria-current="page">Resources</a>
+          <div class="nav-submenu">
+            <a href="/design-guides/">Design Guides</a>
+            <a href="/projects/">Engineering Projects</a>
+            <a href="/how-it-works/">How We Work</a>
+            <a href="/faq/">FAQ</a>
+            <a href="/blog/">Blog</a>
+          </div>
+        </div>
+        <div class="nav-dropdown">
+          <a href="/about/" class="nav-parent">Company</a>
+          <div class="nav-submenu">
+            <a href="/about/">About Us</a>
+            <a href="/factory/">Factory Tour</a>
+            <a href="/quality/">Quality &amp; Certifications</a>
+            <a href="/shipping/">Global Shipping</a>
+            <a href="/contact/">Contact</a>
+          </div>
+        </div>
+        <button class="btn btn-primary" data-open-inquiry>Start Your Build</button>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="sub-hero">
+      <div class="sub-hero-media">
+        <img src="/generated/sub-hero-blog.webp" alt="Conceptual engineering resource workspace with UAV reference materials">
+        <span class="concept-badge">Concept illustration</span>
+      </div>
+      <div class="container sub-hero-grid">
+        <div class="reveal">
+          <span class="eyebrow">Engineering Resources</span>
+          <h1>Tools and knowledge before the BOM.</h1>
+          <p>Design guides, project references, process documentation, FAQ and industry primers — organized to help engineering teams plan interfaces before locking parts.</p>
+        </div>
+        <div class="sub-meta reveal">
+          <div class="sub-meta-row"><span>Design</span><strong>Guides &amp; DFM</strong></div>
+          <div class="sub-meta-row"><span>Process</span><strong>How We Work</strong></div>
+          <div class="sub-meta-row"><span>Reference</span><strong>Projects &amp; FAQ</strong></div>
+          <div class="sub-meta-row"><span>Education</span><strong>Industry Blog</strong></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-header reveal">
+          <div>
+            <span class="eyebrow">Resource Library</span>
+            <h2>Five entry points for engineering teams.</h2>
+          </div>
+          <p>Each resource area addresses a different stage of the UAV build — from early architecture decisions to final integration questions.</p>
+        </div>
+        <div class="detail-grid">
+          <article class="detail-card reveal">
+            <span class="tech-label">RESOURCE / 01</span>
+            <h3>Design Guides</h3>
+            <p>Technical references covering interface planning, DFM rules, voltage architecture, connector selection and common integration pitfalls. Written for engineers who need to validate assumptions before ordering.</p>
+            <ul class="tag-list"><li>Interface mapping</li><li>DFM rules</li><li>Voltage architecture</li></ul>
+            <a class="inline-link" href="/design-guides/">Browse design guides</a>
+          </article>
+          <article class="detail-card reveal">
+            <span class="tech-label">RESOURCE / 02</span>
+            <h3>Engineering Projects</h3>
+            <p>Selected build references organized by aircraft class and application. Each project entry describes the component architecture, integration decisions and lessons learned — not customer case studies, but engineering references.</p>
+            <ul class="tag-list"><li>Build references</li><li>Architecture notes</li><li>Integration lessons</li></ul>
+            <a class="inline-link" href="/projects/">See project references</a>
+          </article>
+          <article class="detail-card reveal">
+            <span class="tech-label">RESOURCE / 03</span>
+            <h3>How We Work</h3>
+            <p>The end-to-end process from requirements brief through architecture, configuration, integration, tuning and verification. Understand what each stage delivers and what input is needed from your side.</p>
+            <ul class="tag-list"><li>Process stages</li><li>Deliverables</li><li>Team inputs</li></ul>
+            <a class="inline-link" href="/how-it-works/">See the process</a>
+          </article>
+          <article class="detail-card reveal">
+            <span class="tech-label">RESOURCE / 04</span>
+            <h3>FAQ</h3>
+            <p>Common questions across component sourcing, subsystem configuration, integration depth, lead time, MOQ, payment terms, shipping and technical support. A fast path to answers before you write a brief.</p>
+            <ul class="tag-list"><li>Sourcing</li><li>MOQ &amp; lead time</li><li>Technical support</li></ul>
+            <a class="inline-link" href="/faq/">Read the FAQ</a>
+          </article>
+          <article class="detail-card reveal">
+            <span class="tech-label">RESOURCE / 05</span>
+            <h3>Industry Blog</h3>
+            <p>Educational primers on UAV supply-chain architecture, component matching, material selection and procurement strategy. Not product promotion — system-level knowledge for engineering teams evaluating build-vs-buy decisions.</p>
+            <ul class="tag-list"><li>Architecture</li><li>Component matching</li><li>Procurement strategy</li></ul>
+            <a class="inline-link" href="/blog/">Read the blog</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-dark">
+      <div class="container">
+        <div class="section-header reveal">
+          <div>
+            <span class="eyebrow">Knowledge Flow</span>
+            <h2>Where each resource fits in the build timeline.</h2>
+          </div>
+          <p>Resources are organized around the natural sequence of a UAV engineering project — from early research through flight readiness.</p>
+        </div>
+        <div class="process-rail reveal">
+          <article class="process-step">
+            <span class="step-number">01</span>
+            <h3>Learn</h3>
+            <p>Blog articles and industry primers build system-level understanding before you commit to a BOM.</p>
+          </article>
+          <article class="process-step">
+            <span class="step-number">02</span>
+            <h3>Design</h3>
+            <p>Design guides provide interface rules, voltage architecture references and DFM checklists.</p>
+          </article>
+          <article class="process-step">
+            <span class="step-number">03</span>
+            <h3>Reference</h3>
+            <p>Project references show how similar aircraft classes were architected — what worked, what was learned.</p>
+          </article>
+          <article class="process-step">
+            <span class="step-number">04</span>
+            <h3>Process</h3>
+            <p>How We Work maps the stages, deliverables and inputs needed at each step of a build engagement.</p>
+          </article>
+          <article class="process-step">
+            <span class="step-number">05</span>
+            <h3>Clarify</h3>
+            <p>FAQ answers the operational questions — MOQ, lead time, payment, shipping, technical scope.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-alt">
+      <div class="container">
+        <div class="section-header reveal">
+          <div>
+            <span class="eyebrow">Recommended Path</span>
+            <h2>Start with the blog, then go deep.</h2>
+          </div>
+          <p>If you are new to system-level UAV sourcing, the blog articles build the mental model. Design guides and project references help you apply it to your specific architecture.</p>
+        </div>
+        <div class="blog-grid" style="margin-top:32px">
+          <a class="blog-card reveal" href="/blog/uav-airframe-materials-guide/">
+            <div class="blog-card-img">
+              <img src="/generated/blog-cover-airframe.webp" alt="Conceptual comparison of carbon fiber, aluminum and G10 airframe materials" loading="lazy">
+            </div>
+            <div class="blog-card-body">
+              <span class="blog-card-meta">Engineering · Materials</span>
+              <h3>Carbon fiber vs aluminum vs G10: UAV airframe material selection</h3>
+              <p>How material choice governs weight budget, vibration paths, RF behavior and field repairability.</p>
+            </div>
+          </a>
+          <a class="blog-card reveal" href="/blog/uav-component-build-vs-buy/">
+            <div class="blog-card-img">
+              <img src="/generated/blog-cover-build-vs-buy.webp" alt="Conceptual illustration of UAV component sourcing strategy" loading="lazy">
+            </div>
+            <div class="blog-card-body">
+              <span class="blog-card-meta">Procurement · Strategy</span>
+              <h3>UAV component sourcing strategy: build vs buy</h3>
+              <p>Individual components, matched subsystems or complete aircraft — which sourcing depth fits your program.</p>
+            </div>
+          </a>
+          <a class="blog-card reveal" href="/blog/drone-powertrain-matching/">
+            <div class="blog-card-img">
+              <img src="/generated/blog-cover-powertrain.webp" alt="Industrial UAV powertrain components — flight controller, ESC and motor" loading="lazy">
+            </div>
+            <div class="blog-card-body">
+              <span class="blog-card-meta">Engineering · Powertrain</span>
+              <h3>How to match flight controller, ESC and motor for industrial UAVs</h3>
+              <p>Voltage, protocol, KV rating and propeller load form one connected chain — matching as a system.</p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="spec-panel reveal">
+          <div class="spec-panel-inner">
+            <div>
+              <span class="eyebrow">From Reading to Building</span>
+              <h2>Ready to apply the knowledge?</h2>
+              <p>Share a component list, interface question or mission brief. We will use the resources above as the shared language for the engineering conversation.</p>
+            </div>
+            <div class="spec-actions">
+              <button class="btn btn-primary" type="button" data-open-inquiry>Start Your Build <svg aria-hidden="true"><use href="#icon-arrow"/></svg></button>
+              <button class="btn btn-outline" data-open-inquiry>Open RFQ Brief</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="brand" href="/" aria-label="EMS Drone home"><span class="brand-mark"><svg aria-hidden="true"><use href="#icon-drone"/></svg></span><span>EMS Drone</span></a>
+          <p>Configurable UAV components, complete systems and engineering support.</p>
+        </div>
+        <div class="footer-col"><h3>System</h3><a href="/capabilities/">Capabilities</a><a href="/customization/">Customization</a><a href="/testing/">Testing</a></div>
+        <div class="footer-col"><h3>Resources</h3><a href="/design-guides/">Design Guides</a><a href="/projects/">Projects</a><a href="/blog/">Blog</a></div>
+        <div class="footer-col"><h3>Company</h3><a href="/about/">About</a><a href="/faq/">FAQ</a><a href="/contact/">RFQ Brief</a></div>
+      </div>
+      <div class="footer-bottom"><span>&copy; 2026 EMS Drone</span><span>Learn &rarr; Design &rarr; Build</span></div>
+    </div>
+  </footer>
+  <div class="modal-overlay" id="inquiryModal" aria-hidden="true">
+    <div class="modal-dialog" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <button class="modal-close" type="button" aria-label="Close inquiry">&times;</button>
+      <div class="modal-aside">
+        <span class="tech-label">Engineering Intake</span>
+        <div><h3 id="modalTitle">Start with your mission.</h3><p>Tell us what you are building and where you need support: component sourcing, a matched stack or a complete UAV.</p></div>
+      </div>
+      <form class="modal-form" data-preview-form>
+        <div class="field"><label for="modal-name">Name</label><input id="modal-name" name="name" autocomplete="name" required></div>
+        <div class="field" style="margin-top:18px"><label for="modal-email">Email</label><input id="modal-email" name="email" type="email" autocomplete="email" required></div>
+        <div class="field" style="margin-top:18px"><label for="modal-message">Project brief</label><textarea id="modal-message" name="message" required placeholder="Aircraft type, payload, environment, component list or complete-system goal"></textarea></div>
+        <button class="btn btn-primary" type="submit">Submit Engineering Brief</button>
+        <div class="form-status" role="status" aria-live="polite" aria-atomic="true"></div>
+      </form>
+    </div>
+  </div>
+<script src="/site.js?v=9"></script>
+  <script src="/reveal.js?v=8"></script>
+</body>
+</html>

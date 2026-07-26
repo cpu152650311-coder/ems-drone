@@ -1,0 +1,130 @@
+{
+  "meta": {
+    "quality": "low",
+    "size": "1024x1024",
+    "style": "Dark tech, UAV components, engineering workspace, no people faces, no text, no logos",
+    "colors": "Match --signal (#b8f34a) and --aero (#7dc9d4) accent tones"
+  },
+  "images": [
+    {
+      "id": "hero-bg-centered",
+      "role": "hero-bg",
+      "page": "/index.html",
+      "prompt": "Professional UAV system components arranged on a dark engineering workstation — flight controller board, brushless motors, carbon fiber frame parts, ESCs — dramatic side lighting with subtle green accent glow, dark background with depth, high-end product photography style, no people faces, no text, no logos"
+    },
+    {
+      "id": "og-cover",
+      "role": "og-image",
+      "page": "/index.html",
+      "prompt": "Clean UAV system concept — abstract representation of drone components and engineering — dark background with green accent, professional B2B technology aesthetic, no people faces, no text, no logos"
+    },
+    {
+      "id": "sub-hero-contact",
+      "role": "sub-hero-bg",
+      "page": "/contact/index.html",
+      "prompt": "Professional engineering consultation workspace with UAV blueprints, component specification sheets, and calipers on a dark desk, warm focused lighting, professional atmosphere, no people faces, no text, no logos"
+    },
+    {
+      "id": "sub-hero-testing",
+      "role": "sub-hero-bg",
+      "page": "/testing/index.html",
+      "prompt": "UAV electronics testing bench with oscilloscope, multimeter, flight controller connected to test harness, dark workshop lighting with green indicator LEDs, technical precision atmosphere, no people faces, no text, no logos"
+    },
+    {
+      "id": "sub-hero-design-guides",
+      "role": "sub-hero-bg",
+      "page": "/design-guides/index.html",
+      "prompt": "Technical blueprint and 3D exploded view of UAV components — flight controller layers, ESCs, motors, and carbon fiber airframe assembly — engineer's drafting table aesthetic, no people faces, no text, no logos"
+    },
+    {
+      "id": "sub-hero-quote",
+      "role": "sub-hero-bg",
+      "page": "/quote/index.html",
+      "prompt": "Engineering BOM spreadsheet and UAV component selection workspace, calipers measuring a flight controller module, professional cost estimation desk environment, no people faces, no text, no logos"
+    },
+    {
+      "id": "sub-hero-factory",
+      "role": "sub-hero-bg",
+      "page": "/factory/index.html",
+      "prompt": "Modern electronics manufacturing facility with SMT assembly lines, inspection stations, and organized component inventory, clean industrial environment, professional photography, no people faces, no text, no logos"
+    },
+    {
+      "id": "sub-hero-quality",
+      "role": "sub-hero-bg",
+      "page": "/quality/index.html",
+      "prompt": "Quality control laboratory with precision measurement instruments, testing equipment, and UAV components undergoing inspection, clean professional environment, no people faces, no text, no logos"
+    },
+    {
+      "id": "sub-hero-shipping",
+      "role": "sub-hero-bg",
+      "page": "/shipping/index.html",
+      "prompt": "International logistics and shipping warehouse with packaged UAV components ready for export, organized crates and shipping labels, professional industrial photography, no people faces, no text, no logos"
+    },
+    {
+      "id": "test-bench",
+      "role": "concept-scene",
+      "page": "/testing/index.html",
+      "prompt": "Close-up of a UAV electronics test bench — flight controller powered on with status LEDs, connected to ESCs and motors through a test harness, dark workshop environment with technical atmosphere, no people faces, no text, no logos"
+    },
+    {
+      "id": "testing-thermal-camera",
+      "role": "technical-diagram",
+      "page": "/testing/index.html",
+      "prompt": "Thermal camera inspection concept — UAV power electronics board with heat signature overlay showing hotspots on ESC MOSFETs and power distribution traces, infrared color palette, technical diagnostic aesthetic, no people faces, no text, no logos"
+    },
+    {
+      "id": "contact-brief-workspace",
+      "role": "concept-scene",
+      "page": "/contact/index.html",
+      "prompt": "Engineering consultation workspace with UAV component reference sheets, mission profile brief, and system architecture diagram spread across a dark desk, professional planning atmosphere, no people faces, no text, no logos"
+    },
+    {
+      "id": "design-process",
+      "role": "concept-scene",
+      "page": "/design-guides/index.html",
+      "prompt": "UAV component layout diagram with digital calipers, measurement tools, and reference guides on an engineering desk, precision design workflow aesthetic, no people faces, no text, no logos"
+    },
+    {
+      "id": "quote-calc",
+      "role": "concept-scene",
+      "page": "/quote/index.html",
+      "prompt": "Component specification sheets and cost estimation workspace for UAV BOM pricing, calculator, notepad with technical notes, professional procurement desk, no people faces, no text, no logos"
+    },
+    {
+      "id": "cta-systems",
+      "role": "cta-bg",
+      "page": "multiple",
+      "prompt": "Abstract dark technology background with subtle UAV system architecture patterns, interconnecting nodes suggesting component integration, dark tones with green accent hints, very low contrast suitable for text overlay, no people faces, no text, no logos"
+    },
+    {
+      "id": "cta-engineering",
+      "role": "cta-bg",
+      "page": "multiple",
+      "prompt": "Engineering blueprint abstract background — subtle technical line drawings of UAV frame geometry on dark surface, very low contrast, suitable for text and button overlay, no people faces, no text, no logos"
+    },
+    {
+      "id": "process-architecture",
+      "role": "technical-diagram",
+      "page": "/index.html",
+      "prompt": "Unlabeled conceptual diagram of a layered UAV system architecture — flight control at center, surrounded by power management, propulsion, communication, and payload layers — clean vector-style technical illustration on dark background, no people faces, no text, no logos"
+    },
+    {
+      "id": "sub-hero-capabilities",
+      "role": "sub-hero-bg",
+      "page": "/capabilities/index.html",
+      "prompt": "Comprehensive UAV component ecosystem — flight controllers, ESCs, motors, communication modules, airframe parts arranged in an organized engineering display, dark professional photography, no people faces, no text, no logos"
+    },
+    {
+      "id": "sub-hero-industries",
+      "role": "sub-hero-bg",
+      "page": "/industries/index.html",
+      "prompt": "UAV in various application contexts — agricultural field, power line inspection, mapping terrain, delivery route — composited into a single mood image, professional cinematic style, no people faces, no text, no logos"
+    },
+    {
+      "id": "sub-hero-about",
+      "role": "sub-hero-bg",
+      "page": "/about/index.html",
+      "prompt": "Modern engineering office and electronics lab environment, organized workstations with UAV components, professional technology company atmosphere, no people faces, no text, no logos"
+    }
+  ]
+}

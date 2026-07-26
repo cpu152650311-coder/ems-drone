@@ -1,0 +1,15 @@
+{
+  "meta": {
+    "stylePrefix": "",
+    "note": "Hero image v2 — drone visible as dominant subject, upper-weighted for object-position: center 28%"
+  },
+  "images": [
+    {
+      "id": "hero-bg-centered",
+      "role": "hero-bg",
+      "page": "index.html",
+      "display": "full-bleed",
+      "prompt": "Low angle shot looking up at a professional hexacopter UAV drone as the dominant subject. The drone fills the upper half of the frame, with six carbon fiber arms radiating from a central body, brushless motors with propellers mounted, and an underside gimbal camera payload clearly visible. The drone's small LED status indicator glows signal green. Shot from below with a 20-degree upward angle against a dark navy industrial background with subtle cyan-blue rim lighting on the drone's edges. Premium dark moody B2B photography. Tight composition filling the entire square frame edge to edge, no empty sky or ceiling, no letterboxing. The drone is unmistakably the main subject."
+    }
+  ]
+}

@@ -18,19 +18,61 @@
 <link rel="apple-touch-icon" sizes="180x180" href="/generated/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="192x192" href="/generated/icon-192.png">
 <link rel="icon" type="image/png" sizes="512x512" href="/generated/icon-512.png">
-  <link rel="stylesheet" href="/design-tokens.css?v=5">
+  <link rel="stylesheet" href="/design-tokens.css?v=16">
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
-  <svg aria-hidden="true" style="position:absolute;width:0;height:0;overflow:hidden"><symbol id="icon-drone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="2.6"/><path d="m10.2 10.2-4-4m7.6 4 4-4m-7.6 7.6-4 4m7.6-4 4 4"/><circle cx="4.7" cy="4.7" r="2.2"/><circle cx="19.3" cy="4.7" r="2.2"/><circle cx="4.7" cy="19.3" r="2.2"/><circle cx="19.3" cy="19.3" r="2.2"/></symbol></svg>
-  <header class="site-header"><div class="nav-shell"><a class="brand" href="/" aria-label="EMS Drone home"><span class="brand-mark"><svg aria-hidden="true"><use href="#icon-drone"/></svg></span><span>EMS Drone</span></a><button class="nav-toggle" type="button" aria-label="Open navigation" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>                  <nav class="site-nav" aria-label="Primary navigation">
-        <a href="/capabilities/">Capabilities</a>
-        <a href="/customization/">Customization</a>
-        <a href="/testing/">Testing</a>
-        <a href="/industries/">Industries</a>
-        <a href="/about/">About</a>
-        <a href="/blog/">Blog</a>
-        <a class="btn btn-primary" href="/contact/" aria-current="page">Start Your Build</a>
+  <svg aria-hidden="true" style="position:absolute;width:0;height:0;overflow:hidden"><symbol id="icon-drone" viewBox="0 0 24 24" fill="none" stroke="#b8f34a" stroke-width="1.5"><circle cx="12" cy="12" r="2.6"/><path d="m10.2 10.2-4-4m7.6 4 4-4m-7.6 7.6-4 4m7.6-4 4 4"/><circle cx="4.7" cy="4.7" r="2.2"/><circle cx="19.3" cy="4.7" r="2.2"/><circle cx="4.7" cy="19.3" r="2.2"/><circle cx="19.3" cy="19.3" r="2.2"/></symbol></svg>
+  <header class="site-header"><div class="nav-shell"><a class="brand" href="/" aria-label="EMS Drone home"><span class="brand-mark"><svg aria-hidden="true"><use href="#icon-drone"/></svg></span><span>EMS Drone</span></a><button class="nav-toggle" type="button" aria-label="Open navigation" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>                                        <nav class="site-nav" aria-label="Primary navigation"><a href="/">Home</a>
+        <div class="nav-dropdown">
+          <a href="/capabilities/" class="nav-parent">Capabilities</a>
+          <div class="nav-submenu">
+            <a href="/capabilities/flight-control/">Flight Controllers</a>
+            <a href="/capabilities/esc-power/">ESC &amp; Power Systems</a>
+            <a href="/capabilities/propulsion/">Propulsion</a>
+            <a href="/capabilities/airframe/">Airframes &amp; Structures</a>
+            <a href="/capabilities/communications/">Communications &amp; RF</a>
+            <a href="/capabilities/payload/">Payloads &amp; Gimbals</a>
+          </div>
+        </div>
+        <div class="nav-dropdown">
+          <a href="/customization/" class="nav-parent">Services</a>
+          <div class="nav-submenu">
+            <a href="/customization/">Custom Engineering</a>
+            <a href="/testing/">Testing &amp; Validation</a>
+          </div>
+        </div>
+        <div class="nav-dropdown">
+          <a href="/industries/" class="nav-parent">Industries</a>
+          <div class="nav-submenu">
+            <a href="/industries/inspection/">Industrial Inspection</a>
+            <a href="/industries/mapping-survey/">Mapping &amp; Survey</a>
+            <a href="/industries/logistics/">Logistics &amp; Delivery</a>
+            <a href="/industries/agriculture/">Precision Agriculture</a>
+            <a href="/industries/research/">Research &amp; Development</a>
+          </div>
+        </div>
+        <div class="nav-dropdown">
+          <a href="/resources/" class="nav-parent">Resources</a>
+          <div class="nav-submenu">
+            <a href="/design-guides/">Design Guides</a>
+            <a href="/projects/">Engineering Projects</a>
+            <a href="/how-it-works/">How We Work</a>
+            <a href="/faq/">FAQ</a>
+            <a href="/blog/">Blog</a>
+          </div>
+        </div>
+        <div class="nav-dropdown">
+          <a href="/about/" class="nav-parent">Company</a>
+          <div class="nav-submenu">
+            <a href="/about/">About Us</a>
+            <a href="/factory/">Factory Tour</a>
+            <a href="/quality/">Quality &amp; Certifications</a>
+            <a href="/shipping/">Global Shipping</a>
+            <a href="/contact/" aria-current="page">Contact</a>
+          </div>
+        </div>
+        <button class="btn btn-primary" data-open-inquiry>Start Your Build</button>
       </nav></div></header>
 
   <main id="main">
@@ -43,20 +85,26 @@
     </section>
 
     <section class="section">
-      <div class="container contact-layout">
-        <aside class="contact-aside reveal">
-          <span class="eyebrow">A useful first brief</span>
-          <h2>Five inputs move the conversation faster.</h2>
-          <p>You do not need a finished specification. Share what is known and identify what still needs engineering support.</p>
-          <ul class="brief-list">
-            <li>Aircraft type or application</li>
-            <li>Payload and operating context</li>
-            <li>Priority components or current BOM</li>
-            <li>Interfaces, firmware or integration issue</li>
-            <li>Required depth: part, stack or complete UAV</li>
-          </ul>
-        </aside>
-        <form class="inquiry-form reveal" id="inquiryForm">
+      <div class="container">
+        <div class="media-split">
+          <aside class="contact-aside reveal">
+            <span class="eyebrow">A useful first brief</span>
+            <h2>Five inputs move the conversation faster.</h2>
+            <p>You do not need a finished specification. Share what is known and identify what still needs engineering support.</p>
+            <ul class="brief-list">
+              <li>Aircraft type or application</li>
+              <li>Payload and operating context</li>
+              <li>Priority components or current BOM</li>
+              <li>Interfaces, firmware or integration issue</li>
+              <li>Required depth: part, stack or complete UAV</li>
+            </ul>
+          </aside>
+          <div class="media-visual reveal">
+            <img src="/generated/contact-brief-workspace.webp" alt="Engineering consultation workspace with UAV component reference sheets and mission profile brief" loading="lazy">
+            <span class="concept-badge">Concept illustration</span>
+          </div>
+        </div>
+        <form class="inquiry-form reveal" id="inquiryForm" style="margin-top:var(--space-5)">
           <span class="tech-label">Project Brief</span>
           <h3 style="font-size:clamp(2rem,4vw,3.5rem);margin-bottom:28px">Request an engineering review.</h3>
           <div class="form-grid">
@@ -67,6 +115,58 @@
           <button class="btn btn-primary" type="submit">Submit Engineering Brief</button>
           <div class="form-status" role="status" aria-live="polite" aria-atomic="true"></div>
         </form>
+      </div>
+    </section>
+
+    <section class="section section-dark">
+      <div class="container">
+        <div class="section-header reveal">
+          <div>
+            <span class="eyebrow">What to Expect</span>
+            <h2>Your engineering brief enters a structured review, not a sales queue.</h2>
+          </div>
+          <p>Every inquiry is read by an applications engineer. The response is a technical assessment, not a price list — because UAV component pricing depends on configuration, not catalog selection.</p>
+        </div>
+        <div class="process-rail process-rail-3 reveal">
+          <div class="process-step">
+            <span class="step-number">1</span>
+            <div>
+              <h3>Acknowledgment</h3>
+              <p>You receive a confirmation within one business day. If the brief is clear, we proceed to assessment. If more detail is needed — payload mass, target endurance, or operating altitude — we ask specific questions, not generic "tell us more."</p>
+            </div>
+          </div>
+          <div class="process-step">
+            <span class="step-number">2</span>
+            <div>
+              <h3>Engineering Review</h3>
+              <p>Your requirements are modeled against our component database. We evaluate multiple candidate configurations, checking propulsion matching, power budget, structural compatibility, and communication link budgets. The output is a shortlist of recommended components with rationale — not just part numbers.</p>
+            </div>
+          </div>
+          <div class="process-step">
+            <span class="step-number">3</span>
+            <div>
+              <h3>Response Delivery</h3>
+              <p>You receive a structured document: recommended component list with specifications and quantities, unit and extended pricing, lead time estimates, and engineering commentary explaining key selection decisions. Typical turnaround is 2–3 business days for standard configurations.</p>
+            </div>
+          </div>
+        </div>
+        <div class="detail-grid" style="margin-top:var(--space-5)">
+          <article class="detail-card reveal">
+            <span class="tech-label">TRUST / 01</span>
+            <h3>Confidential by default</h3>
+            <p>Every project brief is treated as confidential under NDA-level discretion. Component selections, pricing configurations, and mission profiles are never shared outside the engineering review team. We will not publish your project as a case study without explicit written permission.</p>
+          </article>
+          <article class="detail-card reveal">
+            <span class="tech-label">TRUST / 02</span>
+            <h3>Engineering-first response</h3>
+            <p>Your inquiry goes to an applications engineer, not a sales representative. The response includes technical rationale for component selections — why we recommend a specific ESC protocol for your motor-propeller combination, or which firmware branch suits your mission profile.</p>
+          </article>
+          <article class="detail-card reveal">
+            <span class="tech-label">TRUST / 03</span>
+            <h3>No minimum commitment</h3>
+            <p>Requesting a quote does not obligate an order. Many teams use our engineering assessment as a reference point for internal procurement decisions. We support this — an informed buyer is a better partner, regardless of who supplies the components.</p>
+          </article>
+        </div>
       </div>
     </section>
 
@@ -83,8 +183,24 @@
     </section>
   </main>
 
-  <footer class="site-footer"><div class="container"><div class="footer-grid"><div class="footer-brand"><a class="brand" href="/"><span class="brand-mark"><svg aria-hidden="true"><use href="#icon-drone"/></svg></span><span>EMS Drone</span></a><p>Configurable UAV components, complete systems and engineering support.</p></div><div class="footer-col"><h3>System</h3><a href="/capabilities/">Capabilities</a><a href="/customization/">Customization</a><a href="/testing/">Testing</a></div>        <div class="footer-col"><h3>Company</h3><a href="/about/">About</a><a href="/blog/">Blog</a><a href="/contact/">RFQ Brief</a></div>
+  <footer class="site-footer"><div class="container"><div class="footer-grid"><div class="footer-brand"><a class="brand" href="/" aria-label="EMS Drone home"><span class="brand-mark"><svg aria-hidden="true"><use href="#icon-drone"/></svg></span><span>EMS Drone</span></a><p>Configurable UAV components, complete systems and engineering support.</p></div><div class="footer-col"><h3>System</h3><a href="/capabilities/">Capabilities</a><a href="/customization/">Customization</a><a href="/testing/">Testing</a></div>        <div class="footer-col"><h3>Company</h3><a href="/about/">About</a><a href="/blog/">Blog</a><a href="/contact/">RFQ Brief</a></div>
         <div class="footer-col"><h3>Context</h3><a href="/industries/">Industries</a><a href="/contact/">RFQ Brief</a></div><div class="footer-col"><h3>Start</h3><a href="/contact/">Component RFQ</a><a href="/contact/">Custom stack</a><a href="/contact/">Complete UAV</a></div></div><div class="footer-bottom"><span>© 2026 EMS Drone</span><span>Brief → Review → Build Path</span></div></div></footer>
-  <script src="/site.js?v=5"></script><script src="/reveal.js?v=5"></script>
+  <div class="modal-overlay" id="inquiryModal" aria-hidden="true">
+    <div class="modal-dialog" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <button class="modal-close" type="button" aria-label="Close inquiry">&times;</button>
+      <div class="modal-aside">
+        <span class="tech-label">Engineering Intake</span>
+        <div><h3 id="modalTitle">Start with your mission.</h3><p>Tell us what you are building and where you need support: component sourcing, a matched stack or a complete UAV.</p></div>
+      </div>
+      <form class="modal-form" data-preview-form>
+        <div class="field"><label for="modal-name">Name</label><input id="modal-name" name="name" autocomplete="name" required></div>
+        <div class="field" style="margin-top:18px"><label for="modal-email">Email</label><input id="modal-email" name="email" type="email" autocomplete="email" required></div>
+        <div class="field" style="margin-top:18px"><label for="modal-message">Project brief</label><textarea id="modal-message" name="message" required placeholder="Aircraft type, payload, environment, component list or complete-system goal"></textarea></div>
+        <button class="btn btn-primary" type="submit">Submit Engineering Brief</button>
+        <div class="form-status" role="status" aria-live="polite" aria-atomic="true"></div>
+      </form>
+    </div>
+  </div>
+  <script src="/site.js?v=9"></script><script src="/reveal.js?v=8"></script>
 </body>
 </html>
