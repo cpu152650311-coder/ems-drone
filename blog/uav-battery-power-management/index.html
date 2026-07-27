@@ -1,0 +1,281 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>UAV Battery and Power Management Guide: LiPo vs Li-Ion for Industrial Drones | EMS Drone</title>
+  <meta name="description" content="How to select and manage batteries for industrial UAVs — LiPo vs Li-Ion vs high-voltage chemistries, cell configuration, BMS requirements, thermal management, charging infrastructure and capacity sizing for multirotor and VTOL platforms.">
+  <link rel="canonical" href="https://ems-drone.com/blog/uav-battery-power-management/">
+  <meta property="og:title" content="UAV Battery and Power Management Guide: LiPo vs Li-Ion for Industrial Drones">
+  <meta property="og:description" content="How to select and manage batteries for industrial UAVs — LiPo vs Li-Ion vs high-voltage chemistries, cell configuration, BMS requirements, thermal management, charging infrastructure and capacity sizing.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://ems-drone.com/blog/uav-battery-power-management/">
+  <meta property="og:image" content="https://ems-drone.com/generated/og-cover.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <link rel="icon" type="image/x-icon" href="/generated/favicon.ico">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="apple-touch-icon" sizes="180x180" href="/generated/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/generated/icon-192.png">
+<link rel="icon" type="image/png" sizes="512x512" href="/generated/icon-512.png">
+  <link rel="stylesheet" href="/design-tokens.css?v=20">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "UAV Battery and Power Management Guide: LiPo vs Li-Ion for Industrial Drones",
+  "description": "How to select and manage batteries for industrial UAVs — LiPo vs Li-Ion vs high-voltage chemistries, cell configuration, BMS requirements, thermal management, charging infrastructure and capacity sizing.",
+  "image": "https://ems-drone.com/generated/blog-cover-battery.webp",
+  "author": {
+    "@type": "Organization",
+    "name": "EMS Drone"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "EMS Drone",
+    "url": "https://ems-drone.com/",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://ems-drone.com/favicon.svg"
+    }
+  },
+  "mainEntityOfPage": "https://ems-drone.com/blog/uav-battery-power-management/",
+  "datePublished": "2026-07-27",
+  "dateModified": "2026-07-27"
+}
+</script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <svg aria-hidden="true" style="position:absolute;width:0;height:0;overflow:hidden">
+    <symbol id="icon-drone" viewBox="0 0 24 24" fill="none" stroke="#b8f34a" stroke-width="1.5"><circle cx="12" cy="12" r="2.6"/><path d="m10.2 10.2-4-4m7.6 4 4-4m-7.6 7.6-4 4m7.6-4 4 4"/><circle cx="4.7" cy="4.7" r="2.2"/><circle cx="19.3" cy="4.7" r="2.2"/><circle cx="4.7" cy="19.3" r="2.2"/><circle cx="19.3" cy="19.3" r="2.2"/></symbol>
+    <symbol id="icon-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12h14m-5-5 5 5-5 5"/></symbol>
+  </svg>
+
+  <header class="site-header">
+    <div class="nav-shell">
+      <a class="brand" href="/" aria-label="EMS Drone home"><span class="brand-mark"><svg aria-hidden="true"><use href="#icon-drone"/></svg></span><span>EMS Drone</span></a>
+      <button class="nav-toggle" type="button" aria-label="Open navigation" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+                                        <nav class="site-nav" aria-label="Primary navigation"><a href="/">Home</a>
+        <div class="nav-dropdown">
+          <a href="/capabilities/" class="nav-parent">Capabilities</a>
+          <div class="nav-submenu">
+            <a href="/capabilities/flight-control/">Flight Controllers</a>
+            <a href="/capabilities/esc-power/">ESC &amp; Power Systems</a>
+            <a href="/capabilities/propulsion/">Propulsion</a>
+            <a href="/capabilities/airframe/">Airframes &amp; Structures</a>
+            <a href="/capabilities/communications/">Communications &amp; RF</a>
+            <a href="/capabilities/payload/">Payloads &amp; Gimbals</a>
+          </div>
+        </div>
+        <div class="nav-dropdown">
+          <a href="/customization/" class="nav-parent">Services</a>
+          <div class="nav-submenu">
+            <a href="/customization/">Custom Engineering</a>
+            <a href="/testing/">Testing &amp; Validation</a>
+          </div>
+        </div>
+        <div class="nav-dropdown">
+          <a href="/industries/" class="nav-parent">Industries</a>
+          <div class="nav-submenu">
+            <a href="/industries/inspection/">Industrial Inspection</a>
+            <a href="/industries/mapping-survey/">Mapping &amp; Survey</a>
+            <a href="/industries/logistics/">Logistics &amp; Delivery</a>
+            <a href="/industries/agriculture/">Precision Agriculture</a>
+            <a href="/industries/research/">Research &amp; Development</a>
+          </div>
+        </div>
+        <div class="nav-dropdown">
+          <a href="/resources/" class="nav-parent">Resources</a>
+          <div class="nav-submenu">
+            <a href="/design-guides/">Design Guides</a>
+            <a href="/projects/">Engineering Projects</a>
+            <a href="/how-it-works/">How We Work</a>
+            <a href="/faq/">FAQ</a>
+            <a href="/blog/" aria-current="page">Blog</a>
+          </div>
+        </div>
+        <div class="nav-dropdown">
+          <a href="/about/" class="nav-parent">Company</a>
+          <div class="nav-submenu">
+            <a href="/about/">About Us</a>
+            <a href="/factory/">Factory Tour</a>
+            <a href="/quality/">Quality &amp; Certifications</a>
+            <a href="/shipping/">Global Shipping</a>
+            <a href="/contact/">Contact</a>
+          </div>
+        </div>
+        <button class="btn btn-primary" data-open-inquiry>Start Your Build</button>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <header class="article-hero">
+      <div class="container reveal">
+        <span class="eyebrow"><a href="/blog/" style="color:inherit;text-decoration:none">Blog</a> · Power Systems</span>
+        <h1>UAV battery and power management: LiPo vs Li-Ion for industrial drone platforms</h1>
+        <p style="color:var(--muted-dark);max-width:640px">Battery selection determines flight time, payload capacity and operational cost — yet most procurement specifications treat it as an afterthought. This guide compares cell chemistries, pack configurations and power management architectures for multirotor and VTOL platforms flying industrial missions.</p>
+        <div class="article-cover">
+          <img src="/generated/blog-cover-battery.webp" alt="UAV battery power management concept — lithium polymer and lithium-ion battery packs with BMS, charging station and power distribution on dark engineering bench">
+        </div>
+      </div>
+    </header>
+
+    <article class="article-body">
+      <div class="container reveal">
+        <p>The battery is simultaneously the most expensive consumable in a UAV fleet and the component that most directly constrains mission capability. A flight controller running at 8 kHz and an ESC delivering 120 A continuous on DShot 1200 are impressive specifications — but they mean nothing if the battery sags to 3.3V per cell under load and triggers an automatic return-to-home two minutes into the mission. Battery selection is not a procurement checkbox. It is a system-level design decision that must be made in concert with motor sizing, airframe weight budget and mission endurance requirements.</p>
+
+        <p>This article covers the decisions that procurement teams and system integrators face when selecting batteries for industrial UAV platforms. It assumes familiarity with the powertrain fundamentals covered in <a href="/blog/drone-powertrain-matching/">the UAV powertrain matching guide</a> — voltage architecture, KV rating and propeller load form the sizing context within which battery selection operates. The guidance applies to platforms ranging from 5 kg multirotors running 6S packs to 25 kg heavy-lift aircraft running 12S–14S configurations.</p>
+
+        <h2>LiPo vs Li-Ion: the fundamental trade-off at the cell level</h2>
+        <p>The choice between lithium polymer (LiPo) and lithium-ion (Li-Ion) cells is the first decision, and it cascades into every subsequent design parameter. The difference is not subtle — it is a 2× to 3× gap in energy density, discharge capability and cycle life that makes each chemistry suitable for fundamentally different mission profiles.</p>
+
+        <p><strong>LiPo (Lithium Polymer).</strong> Typical LiPo cells deliver energy density of 140–180 Wh/kg with continuous discharge rates of 20C–45C and burst rates up to 60C. A 6S 22,000 mAh LiPo pack weighing approximately 2.8 kg can deliver 440 A continuous — enough to feed four 30-inch propellers each drawing 80 A at full throttle. The chemistry's high discharge capability makes it the default choice for multirotors that need high thrust-to-weight ratios for hovering, aggressive climb rates and rapid maneuvering. LiPo packs typically deliver 200–300 cycles to 80% capacity under industrial usage patterns, and cost approximately $0.40–0.60 per Wh at the pack level.</p>
+
+        <p>The downside is energy density and calendar aging. A LiPo pack stored at full charge (4.2V/cell) at 25°C loses approximately 20% of its capacity over 12 months regardless of cycle count. Storage at 3.8V/cell reduces this to approximately 5% per year, but operational tempo often prevents disciplined storage-voltage management. For a fleet flying daily, the cycle-life limit dominates; for a fleet flying weekly, calendar aging can kill packs before they reach their cycle limit.</p>
+
+        <p><strong>Li-Ion (Lithium-Ion cylindrical cells).</strong> Li-Ion cells using NMC (Nickel Manganese Cobalt) or NCA (Nickel Cobalt Aluminum) chemistry deliver 220–260 Wh/kg — approximately 50% more energy per kilogram than LiPo. The most commonly used form factors for UAV applications are 18650 (18 mm diameter, 65 mm length) and 21700 (21 mm × 70 mm) cylindrical cells. A 6S 6P pack built from Samsung 50S 21700 cells (5,000 mAh per cell, 25A continuous) delivers 30,000 mAh at a weight of approximately 2.1 kg — more capacity than the 22,000 mAh LiPo at 25% less weight.</p>
+
+        <p>The trade-off is discharge rate. A 6S 6P 21700 pack rated at 25A per cell in parallel can deliver 150 A continuous — suitable for a mapping platform cruising at 40–50% throttle but inadequate for a heavy-lift multirotor that needs 300 A bursts during climb-out. Li-Ion packs also sag more under load: a healthy LiPo cell drops from 4.2V to approximately 3.7V under a 15C load, while a Li-Ion cell at the same C-rate drops to 3.4V — a difference that can trigger a low-voltage failsafe prematurely if the flight controller's voltage thresholds are not recalibrated for the chemistry.</p>
+
+        <p>Li-Ion cells typically deliver 500–800 cycles to 80% capacity — roughly 2× to 3× the cycle life of LiPo — and cost approximately $0.25–0.35 per Wh at the pack level. For platforms that fly long-duration cruise missions rather than high-power hover missions, Li-Ion's combination of higher energy density, longer cycle life and lower per-Wh cost makes it the economically rational choice. The <a href="/blog/uav-component-build-vs-buy/">build vs buy sourcing framework</a> is directly applicable when evaluating whether to assemble custom Li-Ion packs in-house or purchase pre-built packs from a battery integrator.</p>
+
+        <div class="media-visual reveal" style="max-width:640px;margin:32px auto">
+          <img src="/generated/blog-inline-battery-cells.webp" alt="LiPo and Li-Ion 21700 cylindrical cells side by side on dark engineering bench with battery management system board" loading="lazy">
+          <span class="concept-badge">Concept illustration</span>
+        </div>
+
+        <h2>High-voltage architectures: 12S, 14S and the efficiency argument</h2>
+        <p>Industrial UAVs are moving toward higher voltage architectures for the same reason electric vehicles did: higher voltage reduces current for the same power output, which reduces I²R losses in wiring, connectors and ESC MOSFETs. The difference is quantifiable: at 2,000 W total power draw — typical for a 15 kg multirotor in hover — a 6S (22.2V nominal) system draws approximately 90 A, while a 12S (44.4V nominal) system draws 45 A. The I²R losses in a 50 cm power lead with 10 AWG wire (3.3 mΩ) drop from 27 W at 90 A to 6.7 W at 45 A — a 20 W savings that goes directly into flight time.</p>
+
+        <p>The practical voltage ceiling for multirotor UAVs is determined by component availability and regulatory thresholds. 12S (44.4V nominal, 50.4V fully charged) is well-supported by commercial ESCs from manufacturers like T-Motor, Hobbywing and APD, with current ratings up to 120 A per channel. 14S (51.8V nominal, 58.8V fully charged) pushes above the 50V DC threshold — approaching the 60V limit where regulations like IEC 62368-1 begin to classify equipment differently for safety purposes. The component ecosystem at 14S is narrower: fewer ESCs, fewer motors wound for the right KV range, and fewer BMS solutions that handle the higher cell count.</p>
+
+        <p>For platforms that demand the longest possible endurance — mapping drones covering 500+ hectares per flight, or inspection drones loitering at 30-meter standoff for 45+ minutes — the voltage architecture decision should be made concurrently with the propulsion sizing discussed in <a href="/blog/drone-powertrain-matching/">the powertrain matching guide</a>. A 14S Li-Ion pack built from Samsung 50S cells in a 14S 8P configuration delivers 40,000 mAh at approximately 4.8 kg, providing roughly 2,100 Wh of usable energy. Paired with motors in the 100–200 KV range swinging 28–32 inch propellers, this configuration can deliver 60+ minutes of hover endurance on a 15 kg platform.</p>
+
+        <h2>Battery management: BMS, cell balancing and protection</h2>
+        <p>A lithium battery without a battery management system is a fire waiting for the right conditions. For industrial UAV operations where packs are charged rapidly between flights, subjected to vibration during flight, and occasionally operated near their thermal limits, the BMS is not optional equipment — it is the primary safety system.</p>
+
+        <p><strong>BMS functions.</strong> A UAV-grade BMS must provide at minimum: per-cell voltage monitoring (≥±25 mV accuracy), over-voltage protection (cell-level cutoff at 4.25V ± 0.025V), under-voltage protection (cell-level cutoff at 3.0V ± 0.05V for LiPo, 2.8V ± 0.05V for Li-Ion), over-current protection with both short-circuit (microsecond response) and sustained-overload (second-scale response) thresholds, and temperature monitoring with at least two thermistors placed at the pack's expected hot spots — typically the center cells and the main discharge leads.</p>
+
+        <p><strong>Passive vs active balancing.</strong> Most UAV BMS solutions use passive balancing: when a cell reaches the balance threshold (typically 4.18V), a small resistor bleeds current from that cell — typically 50–100 mA — until all cells reach the same voltage. For a 6S 22,000 mAh pack with 50 mA balance current, correcting a 50 mV imbalance takes approximately 2–3 hours. This is manageable for overnight charging but incompatible with rapid turnaround operations where packs must be charged in 30–40 minutes between flights.</p>
+
+        <p>Active balancing transfers charge from higher-voltage cells to lower-voltage cells using switched-capacitor or inductor-based circuits, achieving balance currents of 1–2 A — roughly 20× to 40× faster than passive balancing. Active balancing BMS solutions cost 3× to 5× more than passive equivalents but pay for themselves in operational throughput for fleets flying more than 5 sorties per day per aircraft. For the component testing approach relevant to BMS validation, <a href="/blog/uav-supplier-evaluation-checklist/">the UAV supplier evaluation checklist</a> provides a framework for qualifying BMS and battery pack suppliers.</p>
+
+        <div class="media-visual reveal" style="max-width:640px;margin:32px auto">
+          <img src="/generated/blog-inline-battery-bms.webp" alt="Battery management system PCB with cell monitoring connectors and balance leads, mounted on UAV power distribution board" loading="lazy">
+          <span class="concept-badge">Concept illustration</span>
+        </div>
+
+        <h2>Thermal management: why battery temperature limits mission endurance</h2>
+        <p>Battery temperature is the variable that most directly determines both instantaneous performance and long-term degradation rate — and it is the variable that most UAV operators do not actively monitor. A LiPo pack that delivers 22,000 mAh at 25°C may deliver only 16,000 mAh at 5°C and 19,000 mAh at 45°C, with the cold-weather capacity loss being particularly severe for high-discharge-rate applications.</p>
+
+        <p>The internal resistance of a lithium cell doubles approximately every 15°C drop in temperature — from roughly 2 mΩ per cell at 25°C to 4 mΩ at 10°C and 8 mΩ at -5°C. This increased resistance manifests as voltage sag under load, which triggers low-voltage failsafes earlier in the discharge curve. A flight controller that initiates return-to-home at 3.5V per cell under load will trigger 15–20% earlier in the discharge at 5°C compared to 25°C — effectively losing that percentage of usable capacity even though the cell still holds charge.</p>
+
+        <p>The thermal management strategy for most industrial UAVs is passive: the battery pack is positioned to receive airflow during forward flight, and the pack's own thermal mass smooths temperature excursions. For platforms operating in temperature extremes — agriculture spraying in 38°C ambient, infrastructure inspection at -10°C — passive cooling is insufficient. Pre-heating packs to 20–25°C before flight using insulated charging bags with resistive heaters adds approximately 15 minutes to turnaround time but recovers the cold-weather capacity loss. Active in-flight heating draws 30–50 W from the pack itself, reducing net flight time but enabling operation at temperatures where the pack would otherwise be unusable.</p>
+
+        <p>At the high-temperature end, degradation accelerates sharply above 45°C. The Arrhenius equation governing lithium cell aging predicts that every 10°C increase in operating temperature approximately doubles the degradation rate. A pack operated at 55°C — easily reached by a LiPo discharging at 20C on a hot day — ages roughly 4× faster than the same pack at 35°C. For airframe integration considerations that affect battery cooling airflow, <a href="/blog/uav-airframe-materials-guide/">the UAV airframe materials guide</a> covers structural design choices that influence internal airflow paths.</p>
+
+        <h2>Charging infrastructure: parallel charging, storage management and fleet logistics</h2>
+        <p>A single UAV can consume 3–5 battery packs per operational day, each requiring 30–60 minutes to charge. For a fleet of five aircraft — not unusual for a mapping service provider or an agricultural spraying operation — the charging infrastructure must handle 15–25 packs per day with turnaround times measured in minutes, not hours. The charging system is as critical to operational throughput as the aircraft itself.</p>
+
+        <p><strong>Parallel charging.</strong> Charging multiple packs simultaneously from a single high-power charger using a parallel board is standard practice, but it introduces a risk that is frequently misunderstood: if packs at different states of charge are connected to the same parallel board, the higher-voltage pack will dump current into the lower-voltage pack through the balance leads at rates that can exceed the balance lead's current rating. The rule is simple: all packs on a parallel board must be within 0.1V per cell of each other before connecting. A pack at 3.8V/cell connected in parallel with a pack at 3.9V/cell on a 6S configuration creates an initial equalization current of approximately 15–20 A through a balance lead rated for 5 A — enough to melt the balance connector within seconds.</p>
+
+        <p><strong>Storage management.</strong> For fleets that do not fly daily, storage-voltage discipline is the single largest factor in battery longevity. LiPo packs should be stored at 3.80–3.85V per cell; Li-Ion at 3.60–3.70V per cell. A charger with a "storage charge" function automates this, but the operational discipline of discharging packs to storage voltage after the last flight of the day — rather than leaving them fully charged for the next flight — is a human-factor challenge that requires either enforced procedures or automated storage-discharge stations.</p>
+
+        <p><strong>Fleet tracking.</strong> Each pack should carry a unique identifier — a serial number or QR code — and each charge/discharge cycle should be logged with starting voltage, ending voltage, charged capacity, internal resistance per cell, and date. After 6–12 months of operation, this data reveals which packs are aging faster than the fleet average, enabling proactive replacement before a pack fails in flight. The per-cell internal resistance trend line is the most reliable early indicator of impending failure: a cell whose internal resistance has increased by 50% above its baseline is approaching end of life regardless of its capacity measurement.</p>
+
+        <h2>Capacity sizing: from mission endurance to pack specification</h2>
+        <p>Translating a mission endurance requirement into a battery pack specification is a calculation with five variables, and the mistake most procurement specifications make is treating it as a single-variable problem. The correct approach starts with the aircraft's power consumption at the cruise or hover throttle setting that defines the mission profile.</p>
+
+        <p>For a 15 kg multirotor with a cruise power draw of 1,800 W at 55% throttle, a mission endurance requirement of 45 minutes means the battery must deliver 1,800 W × 0.75 hours = 1,350 Wh of usable energy. But "usable" is the operative word: a lithium battery should not be discharged below 20% of its rated capacity to avoid accelerated degradation and to retain a reserve for go-around and landing. So the pack's rated capacity must be 1,350 / 0.80 = 1,688 Wh.</p>
+
+        <p>At the pack level, a 12S Li-Ion configuration (44.4V nominal) delivering 1,688 Wh requires 1,688 / 44.4 = 38 Ah of capacity. Using Samsung 50S 21700 cells rated at 5,000 mAh and 25A continuous per cell: 38 Ah / 5 Ah = 7.6 → 8 parallel groups. The resulting 12S 8P pack weighs approximately 96 cells × 68 g/cell + 300 g for enclosure/wiring/BMS ≈ 6.8 kg, representing approximately 45% of the aircraft's total takeoff weight — a realistic figure for a long-endurance mapping platform.</p>
+
+        <p>For the same mission profile using LiPo, the lower energy density and shallower usable discharge window (LiPo should not be discharged below 25% for cycle-life preservation) push the required rated capacity to 1,350 / 0.75 = 1,800 Wh. At 180 Wh/kg pack-level energy density, the pack weighs 10 kg — 3.2 kg heavier than the Li-Ion equivalent. That 3.2 kg comes directly out of the payload budget. The math is why Li-Ion dominates long-endurance applications and LiPo dominates high-maneuverability applications: each chemistry is optimal within its discharge-rate sweet spot. For the broader system integration context, <a href="/blog/flight-controller-esc-matching/">the flight controller and ESC matching guide</a> explains how the power system's voltage architecture constrains the battery selection and vice versa.</p>
+
+        <p style="margin-top:42px"><a class="btn btn-primary" href="/capabilities/esc-power/">Explore ESC &amp; power systems</a> <a class="btn btn-outline" href="/blog/" style="margin-left:12px">Back to Blog</a></p>
+
+        <section class="continue-reading">
+          <h3>Continue Reading</h3>
+          <div class="continue-grid">
+            <a class="continue-card" href="/blog/drone-powertrain-matching/">
+              <div class="continue-card-img"><img src="/generated/blog-cover-powertrain.webp" alt="Powertrain Matching" loading="lazy"></div>
+              <div class="continue-card-body"><h4>UAV Powertrain Matching</h4><p>Motor, ESC and propeller sizing — the context within which battery selection operates.</p></div>
+            </a>
+            <a class="continue-card" href="/blog/uav-airframe-materials-guide/">
+              <div class="continue-card-img"><img src="/generated/blog-cover-airframe.webp" alt="Airframe Materials" loading="lazy"></div>
+              <div class="continue-card-body"><h4>Airframe Materials Guide</h4><p>Structural weight directly determines how much battery capacity you can carry.</p></div>
+            </a>
+            <a class="continue-card" href="/blog/uav-payload-integration-guide/">
+              <div class="continue-card-img"><img src="/generated/blog-cover-payload.webp" alt="Payload Integration" loading="lazy"></div>
+              <div class="continue-card-body"><h4>UAV Payload Integration</h4><p>Payload power draw is part of the battery sizing equation.</p></div>
+            </a>
+            <a class="continue-card" href="/blog/uav-component-build-vs-buy/">
+              <div class="continue-card-img"><img src="/generated/blog-cover-buildbuy.webp" alt="Build vs Buy" loading="lazy"></div>
+              <div class="continue-card-body"><h4>Build vs Buy Sourcing</h4><p>Whether to assemble custom battery packs or source pre-built solutions.</p></div>
+            </a>
+            <a class="continue-card" href="/blog/uav-supplier-evaluation-checklist/">
+              <div class="continue-card-img"><img src="/generated/blog-cover-supplier-checklist.webp" alt="Supplier Evaluation" loading="lazy"></div>
+              <div class="continue-card-body"><h4>Supplier Evaluation Checklist</h4><p>Qualifying battery cell and BMS suppliers with the same rigor as other components.</p></div>
+            </a>
+          </div>
+        </section>
+      </div>
+      </div>
+    </article>
+
+    <section class="section section-alt" style="--cta-bg:url(/generated/blog-cta-battery.webp)">
+      <div class="container">
+        <div class="spec-panel reveal">
+          <div class="spec-panel-inner">
+            <div>
+              <span class="eyebrow">Power System Engineering</span>
+              <h2>Need help sizing a battery system for your mission profile?</h2>
+              <p>Share your endurance target, payload weight and voltage architecture — we will help you evaluate cell chemistries and pack configurations.</p>
+            </div>
+            <div class="spec-actions">
+              <button class="btn btn-primary" type="button" data-open-inquiry>Start Your Build <svg aria-hidden="true"><use href="#icon-arrow"/></svg></button>
+              <button class="btn btn-outline" data-open-inquiry>Open RFQ Brief</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="brand" href="/" aria-label="EMS Drone home"><span class="brand-mark"><svg aria-hidden="true"><use href="#icon-drone"/></svg></span><span>EMS Drone</span></a>
+          <p>Configurable UAV components, complete systems and engineering support.</p>
+        </div>
+        <div class="footer-col"><h3>System</h3><a href="/capabilities/">Capabilities</a><a href="/customization/">Customization</a><a href="/testing/">Testing</a></div>
+        <div class="footer-col"><h3>Context</h3><a href="/industries/">Industries</a><a href="/about/">About</a><a href="/blog/">Blog</a></div>
+        <div class="footer-col"><h3>More reading</h3><a href="/blog/drone-powertrain-matching/">Powertrain</a><a href="/blog/uav-airframe-materials-guide/">Materials</a><a href="/contact/">RFQ Brief</a></div>
+      </div>
+      <div class="footer-bottom"><span>© 2026 EMS Drone</span><span>Size → Manage → Fly</span></div>
+    </div>
+  </footer>
+  <div class="modal-overlay" id="inquiryModal" aria-hidden="true">
+    <div class="modal-dialog" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <button class="modal-close" type="button" aria-label="Close inquiry">&times;</button>
+      <div class="modal-aside">
+        <span class="tech-label">Engineering Intake</span>
+        <div><h3 id="modalTitle">Start with your mission.</h3><p>Tell us what you are building and where you need support: component sourcing, a matched stack or a complete UAV.</p></div>
+      </div>
+      <form class="modal-form" data-preview-form>
+        <div class="field"><label for="modal-name">Name</label><input id="modal-name" name="name" autocomplete="name" required></div>
+        <div class="field" style="margin-top:18px"><label for="modal-email">Email</label><input id="modal-email" name="email" type="email" autocomplete="email" required></div>
+        <div class="field" style="margin-top:18px"><label for="modal-message">Project brief</label><textarea id="modal-message" name="message" required placeholder="Aircraft type, payload, environment, component list or complete-system goal"></textarea></div>
+        <button class="btn btn-primary" type="submit">Submit Engineering Brief</button>
+        <div class="form-status" role="status" aria-live="polite" aria-atomic="true"></div>
+      </form>
+    </div>
+  </div>
+<script src="/site.js?v=9"></script>
+  <script src="/reveal.js?v=9"></script>
+</body>
+</html>
