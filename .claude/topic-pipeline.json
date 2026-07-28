@@ -1,0 +1,26 @@
+{
+  "site": "ems-drone",
+  "updated": "2026-07-29",
+  "topics": [
+    {
+      "id": 21,
+      "title": "UAV Propeller Selection Guide: Diameter, Pitch, Blade Count and Efficiency Optimization",
+      "status": "published",
+      "score": 82,
+      "funnel": "MOFU",
+      "file": "/blog/uav-propeller-selection-guide/",
+      "created": "2026-07-29",
+      "published": "2026-07-29"
+    },
+    {
+      "id": 22,
+      "title": "Thermal Management for UAV Electronics: Keeping Flight Controllers, ESCs and Batteries Within Safe Limits",
+      "status": "published",
+      "score": 78,
+      "funnel": "TOFU",
+      "file": "/blog/uav-thermal-management-electronics/",
+      "created": "2026-07-29",
+      "published": "2026-07-29"
+    }
+  ]
+}
