@@ -1,0 +1,271 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>UAV Propulsion System Testing &amp; Validation: Thrust Stand, Thermal Endurance and Lifetime Prediction | EMS Drone</title>
+  <meta name="description" content="How to validate UAV propulsion systems before field deployment. Covers thrust stand testing methodology, motor thermal endurance protocols, ESC reliability validation, propeller efficiency measurement and lifetime prediction models for industrial drone fleets.">
+  <link rel="canonical" href="https://ems-drone.com/blog/uav-propulsion-testing-validation/">
+  <meta property="og:title" content="UAV Propulsion System Testing &amp; Validation: Thrust Stand, Thermal Endurance and Lifetime Prediction">
+  <meta property="og:description" content="How to validate UAV propulsion systems before field deployment. Covers thrust stand testing, thermal endurance protocols, ESC reliability validation and lifetime prediction for industrial drone fleets.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://ems-drone.com/blog/uav-propulsion-testing-validation/">
+  <meta property="og:image" content="https://ems-drone.com/generated/og-cover.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <link rel="icon" type="image/x-icon" href="/generated/favicon.ico">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="apple-touch-icon" sizes="180x180" href="/generated/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/generated/icon-192.png">
+<link rel="icon" type="image/png" sizes="512x512" href="/generated/icon-512.png">
+  <link rel="stylesheet" href="/design-tokens.css?v=21">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "UAV Propulsion System Testing & Validation: Thrust Stand, Thermal Endurance and Lifetime Prediction",
+  "description": "How to validate UAV propulsion systems before field deployment. Covers thrust stand testing methodology, motor thermal endurance protocols, ESC reliability validation, propeller efficiency measurement and lifetime prediction models for industrial drone fleets.",
+  "image": "https://ems-drone.com/generated/blog-cover-propulsion-testing.webp",
+  "author": {
+    "@type": "Organization",
+    "name": "EMS Drone"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "EMS Drone",
+    "url": "https://ems-drone.com/",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://ems-drone.com/favicon.svg"
+    }
+  },
+  "mainEntityOfPage": "https://ems-drone.com/blog/uav-propulsion-testing-validation/",
+  "datePublished": "2026-07-29",
+  "dateModified": "2026-07-29"
+}
+</script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <svg aria-hidden="true" style="position:absolute;width:0;height:0;overflow:hidden">
+    <symbol id="icon-drone" viewBox="0 0 24 24" fill="none" stroke="#b8f34a" stroke-width="1.5"><circle cx="12" cy="12" r="2.6"/><path d="m10.2 10.2-4-4m7.6 4 4-4m-7.6 7.6-4 4m7.6-4 4 4"/><circle cx="4.7" cy="4.7" r="2.2"/><circle cx="19.3" cy="4.7" r="2.2"/><circle cx="4.7" cy="19.3" r="2.2"/><circle cx="19.3" cy="19.3" r="2.2"/></symbol>
+    <symbol id="icon-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12h14m-5-5 5 5-5 5"/></symbol>
+  </svg>
+
+  <header class="site-header">
+    <div class="nav-shell">
+      <a class="brand" href="/" aria-label="EMS Drone home"><span class="brand-mark"><svg aria-hidden="true"><use href="#icon-drone"/></svg></span><span>EMS Drone</span></a>
+      <button class="nav-toggle" type="button" aria-label="Open navigation" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+                                        <nav class="site-nav" aria-label="Primary navigation"><a href="/">Home</a>
+        <div class="nav-dropdown">
+          <a href="/capabilities/" class="nav-parent">Capabilities</a>
+          <div class="nav-submenu">
+            <a href="/capabilities/flight-control/">Flight Controllers</a>
+            <a href="/capabilities/esc-power/">ESC &amp; Power Systems</a>
+            <a href="/capabilities/propulsion/">Propulsion</a>
+            <a href="/capabilities/airframe/">Airframes &amp; Structures</a>
+            <a href="/capabilities/communications/">Communications &amp; RF</a>
+            <a href="/capabilities/payload/">Payloads &amp; Gimbals</a>
+          </div>
+        </div>
+        <div class="nav-dropdown">
+          <a href="/customization/" class="nav-parent">Services</a>
+          <div class="nav-submenu">
+            <a href="/customization/">Custom Engineering</a>
+            <a href="/testing/">Testing &amp; Validation</a>
+          </div>
+        </div>
+        <div class="nav-dropdown">
+          <a href="/industries/" class="nav-parent">Industries</a>
+          <div class="nav-submenu">
+            <a href="/industries/inspection/">Industrial Inspection</a>
+            <a href="/industries/mapping-survey/">Mapping &amp; Survey</a>
+            <a href="/industries/logistics/">Logistics &amp; Delivery</a>
+            <a href="/industries/agriculture/">Precision Agriculture</a>
+            <a href="/industries/research/">Research &amp; Development</a>
+          </div>
+        </div>
+        <div class="nav-dropdown">
+          <a href="/resources/" class="nav-parent">Resources</a>
+          <div class="nav-submenu">
+            <a href="/design-guides/">Design Guides</a>
+            <a href="/projects/">Engineering Projects</a>
+            <a href="/how-it-works/">How We Work</a>
+            <a href="/faq/">FAQ</a>
+            <a href="/blog/" aria-current="page">Blog</a>
+          </div>
+        </div>
+        <div class="nav-dropdown">
+          <a href="/about/" class="nav-parent">Company</a>
+          <div class="nav-submenu">
+            <a href="/about/">About Us</a>
+            <a href="/factory/">Factory Tour</a>
+            <a href="/quality/">Quality &amp; Certifications</a>
+            <a href="/shipping/">Global Shipping</a>
+            <a href="/contact/">Contact</a>
+          </div>
+        </div>
+        <button class="btn btn-primary" data-open-inquiry>Start Your Build</button>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <header class="article-hero">
+      <div class="container reveal">
+        <span class="eyebrow"><a href="/blog/" style="color:inherit;text-decoration:none">Blog</a> · Propulsion</span>
+        <h1>How to validate a UAV propulsion system: thrust stand testing, thermal endurance and lifetime prediction</h1>
+        <p style="color:var(--muted-dark);max-width:640px">A propulsion system that passes bench power-on tests may fail on the 50th flight hour under thermal stress. This guide covers the validation methodology that catches propulsion failures before they become in-flight emergencies — from dynamometer test procedures to accelerated lifetime testing and thermal margin verification for motors, ESCs and propellers operating at 6S to 14S.</p>
+        <div class="article-cover">
+          <img src="/generated/blog-cover-propulsion-testing.webp" alt="UAV propulsion test stand with brushless motor, propeller, load cell and data acquisition system in engineering lab">
+        </div>
+      </div>
+    </header>
+
+    <article class="article-body">
+      <div class="container reveal">
+        <p>Propulsion system failures are the leading cause of in-flight UAV loss in industrial operations. A motor that delivers 4.2 kg of thrust at 25°C on a freshly charged 12S LiPo may sag to 3.1 kg at 55°C winding temperature on a battery at 3.7 V per cell — a 26% thrust reduction that turns a safe 2:1 thrust-to-weight ratio into a marginal 1.48:1. An ESC rated for 60 A continuous that sees 85 A inrush during an aggressive climb with hot MOSFETs may enter thermal foldback precisely when the aircraft needs maximum power for terrain avoidance. These are not edge cases. They are the predictable outcomes of deploying a propulsion system without validation testing that covers the full operating envelope.</p>
+
+        <p>This guide is for engineering and procurement teams who need to validate propulsion components before committing to fleet-scale deployment. It covers the four validation dimensions — thrust stand testing, thermal endurance, ESC reliability, and lifetime prediction — with specific pass/fail thresholds and test duration recommendations. If you have not yet selected your propulsion components, the companion guides on <a href="/blog/uav-motor-kv-selection-guide/">motor KV selection</a>, <a href="/blog/uav-propeller-selection-guide/">propeller selection</a> and <a href="/blog/drone-powertrain-matching/">powertrain matching</a> cover the design-phase decisions that precede validation.</p>
+
+        <h2>Thrust stand testing: measuring what the datasheet cannot tell you</h2>
+        <p>A motor datasheet provides a static thrust table — grams of thrust at 25°C ambient, 4.2 V per cell, with a specific propeller, measured at steady state. This is a starting point, not a validation result. A proper thrust stand test campaign measures the dynamic response: thrust rise time from idle to 75% throttle, efficiency (grams per watt) across the full throttle range, thrust consistency over a 10-minute continuous run, and thrust degradation at elevated winding temperatures.</p>
+
+        <p>The minimum test setup requires a load cell rated for at least 150% of the motor's claimed maximum thrust, sampled at 100 Hz or faster. The load cell should be mounted in a pull configuration — motor pulling upward against the cell — to eliminate the effect of the motor's own weight on the measurement. A separate torque sensor or a reaction-torque load cell arrangement provides simultaneous torque and thrust data, which together give you mechanical power output and propeller efficiency. For programs with budget for a commercial solution, the RCbenchmark Series 1585 dynamometer provides 1,500 Hz sampling with ±0.5% accuracy and automated throttle sweep scripts — but a properly calibrated DIY setup with a quality load cell and a data acquisition module achieves 95% of the measurement fidelity at 20% of the cost.</p>
+
+        <div class="media-visual reveal" style="max-width:640px;margin:32px auto">
+          <img src="/generated/blog-inline-propulsion-thrust-stand.webp" alt="UAV motor thrust test stand with brushless motor mounted vertically, load cell, ESC and power supply on lab bench" loading="lazy">
+          <span class="concept-badge">Concept illustration</span>
+        </div>
+
+        <p>The test protocol should include these specific runs. First, a throttle linearity sweep from 10% to 100% in 5% increments, with 10 seconds of stabilization at each step, recording thrust, torque, current, voltage, and RPM at every step. This generates the efficiency curve — grams per watt versus throttle percentage — that tells you where the motor actually operates most efficiently, which is rarely at the claimed peak-efficiency point on the datasheet. Motors in the 100–600 KV range for large industrial multirotors often peak in efficiency between 55% and 75% throttle, not at the 50% midpoint that generic guidance suggests. Second, a thrust step-response test: command an instantaneous jump from 10% to 75% throttle and measure the time to reach 90% of the final thrust value. A properly matched motor-ESC-propeller combination achieves this in under 200 ms with DShot 1200 or CAN FD protocols; slower protocols or impedance mismatches between the ESC and motor can stretch this to 400 ms or more, which matters when the flight controller is commanding rapid attitude corrections. For more on protocol timing, <a href="/blog/uav-communication-protocols-guide/">UAV communication protocols</a> covers the latency implications of each signal path.</p>
+
+        <p>Third, a 10-minute sustained hover-power run at the throttle percentage corresponding to your aircraft's hover thrust. Measure thrust degradation over the 10 minutes. A healthy propulsion system should show less than 5% thrust drop over this period, assuming adequate cooling airflow. If thrust drops 8% or more at constant throttle, the motor windings are heating up and increasing resistance faster than the propeller can move air through the stator — a sign that the motor is undersized for continuous operation at this power level.</p>
+
+        <h2>Thermal endurance: keeping the propulsion system within safe limits</h2>
+        <p>Motor winding temperature is the dominant failure mechanism in UAV propulsion. Most industrial brushless motors use N45SH or N48H neodymium magnets rated for 150°C maximum operating temperature, with Class H (180°C) winding insulation. When the winding temperature exceeds 150°C, the magnets begin to partially demagnetize — a permanent damage mode, not a recoverable thermal throttle. The demagnetization reduces the motor's KV — fewer RPM per volt — which the flight controller compensates for by commanding higher throttle, which increases current draw, which increases winding temperature further. This is a runaway failure mode, and it typically manifests on the 40th to 60th flight hour on an undersized motor.</p>
+
+        <p>Thermal validation requires instrumenting the motor with a thermocouple on the stator windings — not on the bell or the mount, both of which run 20–40°C cooler than the windings under load. The test protocol: run the motor at hover power for 5 minutes to reach thermal equilibrium, then execute a 60-second burst at maximum continuous power, then return to hover power. Record the peak winding temperature during the burst and the time required to return to the pre-burst equilibrium temperature. For a motor that will see repeated high-power climbs — agricultural spraying where the aircraft climbs to 15 m, transits at altitude, descends, and repeats — the recovery time between bursts determines whether the motor accumulates heat over successive cycles.</p>
+
+        <div class="media-visual reveal" style="max-width:640px;margin:32px auto">
+          <img src="/generated/blog-inline-propulsion-thermal.webp" alt="Thermal camera view of brushless UAV motor running on test stand showing winding hotspot pattern and heat dissipation through stator" loading="lazy">
+          <span class="concept-badge">Concept illustration</span>
+        </div>
+
+        <p>Acceptance criteria: peak winding temperature during the 60-second burst must remain at least 30°C below the magnet's rated maximum temperature, and the post-burst recovery must return winding temperature to within 5°C of the pre-burst equilibrium within 120 seconds. If either criterion fails, the motor is undersized for the duty cycle. The options are to reduce the maximum continuous power demand (lighter payload, lower climb rate), increase airflow over the motor (duct the propeller wash through the stator more aggressively), or select a larger stator volume motor. For airframe-level thermal considerations beyond the motor itself, the <a href="/blog/uav-thermal-management-electronics/">UAV thermal management guide</a> covers the system-level cooling design that affects all avionics components.</p>
+
+        <h2>ESC validation: beyond the continuous current rating</h2>
+        <p>ESC specifications focus on the continuous current rating — 40 A, 60 A, 80 A — but real mission profiles stress ESCs in ways that a static current number does not capture. The three ESC failure modes that validation testing must expose are MOSFET thermal runaway during rapid throttle transients, capacitor bank degradation from sustained ripple current, and protocol-level errors under electrical noise.</p>
+
+        <p>MOSFET thermal runaway testing: configure the ESC to drive the motor through a repeating throttle cycle — 30 seconds at 30% throttle (simulating cruise), 10 seconds at 80% (simulating climb), 5 seconds at 100% (emergency power), return to 30%. Run this cycle for 30 minutes while logging the ESC's MOSFET temperature via its telemetry output. An ESC with adequate thermal design — sufficient MOSFET silicon area, low RDS(on), and adequate heatsinking — should keep MOSFET junction temperature below 120°C throughout the cycle. An ESC that crosses 140°C on the 100% throttle phase is likely to fail within 200 flight hours in field conditions, where ambient temperatures may be higher than the lab and airflow over the ESC may be partially obstructed by the airframe.</p>
+
+        <p>Capacitor ripple current testing is harder to instrument but equally important. The large electrolytic capacitors at the DC input of an ESC smooth the voltage ripple caused by the MOSFET switching waveform. When an ESC operates with long battery leads — common in large UAVs where the battery pack is in the fuselage and ESCs are on the arms — the inductance of the battery leads increases the ripple current the capacitors must handle. The failure mode is capacitor overheating, electrolyte drying, and eventual capacitance loss, which causes voltage spikes at the MOSFETs and sudden ESC failure. The practical test: measure the peak-to-peak voltage ripple at the ESC input terminals during the 30-minute throttle cycle using an oscilloscope probe. Ripple exceeding 5% of the battery voltage (2.5 V peak-to-peak on a 50 V / 12S system) indicates that additional low-ESR capacitance is needed at the ESC input — either a larger capacitor bank on the ESC itself or an additional capacitor module installed at the power distribution board.</p>
+
+        <div class="media-visual reveal" style="max-width:640px;margin:32px auto">
+          <img src="/generated/blog-inline-propulsion-esc-test.webp" alt="ESC testing station with oscilloscope probes monitoring voltage ripple, current shunt, and thermal camera on MOSFET array" loading="lazy">
+          <span class="concept-badge">Concept illustration</span>
+        </div>
+
+        <p>Protocol-level error testing validates the communication link between the flight controller and ESC. For ESCs using DShot 1200 or CAN FD — the protocols recommended for industrial UAVs in our <a href="/blog/esc-firmware-selection-guide/">ESC firmware selection guide</a> — the test involves injecting electrical noise into the signal line and measuring CRC error rates. A practical method: run the motor at 50% throttle, bring a 2.4 GHz telemetry radio antenna within 5 cm of the ESC signal wire, and transmit at full power. Log the ESC telemetry for CRC errors over a 5-minute period. An error rate above 0.1% (one error per 1,000 packets) at this aggressive noise level suggests that the ESC's signal conditioning is marginal and the installation will need additional shielding or twisted-pair signal wiring. For CAN bus installations with multiple ESCs on a shared bus, repeat the test with all ESCs connected and actively communicating — the bus loading from multiple nodes amplifies the effect of noise-induced errors.</p>
+
+        <h2>Propeller efficiency measurement and structural integrity</h2>
+        <p>Propeller validation has two dimensions: aerodynamic efficiency and structural integrity. Efficiency testing is straightforward on the thrust stand: measure grams of thrust per watt of electrical input power at each throttle point during the sweep test, and compare the measured efficiency curve against the propeller manufacturer's published data. A well-designed carbon fiber propeller for a 100–600 KV industrial motor should achieve 8–12 g/W at the 50% throttle point. Below 7 g/W, the propeller-airframe combination likely has inefficient inflow — the propeller is operating in partially stalled or turbulent air, often because the motor mount or arm geometry disturbs the inflow.</p>
+
+        <p>Structural validation is the test most teams skip, and it is the one that causes the most expensive failures. A carbon fiber propeller spinning at 6,000 RPM stores significant kinetic energy in each blade. A blade separation at cruise RPM sends a carbon fiber projectile through whatever is in its path — often the adjacent motor, the airframe arm, or the battery pack. The structural test protocol: spin the propeller at 120% of its maximum rated RPM for 60 seconds while enclosed in a safety cage (a plywood box lined with Kevlar fabric absorbs a blade strike without becoming shrapnel itself). The propeller should show no visible cracks, delamination, or tip deformation after this test. A propeller that survives 120% overspeed for 60 seconds has adequate structural margin for normal operation at rated RPM.</p>
+
+        <p>For folding propellers — common on mapping and survey UAVs that launch from catapults — add a deployment test: spin the motor from 0 to 3,000 RPM in under one second to simulate the centrifugal deployment of the blades from the folded position. Confirm that both blades deploy symmetrically (the propeller should not vibrate excessively during deployment) and that the blade hinge pins show no deformation after 50 deployment cycles. An asymmetric deployment causes a momentary thrust imbalance that the flight controller must correct, and in worst cases the vibration amplitude can saturate the IMU, causing a temporary loss of attitude estimation. For platforms using advanced composite airframes where propeller-induced vibration interacts with structural resonances, the material considerations in the <a href="/blog/uav-airframe-materials-guide/">UAV airframe materials guide</a> are directly relevant.</p>
+
+        <h2>Lifetime prediction: how many flight hours before replacement</h2>
+        <p>The output of propulsion validation is not a pass/fail judgment — it is a predicted service life with quantified confidence. The four test dimensions above produce data that feeds into a lifetime model: at what flight hour does the motor's thrust degrade by 10%? At what flight hour does the ESC's capacitor bank show capacitance loss of 20%? At what flight hour does the propeller's structural margin drop below 110% of rated RPM?</p>
+
+        <p>For the motor, bearing life is usually the limiting factor, not winding degradation. Most industrial brushless motors use ABEC-5 or ABEC-7 rated bearings with a theoretical B10 life (the point at which 10% of bearings have failed) in the 500–1,000 hour range under radial and axial loads typical of multirotor operation. But the actual life depends on operating conditions: dust ingestion reduces bearing life by a factor of 3–5, and sustained operation at winding temperatures above 130°C degrades bearing grease and reduces life by a factor of 2. The practical approach: track motor temperature and vibration signature across the fleet. When a motor's vibration amplitude at the blade-pass frequency increases by 50% over its baseline — indicating bearing wear — schedule bearing replacement at the next maintenance interval. This condition-based approach is more cost-effective than a fixed-time replacement schedule.</p>
+
+        <p>For the ESC, the dominant lifetime limiter is thermal cycling of the MOSFET solder joints. Each throttle transient — from cruise to climb, from climb to descent — subjects the MOSFET package to a thermal expansion cycle. After approximately 5,000–10,000 thermal cycles at a delta-T of 60°C or more, solder joint fatigue cracks begin to form, increasing the MOSFET's on-resistance and eventually causing thermal runaway. The practical prediction: count throttle transients in your mission profile, estimate thermal cycles per flight hour, and set the ESC replacement interval conservatively at 50% of the predicted cycle life. For an agricultural UAV that executes 20 climb-descent cycles per flight and flies 4 hours per day, that is 80 thermal cycles per day and a 50% life threshold of 2,500 cycles — approximately 31 flight days before ESC replacement should be scheduled.</p>
+
+        <p>For propellers, the replacement trigger is visual: any visible crack, delamination, leading-edge erosion deeper than 0.5 mm, or tip deformation visible to the naked eye. For carbon fiber propellers in clean air — mapping UAVs operating at altitude — a 200-hour inspection interval is reasonable. For propellers operating in agricultural environments with chemical exposure or in desert environments with sand abrasion, reduce the inspection interval to 50 hours. For additional guidance on matching propulsion components into a complete system, the <a href="/blog/drone-powertrain-matching/">powertrain matching methodology</a> provides the system-level integration framework.</p>
+
+        <p style="margin-top:42px"><a class="btn btn-primary" href="/testing/">Explore our testing services</a> <a class="btn btn-outline" href="/blog/" style="margin-left:12px">Back to Blog</a></p>
+
+        <section class="continue-reading">
+          <h3>Continue Reading</h3>
+          <div class="continue-grid">
+            <a class="continue-card" href="/blog/uav-motor-kv-selection-guide/">
+              <div class="continue-card-img"><img src="/generated/blog-cover-motor-kv.webp" alt="Motor KV Selection" loading="lazy"></div>
+              <div class="continue-card-body"><h4>Motor KV Selection</h4><p>Thrust calculation, stator sizing and thermal budget for industrial motors.</p></div>
+            </a>
+            <a class="continue-card" href="/blog/uav-propeller-selection-guide/">
+              <div class="continue-card-img"><img src="/generated/blog-cover-propeller-guide.webp" alt="Propeller Selection" loading="lazy"></div>
+              <div class="continue-card-body"><h4>Propeller Selection Guide</h4><p>Diameter, pitch, blade count and efficiency optimization.</p></div>
+            </a>
+            <a class="continue-card" href="/blog/drone-powertrain-matching/">
+              <div class="continue-card-img"><img src="/generated/blog-cover-powertrain.webp" alt="Powertrain Matching" loading="lazy"></div>
+              <div class="continue-card-body"><h4>UAV Powertrain Matching</h4><p>System-level matching of motors, ESCs, props and battery.</p></div>
+            </a>
+            <a class="continue-card" href="/blog/esc-firmware-selection-guide/">
+              <div class="continue-card-img"><img src="/generated/blog-cover-esc-firmware.webp" alt="ESC Firmware" loading="lazy"></div>
+              <div class="continue-card-body"><h4>ESC Firmware Selection</h4><p>BLHeli_32, AM32 and FOC — protocol choice impacts validation results.</p></div>
+            </a>
+            <a class="continue-card" href="/blog/uav-thermal-management-electronics/">
+              <div class="continue-card-img"><img src="/generated/blog-cover-thermal-management.webp" alt="Thermal Management" loading="lazy"></div>
+              <div class="continue-card-body"><h4>Thermal Management</h4><p>System-level cooling for flight controllers, ESCs and batteries.</p></div>
+            </a>
+          </div>
+        </section>
+      </div>
+      </div>
+    </article>
+
+    <section class="section section-alt" style="--cta-bg:url(/generated/blog-cta-propulsion-testing.webp)">
+      <div class="container">
+        <div class="spec-panel reveal">
+          <div class="spec-panel-inner">
+            <div>
+              <span class="eyebrow">Propulsion Validation Support</span>
+              <h2>Validate your propulsion system before deployment — we test what datasheets cannot guarantee.</h2>
+              <p>Send us your motor, ESC and propeller combination. We will run the full validation protocol — thrust stand characterization, thermal endurance, ESC reliability and lifetime prediction — and deliver a test report with quantified safety margins.</p>
+            </div>
+            <div class="spec-actions">
+              <button class="btn btn-primary" type="button" data-open-inquiry>Start Your Build <svg aria-hidden="true"><use href="#icon-arrow"/></svg></button>
+              <button class="btn btn-outline" data-open-inquiry>Open RFQ Brief</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="brand" href="/" aria-label="EMS Drone home"><span class="brand-mark"><svg aria-hidden="true"><use href="#icon-drone"/></svg></span><span>EMS Drone</span></a>
+          <p>Configurable UAV components, complete systems and engineering support.</p>
+        </div>
+        <div class="footer-col"><h3>System</h3><a href="/capabilities/">Capabilities</a><a href="/customization/">Customization</a><a href="/testing/">Testing</a></div>
+        <div class="footer-col"><h3>Context</h3><a href="/industries/">Industries</a><a href="/about/">About</a><a href="/blog/">Blog</a></div>
+        <div class="footer-col"><h3>More reading</h3><a href="/blog/flight-controller-esc-matching/">FC–ESC match</a><a href="/blog/low-altitude-economy-components/">Low-altitude</a><a href="/contact/">RFQ Brief</a></div>
+      </div>
+      <div class="footer-bottom"><span>&copy; 2026 EMS Drone</span><span>Verify &rarr; Qualify &rarr; Build</span></div>
+    </div>
+  </footer>
+  <div class="modal-overlay" id="inquiryModal" aria-hidden="true">
+    <div class="modal-dialog" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <button class="modal-close" type="button" aria-label="Close inquiry">&times;</button>
+      <div class="modal-aside">
+        <span class="tech-label">Engineering Intake</span>
+        <div><h3 id="modalTitle">Start with your mission.</h3><p>Tell us what you are building and where you need support: component sourcing, a matched stack or a complete UAV.</p></div>
+      </div>
+      <form class="modal-form" data-preview-form>
+        <div class="field"><label for="modal-name">Name</label><input id="modal-name" name="name" autocomplete="name" required></div>
+        <div class="field" style="margin-top:18px"><label for="modal-email">Email</label><input id="modal-email" name="email" type="email" autocomplete="email" required></div>
+        <div class="field" style="margin-top:18px"><label for="modal-message">Project brief</label><textarea id="modal-message" name="message" required placeholder="Aircraft type, payload, environment, component list or complete-system goal"></textarea></div>
+        <button class="btn btn-primary" type="submit">Submit Engineering Brief</button>
+        <div class="form-status" role="status" aria-live="polite" aria-atomic="true"></div>
+      </form>
+    </div>
+  </div>
+<script src="/site.js?v=9"></script>
+  <script src="/reveal.js?v=9"></script>
+</body>
+</html>

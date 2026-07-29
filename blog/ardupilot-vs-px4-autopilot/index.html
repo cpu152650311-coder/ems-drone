@@ -1,0 +1,276 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ArduPilot vs PX4: Which Open-Source Autopilot for Your Industrial UAV Fleet | EMS Drone</title>
+  <meta name="description" content="A procurement-focused comparison of ArduPilot and PX4 for industrial UAVs. Covers flight modes, hardware compatibility, safety features, developer ecosystem, and the decision framework that maps autopilot selection to mission profiles.">
+  <link rel="canonical" href="https://ems-drone.com/blog/ardupilot-vs-px4-autopilot/">
+  <meta property="og:title" content="ArduPilot vs PX4: Which Open-Source Autopilot for Your Industrial UAV Fleet">
+  <meta property="og:description" content="A procurement-focused comparison of ArduPilot and PX4 for industrial UAVs. Covers flight modes, hardware compatibility, safety features and the decision framework for mission-critical operations.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://ems-drone.com/blog/ardupilot-vs-px4-autopilot/">
+  <meta property="og:image" content="https://ems-drone.com/generated/og-cover.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <link rel="icon" type="image/x-icon" href="/generated/favicon.ico">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="apple-touch-icon" sizes="180x180" href="/generated/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/generated/icon-192.png">
+<link rel="icon" type="image/png" sizes="512x512" href="/generated/icon-512.png">
+  <link rel="stylesheet" href="/design-tokens.css?v=21">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "ArduPilot vs PX4: Which Open-Source Autopilot for Your Industrial UAV Fleet",
+  "description": "A procurement-focused comparison of ArduPilot and PX4 for industrial UAVs. Covers flight modes, hardware compatibility, safety features, developer ecosystem, and the decision framework that maps autopilot selection to mission profiles.",
+  "image": "https://ems-drone.com/generated/blog-cover-ardupilot-px4.webp",
+  "author": {
+    "@type": "Organization",
+    "name": "EMS Drone"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "EMS Drone",
+    "url": "https://ems-drone.com/",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://ems-drone.com/favicon.svg"
+    }
+  },
+  "mainEntityOfPage": "https://ems-drone.com/blog/ardupilot-vs-px4-autopilot/",
+  "datePublished": "2026-07-29",
+  "dateModified": "2026-07-29"
+}
+</script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <svg aria-hidden="true" style="position:absolute;width:0;height:0;overflow:hidden">
+    <symbol id="icon-drone" viewBox="0 0 24 24" fill="none" stroke="#b8f34a" stroke-width="1.5"><circle cx="12" cy="12" r="2.6"/><path d="m10.2 10.2-4-4m7.6 4 4-4m-7.6 7.6-4 4m7.6-4 4 4"/><circle cx="4.7" cy="4.7" r="2.2"/><circle cx="19.3" cy="4.7" r="2.2"/><circle cx="4.7" cy="19.3" r="2.2"/><circle cx="19.3" cy="19.3" r="2.2"/></symbol>
+    <symbol id="icon-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12h14m-5-5 5 5-5 5"/></symbol>
+  </svg>
+
+  <header class="site-header">
+    <div class="nav-shell">
+      <a class="brand" href="/" aria-label="EMS Drone home"><span class="brand-mark"><svg aria-hidden="true"><use href="#icon-drone"/></svg></span><span>EMS Drone</span></a>
+      <button class="nav-toggle" type="button" aria-label="Open navigation" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+                                        <nav class="site-nav" aria-label="Primary navigation"><a href="/">Home</a>
+        <div class="nav-dropdown">
+          <a href="/capabilities/" class="nav-parent">Capabilities</a>
+          <div class="nav-submenu">
+            <a href="/capabilities/flight-control/">Flight Controllers</a>
+            <a href="/capabilities/esc-power/">ESC &amp; Power Systems</a>
+            <a href="/capabilities/propulsion/">Propulsion</a>
+            <a href="/capabilities/airframe/">Airframes &amp; Structures</a>
+            <a href="/capabilities/communications/">Communications &amp; RF</a>
+            <a href="/capabilities/payload/">Payloads &amp; Gimbals</a>
+          </div>
+        </div>
+        <div class="nav-dropdown">
+          <a href="/customization/" class="nav-parent">Services</a>
+          <div class="nav-submenu">
+            <a href="/customization/">Custom Engineering</a>
+            <a href="/testing/">Testing &amp; Validation</a>
+          </div>
+        </div>
+        <div class="nav-dropdown">
+          <a href="/industries/" class="nav-parent">Industries</a>
+          <div class="nav-submenu">
+            <a href="/industries/inspection/">Industrial Inspection</a>
+            <a href="/industries/mapping-survey/">Mapping &amp; Survey</a>
+            <a href="/industries/logistics/">Logistics &amp; Delivery</a>
+            <a href="/industries/agriculture/">Precision Agriculture</a>
+            <a href="/industries/research/">Research &amp; Development</a>
+          </div>
+        </div>
+        <div class="nav-dropdown">
+          <a href="/resources/" class="nav-parent">Resources</a>
+          <div class="nav-submenu">
+            <a href="/design-guides/">Design Guides</a>
+            <a href="/projects/">Engineering Projects</a>
+            <a href="/how-it-works/">How We Work</a>
+            <a href="/faq/">FAQ</a>
+            <a href="/blog/" aria-current="page">Blog</a>
+          </div>
+        </div>
+        <div class="nav-dropdown">
+          <a href="/about/" class="nav-parent">Company</a>
+          <div class="nav-submenu">
+            <a href="/about/">About Us</a>
+            <a href="/factory/">Factory Tour</a>
+            <a href="/quality/">Quality &amp; Certifications</a>
+            <a href="/shipping/">Global Shipping</a>
+            <a href="/contact/">Contact</a>
+          </div>
+        </div>
+        <button class="btn btn-primary" data-open-inquiry>Start Your Build</button>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <header class="article-hero">
+      <div class="container reveal">
+        <span class="eyebrow"><a href="/blog/" style="color:inherit;text-decoration:none">Blog</a> · Flight Control</span>
+        <h1>ArduPilot vs PX4: which open-source autopilot fits your industrial UAV fleet</h1>
+        <p style="color:var(--muted-dark);max-width:640px">The choice between ArduPilot and PX4 shapes your entire avionics stack — from flight controller hardware selection to ground control station workflows, safety certification pathways, and long-term maintainability. This comparison maps the two platforms against real procurement criteria: mission profile fit, ecosystem maturity, hardware compatibility, and operator training overhead.</p>
+        <div class="article-cover">
+          <img src="/generated/blog-cover-ardupilot-px4.webp" alt="ArduPilot and PX4 autopilot comparison concept with flight controller hardware, ground station interface and mission planning overlay">
+        </div>
+      </div>
+    </header>
+
+    <article class="article-body">
+      <div class="container reveal">
+        <p>Procurement teams building industrial UAV programs face an early architectural decision that echoes through every subsequent hardware choice: which autopilot software stack will govern the aircraft. Two open-source platforms dominate the landscape — ArduPilot and PX4 — and while both can fly a multirotor from waypoint A to waypoint B, the operational differences become stark when you push into the mission profiles that industrial UAVs actually execute: 30 km BVLOS corridors, autonomous precision landing on moving platforms, GNSS-denied navigation inside infrastructure, and multi-vehicle swarm coordination.</p>
+
+        <p>This is not a "which one is better" article. It is a procurement decision framework that maps the architectural differences between ArduPilot and PX4 onto the selection criteria that matter for an industrial UAV program: what flight modes your mission requires, which flight controller hardware is compatible, what the developer ecosystem looks like for customization, how safety-critical features compare, and what the operator training burden will be. If you have already worked through <a href="/blog/flight-controller-esc-matching/">flight controller and ESC matching</a>, the autopilot software choice is the logical next layer in your stack decision.</p>
+
+        <h2>Architecture fundamentals: what separates the two platforms</h2>
+        <p>ArduPilot and PX4 share a common ancestry — both trace their roots to the ETH Zurich Pixhawk project — but they have diverged into fundamentally different architectures. ArduPilot runs a monolithic firmware model where all control loops execute in a single process space with direct hardware access. The flight controller runs one binary that contains the IMU drivers, the EKF (Extended Kalman Filter) state estimator, the guidance and navigation controllers, and the motor mixer — all compiled together and flashed as a single image. This design prioritizes deterministic timing: the 1 kHz attitude control loop and the 8 kHz IMU sampling run on a predictable schedule because there is no inter-process communication overhead imposing variable latency.</p>
+
+        <div class="media-visual reveal" style="max-width:640px;margin:32px auto">
+          <img src="/generated/blog-inline-ardupilot-px4-flight-controller.webp" alt="Flight controller board with STM32H7 processor and dual IMU sensors on engineering bench" loading="lazy">
+          <span class="concept-badge">Concept illustration</span>
+        </div>
+
+        <p>PX4 uses a modular, RTOS-based architecture built on NuttX where each subsystem — the commander, navigator, position estimator, attitude controller, and mixer — runs as a separate thread communicating through uORB (micro Object Request Broker) publish-subscribe messaging. This architecture provides fault isolation: a crash in the obstacle avoidance module does not take down the attitude controller. It also makes the system more extensible — adding a new sensor driver or control mode means writing a new module that subscribes to the relevant uORB topics, without touching existing code. The cost is higher inter-process communication latency and a larger firmware footprint, which historically limited PX4 to flight controllers with at least 2 MB of flash memory.</p>
+
+        <p>For procurement, the architectural difference matters in two concrete ways. First, ArduPilot's monolithic design means that every supported flight controller runs essentially the same feature set — if a feature exists in the codebase, it works on your hardware, provided there is enough flash and RAM. PX4's modular design means that board support packages can selectively enable or disable modules, so the feature set on a Pixhawk 6X may differ from that on a Holybro Kakute H7 even though both run PX4. Second, ArduPilot's deterministic timing makes it the preferred choice when you need guaranteed control-loop cadence — precision agriculture spraying at 3 m above crop canopy, or heavy-lift logistics where a 50 kg payload means a 200 ms control-loop gap translates to measurable position error. The <a href="/blog/drone-powertrain-matching/">UAV powertrain matching guide</a> covers how control-loop timing interacts with ESC protocol selection and motor response, which becomes relevant when tuning either platform.</p>
+
+        <h2>Flight mode coverage: what each platform can actually fly</h2>
+        <p>Both platforms support the standard set of multirotor modes — Stabilize, Altitude Hold, Loiter, Position Hold, Auto (waypoint mission), Return to Launch, and Land. The differences emerge in the specialized modes that industrial UAVs depend on for specific mission profiles.</p>
+
+        <p>ArduPilot's mode library is larger and more mission-specific. It includes modes like AutoTune (automated PID tuning from in-flight frequency sweeps), Spline waypoint navigation (curved trajectories for cinematic or inspection flight paths), Follow Me (vehicle tracks a moving ground station), Circle (orbits a point at configurable radius and speed — useful for tower inspection), Guided (external companion computer takes position/velocity commands via MAVLink), and a mature Precision Landing system that uses IR-Lock or AprilTag visual fiducial tracking for centimeter-accuracy touchdown. For mapping and survey missions, ArduPilot's Terrain Following mode uses SRTM elevation data to maintain constant AGL altitude over variable terrain — a critical feature for corridor mapping along power lines that cross hills and valleys.</p>
+
+        <div class="media-visual reveal" style="max-width:640px;margin:32px auto">
+          <img src="/generated/blog-inline-ardupilot-px4-mission.webp" alt="UAV mission planning interface on ground station tablet showing waypoint corridor with terrain following profile" loading="lazy">
+          <span class="concept-badge">Concept illustration</span>
+        </div>
+
+        <p>PX4's mode architecture is cleaner but narrower. It defines a smaller set of core modes — Position, Altitude, Manual/Stabilized, Acro, Orbit, Hold, Return, Mission, Takeoff, Land, Follow Me, and Offboard — where Offboard is the primary extensibility path. Rather than adding specialized flight modes, PX4 expects complex behaviors to be implemented in a companion computer communicating through MAVLink or ROS 2, with the flight controller executing the low-level stabilization. This is a philosophically different approach: ArduPilot puts intelligence on the flight controller; PX4 puts the flight controller in a servant role to a companion computer. For programs that already plan to integrate a Jetson Orin or Raspberry Pi for onboard AI processing, PX4's Offboard mode is a clean interface. For programs that want an all-in-one flight controller solution with no companion computer, ArduPilot's mode library is more immediately useful.</p>
+
+        <p>A practical procurement consideration: if your mission requires Beyond Visual Line of Sight operations, both platforms support BVLOS workflows, but ArduPilot's ecosystem has a longer track record of FAA and EASA BVLOS waiver approvals. The <a href="/blog/uav-remote-id-bvlos-components/">UAV Remote ID and BVLOS compliance guide</a> covers the regulatory hardware requirements that apply regardless of autopilot choice.</p>
+
+        <h2>Hardware compatibility: which flight controllers run which stack</h2>
+        <p>The hardware ecosystem is the axis where the two platforms diverge most visibly for procurement. ArduPilot supports an exceptionally wide range of flight controller hardware — from the STM32F4-based boards that have been in the field for a decade to the latest STM32H7 dual-core processors with 2 MB flash and 1 MB RAM. The officially supported hardware list includes the entire Pixhawk family (Pixhawk 1 through Pixhawk 6X), the Cube Orange and Cube Blue carrier boards with their modular carrier-board architecture, the CUAV V5+ and X7 series, the Holybro Durandal and Kakute H7, and dozens of smaller manufacturers. Critically, ArduPilot also supports non-Pixhawk-standard boards like the Matek H743 series and the ReadyToFlyer line.</p>
+
+        <p>PX4 supports a narrower but well-curated hardware set, focused primarily on the Pixhawk standard. The Pixhawk 6X (STM32H753, dual-core Cortex-M7 at 480 MHz with Cortex-M4 co-processor) is the reference platform. The Cube Orange+, Holybro Durandal, and CUAV X7 Pro are also supported. PX4's hardware requirements are more stringent — a minimum of 2 MB flash and 512 KB RAM — which eliminates the lower-cost STM32F4 boards that ArduPilot still flies on. For procurement, this means the minimum viable flight controller for PX4 carries a higher unit cost, but also guarantees more headroom for future firmware updates and onboard processing.</p>
+
+        <p>Both platforms support 8 kHz IMU sampling rates and 1 kHz control loops on H7-class hardware, which aligns with the component specifications we maintain for industrial-grade <a href="/blog/uav-communication-protocols-guide/">UAV communication protocols</a> where CAN FD at 8 Mbps and DShot 1200 demand real-time processing headroom. For dual-redundant IMU configurations — where the flight controller cross-checks two independent IMU streams for sensor failure detection — both platforms support the feature in hardware, but ArduPilot's EKF3 implementation includes a built-in IMU voting mechanism that PX4 achieves through its modular sensor-hub architecture.</p>
+
+        <h2>Safety architecture: failsafe behavior under fault conditions</h2>
+        <p>Safety features are where autopilot selection has direct operational consequences. Both platforms implement the expected failsafes — radio loss triggers Return to Launch, low battery triggers Auto Land, geofence violation triggers an altitude climb followed by RTL — but the depth of configurability differs.</p>
+
+        <p>ArduPilot's parameter system (over 1,200 configurable parameters) exposes almost every safety threshold to the integrator. The battery failsafe can be configured with two-stage voltage thresholds, a separate capacity-consumed trigger, and independent actions for each stage: Return to Launch at stage 1, Land Now at stage 2. The geofence system supports circular, polygonal, and altitude fences with independent breach actions. The EKF failsafe can trigger a mode fallback — switch from Loiter to AltHold if the position estimate degrades — or initiate an autonomous landing if the IMU health indicators cross a configurable threshold. For industrial UAVs operating in GNSS-challenged environments, ArduPilot's EKF3 includes a built-in optical flow and visual odometry fusion path that maintains position hold when GPS drops out, provided the flight controller has an attached optical flow sensor or companion-computer vision pipeline.</p>
+
+        <div class="media-visual reveal" style="max-width:640px;margin:32px auto">
+          <img src="/generated/blog-inline-ardupilot-px4-safety.webp" alt="Dual-redundant IMU flight controller board with independent sensor modules and failsafe status monitoring panel" loading="lazy">
+          <span class="concept-badge">Concept illustration</span>
+        </div>
+
+        <p>PX4's safety model is structured around a formal Commander state machine with well-defined transitions: the vehicle is always in exactly one state (Manual, Stabilized, Position Control, Mission, Return, Land, etc.) and failsafe events trigger deterministic state transitions defined in the airframe configuration. This is architecturally cleaner and easier to audit for safety certification. For programs pursuing DO-178C or equivalent software assurance levels, PX4's modular architecture and formal state machine make the certification argument more straightforward than ArduPilot's monolithic codebase — though neither platform is certified to any aviation safety standard out of the box. Both require a program-specific certification effort, and the component-level <a href="/blog/uav-certification-compliance-guide/">UAV certification and compliance guide</a> covers the broader regulatory landscape that applies regardless of autopilot software choice.</p>
+
+        <h2>Developer ecosystem and customization pathway</h2>
+        <p>The developer experience differs significantly, and this matters for procurement because it determines how quickly your engineering team can modify the autopilot for mission-specific behaviors. ArduPilot's codebase is larger — approximately 1.2 million lines of C++ — and the learning curve for meaningful customization is steeper. The build system uses Waf, the parameter system is defined through a custom metadata format, and the codebase includes substantial vehicle-specific branches (Copter, Plane, Rover, Sub, Blimp, Antenna Tracker) that share a common library layer. For a team that needs to add a custom flight mode — say, an automated power-line tracking behavior that uses an onboard camera — ArduPilot gives you the hooks but requires navigating a large codebase to find them.</p>
+
+        <p>PX4's codebase is approximately 600,000 lines of C++ with a CMake build system, and its uORB messaging architecture means that adding new functionality often involves writing a standalone module that subscribes to the topics it needs, without modifying existing flight-critical code. For a team integrating a custom sensor — a specialized gas analyzer for environmental monitoring, or a proprietary RF direction finder — PX4's driver framework is more approachable. The ROS 2 bridge is also more mature in the PX4 ecosystem, which matters for programs that plan to run perception, planning, and decision-making algorithms on a companion computer. The <a href="/blog/uav-research-development-components/">UAV R&D components guide</a> covers the hardware side of the companion-computer integration that either platform can support.</p>
+
+        <p>Ground control station compatibility is another procurement factor. Both platforms work with Mission Planner and QGroundControl, but the experience differs. Mission Planner was built for ArduPilot and exposes the full parameter set with descriptions, range limits, and incremental-change highlighting. QGroundControl was built for PX4 and provides a cleaner UI for PX4-specific features like airframe configuration wizards and MAVLink inspector tools. Either GCS can connect to either autopilot, but the feature coverage is asymmetric: using Mission Planner with PX4 means some PX4-specific parameters show as raw numeric IDs, and using QGroundControl with ArduPilot means some ArduPilot-specific flight modes are not selectable from the UI.</p>
+
+        <h2>Decision framework: which platform for which mission profile</h2>
+        <p>The procurement decision reduces to a matrix of mission requirements. Here is the framework we use when advising clients on autopilot selection:</p>
+
+        <p>Choose <strong>ArduPilot</strong> when your mission demands any of the following: precision agriculture with terrain-following spray passes at 3–5 m AGL, long-endurance mapping missions covering 500+ hectares where spline waypoint trajectories reduce unnecessary maneuvering, BVLOS corridor operations with a proven regulatory track record, heavy-lift logistics where deterministic control-loop timing at 1 kHz is non-negotiable, or automated precision landing on moving platforms using IR-Lock or AprilTag. ArduPilot's AutoTune feature alone saves engineering hours — rather than manually tuning PID gains across the flight envelope, you run a 10-minute automated flight that excites each axis and computes optimal gains.</p>
+
+        <p>Choose <strong>PX4</strong> when your program involves: a companion-computer architecture where the autopilot is a low-level stabilizer and the intelligence runs on a Jetson or Raspberry Pi, a ROS 2 or DDS-based software pipeline where PX4's native ROS 2 bridge simplifies integration, a safety certification pathway where PX4's modular architecture and formal state machine reduce the certification argument complexity, or a multi-vehicle swarm where PX4's uORB messaging architecture naturally extends to inter-vehicle communication through MAVLink routing. PX4's airframe configuration wizard in QGroundControl also reduces the initial setup time for standard multirotor and VTOL configurations, which matters if your program involves rapid prototyping across multiple airframe variants.</p>
+
+        <p>For programs operating in both camps — a heavy-lift logistics UAV that also needs ROS 2 integration for onboard obstacle avoidance — the decision is not exclusive. Some teams run ArduPilot as the primary flight stack and use a companion computer running ROS 2 for perception, with MAVLink bridging the two. The integration engineering effort is higher, but the result is the best of both architectures. The key procurement insight is that the choice of autopilot software should precede, not follow, the choice of flight controller hardware. Buy the flight controller that runs your chosen stack well, not the flight controller that a vendor's marketing team promotes. The hardware differences between a Pixhawk 6X running ArduPilot and the same board running PX4 are nil — the software determines the operational behavior. <a href="/blog/esc-firmware-selection-guide/">ESC firmware selection</a> is the next logical decision in the stack, as the autopilot's output protocol (DShot, PWM, CAN) must match what your ESCs accept.</p>
+
+        <p style="margin-top:42px"><a class="btn btn-primary" href="/capabilities/flight-control/">Explore flight controller options</a> <a class="btn btn-outline" href="/blog/" style="margin-left:12px">Back to Blog</a></p>
+
+        <section class="continue-reading">
+          <h3>Continue Reading</h3>
+          <div class="continue-grid">
+            <a class="continue-card" href="/blog/flight-controller-esc-matching/">
+              <div class="continue-card-img"><img src="/generated/blog-cover-matching.webp" alt="FC-ESC Matching" loading="lazy"></div>
+              <div class="continue-card-body"><h4>FC &amp; ESC Matching</h4><p>Protocol-level compatibility between flight controllers and ESCs.</p></div>
+            </a>
+            <a class="continue-card" href="/blog/esc-firmware-selection-guide/">
+              <div class="continue-card-img"><img src="/generated/blog-cover-esc-firmware.webp" alt="ESC Firmware Guide" loading="lazy"></div>
+              <div class="continue-card-body"><h4>ESC Firmware Selection</h4><p>BLHeli_32, AM32 and FOC — which protocol for your motor type.</p></div>
+            </a>
+            <a class="continue-card" href="/blog/drone-powertrain-matching/">
+              <div class="continue-card-img"><img src="/generated/blog-cover-powertrain.webp" alt="Powertrain Matching" loading="lazy"></div>
+              <div class="continue-card-body"><h4>UAV Powertrain Matching</h4><p>Matching motors, props, ESCs and battery into a coherent system.</p></div>
+            </a>
+            <a class="continue-card" href="/blog/uav-communication-protocols-guide/">
+              <div class="continue-card-img"><img src="/generated/blog-cover-comm-protocols.webp" alt="Communication Protocols" loading="lazy"></div>
+              <div class="continue-card-body"><h4>UAV Communication Protocols</h4><p>CAN, DShot, PWM, SBUS and CRSF for industrial integration.</p></div>
+            </a>
+            <a class="continue-card" href="/blog/uav-certification-compliance-guide/">
+              <div class="continue-card-img"><img src="/generated/blog-cover-certification.webp" alt="Certification Guide" loading="lazy"></div>
+              <div class="continue-card-body"><h4>Certification &amp; Compliance</h4><p>CE, FCC, RoHS, NDAA and ITAR requirements for export UAVs.</p></div>
+            </a>
+          </div>
+        </section>
+      </div>
+      </div>
+    </article>
+
+    <section class="section section-alt" style="--cta-bg:url(/generated/blog-cta-ardupilot-px4.webp)">
+      <div class="container">
+        <div class="spec-panel reveal">
+          <div class="spec-panel-inner">
+            <div>
+              <span class="eyebrow">Autopilot Integration Support</span>
+              <h2>Selecting an autopilot is an architectural decision — we help you get it right.</h2>
+              <p>Tell us your mission profile, payload requirements and operational environment. We will recommend the flight controller hardware and software stack that matches your program, with compatibility verified across the full avionics chain.</p>
+            </div>
+            <div class="spec-actions">
+              <button class="btn btn-primary" type="button" data-open-inquiry>Start Your Build <svg aria-hidden="true"><use href="#icon-arrow"/></svg></button>
+              <button class="btn btn-outline" data-open-inquiry>Open RFQ Brief</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="brand" href="/" aria-label="EMS Drone home"><span class="brand-mark"><svg aria-hidden="true"><use href="#icon-drone"/></svg></span><span>EMS Drone</span></a>
+          <p>Configurable UAV components, complete systems and engineering support.</p>
+        </div>
+        <div class="footer-col"><h3>System</h3><a href="/capabilities/">Capabilities</a><a href="/customization/">Customization</a><a href="/testing/">Testing</a></div>
+        <div class="footer-col"><h3>Context</h3><a href="/industries/">Industries</a><a href="/about/">About</a><a href="/blog/">Blog</a></div>
+        <div class="footer-col"><h3>More reading</h3><a href="/blog/flight-controller-esc-matching/">FC–ESC match</a><a href="/blog/low-altitude-economy-components/">Low-altitude</a><a href="/contact/">RFQ Brief</a></div>
+      </div>
+      <div class="footer-bottom"><span>&copy; 2026 EMS Drone</span><span>Verify &rarr; Qualify &rarr; Build</span></div>
+    </div>
+  </footer>
+  <div class="modal-overlay" id="inquiryModal" aria-hidden="true">
+    <div class="modal-dialog" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <button class="modal-close" type="button" aria-label="Close inquiry">&times;</button>
+      <div class="modal-aside">
+        <span class="tech-label">Engineering Intake</span>
+        <div><h3 id="modalTitle">Start with your mission.</h3><p>Tell us what you are building and where you need support: component sourcing, a matched stack or a complete UAV.</p></div>
+      </div>
+      <form class="modal-form" data-preview-form>
+        <div class="field"><label for="modal-name">Name</label><input id="modal-name" name="name" autocomplete="name" required></div>
+        <div class="field" style="margin-top:18px"><label for="modal-email">Email</label><input id="modal-email" name="email" type="email" autocomplete="email" required></div>
+        <div class="field" style="margin-top:18px"><label for="modal-message">Project brief</label><textarea id="modal-message" name="message" required placeholder="Aircraft type, payload, environment, component list or complete-system goal"></textarea></div>
+        <button class="btn btn-primary" type="submit">Submit Engineering Brief</button>
+        <div class="form-status" role="status" aria-live="polite" aria-atomic="true"></div>
+      </form>
+    </div>
+  </div>
+<script src="/site.js?v=9"></script>
+  <script src="/reveal.js?v=9"></script>
+</body>
+</html>
