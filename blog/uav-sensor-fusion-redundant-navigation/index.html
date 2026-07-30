@@ -1,0 +1,274 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>UAV Sensor Fusion and Redundant Navigation: Dual IMU, Dual GNSS and EKF Architecture for Safety-Critical Drone Operations | EMS Drone</title>
+  <meta name="description" content="How to architect redundant navigation for industrial UAVs — dual/triple IMU voting schemes, dual GNSS with RTK, barometer and magnetometer fusion, EKF sensor health monitoring, and failover logic for flight controllers operating at 8 kHz IMU with 1 kHz control loops. Practical procurement checklist for safety-critical drone components.">
+  <link rel="canonical" href="https://ems-drone.com/blog/uav-sensor-fusion-redundant-navigation/">
+  <meta property="og:title" content="UAV Sensor Fusion and Redundant Navigation: Dual IMU, Dual GNSS and EKF Architecture for Safety-Critical Drone Operations">
+  <meta property="og:description" content="Architect redundant navigation for industrial UAVs — dual/triple IMU voting, dual GNSS RTK, barometer-magnetometer fusion, EKF health monitoring and failover logic for 8 kHz flight controllers.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://ems-drone.com/blog/uav-sensor-fusion-redundant-navigation/">
+  <meta property="og:image" content="https://ems-drone.com/generated/og-cover.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <link rel="icon" type="image/x-icon" href="/generated/favicon.ico">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="apple-touch-icon" sizes="180x180" href="/generated/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/generated/icon-192.png">
+<link rel="icon" type="image/png" sizes="512x512" href="/generated/icon-512.png">
+  <link rel="stylesheet" href="/design-tokens.css?v=21">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "UAV Sensor Fusion and Redundant Navigation: Dual IMU, Dual GNSS and EKF Architecture for Safety-Critical Drone Operations",
+  "description": "How to architect redundant navigation for industrial UAVs — dual/triple IMU voting schemes, dual GNSS with RTK, barometer and magnetometer fusion, EKF sensor health monitoring, and failover logic for flight controllers operating at 8 kHz IMU with 1 kHz control loops.",
+  "image": "https://ems-drone.com/generated/blog-cover-sensor-fusion.webp",
+  "author": {
+    "@type": "Organization",
+    "name": "EMS Drone"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "EMS Drone",
+    "url": "https://ems-drone.com/",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://ems-drone.com/favicon.svg"
+    }
+  },
+  "mainEntityOfPage": "https://ems-drone.com/blog/uav-sensor-fusion-redundant-navigation/",
+  "datePublished": "2026-07-31",
+  "dateModified": "2026-07-31"
+}
+</script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <svg aria-hidden="true" style="position:absolute;width:0;height:0;overflow:hidden">
+    <symbol id="icon-drone" viewBox="0 0 24 24" fill="none" stroke="#b8f34a" stroke-width="1.5"><circle cx="12" cy="12" r="2.6"/><path d="m10.2 10.2-4-4m7.6 4 4-4m-7.6 7.6-4 4m7.6-4 4 4"/><circle cx="4.7" cy="4.7" r="2.2"/><circle cx="19.3" cy="4.7" r="2.2"/><circle cx="4.7" cy="19.3" r="2.2"/><circle cx="19.3" cy="19.3" r="2.2"/></symbol>
+    <symbol id="icon-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12h14m-5-5 5 5-5 5"/></symbol>
+  </svg>
+
+  <header class="site-header">
+    <div class="nav-shell">
+      <a class="brand" href="/" aria-label="EMS Drone home"><span class="brand-mark"><svg aria-hidden="true"><use href="#icon-drone"/></svg></span><span>EMS Drone</span></a>
+      <button class="nav-toggle" type="button" aria-label="Open navigation" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+                                        <nav class="site-nav" aria-label="Primary navigation"><a href="/">Home</a>
+        <div class="nav-dropdown">
+          <a href="/capabilities/" class="nav-parent">Capabilities</a>
+          <div class="nav-submenu">
+            <a href="/capabilities/flight-control/">Flight Controllers</a>
+            <a href="/capabilities/esc-power/">ESC &amp; Power Systems</a>
+            <a href="/capabilities/propulsion/">Propulsion</a>
+            <a href="/capabilities/airframe/">Airframes &amp; Structures</a>
+            <a href="/capabilities/communications/">Communications &amp; RF</a>
+            <a href="/capabilities/payload/">Payloads &amp; Gimbals</a>
+          </div>
+        </div>
+        <div class="nav-dropdown">
+          <a href="/customization/" class="nav-parent">Services</a>
+          <div class="nav-submenu">
+            <a href="/customization/">Custom Engineering</a>
+            <a href="/testing/">Testing &amp; Validation</a>
+          </div>
+        </div>
+        <div class="nav-dropdown">
+          <a href="/industries/" class="nav-parent">Industries</a>
+          <div class="nav-submenu">
+            <a href="/industries/inspection/">Industrial Inspection</a>
+            <a href="/industries/mapping-survey/">Mapping &amp; Survey</a>
+            <a href="/industries/logistics/">Logistics &amp; Delivery</a>
+            <a href="/industries/agriculture/">Precision Agriculture</a>
+            <a href="/industries/research/">Research &amp; Development</a>
+          </div>
+        </div>
+        <div class="nav-dropdown">
+          <a href="/resources/" class="nav-parent">Resources</a>
+          <div class="nav-submenu">
+            <a href="/design-guides/">Design Guides</a>
+            <a href="/projects/">Engineering Projects</a>
+            <a href="/how-it-works/">How We Work</a>
+            <a href="/faq/">FAQ</a>
+            <a href="/blog/" aria-current="page">Blog</a>
+          </div>
+        </div>
+        <div class="nav-dropdown">
+          <a href="/about/" class="nav-parent">Company</a>
+          <div class="nav-submenu">
+            <a href="/about/">About Us</a>
+            <a href="/factory/">Factory Tour</a>
+            <a href="/quality/">Quality &amp; Certifications</a>
+            <a href="/shipping/">Global Shipping</a>
+            <a href="/contact/">Contact</a>
+          </div>
+        </div>
+        <button class="btn btn-primary" data-open-inquiry>Start Your Build</button>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <header class="article-hero">
+      <div class="container reveal">
+        <span class="eyebrow"><a href="/blog/" style="color:inherit;text-decoration:none">Blog</a> · Flight Control</span>
+        <h1>UAV sensor fusion and redundant navigation: architecting fault-tolerant IMU, GNSS and EKF systems for safety-critical operations</h1>
+        <p style="color:var(--muted-dark);max-width:640px">A single IMU failure should not end a flight. This guide covers the component-level architecture for redundant navigation — dual and triple IMU voting schemes, dual GNSS with RTK divergence detection, barometer-magnetometer fusion, and EKF health monitoring — with procurement-grade selection criteria for flight controllers operating at 8 kHz IMU update rates with 1 kHz control loops.</p>
+        <div class="article-cover">
+          <img src="/generated/blog-cover-sensor-fusion.webp" alt="Redundant UAV navigation architecture with dual IMU, dual GNSS antenna and sensor fusion processor on flight controller board">
+        </div>
+      </div>
+    </header>
+
+    <article class="article-body">
+      <div class="container reveal">
+        <p>Industrial UAVs operating beyond visual line of sight (BVLOS), over populated areas, or carrying payloads worth tens of thousands of dollars share one non-negotiable requirement: navigation must survive a single-point sensor failure without interruption. A flight controller running at 8 kHz IMU and 1 kHz control loop rates processes 8,000 attitude samples per second. If even one of those samples is corrupted by an IMU that drifted into saturation mid-flight, the resulting control output can put the aircraft into an unrecoverable attitude within 200 milliseconds — faster than a human operator can react, even with a direct video feed.</p>
+
+        <p>Redundant navigation is not about buying two of everything and hoping the second one works when the first one fails. It is an architectural decision that spans sensor selection, voting logic, fault detection thresholds, and the extended Kalman filter (EKF) implementation that fuses multiple sensor streams into a single state estimate. This article covers each layer of that architecture, from the IMU silicon to the failover response of the flight controller, with specific component-level criteria that procurement teams can use to evaluate flight controller suppliers.</p>
+
+        <p>The baseline: a properly architected redundant navigation system degrades gracefully. A dual-IMU configuration with a median-voting arbitrator detects a failed gyro within 3–5 IMU sample periods (375–625 microseconds at 8 kHz) and switches to the healthy IMU before the EKF innovation gate widens enough to degrade the state estimate. A triple-IMU configuration — increasingly common on survey-grade and defense UAVs — can tolerate a complete IMU failure and still maintain a 2-of-3 consensus, buying time for a controlled return-to-home rather than an immediate forced landing. Understanding how these architectures map to real flight controller hardware is the foundation of <a href="/blog/flight-controller-esc-matching/">matching flight controllers and ESCs</a> for safety-critical platforms.</p>
+
+        <div class="media-visual reveal" style="max-width:640px;margin:32px auto">
+          <img src="/generated/blog-inline-sensor-fusion-architecture.webp" alt="Triple-redundant IMU and dual GNSS sensor fusion architecture with EKF on a UAV flight controller PCB" loading="lazy">
+          <span class="concept-badge">Redundant navigation architecture</span>
+        </div>
+
+        <h2>IMU redundancy architectures: dual, triple and heterogeneous configurations</h2>
+        <p>The simplest redundancy — dual IMU with a hardware comparator — catches gross failures (IMU output stuck at zero, saturated at full scale, or producing NaN values) but cannot resolve which IMU is correct when the two disagree. The standard industrial approach is a triple-IMU configuration with a 2-of-3 median voter: each IMU runs independently on its own SPI bus, the flight controller reads all three at 8 kHz, and the navigation EKF uses the median of the three angular rate measurements for each axis. When one IMU diverges from the other two by more than a configurable threshold — typically 3–5 times the expected noise density of the sensor — it is flagged as unhealthy, and the EKF switches to using only the two healthy IMUs until the third recovers or is permanently excluded.</p>
+
+        <p>The component-level implications are significant. A triple-IMU architecture requires a flight controller with at least three independent SPI buses — not three devices sharing one bus, which would create a single point of failure in the bus controller. It also requires the IMU chips to be physically separated on the PCB by at least 20 mm to avoid common-mode vibration coupling; two IMUs mounted adjacent to each other on the same board will experience nearly identical vibration spectra and may fail in the same way under resonance. For procurement, ask whether the flight controller supplier validates IMU voting logic through hardware-in-the-loop testing with injected IMU faults — not just a software simulation. A supplier that cannot describe their IMU fault injection test setup has not validated the redundancy they claim.</p>
+
+        <p>Heterogeneous IMU configurations add a further layer: using two different IMU models — for example, a Bosch BMI088 for primary attitude and an InvenSense ICM-42688-P for the redundant channel — protects against common-mode failures that affect a specific sensor die revision or firmware bug. The trade-off is that the EKF must be tuned to handle two different noise models simultaneously, which requires more careful covariance matrix configuration. For platforms where a single IMU vendor's errata could ground an entire fleet, heterogeneous IMU selection is worth the integration complexity. This is the same procurement philosophy behind <a href="/blog/uav-component-obsolescence-management/">component obsolescence management</a> — do not let one supplier's silicon become your single point of failure.</p>
+
+        <h2>Dual GNSS with RTK: beyond "two antennas"</h2>
+        <p>Dual GNSS on a UAV is often described as "two GPS modules for redundancy," but that description misses the architecture. A properly implemented dual-GNSS system provides three capabilities that a single-GNSS system cannot: position redundancy with cross-check, moving-baseline heading without a magnetometer, and RTK integer-ambiguity validation through inter-receiver comparison.</p>
+
+        <p>The hardware requirements are non-trivial. Each GNSS receiver needs its own antenna with at least 30 cm of physical separation to decorrelate multipath reflections. Both receivers must share a common clock reference or be synchronized through a PPS (pulse-per-second) signal with sub-microsecond jitter. For RTK operation, the primary receiver receives corrections from a base station or NTRIP caster; the secondary receiver can operate in two modes: independent RTK (both receivers solve their own integer ambiguities, results are compared at the navigation filter) or moving-baseline mode (the secondary receiver computes a relative vector to the primary, providing heading with 0.1–0.3 degree accuracy at 1-meter antenna separation).</p>
+
+        <p>For procurement evaluation, the key questions are: does the flight controller support dual u-blox F9P or ZED-F9R receivers with independent UART connections? Can the EKF compare the two GNSS position solutions and reject one that diverges by more than 3× the reported standard deviation? And critically, does the system provide a GNSS health flag that the autopilot can act on — switching from GNSS-aided navigation to pure inertial navigation with a configurable timeout — rather than simply logging the discrepancy for post-flight analysis? A flight controller that detects GNSS divergence but continues to use the corrupted position in the EKF is worse than one with a single GNSS that simply reports degraded accuracy. For platforms that depend on precision positioning, the <a href="/blog/uav-gnss-rtk-module-selection/">GNSS RTK module selection guide</a> covers the receiver-level criteria in detail.</p>
+
+        <div class="media-visual reveal" style="max-width:640px;margin:32px auto">
+          <img src="/generated/blog-inline-sensor-fusion-gnss-dual.webp" alt="Dual GNSS antenna installation with RTK base station and moving-baseline heading computation on UAV" loading="lazy">
+          <span class="concept-badge">Dual GNSS configuration</span>
+        </div>
+
+        <h2>Extended Kalman filter architecture: the fusion engine</h2>
+        <p>The EKF is where redundancy becomes navigation. A well-tuned 24-state EKF for a multirotor UAV tracks: 3 position states, 3 velocity states, 4 attitude quaternion states, 3 gyro bias states, 3 accelerometer bias states, 3 magnetometer bias states, 2 wind velocity states (North/East), and 3 GNSS receiver clock states. Each redundant sensor adds observations — not states — to the filter. A dual-IMU system feeds two sets of angular rate and acceleration observations into the same 24-state filter; the EKF innovation (the difference between predicted and observed measurements) becomes the fault detection signal.</p>
+
+        <p>The EKF innovation gate is the critical parameter. When an IMU gyro begins to drift — producing angular rate measurements that diverge from what the other IMUs and the GNSS velocity solution predict — the innovation for that sensor's observations increases. If the innovation exceeds 3–5 standard deviations of the expected measurement noise (typically 0.05–0.15 dps/√Hz for industrial-grade MEMS gyros), the EKF either down-weights that sensor's contribution or rejects the observation entirely for that update cycle. This is fundamentally different from a simple median voter: the EKF can detect a slowly degrading IMU — one whose bias is drifting at 0.1 degrees per minute — hundreds of milliseconds before the raw measurements diverge enough to trigger a simple threshold comparator.</p>
+
+        <p>The practical procurement question: does the flight controller's EKF implementation expose sensor health flags over MAVLink or DroneCAN that a companion computer or ground control station can consume? If the only indication of IMU degradation is a subtle increase in the EKF innovation variance buried in a debug log, the redundancy exists in theory but not in operational practice. The best implementations, such as those in ArduPilot's EKF3 and PX4's EKF2, publish real-time innovation test ratios for each sensor stream at the navigation output rate — typically 50–100 Hz on a 1 kHz control loop — allowing ground station software to display a live sensor health dashboard. For teams evaluating the <a href="/blog/ardupilot-vs-px4-autopilot/">ArduPilot versus PX4 decision</a>, the EKF implementation quality — including redundant sensor handling — should carry significant weight.</p>
+
+        <h2>Barometer and magnetometer fusion: the often-overlooked redundancy layer</h2>
+        <p>Triple IMU and dual GNSS get the attention, but barometer and magnetometer redundancy is equally important for specific failure modes. A single barometer exposed to direct propeller downwash can produce altitude estimates with 2–5 meter errors under gusting wind — enough to cause a ground collision during an autonomous landing if the GNSS altitude solution is also degraded. Three barometers (BMP390 or MS5611 class sensors, each with its own I²C bus and static pressure port) with a median voter can maintain altitude accuracy within 0.5 meters even when one sensor is contaminated by dynamic pressure.</p>
+
+        <p>Magnetometer redundancy is architecturally harder because magnetometers are sensitive to both hard-iron and soft-iron distortions from the UAV's own power system. A dual-magnetometer configuration with 10 cm of physical separation provides some protection against local magnetic interference — for example, one magnetometer mounted on a GPS mast 15 cm above the airframe and a second mounted on the flight controller PCB can detect magnetic anomalies generated by high-current ESCs drawing 40–80 A under load. The EKF compares the two magnetometer heading estimates; if they diverge by more than 10–15 degrees after accounting for the known hard-iron offset between the two mounting locations, the filter rejects both magnetometer observations and relies on GNSS heading from moving-baseline or dual-antenna computation.</p>
+
+        <p>For VTOL platforms that transition between hover and forward flight, magnetometer fusion is particularly challenging because the hard-iron and soft-iron distortion matrices change with motor current draw. The propulsion system draws 3–5× more current in hover than in forward flight, which means the magnetic environment the magnetometer sees is fundamentally different in each flight phase. A flight controller that uses a single magnetometer calibration valid for only one flight regime will produce heading errors of 15–30 degrees during transition. The <a href="/blog/uav-vtol-transition-components/">VTOL transition components guide</a> covers the broader propulsion and control implications, but from a sensor fusion perspective, the requirement is clear: the flight controller must support phase-dependent magnetometer calibration tables — or it must fuse dual GNSS heading as the primary heading source during transition, with magnetometer as a fallback only.</p>
+
+        <h2>Failover logic and degraded-mode operation</h2>
+        <p>Redundancy is only as good as the failover logic that activates it. The worst failure mode in redundant navigation is not a sensor failure — it is a failover that oscillates between primary and backup sensors because the fault detection threshold is set too tight, or a failover that does not activate at all because the threshold is set too loose. Both failure modes have caused real-world UAV losses.</p>
+
+        <p>A robust failover system implements hysteresis: once a sensor is flagged as unhealthy, it requires a sustained period of healthy readings — typically 5–10 seconds of innovation values within the acceptance gate — before it is re-admitted to the EKF. Without hysteresis, a sensor operating near the noise boundary can toggle between healthy and unhealthy states at 10–20 Hz, causing the EKF to repeatedly re-initialize its covariance matrix for that observation channel. Each re-initialization resets the filter's confidence in that sensor, effectively discarding the benefit of redundancy.</p>
+
+        <p>The degraded-mode hierarchy for a fully redundant system should be: (1) triple IMU + dual GNSS + EKF = full performance; (2) dual IMU + single GNSS = position accuracy degrades from centimeter to meter-level, attitude remains accurate; (3) single IMU + no GNSS = pure inertial navigation, position drift of 1–3 meters per second of GNSS outage, attitude drift of 0.1–0.5 degrees per minute depending on gyro bias stability; (4) single IMU with gyro saturation = emergency landing mode, control loops switch to accelerometer-only attitude estimation, altitude maintained by barometer. Each degradation step should trigger a distinct MAVLink status message so the ground station — and the operator — understand exactly which sensors are still contributing to the navigation solution.</p>
+
+        <div class="media-visual reveal" style="max-width:640px;margin:32px auto">
+          <img src="/generated/blog-inline-sensor-fusion-failover.webp" alt="UAV flight controller with redundant sensor failover logic displayed as LED status indicators on test bench" loading="lazy">
+          <span class="concept-badge">Failover test configuration</span>
+        </div>
+
+        <h2>Procurement checklist: evaluating flight controllers for redundant navigation</h2>
+        <p>When evaluating a flight controller supplier's redundant navigation capability, move past the marketing claim of "triple redundant IMU" and verify the implementation. The following checklist items map directly to procurement-grade qualification criteria:</p>
+
+        <p><strong>1. Independent sensor buses.</strong> Confirm that each IMU, each GNSS receiver and each barometer has its own dedicated SPI, UART or I²C bus — not shared buses with multiple devices. Request a block diagram of the sensor bus architecture. A flight controller with three IMUs sharing a single SPI bus through a multiplexer has a single-point failure at the bus controller.</p>
+
+        <p><strong>2. Physical sensor separation.</strong> Verify IMU-to-IMU spacing on the PCB layout (minimum 20 mm) and GNSS antenna separation (minimum 30 cm for moving-baseline heading). Physical separation reduces common-mode vibration coupling and multipath correlation.</p>
+
+        <p><strong>3. Fault injection test results.</strong> Request a test report showing EKF behavior during simulated IMU gyro failure (bias drift at 0.5°/s, saturation at full scale, and complete signal loss), GNSS spoofing or loss, and barometer blockage. The report should show innovation test ratios before, during and after the injected fault.</p>
+
+        <p><strong>4. MAVLink health telemetry.</strong> Verify that sensor health flags — per-IMU innovation variance, per-GNSS position standard deviation, barometer status — are published at the navigation output rate (50–100 Hz) on standard MAVLink messages (HIGH_LATENCY2, EKF_STATUS_REPORT, or equivalent). If these flags are only accessible through a vendor-specific debug protocol, they are not operationally useful.</p>
+
+        <p><strong>5. Degraded-mode documentation.</strong> The supplier should provide a documented degraded-mode hierarchy: what navigation performance is available under single-IMU, single-GNSS, and pure-inertial conditions. If this documentation does not exist, the redundant architecture has never been characterized in the failure modes that matter.</p>
+
+        <p><strong>6. Environmental test data.</strong> For platforms operating in extreme environments, request IMU performance data across the full operating temperature range. A MEMS gyro with 0.05 dps/√Hz noise density at 25°C may degrade to 0.15 dps/√Hz at -20°C — which changes the effective redundancy threshold and may cause the EKF to reject a healthy IMU in cold conditions. This thermal behavior should be characterized, not discovered mid-flight. The testing methodology parallels the broader validation approach described in <a href="/blog/uav-propulsion-testing-validation/">UAV propulsion testing and validation</a>.</p>
+
+        <p style="margin-top:42px"><a class="btn btn-primary" href="/capabilities/flight-control/">Explore flight controller capabilities</a> <a class="btn btn-outline" href="/blog/" style="margin-left:12px">Back to Blog</a></p>
+
+        <section class="continue-reading">
+          <h3>Continue Reading</h3>
+          <div class="continue-grid">
+            <a class="continue-card" href="/blog/flight-controller-esc-matching/">
+              <div class="continue-card-img"><img src="/generated/blog-cover-matching.webp" alt="Flight Controller ESC Matching" loading="lazy"></div>
+              <div class="continue-card-body"><h4>FC &amp; ESC Matching</h4><p>Protocol compatibility and timing for redundant navigation stacks.</p></div>
+            </a>
+            <a class="continue-card" href="/blog/uav-gnss-rtk-module-selection/">
+              <div class="continue-card-img"><img src="/generated/blog-cover-gnss-module.webp" alt="GNSS RTK Module Selection" loading="lazy"></div>
+              <div class="continue-card-body"><h4>GNSS RTK Module Selection</h4><p>Receiver-level criteria for dual-antenna navigation systems.</p></div>
+            </a>
+            <a class="continue-card" href="/blog/ardupilot-vs-px4-autopilot/">
+              <div class="continue-card-img"><img src="/generated/blog-cover-ardupilot-px4.webp" alt="ArduPilot vs PX4" loading="lazy"></div>
+              <div class="continue-card-body"><h4>ArduPilot vs PX4</h4><p>EKF implementation quality across the two major autopilot stacks.</p></div>
+            </a>
+          </div>
+        </section>
+      </div>
+      </div>
+    </article>
+
+    <section class="section section-alt" style="--cta-bg:url(/generated/blog-cta-sensor-fusion.webp)">
+      <div class="container">
+        <div class="spec-panel reveal">
+          <div class="spec-panel-inner">
+            <div>
+              <span class="eyebrow">Redundant Navigation Engineering</span>
+              <h2>Build a navigation stack that survives sensor failure.</h2>
+              <p>Share your platform requirements — payload, environment, safety criticality level — and we will recommend a flight controller configuration with validated IMU, GNSS and barometer redundancy for your operational profile.</p>
+            </div>
+            <div class="spec-actions">
+              <button class="btn btn-primary" type="button" data-open-inquiry>Start Your Build <svg aria-hidden="true"><use href="#icon-arrow"/></svg></button>
+              <button class="btn btn-outline" data-open-inquiry>Open RFQ Brief</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="brand" href="/" aria-label="EMS Drone home"><span class="brand-mark"><svg aria-hidden="true"><use href="#icon-drone"/></svg></span><span>EMS Drone</span></a>
+          <p>Configurable UAV components, complete systems and engineering support.</p>
+        </div>
+        <div class="footer-col"><h3>System</h3><a href="/capabilities/">Capabilities</a><a href="/customization/">Customization</a><a href="/testing/">Testing</a></div>
+        <div class="footer-col"><h3>Context</h3><a href="/industries/">Industries</a><a href="/about/">About</a><a href="/blog/">Blog</a></div>
+        <div class="footer-col"><h3>More reading</h3><a href="/blog/flight-controller-esc-matching/">FC–ESC match</a><a href="/blog/uav-gnss-rtk-module-selection/">GNSS RTK</a><a href="/contact/">RFQ Brief</a></div>
+      </div>
+      <div class="footer-bottom"><span>&copy; 2026 EMS Drone</span><span>Verify &rarr; Qualify &rarr; Build</span></div>
+    </div>
+  </footer>
+  <div class="modal-overlay" id="inquiryModal" aria-hidden="true">
+    <div class="modal-dialog" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <button class="modal-close" type="button" aria-label="Close inquiry">&times;</button>
+      <div class="modal-aside">
+        <span class="tech-label">Engineering Intake</span>
+        <div><h3 id="modalTitle">Start with your mission.</h3><p>Tell us what you are building and where you need support: component sourcing, a matched stack or a complete UAV.</p></div>
+      </div>
+      <form class="modal-form" data-preview-form>
+        <div class="field"><label for="modal-name">Name</label><input id="modal-name" name="name" autocomplete="name" required></div>
+        <div class="field" style="margin-top:18px"><label for="modal-email">Email</label><input id="modal-email" name="email" type="email" autocomplete="email" required></div>
+        <div class="field" style="margin-top:18px"><label for="modal-message">Project brief</label><textarea id="modal-message" name="message" required placeholder="Aircraft type, payload, environment, component list or complete-system goal"></textarea></div>
+        <button class="btn btn-primary" type="submit">Submit Engineering Brief</button>
+        <div class="form-status" role="status" aria-live="polite" aria-atomic="true"></div>
+      </form>
+    </div>
+  </div>
+<script src="/site.js?v=9"></script>
+  <script src="/reveal.js?v=9"></script>
+</body>
+</html>
