@@ -1,0 +1,32 @@
+[
+  {
+    "id": "blog-cover-obsolescence",
+    "prompt": "Professional UAV component obsolescence management concept — aging electronic components on dark engineering workstation, flight controller board with several ICs appearing aged or obsolete, component lifecycle timeline documents with red EOL markings, calipers and magnifying lamp on dark desk, dramatic side lighting with subtle green accent glow, dark background with depth, high-end product photography style, no people faces, no text, no logos, no arrows, no charts, no diagrams",
+    "out": "/home/ubuntu/projects/ems-drone/generated/blog-cover-obsolescence.webp"
+  },
+  {
+    "id": "blog-inline-obsolescence-bom-board",
+    "prompt": "UAV flight controller PCB close-up with several components appearing obsolete or end-of-life — STM32 microcontroller, legacy connectors, discontinued voltage regulators on dark green circuit board, engineering workbench with component lifecycle documentation and obsolescence analysis tools visible in background, macro photography with shallow depth of field, dark tech aesthetic with green LED indicator lighting, no people faces, no text, no logos, no arrows, no charts, no diagrams",
+    "out": "/home/ubuntu/projects/ems-drone/generated/blog-inline-obsolescence-bom-board.webp"
+  },
+  {
+    "id": "blog-inline-obsolescence-risk-matrix",
+    "prompt": "Engineering component risk analysis workspace — printed BOM spreadsheet with color-coded obsolescence risk scores visible as colored markers on a dark desk surface, semiconductor lifecycle documentation and component datasheets spread across the workspace, green LED task lighting creating focused pools of light, precision procurement engineering photography, dark professional atmosphere, no people faces, no text, no logos, no arrows, no charts, no diagrams",
+    "out": "/home/ubuntu/projects/ems-drone/generated/blog-inline-obsolescence-risk-matrix.webp"
+  },
+  {
+    "id": "blog-inline-obsolescence-inventory-warehouse",
+    "prompt": "Professional UAV component inventory storage facility — organized ESD-safe storage bins with electronic component reels, moisture-barrier packaging for sensitive ICs, component reels in anti-static bags, dark industrial warehouse environment with green inventory management terminal display glow, depth of field showing organized storage rows, professional logistics and supply chain photography, no people faces, no text, no logos, no arrows, no charts, no diagrams",
+    "out": "/home/ubuntu/projects/ems-drone/generated/blog-inline-obsolescence-inventory-warehouse.webp"
+  },
+  {
+    "id": "blog-inline-obsolescence-test-bench",
+    "prompt": "UAV electronics qualification test bench — oscilloscope with green waveform display probing a flight controller board, thermal chamber with test PCB visible through glass window, spectrum analyzer with green frequency display, dark electronics laboratory environment with focused task lighting on test equipment, professional aerospace component testing photography, precision engineering atmosphere, no people faces, no text, no logos, no arrows, no charts, no diagrams",
+    "out": "/home/ubuntu/projects/ems-drone/generated/blog-inline-obsolescence-test-bench.webp"
+  },
+  {
+    "id": "blog-cta-obsolescence",
+    "prompt": "Abstract UAV supply chain and component lifecycle concept — blurred PCB boards and electronic components transitioning from focused sharp new components to softer aged ones suggesting lifecycle progression, dark gradient background with subtle signal green and aero blue accent light streaks, low contrast abstract texture suitable for text overlay background, brand atmosphere photography, no people faces, no text, no logos, no arrows, no charts, no diagrams",
+    "out": "/home/ubuntu/projects/ems-drone/generated/blog-cta-obsolescence.webp"
+  }
+]
