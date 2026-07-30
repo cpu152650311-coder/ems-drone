@@ -1,6 +1,6 @@
 {
   "site": "ems-drone",
-  "updated": "2026-07-29",
+  "updated": "2026-07-30",
   "topics": [
     {
       "id": 21,
@@ -21,6 +21,26 @@
       "file": "/blog/uav-thermal-management-electronics/",
       "created": "2026-07-29",
       "published": "2026-07-29"
+    },
+    {
+      "id": 23,
+      "title": "UAV Edge AI and Onboard Computing: Selecting Companion Computers and AI Accelerators for Autonomous Drone Operations",
+      "status": "published",
+      "score": 85,
+      "funnel": "MOFU",
+      "file": "/blog/uav-edge-ai-onboard-computing/",
+      "created": "2026-07-30",
+      "published": "2026-07-30"
+    },
+    {
+      "id": 24,
+      "title": "UAV Connectors, Wiring and Power Distribution: Selecting Electrical Interconnects for Industrial Drone Builds",
+      "status": "published",
+      "score": 78,
+      "funnel": "MOFU",
+      "file": "/blog/uav-connectors-wiring-power-distribution/",
+      "created": "2026-07-30",
+      "published": "2026-07-30"
     }
   ]
 }

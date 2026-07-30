@@ -1,0 +1,292 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>UAV Edge AI and Onboard Computing: Selecting Companion Computers and AI Accelerators for Autonomous Drone Operations | EMS Drone</title>
+  <meta name="description" content="How to select edge AI hardware for UAVs — NVIDIA Jetson Orin, Hailo-8, Google Coral TPU, Intel Movidius and Raspberry Pi companion computers compared for object detection, SLAM, precision landing and autonomous navigation on industrial drones, with power budgets, thermal envelopes and integration architecture.">
+  <link rel="canonical" href="https://ems-drone.com/blog/uav-edge-ai-onboard-computing/">
+  <meta property="og:title" content="UAV Edge AI and Onboard Computing: Selecting Companion Computers and AI Accelerators for Autonomous Drone Operations">
+  <meta property="og:description" content="Compare NVIDIA Jetson, Hailo-8, Google Coral, Intel Movidius and Raspberry Pi for UAV edge AI — TOPS/watt benchmarks, SWaP budgets, PX4/ArduPilot MAVLink integration, ROS 2 architecture and procurement-grade selection criteria for autonomous drone computing.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://ems-drone.com/blog/uav-edge-ai-onboard-computing/">
+  <meta property="og:image" content="https://ems-drone.com/generated/og-cover.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <link rel="icon" type="image/x-icon" href="/generated/favicon.ico">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="apple-touch-icon" sizes="180x180" href="/generated/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/generated/icon-192.png">
+<link rel="icon" type="image/png" sizes="512x512" href="/generated/icon-512.png">
+  <link rel="stylesheet" href="/design-tokens.css?v=21">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "UAV Edge AI and Onboard Computing: Selecting Companion Computers and AI Accelerators for Autonomous Drone Operations",
+  "description": "How to select edge AI hardware for UAVs — NVIDIA Jetson Orin, Hailo-8, Google Coral TPU, Intel Movidius and Raspberry Pi companion computers compared for object detection, SLAM, precision landing and autonomous navigation on industrial drones, with power budgets, thermal envelopes and integration architecture.",
+  "image": "https://ems-drone.com/generated/blog-cover-edge-ai.webp",
+  "author": {
+    "@type": "Organization",
+    "name": "EMS Drone"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "EMS Drone",
+    "url": "https://ems-drone.com/",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://ems-drone.com/favicon.svg"
+    }
+  },
+  "mainEntityOfPage": "https://ems-drone.com/blog/uav-edge-ai-onboard-computing/",
+  "datePublished": "2026-07-30",
+  "dateModified": "2026-07-30"
+}
+</script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <svg aria-hidden="true" style="position:absolute;width:0;height:0;overflow:hidden">
+    <symbol id="icon-drone" viewBox="0 0 24 24" fill="none" stroke="#b8f34a" stroke-width="1.5"><circle cx="12" cy="12" r="2.6"/><path d="m10.2 10.2-4-4m7.6 4 4-4m-7.6 7.6-4 4m7.6-4 4 4"/><circle cx="4.7" cy="4.7" r="2.2"/><circle cx="19.3" cy="4.7" r="2.2"/><circle cx="4.7" cy="19.3" r="2.2"/><circle cx="19.3" cy="19.3" r="2.2"/></symbol>
+    <symbol id="icon-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12h14m-5-5 5 5-5 5"/></symbol>
+  </svg>
+
+  <header class="site-header">
+    <div class="nav-shell">
+      <a class="brand" href="/" aria-label="EMS Drone home"><span class="brand-mark"><svg aria-hidden="true"><use href="#icon-drone"/></svg></span><span>EMS Drone</span></a>
+      <button class="nav-toggle" type="button" aria-label="Open navigation" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+                                        <nav class="site-nav" aria-label="Primary navigation"><a href="/">Home</a>
+        <div class="nav-dropdown">
+          <a href="/capabilities/" class="nav-parent">Capabilities</a>
+          <div class="nav-submenu">
+            <a href="/capabilities/flight-control/">Flight Controllers</a>
+            <a href="/capabilities/esc-power/">ESC &amp; Power Systems</a>
+            <a href="/capabilities/propulsion/">Propulsion</a>
+            <a href="/capabilities/airframe/">Airframes &amp; Structures</a>
+            <a href="/capabilities/communications/">Communications &amp; RF</a>
+            <a href="/capabilities/payload/">Payloads &amp; Gimbals</a>
+          </div>
+        </div>
+        <div class="nav-dropdown">
+          <a href="/customization/" class="nav-parent">Services</a>
+          <div class="nav-submenu">
+            <a href="/customization/">Custom Engineering</a>
+            <a href="/testing/">Testing &amp; Validation</a>
+          </div>
+        </div>
+        <div class="nav-dropdown">
+          <a href="/industries/" class="nav-parent">Industries</a>
+          <div class="nav-submenu">
+            <a href="/industries/inspection/">Industrial Inspection</a>
+            <a href="/industries/mapping-survey/">Mapping &amp; Survey</a>
+            <a href="/industries/logistics/">Logistics &amp; Delivery</a>
+            <a href="/industries/agriculture/">Precision Agriculture</a>
+            <a href="/industries/research/">Research &amp; Development</a>
+          </div>
+        </div>
+        <div class="nav-dropdown">
+          <a href="/resources/" class="nav-parent">Resources</a>
+          <div class="nav-submenu">
+            <a href="/design-guides/">Design Guides</a>
+            <a href="/projects/">Engineering Projects</a>
+            <a href="/how-it-works/">How We Work</a>
+            <a href="/faq/">FAQ</a>
+            <a href="/blog/" aria-current="page">Blog</a>
+          </div>
+        </div>
+        <div class="nav-dropdown">
+          <a href="/about/" class="nav-parent">Company</a>
+          <div class="nav-submenu">
+            <a href="/about/">About</a>
+            <a href="/factory/">Factory</a>
+            <a href="/quality/">Quality</a>
+            <a href="/shipping/">Shipping</a>
+            <a href="/contact/">Contact</a>
+          </div>
+        </div>
+        <button class="btn btn-primary" data-open-inquiry>Start Your Build</button>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <header class="article-hero">
+      <div class="container reveal">
+        <span class="eyebrow"><a href="/blog/" style="color:inherit;text-decoration:none">Blog</a> · Avionics &amp; Computing</span>
+        <h1>UAV edge AI and onboard computing: selecting companion computers and AI accelerators for autonomous drone operations</h1>
+        <p style="color:var(--muted-dark);max-width:640px">A UAV programme manager specifying an autonomous inspection drone faces a compute architecture decision that determines the entire avionics stack: should the drone carry a $500 NVIDIA Jetson Orin NX that consumes 15 watts and delivers 100 TOPS of INT8 inference — enough to run a YOLOv8 object detection model at 30 FPS, a visual-inertial SLAM pipeline, and a collision-avoidance planner simultaneously — or is a $25 Raspberry Pi Compute Module 4 with a $65 Google Coral USB accelerator (4 TOPS at 2.5 W) sufficient for a single-camera object-counting task at 5–10 FPS? The difference in BOM cost is $475, the difference in power budget is 12 watts (which reduces flight endurance by 8–15% on a typical 6S industrial quadcopter), and the difference in computational capability determines whether the drone can autonomously navigate a cluttered industrial environment at 5 m/s with obstacle avoidance or whether it requires a human pilot monitoring the video feed for obstacles — a capability gap that directly affects the drone's operational value, insurance premium and regulatory approval pathway for BVLOS operation. This article provides the procurement-oriented hardware selection framework for UAV edge AI: the compute platform comparison across the five major options, the SWaP budget methodology, the integration architecture design and the procurement checklist that matches the compute platform to the operational requirement.</p>
+        <div class="article-cover">
+          <img src="/generated/blog-cover-edge-ai.webp" alt="UAV edge AI computing — NVIDIA Jetson module and AI accelerator board alongside flight controller on dark engineering bench, companion computer with heatsink, camera module and sensor array, dark tech aesthetic with signal green accent lighting, professional embedded systems photography" loading="lazy">
+        </div>
+      </div>
+    </header>
+
+    <article class="article-body">
+      <div class="container reveal">
+        <p>UAV edge AI is the deployment of machine learning inference directly on the drone — the neural network runs on a processor mounted on the airframe, processing camera frames, LiDAR point clouds or sensor data in real time without a ground-station connection, without cloud offload and with an end-to-end latency budget of 50–200 milliseconds. This is fundamentally different from the cloud AI paradigm: a factory inspection drone flying at 5 m/s covers 1 metre in 200 milliseconds, so an object-detection pipeline that sends a camera frame to AWS over 4G and waits 500–800 milliseconds for the inference result is receiving a bounding box for a location the drone passed 2–4 metres ago — useless for collision avoidance and marginally useful for inspection logging. Onboard edge AI, by contrast, runs the same YOLOv8-nano model at 25–30 FPS on a Jetson Orin Nano, producing a bounding box and class label within 35–50 milliseconds of the frame capture, enabling the flight controller to execute an evasive manoeuvre within the 150-millisecond control loop — the difference between a drone that autonomously navigates a pipe rack and one that collides with it.</p>
+
+        <p>For the broader UAV avionics architecture that defines how a flight controller, companion computer, sensor payload and communication stack interoperate — the STM32H7-based autopilot running the PX4 or ArduPilot real-time control loop at 1 kHz, the MAVLink serial bridge connecting the flight controller to the companion computer at 921,600 bps, and the ROS 2 middleware managing the sensor drivers and AI pipelines — <a href="/blog/flight-controller-esc-matching/">the flight controller and ESC matching guide</a> covers the low-level control architecture. For the communication protocols that transport the inference results from the drone to the ground station — <a href="/blog/uav-communication-protocols-guide/">the UAV communication protocols guide</a> covers the MAVLink telemetry stream, the 4G/LTE modem integration and the video downlink architecture that determines whether the operator sees the raw video feed, the annotated inference overlay or both. This article focuses on the companion computer hardware selection: the SoMs, AI accelerators and integration architecture that bring machine learning to the UAV airframe.</p>
+
+        <h2>Why UAVs need onboard computing beyond the flight controller</h2>
+        <p>A Pixhawk flight controller running PX4 on an STM32H753 at 480 MHz has approximately 2 MB of flash and 1 MB of RAM — enough to run the EKF2 state estimator at 400 Hz, the attitude controller at 250 Hz, the position controller at 50 Hz and the MAVLink telemetry stream at 10–50 Hz, but nowhere near enough to run a convolutional neural network. A YOLOv8-nano model requires approximately 180 MB of RAM to load its weights, 300–500 MB of RAM for intermediate tensors during inference, and a minimum of 0.5 TOPS of INT8 compute to achieve 10 FPS on a 640×480 input — four orders of magnitude beyond what an STM32H7 can deliver. The companion computer exists to bridge this compute gap: it is a separate single-board computer (SBC) or system-on-module (SoM) that mounts alongside the flight controller, communicates with it over a high-speed serial link (UART at 921,600 bps or USB 2.0 at 480 Mbps), and runs a Linux operating system (Ubuntu 22.04 with a real-time kernel patch or Yocto with PREEMPT_RT) with the ROS 2 middleware, the machine learning runtime (TensorRT, ONNX Runtime, OpenVINO or TFLite) and the application-level autonomy code.</p>
+
+        <div class="media-visual reveal" style="max-width:640px;margin:32px auto">
+          <img src="/generated/blog-inline-edge-ai-compute.webp" alt="UAV companion computer hardware — NVIDIA Jetson Orin module on carrier board next to Pixhawk flight controller, M.2 AI accelerator card, camera module with MIPI ribbon cable, heatsink and thermal pad, dark electronics lab with green LED indicators, professional embedded systems photography" loading="lazy">
+          <span class="concept-badge">Concept illustration</span>
+        </div>
+
+        <p>The companion computer's software stack is: Linux kernel with PREEMPT_RT (or a standard kernel with the ROS 2 real-time executor — the choice depends on whether the autonomy pipeline has hard real-time deadlines, such as a 50-ms control loop for obstacle avoidance, or soft real-time constraints, such as a 200-ms object detection pipeline for inspection logging); ROS 2 Humble or Iron as the middleware (providing the DDS-based publish-subscribe transport between the sensor drivers, the AI inference nodes and the MAVLink bridge node); and the machine learning runtime — TensorRT on NVIDIA Jetson (converting a PyTorch model to a TensorRT engine via ONNX, yielding a 2–4× inference speedup over native PyTorch), ONNX Runtime on Intel x86 (for the Movidius or a LattePanda), or TFLite on Google Coral (compiling a TensorFlow model to the Edge TPU's quantized INT8 format). The MAVLink bridge — typically the MAVSDK-Python or MAVROS package — converts between ROS 2 topics (the autonomy pipeline's output: a velocity setpoint, a waypoint, a gimbal angle command) and MAVLink messages (SET_POSITION_TARGET_LOCAL_NED, MISSION_ITEM, MOUNT_CONTROL) that the flight controller can execute. The bridge is the single point of failure in the autonomy stack — if the bridge process crashes or the serial link disconnects, the flight controller continues flying its last-received mission (or enters a failsafe mode), but the autonomy pipeline is blind, and the UAV is no longer autonomous.</p>
+
+        <h2>Companion computer hardware options: five platforms compared</h2>
+        <p>The UAV companion computer market in 2026 is dominated by five platforms, each targeting a different point on the compute-versus-power-versus-cost Pareto frontier. The procurement decision reduces to a single question: what is the most computationally demanding task the UAV must perform, and how much power and weight budget is available for the companion computer?</p>
+
+        <p><strong>NVIDIA Jetson Orin series — the high-compute option.</strong> The Jetson Orin family, spanning the Orin Nano (4 GB: $199, 20 TOPS; 8 GB: $299, 40 TOPS), the Orin NX 8 GB ($399, 70 TOPS), the Orin NX 16 GB ($599, 100 TOPS) and the AGX Orin 32 GB ($1,599, 200 TOPS), is the de facto standard for UAV edge AI that requires multiple concurrent neural networks — a visual SLAM pipeline (ORB-SLAM3 or VINS-Fusion), an object detection model (YOLOv8-medium at 640×640, 30 FPS), a depth estimation network (MiDaS or Depth Anything) and a semantic segmentation model for terrain classification, all running simultaneously on a shared GPU. The Orin NX 16 GB at 100 TOPS can run all four pipelines concurrently at 15–25 FPS with a total power consumption of 15–25 W (configurable via the nvpmodel power mode — mode 0 delivers 25 W with full GPU frequency, mode 1 delivers 15 W with the GPU clock reduced to 70%). For a typical industrial quadcopter with a 6S 22,000 mAh Li-Ion battery pack (488 Wh), the companion computer's 15–25 W power draw reduces flight endurance by approximately 8–15% — the difference between a 45-minute and a 38-minute flight, which may be acceptable for an inspection mission that requires 30 minutes of autonomous flight or unacceptable for a mapping mission that requires 55 minutes of coverage.</p>
+
+        <p>The Jetson's key advantage for UAV procurement is the software ecosystem: NVIDIA provides the JetPack SDK (Ubuntu 22.04 + L4T kernel + CUDA 12 + cuDNN + TensorRT), which is updated every 4–6 months and provides pre-optimized inference engines for every major model architecture (YOLO, ResNet, EfficientDet, ViT, SAM). A procurement team selecting a Jetson for a UAV programme is buying into a software stack where the model optimization pipeline — PyTorch → ONNX → TensorRT → INT8 calibration → inference at 30 FPS — is a documented, supported workflow with a 2-day engineering effort, compared to a 2–4 week effort on a less mature platform. For the battery and power management framework that determines how many watts are available for the companion computer — <a href="/blog/uav-battery-power-management/">the UAV battery and power management guide</a> covers the Li-Ion vs LiPo energy density comparison, the DC-DC converter efficiency budget and the power distribution architecture that allocates watts between propulsion, avionics and payload.</p>
+
+        <p><strong>Hailo-8 and Hailo-15 — the power-efficient AI accelerator.</strong> The Hailo-8 AI accelerator (26 TOPS at 2.5 W, $80–120 in volume) and the newer Hailo-15 (20 TOPS at 1.5 W, designed for smart camera applications) are M.2 or mini-PCIe modules that offload neural network inference from a host CPU (typically a Raspberry Pi CM4 or an NXP i.MX 8M Plus running Linux) to a dedicated neural processing unit (NPU). The Hailo-8's 26 TOPS at 2.5 W achieves 10.4 TOPS/W — approximately 2.5× more efficient than the Jetson Orin Nano's ~4 TOPS/W — making it the preferred option for SWaP-constrained UAVs where every watt saved on the companion computer adds 2–3 minutes of flight time. A Raspberry Pi CM4 ($45) with a Hailo-8 ($90) delivers 26 TOPS of inference at a total system power of 8 W (RPi 3.5 W + Hailo 2.5 W + peripherals 2 W) and a BOM cost of $135–$170 — approximately 60% of the cost of a Jetson Orin Nano 8 GB ($299) with 35% of the power consumption, at the cost of 35% lower peak TOPS and a more fragmented software stack (the HailoRT SDK requires model compilation through the Hailo Dataflow Compiler, which supports a subset of ONNX operators — certain model architectures, particularly transformer-based vision models, may require operator decomposition or model redesign to fit the Hailo-8's dataflow architecture).</p>
+
+        <p>The Hailo-8 is the correct choice for a UAV that runs a single high-throughput neural network — a YOLOv8 model for object detection at 30 FPS on a 1920×1080 input, processing frames from a gimbal-mounted inspection camera — and does not require concurrent SLAM, depth estimation or segmentation pipelines. The procurement team should verify that the target model architecture is supported by the Hailo Dataflow Compiler before committing to the Hailo-8; unsupported operators (particularly attention mechanisms, LayerNorm and dynamic shape operations common in transformer models) will require model redesign that adds 2–6 weeks of engineering effort.</p>
+
+        <p><strong>Google Coral TPU — the low-cost inference accelerator.</strong> The Google Coral Edge TPU (4 TOPS at 2 W per TOPS — actually 4 TOPS total at approximately 2 W, or 2 TOPS/W; available as a USB accelerator at $60 or an M.2 module at $25) is the entry-level AI accelerator for UAV applications that require a single, moderate-throughput neural network — a lightweight object detection model (MobileNet SSD or EfficientDet-Lite) running at 5–15 FPS on a 320×320 input for counting objects (vehicles in a parking lot, pallets in a warehouse, livestock in a paddock) or classifying regions of interest in an aerial image. The Coral's 4 TOPS is sufficient for inference-only tasks with small models (typically < 10 million parameters) and low-resolution inputs (320×320 to 640×480); it is insufficient for models larger than ~15 million parameters, inputs larger than 1280×720, or multi-model pipelines. The Coral's primary procurement advantage is cost: a Raspberry Pi 4 ($35) with a Coral USB accelerator ($60) and a 32 GB SD card ($10) delivers a fully functional UAV edge AI platform for $105 — less than the cost of the Jetson Orin Nano carrier board alone ($149 for the official NVIDIA carrier). The trade-off is that the Coral's TFLite runtime is limited to TensorFlow Lite models compiled for the Edge TPU's INT8 quantized format, and the model must be designed for quantization-aware training (QAT) from the start — post-training quantization (PTQ) of a Float32 model to INT8 on the Coral frequently results in 2–5% accuracy degradation that may be unacceptable for safety-critical UAV applications (obstacle detection where a missed detection could cause a collision).</p>
+
+        <p><strong>Intel Movidius Myriad X / Hailo-8 on x86 — the legacy option.</strong> The Intel Movidius Myriad X VPU (1 TOPS at 1.5 W, $79 as a USB stick) and its successor, the Intel Neural Compute Stick 2, were the dominant UAV edge AI platforms from 2018–2022, but they are now effectively end-of-life in all but name — Intel has not released a new Myriad generation since the Myriad X in 2018, the OpenVINO toolkit has shifted focus to x86 CPUs and integrated GPUs (Iris Xe), and the 1 TOPS of compute is insufficient for modern object detection models that expect YOLOv8-level accuracy. The Myriad X remains a procurement option only for legacy UAV programmes that have an existing OpenVINO-optimized model that was validated on the Myriad X and where the cost of re-validating on a new platform exceeds the cost of maintaining a Myriad X inventory — a situation that should trigger the obsolescence management framework described in the component lifecycle assessment. For new UAV programmes in 2026, the Myriad X is not a recommended procurement choice — the Hailo-8 delivers 26× the TOPS at 1.7× the power for a comparable cost.</p>
+
+        <p><strong>Raspberry Pi without an accelerator — the CPU-only option.</strong> A Raspberry Pi 4 (4 GB, $55) or Raspberry Pi 5 (8 GB, $80) without a dedicated AI accelerator can run CPU-only inference on lightweight models at 1–5 FPS on a 640×480 input — sufficient for a UAV that runs a low-frame-rate classification or detection task once per second (inspecting a solar panel for hot spots, classifying a crop type for a variable-rate sprayer) but insufficient for any application that requires real-time object tracking, visual odometry or collision avoidance. The CPU-only RPi is the correct procurement choice for a UAV that needs a Linux companion computer for non-AI tasks — running a telemetry logger, a MAVLink router, a 4G/LTE modem manager or a payload controller (triggering a camera shutter, controlling a gimbal, operating a drop mechanism) — and where the AI inference is either unnecessary or is handled by a separate dedicated accelerator. The RPi's 15-pin MIPI CSI camera connector, dual HDMI outputs (RPi 4) and 40-pin GPIO header make it the most accessible platform for rapid prototyping, but the lack of a dedicated GPU or NPU limits its production deployment to non-AI roles or to UAV programmes where the AI model is small enough to run on the Cortex-A76 CPU cores at an acceptable frame rate.</p>
+
+        <div class="media-visual reveal" style="max-width:640px;margin:32px auto">
+          <img src="/generated/blog-inline-edge-ai-architecture.webp" alt="UAV edge AI system architecture — companion computer carrier board with Jetson module, Hailo M.2 accelerator, camera modules connected via MIPI CSI, serial link to flight controller, dark electronics lab, embedded systems development photography" loading="lazy">
+          <span class="concept-badge">Concept illustration</span>
+        </div>
+
+        <h2>SWaP budget methodology: how to size the companion computer for your UAV</h2>
+        <p>The companion computer competes for three constrained resources on a UAV: space (the avionics bay volume, typically 80×80×30 mm on a 650 mm wheelbase quadcopter — large enough for a single Jetson Orin NX carrier board or two stacked Raspberry Pi-sized boards, but not both), weight (every gram on the companion computer reduces payload capacity gram-for-gram, and on a UAV with a 5 kg MTOW and a 1.5 kg payload budget, a 200-gram companion computer consumes 13% of the payload allocation), and power (every watt on the companion computer is a watt not available for propulsion, reducing flight endurance by approximately 0.5–1.0% per watt on a typical 6S industrial quadcopter — a 15 W companion computer on a UAV that consumes 350 W in hover reduces endurance by 4–7%). The procurement team must allocate the SWaP budget before selecting the companion computer, not after — selecting a Jetson AGX Orin (32 GB, 200 TOPS, $1,599, 30 W, 180 grams for the module alone, requiring a 120×100 mm carrier board that weighs an additional 80–120 grams) for a UAV that can only accommodate a 50×50 mm, 10 W, 50-gram companion computer will force a mechanical redesign of the avionics bay, a larger battery to compensate for the power draw, or a downgrade to a less capable compute platform — all of which should have been resolved in the design phase, not during integration.</p>
+
+        <p><strong>Space budget.</strong> The companion computer's physical dimensions are determined by the carrier board, not the SoM. A Jetson Orin NX module is 70×45 mm, but it requires a carrier board that provides the power regulation (5 V and 3.3 V rails from the UAV's battery voltage, typically 12–25 V), the I/O connectors (USB 3.0, Ethernet, CSI camera, UART for the flight controller link, GPIO for the payload interface), and the thermal solution (a passive heatsink that adds 10–20 mm of height or an active fan that adds 5–10 mm of height and 0.5–1 W of power draw). The complete Jetson carrier board assembly is typically 100×80×25 mm and 80–150 grams. A Hailo-8 on a Raspberry Pi CM4 carrier board (e.g., the Raspberry Pi Compute Module 4 IO Board) is 85×56×20 mm and 50–80 grams. A Coral USB accelerator plugged into a Raspberry Pi 4 is approximately 90×60×40 mm (the USB accelerator protrudes 25 mm from the USB port) and 80–100 grams. The procurement team should provide the mechanical engineering team with the companion computer's mechanical drawing (available from the manufacturer's hardware design guide) before committing to the procurement — a 5 mm clearance issue between the Jetson's heatsink and the UAV's GPS module (which sits on a mast directly above the avionics bay on many industrial UAV designs) can be resolved in the design phase with a shorter mast but requires a structural modification during integration.</p>
+
+        <p><strong>Weight budget.</strong> The companion computer's weight allocation is the difference between the UAV's payload capacity and the combined weight of all other payload components: the inspection camera (150–400 grams for a Sony Alpha or FLIR Boson), the gimbal (200–600 grams for a 2-axis or 3-axis brushless gimbal), the LiDAR (100–350 grams for a Livox Mid-40 or Ouster OS0), the RTK GNSS module (30–60 grams), the telemetry radio (20–50 grams), and the wiring harness (50–100 grams). On a UAV with a 1,500-gram payload budget, these components typically consume 700–1,200 grams, leaving 300–800 grams for the companion computer and any additional sensors. A Jetson Orin NX carrier board at 150 grams consumes 19–50% of the remaining weight budget — acceptable for most industrial UAVs. A Jetson AGX Orin carrier board at 280 grams consumes 35–93% of the remaining budget — acceptable only for large UAVs with a 2,500-gram payload budget. The procurement team should allocate weight top-down: mission payload first (the camera, gimbal and sensors that directly deliver the operational value), companion computer second (the compute platform that makes the payload autonomous), and any margin to battery capacity (which extends flight endurance).</p>
+
+        <p><strong>Power budget.</strong> The companion computer draws power from the UAV's battery through a DC-DC converter (typically a 12–25 V input to 5 V and 3.3 V output, with 85–95% efficiency — the converter itself dissipates 5–15% of the input power as heat). The total power draw of the companion computer subsystem is: companion computer DC input power (the SoM + carrier board + peripherals, typically 5–30 W) ÷ DC-DC converter efficiency (0.85–0.95) = battery power draw. A Jetson Orin NX at 15 W with a 90% efficient converter draws 16.7 W from the battery — approximately 3.4% of the 488 Wh battery capacity over a 60-minute flight (16.7 W × 1 hour = 16.7 Wh ÷ 488 Wh = 3.4%), reducing the flight's propulsion energy budget from 400 Wh to 383 Wh and flight endurance by approximately 4%. The procurement team's power budget decision tree is: if the UAV's mission requires > 45 minutes of flight and the companion computer reduces endurance below 45 minutes, either increase the battery capacity (which adds weight and may require a larger airframe), reduce the companion computer's power mode (Jetson's nvpmodel can reduce power by 30–40% at the cost of proportionally lower inference throughput), or select a more power-efficient compute platform (Hailo-8 at 2.5 W instead of Jetson at 15 W). For the thermal management framework that ensures the companion computer does not overheat in a sealed avionics bay — <a href="/blog/uav-thermal-management-electronics/">the UAV thermal management guide</a> covers the passive heatsink sizing, the forced-air cooling options and the thermal derating curves that determine whether a companion computer rated for 85°C ambient can operate in a sealed avionics bay that reaches 70°C in direct sunlight on a 40°C day.</p>
+
+        <h2>Integration architecture: companion computer ↔ flight controller interface</h2>
+        <p>The companion computer communicates with the flight controller over a serial link — typically a UART at 921,600 bps (the maximum reliable baud rate for the STM32H7's UART peripheral with a 15 cm cable run in a UAV's EMI environment) or a USB 2.0 connection at 480 Mbps (which requires the flight controller's USB OTG port and a USB cable that adds 10–15 grams and a potential single point of failure — a USB connector that vibrates loose mid-flight is an autonomy failure, not a convenience failure). The MAVLink v2 protocol runs over this serial link, carrying three message streams in the uplink direction (companion computer → flight controller): setpoint commands (SET_POSITION_TARGET_LOCAL_NED at 10–50 Hz — the position, velocity or attitude setpoint that the autonomy pipeline has computed), mission commands (MISSION_ITEM, MISSION_CLEAR_ALL, MISSION_START at 1–5 Hz — for uploading a new waypoint mission computed by the onboard path planner), and parameter commands (PARAM_SET at 1 Hz — for tuning the flight controller's PID gains or failsafe thresholds during flight). In the downlink direction (flight controller → companion computer), the flight controller streams: the UAV's state estimate (ATTITUDE, GLOBAL_POSITION_INT, LOCAL_POSITION_NED at 10–50 Hz — the EKF2's best estimate of the UAV's attitude, position and velocity), the sensor data (SCALED_IMU at 50–200 Hz — the raw accelerometer and gyroscope readings, useful for VINS-Fusion or other visual-inertial odometry pipelines that fuse camera and IMU data), and the system status (HEARTBEAT, SYS_STATUS, BATTERY_STATUS at 1–5 Hz — the flight controller's health, the battery voltage and the failsafe state).</p>
+
+        <div class="media-visual reveal" style="max-width:640px;margin:32px auto">
+          <img src="/generated/blog-inline-edge-ai-integration.webp" alt="UAV companion computer to flight controller integration — Jetson carrier board with serial cable connected to Pixhawk UART port, logic analyzer probing MAVLink data stream, oscilloscope monitoring signal integrity, dark electronics workbench with green accent lighting" loading="lazy">
+          <span class="concept-badge">Concept illustration</span>
+        </div>
+
+        <p><strong>Serial link reliability.</strong> The MAVLink serial link is the most common failure point in UAV edge AI deployments, and the procurement team should specify the following reliability requirements in the integration specification: (1) the serial cable must be a shielded, twisted-pair cable (not a single-conductor jumper wire) with the shield connected to the flight controller's ground at the flight controller end only (to avoid ground loops — connecting the shield at both ends creates a low-impedance path for motor PWM noise that couples directly into the UART RX line); (2) the UART TX and RX lines must be separated from the ESC PWM signal wires by at least 20 mm and must not run parallel to the motor power wires (which carry 20–50 A of PWM-modulated current and radiate a magnetic field that induces voltage spikes on adjacent signal lines); (3) the serial link must implement MAVLink v2 signing (a 32-bit CRC and a shared secret key that prevents an attacker who has compromised the companion computer from sending unauthorized commands to the flight controller — a security requirement for defense and public safety UAVs, and a recommended practice for all industrial UAVs); and (4) the companion computer's software must implement a watchdog timer that monitors the MAVLink HEARTBEAT message from the flight controller and, if no heartbeat is received for 1,000 milliseconds, commands the flight controller to enter its pre-configured failsafe mode (typically RETURN_TO_LAUNCH or LAND) via a hardware failsafe line (a dedicated GPIO pin that, when pulled low, triggers the flight controller's hardware failsafe — independent of the serial link, so a serial link failure does not prevent the failsafe from activating).</p>
+
+        <p><strong>Compute redundancy for safety-critical autonomy.</strong> For UAV applications where the autonomy pipeline is safety-critical — obstacle avoidance on a drone flying BVLOS at 10 m/s at 30 metres AGL, where an autonomy failure that goes undetected for 500 milliseconds results in a collision — the procurement team should specify a dual-companion-computer architecture: a primary computer (Jetson Orin NX) running the full autonomy pipeline at 15–25 FPS, and a secondary computer (a $35 Raspberry Pi Zero 2 W running a stripped-down watchdog process) that monitors the primary computer's health over Ethernet or a dedicated UART and, if the primary computer's heartbeat stops for 500 milliseconds, commands the flight controller's hardware failsafe line. The secondary computer adds $35 to the BOM, 15 grams to the weight budget and 1.5 W to the power budget — a negligible cost for eliminating the single-point-of-failure risk in the autonomy pipeline. This is the same redundancy philosophy applied to the flight controller itself (a standalone hardware failsafe coprocessor on the Pixhawk, independent of the STM32H7, that monitors the main processor's PWM outputs and disables them if the main processor stops updating the failsafe register). For the propulsion testing and validation framework that covers the system-level reliability testing for redundant avionics — <a href="/blog/uav-propulsion-testing-validation/">the UAV propulsion testing and validation guide</a> covers the fault-injection test protocols, the failover latency measurement and the endurance test methodology.</p>
+
+        <h2>Use cases by compute tier: matching the platform to the mission</h2>
+        <p>The procurement decision for a UAV companion computer is not "which platform is best" but "which platform is sufficient for the mission at the lowest power, weight and cost." The following use-case-to-platform mapping provides a procurement-grade reference for the five most common UAV edge AI workloads.</p>
+
+        <p><strong>Tier 1 — object counting and classification (4–8 TOPS, 2–6 W).</strong> A UAV that counts cars in a parking lot, pallets in a warehouse yard, solar panels on a rooftop, or livestock in a paddock — the inference task is a single object detection model (YOLOv8-nano or EfficientDet-Lite0 at 320×320 or 640×480, 5–15 FPS) with no secondary pipelines. Recommended platform: Raspberry Pi 4 with Google Coral USB accelerator ($105 BOM, 8 W total system power, 4 TOPS) or Raspberry Pi CM4 with Hailo-8 M.2 ($170 BOM, 8 W, 26 TOPS — overkill for object counting but provides headroom for adding a second model later). The Coral is sufficient for a UAV that performs one counting task; the Hailo-8 is the better procurement choice if the UAV programme may expand to include a second model (e.g., object counting + anomaly detection) in a future software update, because the Hailo-8's 26 TOPS can run two concurrent lightweight models without a hardware upgrade.</p>
+
+        <p><strong>Tier 2 — single-stream real-time detection (20–40 TOPS, 5–10 W).</strong> A UAV that runs a real-time object detection model at 25–30 FPS on a 1920×1080 camera feed — an inspection drone identifying corrosion, cracks or missing bolts on a bridge or pipeline, where the detection must run at the camera's frame rate to avoid missing a defect that passes through the field of view in 1–2 frames. Recommended platform: Jetson Orin Nano 8 GB ($299, 40 TOPS, 7–15 W) or Raspberry Pi CM4 with Hailo-8 ($170, 26 TOPS, 8 W — sufficient for YOLOv8-nano at 1920×1080 at 25 FPS on the Hailo-8 if the model is compiled with the Hailo Dataflow Compiler). The Jetson Orin Nano is the safer procurement choice — the TensorRT optimization pipeline is documented, supported and tested on YOLO models — while the Hailo-8 requires the procurement team to verify that the Hailo Dataflow Compiler supports the target model architecture before committing.</p>
+
+        <p><strong>Tier 3 — multi-model autonomy pipeline (70–100 TOPS, 10–25 W).</strong> A UAV that runs three or four concurrent neural networks — a visual SLAM pipeline (VINS-Fusion or ORB-SLAM3) for GPS-denied navigation, a YOLOv8-medium object detection model at 30 FPS for obstacle avoidance, a depth estimation network (MiDaS or Depth Anything v2) for 3D path planning, and an anomaly detection model for the inspection payload — all running on the same GPU. Recommended platform: Jetson Orin NX 16 GB ($599, 100 TOPS, 15–25 W). At this compute tier, the Jetson is effectively the only option — no other embedded platform in 2026 delivers 100 TOPS in a 15–25 W envelope at a $599 price point. The procurement team should budget for active cooling (a 30×30 mm fan at 0.5 W) if the UAV operates in ambient temperatures above 40°C, as the Orin NX's TDP of 25 W with passive cooling will thermal-throttle the GPU clock from 918 MHz to 600–700 MHz in a sealed avionics bay at 50°C ambient, reducing inference throughput by 25–35%. For the airframe and structural integration constraints — <a href="/blog/uav-airframe-materials-guide/">the UAV airframe materials guide</a> covers the avionics bay design, the vibration isolation mounts and the thermal management considerations for carbon fiber vs aluminum airframes.</p>
+
+        <p><strong>Tier 4 — full autonomy with sensor fusion (150–200+ TOPS, 25–50 W).</strong> A large UAV (MTOW > 15 kg) that runs a full sensor-fusion autonomy stack — visual SLAM, LiDAR SLAM (LOAM or FAST-LIO2), 3D object detection (PointPillars or CenterPoint on LiDAR point clouds), semantic segmentation, trajectory planning and multi-sensor calibration — on a single platform. Recommended platform: Jetson AGX Orin 32 GB ($1,599, 200 TOPS, 30–50 W). At this tier, the companion computer's power draw of 30–50 W is comparable to the propulsion system's power draw at cruise (a 15 kg multirotor may cruise at 800–1,200 W, so the companion computer represents 3–6% of the total power budget — acceptable). The AGX Orin is the procurement choice for UAV programmes that are integrating a full autonomy stack developed by an autonomy software vendor (the vendor typically standardizes on the Jetson platform because it provides the CUDA ecosystem that the autonomy pipeline was developed and tested on), and the procurement team's role is to ensure that the selected Jetson variant (Orin NX vs AGX Orin) matches the vendor's compute requirement — not to second-guess the vendor's platform choice.</p>
+
+        <h2>Edge AI procurement checklist</h2>
+        <p>The following checklist translates the companion computer selection framework into actionable procurement items that a UAV programme manager can execute within one design cycle.</p>
+
+        <p><strong>Mission compute requirement definition (week 1).</strong> Define the most computationally demanding task the UAV must perform: the model architecture (YOLOv8-nano, YOLOv8-medium, EfficientDet), the input resolution (320×320, 640×640, 1920×1080), the target frame rate (5 FPS, 15 FPS, 30 FPS), and the number of concurrent models (1, 2–3, 4+). This is not an engineering specification — it is a procurement specification that can be written in one paragraph and validated by a 30-minute conversation with the autonomy software vendor or the engineering team. The deliverable is a one-page compute requirement document with the model name, input resolution, target FPS and concurrency count.</p>
+
+        <p><strong>SWaP budget allocation (week 2).</strong> Allocate the companion computer's space (mm³), weight (grams) and power (watts) budgets from the UAV's total design budget, using the methodology described above. Verify that the selected platform fits within all three budgets with at least a 20% margin (for the carrier board, thermal solution, wiring and any additional sensors that are discovered during integration). The deliverable is a SWaP budget spreadsheet with columns for the UAV's total budget, the mission payload allocation, the companion computer allocation and the remaining margin.</p>
+
+        <p><strong>Software stack compatibility assessment (week 3).</strong> Verify that the autonomy software vendor's stack supports the selected compute platform: the operating system (Ubuntu 22.04 with JetPack vs Debian with HailoRT vs Raspberry Pi OS), the ML runtime (TensorRT vs ONNX Runtime vs TFLite vs HailoRT), and the ROS 2 distribution (Humble vs Iron vs Rolling). If the vendor's stack does not support the selected platform, either change the platform or accept the porting cost (2–6 weeks of engineering effort, $8,000–$24,000 at a loaded engineering rate of $100–150/hour). The deliverable is a compatibility matrix: the vendor's required components in the rows, the candidate platforms in the columns, and a green/yellow/red cell for each combination (green = supported out of the box, yellow = supported with documented modifications, red = not supported).</p>
+
+        <p><strong>Integration specification (week 4).</strong> Document the physical integration: the carrier board mechanical drawing (dimensions, mounting hole pattern, connector locations), the serial link specification (UART at 921,600 bps with MAVLink v2 signing, shielded twisted-pair cable, 15 cm maximum length), the power supply specification (input voltage range, output rails, converter efficiency, connector type — JST GH 4-pin or Molex PicoBlade 6-pin), and the failsafe interface (dedicated GPIO line from companion computer to flight controller hardware failsafe input, with a watchdog timer on the companion computer that pulls the line low if the MAVLink heartbeat is not received for 1,000 ms). The deliverable is a one-page integration diagram showing the companion computer, the flight controller, the power supply, the serial link and the failsafe line, with pin numbers, connector types and cable specifications labeled.</p>
+
+        <p><strong>Thermal validation (weeks 5–6).</strong> Test the companion computer in a thermal chamber at the UAV's worst-case operating temperature: +60°C ambient for a UAV operating in the Middle East or Australian outback in summer, with the avionics bay sealed and the companion computer running the full autonomy pipeline at maximum GPU utilization for 2 hours. Verify that the GPU junction temperature remains below the manufacturer's maximum rated temperature (typically 95–105°C for the Jetson, 85°C for the Hailo-8) and that the inference throughput does not degrade by more than 10% due to thermal throttling. If the thermal validation fails, add active cooling (a 30×30 mm fan) or increase the avionics bay ventilation. The deliverable is a thermal validation report with the ambient temperature, the GPU junction temperature over time and the inference throughput over time.</p>
+
+        <p style="margin-top:42px"><a class="btn btn-primary" href="/customization/">Explore custom engineering</a> <a class="btn btn-outline" href="/blog/" style="margin-left:12px">Back to Blog</a></p>
+
+        <section class="continue-reading">
+          <h3>Continue Reading</h3>
+          <div class="continue-grid">
+            <a class="continue-card" href="/blog/uav-communication-protocols-guide/">
+              <div class="continue-card-img"><img src="/generated/blog-cover-communication.webp" alt="Communication Protocols" loading="lazy"></div>
+              <div class="continue-card-body"><h4>UAV Communication Protocols Guide</h4><p>CAN, DShot, PWM, SBUS and CRSF — the serial interfaces and telemetry streams that carry MAVLink messages between the flight controller and the companion computer, and the baud rate, cable and shielding requirements for reliable 921,600 bps UART links in a UAV's EMI environment.</p></div>
+            </a>
+            <a class="continue-card" href="/blog/uav-battery-power-management/">
+              <div class="continue-card-img"><img src="/generated/blog-cover-battery.webp" alt="Battery Power" loading="lazy"></div>
+              <div class="continue-card-body"><h4>UAV Battery &amp; Power Management</h4><p>LiPo vs Li-Ion energy density comparison, DC-DC converter efficiency budgeting and the power distribution architecture that allocates watts between propulsion, avionics and the companion computer, with the endurance impact calculation for every additional watt of compute.</p></div>
+            </a>
+            <a class="continue-card" href="/blog/uav-thermal-management-electronics/">
+              <div class="continue-card-img"><img src="/generated/blog-cover-thermal-management.webp" alt="Thermal Management" loading="lazy"></div>
+              <div class="continue-card-body"><h4>UAV Thermal Management</h4><p>Passive heatsink sizing, forced-air cooling options and thermal derating curves for companion computers in sealed avionics bays — and how to prevent GPU thermal throttling from degrading inference throughput by 25–35% at 50°C ambient.</p></div>
+            </a>
+            <a class="continue-card" href="/blog/uav-flight-controller-esc-matching/">
+              <div class="continue-card-img"><img src="/generated/blog-cover-fc-esc.webp" alt="FC ESC Matching" loading="lazy"></div>
+              <div class="continue-card-body"><h4>Flight Controller &amp; ESC Matching</h4><p>The STM32H7-based autopilot architecture — how the flight controller's real-time control loop interacts with the companion computer's ROS 2 autonomy pipeline over MAVLink, and why the hardware failsafe line must be independent of the serial link.</p></div>
+            </a>
+            <a class="continue-card" href="/blog/uav-payload-integration-guide/">
+              <div class="continue-card-img"><img src="/generated/blog-cover-payload.webp" alt="Payload Integration" loading="lazy"></div>
+              <div class="continue-card-body"><h4>UAV Payload Integration Guide</h4><p>How to integrate the inspection camera, gimbal, LiDAR and RTK GNSS module that the companion computer's AI pipeline processes — including the weight budget allocation, the MIPI CSI and USB 3.0 camera interfaces and the gimbal control protocol.</p></div>
+            </a>
+          </div>
+        </section>
+      </div>
+      </div>
+    </article>
+
+    <section class="section section-alt" style="--cta-bg:url(/generated/blog-cta-edge-ai.webp)">
+      <div class="container">
+        <div class="spec-panel reveal">
+          <div class="spec-panel-inner">
+            <div>
+              <span class="eyebrow">Edge AI Integration Support</span>
+              <h2>Tell us your autonomy requirement — we will recommend the compute platform and integration architecture.</h2>
+              <p>Share your UAV's mission profile, the AI tasks you need to perform on board, and your SWaP budget — our engineering team will recommend the companion computer platform, the flight controller interface architecture, the power budget allocation and the procurement-ready BOM for your edge AI subsystem.</p>
+            </div>
+            <div class="spec-actions">
+              <button class="btn btn-primary" type="button" data-open-inquiry>Start Your Build <svg aria-hidden="true"><use href="#icon-arrow"/></svg></button>
+              <button class="btn btn-outline" data-open-inquiry>Open RFQ Brief</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="brand" href="/" aria-label="EMS Drone home"><span class="brand-mark"><svg aria-hidden="true"><use href="#icon-drone"/></svg></span><span>EMS Drone</span></a>
+          <p>Configurable UAV components, complete systems and engineering support.</p>
+        </div>
+        <div class="footer-col"><h3>System</h3><a href="/capabilities/">Capabilities</a><a href="/customization/">Customization</a><a href="/testing/">Testing</a></div>
+        <div class="footer-col"><h3>Context</h3><a href="/industries/">Industries</a><a href="/about/">About</a><a href="/blog/">Blog</a></div>
+        <div class="footer-col"><h3>More reading</h3><a href="/blog/uav-supplier-evaluation-checklist/">Supplier evaluation</a><a href="/blog/uav-supply-chain-layers/">Supply chain layers</a><a href="/contact/">RFQ Brief</a></div>
+      </div>
+      <div class="footer-bottom"><span>&copy; 2026 EMS Drone</span><span>Define &rarr; Integrate &rarr; Deploy</span></div>
+    </div>
+  </footer>
+  <div class="modal-overlay" id="inquiryModal" aria-hidden="true">
+    <div class="modal-dialog" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <button class="modal-close" type="button" aria-label="Close inquiry">&times;</button>
+      <div class="modal-aside">
+        <span class="tech-label">Engineering Intake</span>
+        <div><h3 id="modalTitle">Start with your mission.</h3><p>Tell us what you are building and where you need support: component sourcing, a matched stack or a complete UAV.</p></div>
+      </div>
+      <form class="modal-form" data-preview-form>
+        <div class="field"><label for="modal-name">Name</label><input id="modal-name" name="name" autocomplete="name" required></div>
+        <div class="field" style="margin-top:18px"><label for="modal-email">Email</label><input id="modal-email" name="email" type="email" autocomplete="email" required></div>
+        <div class="field" style="margin-top:18px"><label for="modal-message">Project brief</label><textarea id="modal-message" name="message" required placeholder="Aircraft type, payload, environment, component list or complete-system goal"></textarea></div>
+        <button class="btn btn-primary" type="submit">Submit Engineering Brief</button>
+        <div class="form-status" role="status" aria-live="polite" aria-atomic="true"></div>
+      </form>
+    </div>
+  </div>
+<script src="/site.js?v=9"></script>
+  <script src="/reveal.js?v=9"></script>
+</body>
+</html>
