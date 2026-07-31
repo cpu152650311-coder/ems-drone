@@ -100,7 +100,7 @@ def build_card(article):
     img_html = f'<img src="{article["img"]}" alt="{article["title"]}" loading="lazy" class="blog-card-img">' if article['img'] else ''
     date_html = f'<div class="date">{article.get("date", "")} · {article["cat"]}</div>' if article.get('date') else ''
     
-    return f'''      <a data-cat="{article['cat_slug']}" href="/blog/{article['file']}" class="blog-card-link">
+    return f'''      <a data-cat="{article['cat_slug']}" href="/blog/{article.get('slug', article.get('file', '')).replace('.html', '')}/" class="blog-card-link">
         <div class="blog-card">
           {img_html}
           <div class="blog-card-body">
@@ -233,22 +233,32 @@ def main():
     
     per_page = args.per_page
     
-    # 1. Scan blog HTML files
+    # 1. Scan blog HTML files (supports both flat blog/*.html and blog/*/index.html)
     blog_dir = os.path.join(BLOG_DIR, 'blog')
-    files = sorted([
-        f for f in os.listdir(blog_dir)
-        if f.endswith('.html') 
-        and f not in ('index.html', 'template.html')
-        and not f.startswith('blog-page-')
-    ])
+    files = []
+    for entry in os.listdir(blog_dir):
+        epath = os.path.join(blog_dir, entry)
+        if entry.endswith('.html') and entry not in ('index.html', 'template.html') and not entry.startswith('blog-page-'):
+            files.append(entry)
+        elif os.path.isdir(epath) and entry not in ('index.html',):
+            idx = os.path.join(epath, 'index.html')
+            if os.path.isfile(idx):
+                files.append(entry)
+    files = sorted(files)
     
     print(f"Found {len(files)} blog articles")
     
     # 2. Extract metadata
     articles = []
     for f in files:
-        path = os.path.join(blog_dir, f)
+        # Handle both flat files and directory-per-article
+        epath = os.path.join(blog_dir, f)
+        if os.path.isdir(epath):
+            path = os.path.join(epath, 'index.html')
+        else:
+            path = epath
         meta = extract_meta(path)
+        meta['slug'] = f.replace('.html', '')
         articles.append(meta)
     
     # Sort by filename (newest first based on naming convention)
