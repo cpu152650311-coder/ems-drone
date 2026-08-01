@@ -155,7 +155,29 @@
 
         <p style="margin-top:42px"><a class="btn btn-primary" href="/capabilities/flight-control/">Explore flight control</a> <a class="btn btn-outline" href="/capabilities/#esc-power" style="margin-left:12px">Explore ESC &amp; power</a></p>
       </div>
-    </article>
+    <section class="related-reading" style="max-width:1100px;margin:0 auto;padding:48px 24px;">
+  <h2 style="font-size:1.5rem;margin-bottom:20px;">Related Reading</h2>
+  <ul style="padding-left:20px;line-height:2.1;">
+          <li><a href="/blog/drone-powertrain-matching/">match flight controller, esc and motor for</a></li>
+          <li><a href="/blog/uav-thermal-management-electronics/">thermal management for uav electronics</a></li>
+          <li><a href="/blog/uav-research-development-components/">uav components for research</a></li>
+          <li><a href="/blog/uav-heavy-lift-propulsion-design/">heavy-lift uav propulsion design</a></li>
+          <li><a href="/blog/uav-component-obsolescence-management/">uav component obsolescence management</a></li>
+  </ul>
+</section>
+
+<h2>Signal Paths That Matter</h2>
+<p>The physical link between flight controller and ESC is the DShot or PWM signal wire, but the engineering link goes deeper. The flight controller's PWM update rate, the ESC's firmware response time, and the motor's electrical time constant form a control loop that must be stable across the entire throttle range.</p>
+<p>On multirotor platforms, the loop runs at 1 kHz or higher, which means signal latency of even a few milliseconds shows up as visible oscillation or poor yaw response. This is why matching is not just about connector compatibility — it is about selecting an ESC firmware that responds fast enough for the flight controller's chosen protocol, and a motor that does not exceed the ESC's current rating during aggressive maneuvers.</p>
+<p>For industrial platforms carrying payloads, we recommend documenting the full signal chain in the integration spec: protocol, update rate, ESC firmware version, and motor winding. Teams that write this down once eliminate an entire class of field failures that otherwise surface only after deployment.</p>
+
+<h2>Common Mismatch Failure Modes</h2>
+<p>The most common field failure is the silent mismatch: a flight controller that defaults to a conservative PWM rate paired with an ESC that expects a faster protocol. The aircraft flies, but with degraded responsiveness that pilots often describe as "soft" or "laggy." Diagnosing this requires checking the actual configured protocol on both ends, not just the datasheet.</p>
+<p>Current rating mismatches are the second most common issue. An ESC rated for continuous current will tolerate brief peaks, but a motor that pulls above that peak during hard braking or sudden throttle changes will eventually destroy the ESC's MOSFETs. The fix is margin: select an ESC rated at least 1.5x the motor's peak current draw.</p>
+<p>Firmware version drift is the third. ESC firmware updates change timing and response characteristics, and a flight controller tuned for an older version may oscillate or lose sync after an update. Distributors who publish firmware compatibility matrices reduce these field issues substantially and position themselves as engineering partners rather than parts suppliers.</p>
+
+<p>The bottom line: matching is an engineering discipline, not a paperwork exercise. Document the signal chain, verify current margins, and control firmware versions across the fleet. Teams that treat matching as a first-class design activity see measurable improvements in flight quality and a sharp reduction in field failures.</p>
+</article>
 
     <section class="section section-alt">
       <div class="container">
