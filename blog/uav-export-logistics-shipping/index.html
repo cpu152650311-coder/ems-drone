@@ -1,0 +1,296 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>UAV Export Logistics and ITAR/EAR Shipping: Drone Component Trade Compliance | EMS Drone</title>
+  <meta name="description" content="A procurement guide to exporting UAV components across borders — ITAR and EAR jurisdiction and classification, USML and ECCN categories for flight controllers and radios, HS classification and customs valuation, lithium battery dangerous-goods shipping under IATA DGR, the export documentation set, Incoterms and freight risk, supplier qualification for export readiness, and a 10-line-item RFQ checklist for export-controlled drone hardware.">
+  <link rel="canonical" href="https://ems-drone.com/blog/uav-export-logistics-shipping/">
+  <meta property="og:title" content="UAV Export Logistics and ITAR/EAR Shipping: Drone Component Trade Compliance">
+  <meta property="og:description" content="How to specify and procure UAV components that clear customs — export controls, HS classification, lithium battery dangerous-goods rules, documentation and the RFQ checklist for international drone programs.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://ems-drone.com/blog/uav-export-logistics-shipping/">
+  <meta property="og:image" content="https://ems-drone.com/generated/og-cover.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <link rel="icon" type="image/x-icon" href="/generated/favicon.ico">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="apple-touch-icon" sizes="180x180" href="/generated/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/generated/icon-192.png">
+<link rel="icon" type="image/png" sizes="512x512" href="/generated/icon-512.png">
+  <link rel="stylesheet" href="/design-tokens.css?v=21">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "UAV Export Logistics and ITAR/EAR Shipping: Drone Component Trade Compliance",
+  "description": "A procurement guide to exporting UAV components across borders — ITAR and EAR jurisdiction and classification, USML and ECCN categories, HS classification and customs valuation, lithium battery dangerous-goods shipping under IATA DGR, the export documentation set, Incoterms and freight risk, supplier qualification for export readiness, and a 10-line-item RFQ checklist.",
+  "image": "https://ems-drone.com/generated/blog-cover-export-logistics.webp",
+  "author": {
+    "@type": "Organization",
+    "name": "EMS Drone"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "EMS Drone",
+    "url": "https://ems-drone.com/",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://ems-drone.com/favicon.svg"
+    }
+  },
+  "mainEntityOfPage": "https://ems-drone.com/blog/uav-export-logistics-shipping/",
+  "datePublished": "2026-08-03",
+  "dateModified": "2026-08-03"
+}
+</script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <svg aria-hidden="true" style="position:absolute;width:0;height:0;overflow:hidden">
+    <symbol id="icon-drone" viewBox="0 0 24 24" fill="none" stroke="#b8f34a" stroke-width="1.5"><circle cx="12" cy="12" r="2.6"/><path d="m10.2 10.2-4-4m7.6 4 4-4m-7.6 7.6-4 4m7.6-4 4 4"/><circle cx="4.7" cy="4.7" r="2.2"/><circle cx="19.3" cy="4.7" r="2.2"/><circle cx="4.7" cy="19.3" r="2.2"/><circle cx="19.3" cy="19.3" r="2.2"/></symbol>
+    <symbol id="icon-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12h14m-5-5 5 5-5 5"/></symbol>
+  </svg>
+
+  <header class="site-header">
+    <div class="nav-shell">
+      <a class="brand" href="/" aria-label="EMS Drone home"><span class="brand-mark"><svg aria-hidden="true"><use href="#icon-drone"/></svg></span><span>EMS Drone</span></a>
+      <button class="nav-toggle" type="button" aria-label="Open navigation" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+                                        <nav class="site-nav" aria-label="Primary navigation"><a href="/">Home</a>
+        <div class="nav-dropdown">
+          <a href="/capabilities/" class="nav-parent">Capabilities</a>
+          <div class="nav-submenu">
+            <a href="/capabilities/flight-control/">Flight Controllers</a>
+            <a href="/capabilities/esc-power/">ESC &amp; Power Systems</a>
+            <a href="/capabilities/propulsion/">Propulsion</a>
+            <a href="/capabilities/airframe/">Airframes &amp; Structures</a>
+            <a href="/capabilities/communications/">Communications &amp; RF</a>
+            <a href="/capabilities/payload/">Payloads &amp; Gimbals</a>
+          </div>
+        </div>
+        <div class="nav-dropdown">
+          <a href="/customization/" class="nav-parent">Services</a>
+          <div class="nav-submenu">
+            <a href="/customization/">Custom Engineering</a>
+            <a href="/testing/">Testing &amp; Validation</a>
+          </div>
+        </div>
+        <div class="nav-dropdown">
+          <a href="/industries/" class="nav-parent">Industries</a>
+          <div class="nav-submenu">
+            <a href="/industries/inspection/">Industrial Inspection</a>
+            <a href="/industries/mapping-survey/">Mapping &amp; Survey</a>
+            <a href="/industries/logistics/">Logistics &amp; Delivery</a>
+            <a href="/industries/agriculture/">Precision Agriculture</a>
+            <a href="/industries/research/">Research &amp; Development</a>
+          </div>
+        </div>
+        <div class="nav-dropdown">
+          <a href="/resources/" class="nav-parent">Resources</a>
+          <div class="nav-submenu">
+            <a href="/design-guides/">Design Guides</a>
+            <a href="/projects/">Engineering Projects</a>
+            <a href="/how-it-works/">How We Work</a>
+            <a href="/faq/">FAQ</a>
+            <a href="/blog/" aria-current="page">Blog</a>
+          </div>
+        </div>
+        <div class="nav-dropdown">
+          <a href="/about/" class="nav-parent">Company</a>
+          <div class="nav-submenu">
+            <a href="/about/">About</a>
+            <a href="/factory/">Factory</a>
+            <a href="/quality/">Quality</a>
+            <a href="/shipping/">Shipping</a>
+            <a href="/contact/">Contact</a>
+          </div>
+        </div>
+        <button class="btn btn-primary" data-open-inquiry>Start Your Build</button>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <header class="article-hero">
+      <div class="container reveal">
+        <span class="eyebrow"><a href="/blog/" style="color:inherit;text-decoration:none">Blog</a> · Procurement</span>
+        <h1>UAV export logistics and ITAR/EAR shipping: the compliance and documentation stack for international drone trade</h1>
+        <p style="color:var(--muted-dark);max-width:640px">A UAV program that crosses a border stops being an engineering project and becomes an export transaction. The flight controller in the BOM is not just a component — it is a line item that sits on a control list, gets classified under a Harmonized System code, ships as dangerous goods if it contains lithium cells, and travels under an Incoterm that decides who pays when a crate sits in customs. Most procurement failures in international drone programs are not technical; they are documentation failures that surface at the border. This guide is written for the buyer who wants the export path specified with the same rigor as the airframe: the ITAR/EAR jurisdiction and classification basics, HS codes and valuation, battery shipping rules, the documentation set, Incoterms and freight, and the supplier qualification questions that keep a delivery from being stopped at customs.</p>
+        <div class="article-cover">
+          <img src="/generated/blog-cover-export-logistics.webp" alt="Export logistics for UAV components — reinforced shipping crate with foam-cut inserts holding a carbon fiber drone airframe and electronic modules, customs documentation folder beside it, dark warehouse background with green accent lighting, professional product photography, no people faces, no text, no logos" loading="lazy">
+        </div>
+      </div>
+    </header>
+
+    <article class="article-body">
+      <div class="container reveal">
+        <p>The first thing to understand about exporting UAV components is that the rules follow the item, not the shipper. A flight controller manufactured in Shenzhen and shipped to a buyer in Germany is subject to the export controls of the country of origin, the import controls of the destination country, and — because so much UAV electronics originates from or contains U.S.-origin components — the U.S. export control regime that applies to those components wherever they travel. The <a href="/blog/uav-supply-chain-layers/">UAV supply chain layers guide</a> maps where components come from in a typical build; the export question is which of those layers carries a control obligation, because the answer determines the documentation that has to travel with the shipment.</p>
+
+        <h2>Export logistics is a specification problem, not a freight problem</h2>
+        <p>Treating export logistics as "call a freight forwarder" is the most common procurement mistake in international UAV programs. Freight forwarders move goods; they do not decide what your goods are for control purposes. Three specification decisions made during component selection determine the export outcome, and each must be made at the engineering level:</p>
+        <p><strong>The control status of each component.</strong> Whether a flight controller, radio or gimbal sits on an export control list decides whether it ships with a simple commercial invoice or with a license or exemption statement. This is a per-component attribute, and it must be collected from the supplier as a data point — not assumed from the product category.</p>
+        <p><strong>The battery configuration.</strong> Whether the shipment includes loose cells, a battery pack, or batteries installed in equipment changes the dangerous-goods classification, the packaging, and the freight options. A UAV with an installed 6S LiPo battery ships under a different rule than the same battery in a separate carton.</p>
+        <p><strong>The destination and end-use statement.</strong> The same component can be exported freely to one country and require authorization for another, depending on the destination, the end user and the end use. The buyer's operating country and mission profile are therefore part of the export specification, not a commercial detail.</p>
+        <p>These three decisions cascade into the documentation set described below. The engineering consequence: export readiness is a design input, and the component <a href="/blog/uav-component-build-vs-buy/">build vs buy decision</a> should include the cost and lead time of export documentation for each sourcing option.</p>
+
+        <div class="media-visual reveal" style="max-width:640px;margin:32px auto">
+          <img src="/generated/blog-inline-export-logistics-docs.webp" alt="Export compliance documentation stack for drone shipments — printed commercial invoice, packing list and certificate of origin on a dark desk beside a tablet showing a shipment tracking dashboard, green accent light, professional photography, no people faces, no text, no logos" loading="lazy">
+          <span class="concept-badge">Concept illustration</span>
+        </div>
+
+        <h2>ITAR and EAR: locating your components on the control map</h2>
+        <p>The U.S. regime is the most consequential for UAV programs because it follows U.S.-origin items and U.S.-origin content wherever they are incorporated. Two regulations divide the map: the <strong>International Traffic in Arms Regulations (ITAR)</strong>, administered under the U.S. Munitions List (USML), and the <strong>Export Administration Regulations (EAR)</strong>, administered through the Commerce Control List (CCL). The boundary between them matters because ITAR-controlled items require authorization for almost any non-U.S. destination, while EAR-controlled items are mostly eligible for export under license exceptions or no license at all.</p>
+        <p><strong>Where UAV hardware sits.</strong> Manned and unmanned aircraft and their specially designed components are described in USML Category VIII; UAVs that meet the military definition also appear in Category VIII, while certain drones and drone components fall under EAR — notably ECCN 9A610 and 9A612 for "600-series" items (defense articles that migrated from the USML to the CCL in 2020), and ECCN 9A012/9B012/9D012 for civil and dual-use UAVs and related software and technology. A civilian inspection UAV with a commercial flight controller is usually EAR 9A012-classified; the same airframe with a military-rated autopilot and encrypted data link can be 9A610 or ITAR-controlled. The <a href="/blog/uav-defense-security-components/">defense and security components guide</a> covers the hardware features — encryption, anti-jam, military-rated ruggedization — that push a component across this boundary.</p>
+        <p><strong>The de minimis rule.</strong> A component manufactured outside the U.S. can still be caught by the EAR if it contains more than the de minimis threshold of U.S.-origin controlled content (10% for 600-series items, 25% for most others). This is why the supplier's declaration of component origin — and the origin of the ICs inside a flight controller — matters: a "made in China" label does not by itself clear an item from U.S. jurisdiction. The <a href="/blog/uav-certification-compliance-guide/">certification and compliance guide</a> covers the per-component evidence (CE, FCC, RoHS, REACH) that buyers usually collect; the export control status is a separate declaration that the supplier should provide in the same documentation package.</p>
+        <p>The practical takeaway for procurement: for every controlled item in the BOM, the buyer should request the supplier's <strong>export control classification</strong> — the USML category or ECCN — in writing, and verify that the classification matches the item's features. An incorrect classification discovered at customs is a hold, a fine, or a seized shipment; a correct one is a line on a document.</p>
+
+        <h2>HS classification and customs valuation: the numbers that set your duty</h2>
+        <p>While export controls answer "may this item be shipped?", the Harmonized System answers "what duty and what statistics apply?" The HS code is a 6-digit international commodity code (extended to 8-10 digits by national tariffs) that customs uses to classify every import. For UAV components the relevant chapters are mostly <strong>Chapter 85</strong> (electrical machinery: flight controllers, ESCs, radios, cameras) and <strong>Chapter 88</strong> (aircraft and spacecraft, which includes complete UAVs in heading 8806 since 2022). The classification subtleties that actually change duty:</p>
+        <p><strong>Complete UAVs versus components.</strong> A complete drone under HS 8806 typically attracts a different (often lower) duty rate than its components shipped separately under 85xx — but the export control treatment of the complete article is the sum of its parts. Buyers sometimes discover that shipping a "disassembled" aircraft as parts changes both the duty and the license picture; the reverse — shipping a complete aircraft to simplify HS classification — can trigger a different control status. The decision belongs in the export specification, documented before the purchase order.</p>
+        <p><strong>Valuation.</strong> Duty is computed on the customs value: transaction price plus insurance and freight (CIF) in many regimes, or the ex-works price plus freight (FOB) in others. Under-valuing to reduce duty is the fastest way to trigger a customs audit; the safe practice is to declare the true transaction value and keep the commercial invoice consistent with the payment records.</p>
+        <p><strong>Where the buyer's own country adds layers.</strong> Beyond duty, most countries add import VAT or GST, and some add UAV-specific registration or import-permit requirements — the <a href="/blog/uav-remote-id-bvlos-components/">Remote ID and BVLOS compliance guide</a> documents the operating-side regulations that frequently interact with customs clearance, since some authorities require proof of type approval before releasing UAV shipments.</p>
+        <p>The procurement action: request the supplier's HS code per line item, have a freight forwarder or customs broker confirm classification for the destination country, and record the code on the commercial invoice. Classification errors are the single largest source of customs delays in component shipments — not value disputes.</p>
+
+        <h2>Lithium batteries: the dangerous-goods layer every UAV shipment carries</h2>
+        <p>Almost every UAV shipment contains lithium batteries, and that makes almost every UAV shipment a dangerous-goods (DG) shipment. The governing framework for air freight is the <strong>IATA Dangerous Goods Regulations</strong>, which implements the ICAO Technical Instructions; the numbers that matter:</p>
+        <p><strong>UN numbers.</strong> Lithium-ion cells and packs ship under <strong>UN 3480</strong> (batteries alone), <strong>UN 3481</strong> (batteries packed with equipment, or contained in equipment), and the lithium-metal equivalents UN 3090/3091. A UAV with the battery installed ships as UN 3481 "contained in equipment" — a different (simpler) set of rules than the same pack in a separate carton (UN 3480, which requires a Class 9 label and a more rigorous package test).</p>
+        <p><strong>State of charge.</strong> IATA restricts lithium-ion cells and packs shipped by air to <strong>30% state of charge</strong> (SOC), with exceptions for small cells and for batteries required to operate equipment. A 6S LiPo pack air-shipped at full charge is non-compliant; the DG-compliant workflow is to discharge to ≤30% before packing. This is a specification point that belongs in the component datasheet conversation, because it affects how the supplier packs, and whether the battery ships with the aircraft or as a separate consignment.</p>
+        <p><strong>What the supplier must provide.</strong> For every battery in the BOM the buyer should receive: the UN number and transport classification, the battery's watt-hour rating (the <a href="/blog/uav-battery-power-management/">UAV battery and power management guide</a> explains how pack capacity maps to Wh), the SOC at shipment, the DG shipper's declaration (for UN 3480), and the package test report if the pack ships in a standalone carton. The <a href="/blog/uav-thermal-management-electronics/">thermal management guide</a> is the engineering companion here: batteries that fail thermal runaway tests are not only a safety risk, they are a shipping classification risk, because the UN 38.3 test summary travels with the consignment and customs and airlines do check it.</p>
+
+        <div class="media-visual reveal" style="max-width:640px;margin:32px auto">
+          <img src="/generated/blog-inline-export-logistics-battery.webp" alt="Lithium battery dangerous goods packaging for UAV shipments — LiPo battery pack sealed in a UN-certified box with hazard labels and a fragile sticker, foam insert, dark warehouse bench, green accent lighting, macro product photography, no people faces, no text, no logos" loading="lazy">
+          <span class="concept-badge">Concept illustration</span>
+        </div>
+
+        <h2>The export documentation set: nine documents that clear customs</h2>
+        <p>A UAV consignment typically clears customs on the strength of a documentation set, and the set is the same whether the shipment is one development kit or a hundred units. The nine documents:</p>
+        <p><strong>1. Commercial invoice.</strong> The transaction record: seller, buyer, line items, HS codes, unit values, total value, Incoterm, currency. Customs compares it against the payment trail, so it must match the actual transaction.</p>
+        <p><strong>2. Packing list.</strong> What is in each carton, with weights and dimensions. For UAV shipments it should name the battery content per carton, because that is what airline screening and customs both check.</p>
+        <p><strong>3. Certificate of origin.</strong> Establishes the country of origin for duty preference programs. The supplier's COO covers the components; the buyer's program may also need a COO for the assembled aircraft.</p>
+        <p><strong>4. Export license or license exemption statement.</strong> For controlled items: the license number, or the EAR/ITAR exemption or NLR (no license required) statement that authorizes the shipment. This is the document that the <a href="/blog/uav-supplier-evaluation-checklist/">supplier evaluation checklist</a> should require from any vendor of controlled components — the supplier must be able to provide it, not just claim it.</p>
+        <p><strong>5. UN 38.3 test summary and DG documentation.</strong> For batteries: the test summary, the shipper's declaration for standalone packs, and the SOC statement.</p>
+        <p><strong>6. Air waybill / bill of lading.</strong> The transport contract, issued by the carrier or forwarder, referencing the other documents.</p>
+        <p><strong>7. Certificate of conformity.</strong> For many destinations, proof that the equipment meets local technical regulations — the CE/FCC/RoHS evidence covered in the <a href="/blog/uav-certification-compliance-guide/">certification guide</a> is frequently required at import even when the buyer's own certification program covers it downstream.</p>
+        <p><strong>8. End-user or end-use statement.</strong> Required by some export-control regimes for controlled items: who the ultimate consignee is and what the equipment will be used for.</p>
+        <p><strong>9. Insurance certificate.</strong> Cargo insurance evidence when the Incoterm places insurance on the seller or buyer side.</p>
+        <p>Nine documents sounds heavy; in practice, for an EAR 9A012-classified inspection UAV, the set is the invoice, packing list, COO, NLR statement, battery DG pack and air waybill — the rest appear only when the item is controlled or the destination requires them. The discipline is to know which of the nine apply before the shipment is booked, because every missing document is measured in days of customs hold time.</p>
+
+        <div class="media-visual reveal" style="max-width:640px;margin:32px auto">
+          <img src="/generated/blog-inline-export-logistics-freight.webp" alt="Air freight pallet with UAV component crates — shrink-wrapped export pallets with corner protectors and handling labels in a cargo warehouse, forklift in soft-focus background, dark industrial environment with green accent lighting, professional photography, no people faces, no text, no logos" loading="lazy">
+          <span class="concept-badge">Concept illustration</span>
+        </div>
+
+        <h2>Incoterms and freight: assigning risk and cost at each border</h2>
+        <p>Incoterms 2020 define who arranges and pays for each leg of transport, who clears export and import, and where risk transfers. For UAV component procurement, three terms cover most scenarios:</p>
+        <p><strong>EXW (Ex Works).</strong> The buyer arranges everything from the supplier's door. Maximum control, maximum burden: the buyer's forwarder handles export clearance, DG booking and the documentation set. EXW is common for development quantities but exposes the buyer to every delay in the supplier's process.</p>
+        <p><strong>FOB (Free on Board).</strong> The supplier delivers the goods to the vessel or aircraft at the origin port and clears export; risk transfers at loading. The buyer owns the main carriage and import clearance. FOB is the standard for air freight from Asian manufacturing hubs because the supplier handles export-side DG and documentation where it is most likely to go wrong.</p>
+        <p><strong>DDP (Delivered Duty Paid).</strong> The supplier delivers the goods cleared for import, duty and VAT paid, to the buyer's door. Minimal buyer burden, maximum supplier responsibility — and the supplier must therefore be export-competent in the buyer's destination country, which not all component vendors are.</p>
+        <p>The selection rule for UAV programs: choose the Incoterm that puts the export-side DG and documentation in the hands of the party best equipped to do them. For battery-carrying shipments from Asia, FOB or DDP with a DG-competent supplier beats EXW with a buyer who has never booked lithium cargo — and the freight cost difference between DG-compliant air freight and non-DG alternatives is small compared to the cost of one customs rejection.</p>
+
+        <h2>Qualifying a supplier for export readiness</h2>
+        <p>Export readiness is a supplier attribute, and it should be scored in the same evaluation as price and lead time. The qualification questions:</p>
+        <p><strong>Can the supplier state the export control classification of every component they sell?</strong> A vendor that cannot produce an ECCN or USML category for a flight controller cannot support an export program — the classification will be discovered, expensively, at customs.</p>
+        <p><strong>Does the supplier ship lithium batteries compliantly?</strong> Ask for the UN 38.3 test summary, the DG shipper's declaration format, and their SOC-at-shipment policy. The <a href="/blog/uav-supplier-evaluation-checklist/">supplier evaluation checklist</a> formalizes this as a scoring line item, because battery handling is the most common single cause of UAV shipment holds.</p>
+        <p><strong>Does the supplier document origin and traceability?</strong> COO, component origin declarations, and the IC-level origin data that the de minimis analysis needs. The <a href="/blog/uav-component-obsolescence-management/">obsolescence management guide</a> covers the parallel requirement — the component-level lifecycle data that the same suppliers must maintain — and the two documentation streams (origin and lifecycle) usually come from the same quality system.</p>
+        <p><strong>Does the supplier's quality system produce the certificate set?</strong> COC, test reports and batch traceability documents that customs and the buyer's own compliance program both require. The four-step QC chain (IQC to OQC) and the 100% functional pre-test on flight controllers, ESCs and radios are the internal processes that make those certificates truthful.</p>
+        <p>The framing matters: export readiness is not a favor the supplier does for the buyer. It is a deliverable, priced into the component, and it should appear as a line item in the RFQ so that the buyer is not paying for a customs delay later.</p>
+
+        <h2>The RFQ checklist: 10 line items for export-ready procurement</h2>
+        <p>The following line items turn the export path into an RFQ requirement. They apply to any consignment of UAV components crossing a border, and each item names the evidence the supplier should provide with the quotation.</p>
+        <p><strong>1. Export control classification per line item.</strong> The supplier states the ECCN or USML category (or a documented NLR basis) for every controlled component. Verification: written classification statement per SKU.</p>
+        <p><strong>2. Component origin declaration.</strong> Country of origin per line item, including the origin of controlled ICs where relevant. Verification: origin declaration matching the BOM.</p>
+        <p><strong>3. HS code per line item.</strong> The supplier's proposed HS classification and the basis for it. Verification: code confirmed by the buyer's customs broker for the destination.</p>
+        <p><strong>4. Battery documentation.</strong> UN number, Wh rating, UN 38.3 test summary, SOC at shipment, and the DG packaging type for every battery in the consignment. Verification: test summary and DG declaration included with the quotation.</p>
+        <p><strong>5. Documentation set.</strong> The supplier confirms which of the nine export documents they provide and at what lead time. Verification: document checklist attached to the order confirmation.</p>
+        <p><strong>6. Incoterm and DG booking.</strong> The quoted Incoterm and the supplier's DG-capable freight arrangement. Verification: the freight quote references the DG classification.</p>
+        <p><strong>7. Certificate of conformity.</strong> CE, FCC, RoHS and any destination-specific certificates travel with the consignment. Verification: certificate copies in the shipment pack.</p>
+        <p><strong>8. Export license support.</strong> For controlled items: the supplier's policy on license applications, exemption statements and end-use documentation. Verification: written export policy from the supplier.</p>
+        <p><strong>9. Lead time including documentation.</strong> The quoted lead time explicitly includes export documentation and DG booking time — not just manufacturing. Verification: delivery date with documentation milestone.</p>
+        <p><strong>10. Traceability and audit trail.</strong> The supplier maintains the classification, origin and test records for a stated retention period. Verification: records policy and a sample record.</p>
+        <p>The export path connects to the rest of the procurement stack: the <a href="/blog/uav-component-build-vs-buy/">build vs buy analysis</a> decides which items you source at all, the <a href="/blog/uav-supplier-evaluation-checklist/">supplier evaluation checklist</a> scores the vendors who ship them, and the <a href="/blog/uav-supply-chain-layers/">supply chain layers guide</a> shows where each layer's documentation originates. Specify the export path once, in the RFQ, and the border becomes a formality instead of a risk.</p>
+
+        <p style="margin-top:42px"><a class="btn btn-primary" href="/customization/">Explore custom engineering</a> <a class="btn btn-outline" href="/blog/" style="margin-left:12px">Back to Blog</a></p>
+
+        <section class="continue-reading">
+          <h3>Continue Reading</h3>
+          <div class="continue-grid">
+            <a class="continue-card" href="/blog/uav-certification-compliance-guide/">
+              <div class="continue-card-img"><img src="/generated/blog-cover-certification.webp" alt="Certification and Compliance" loading="lazy"></div>
+              <div class="continue-card-body"><h4>UAV Component Certification &amp; Compliance</h4><p>The CE, FCC, RoHS and NDAA evidence stack that sits beside the export documentation set.</p></div>
+            </a>
+            <a class="continue-card" href="/blog/uav-supplier-evaluation-checklist/">
+              <div class="continue-card-img"><img src="/generated/blog-cover-supplier-checklist.webp" alt="Supplier Evaluation Checklist" loading="lazy"></div>
+              <div class="continue-card-body"><h4>How to Evaluate a UAV Component Supplier</h4><p>The scoring framework that includes export readiness as a supplier qualification line item.</p></div>
+            </a>
+            <a class="continue-card" href="/blog/uav-defense-security-components/">
+              <div class="continue-card-img"><img src="/generated/blog-cover-defense.webp" alt="Defense and Security Components" loading="lazy"></div>
+              <div class="continue-card-body"><h4>UAV Defense &amp; Security Components</h4><p>The hardware features — encryption, anti-jam — that push a component across the export control boundary.</p></div>
+            </a>
+            <a class="continue-card" href="/blog/uav-component-obsolescence-management/">
+              <div class="continue-card-img"><img src="/generated/blog-cover-obsolescence.webp" alt="Component Obsolescence Management" loading="lazy"></div>
+              <div class="continue-card-body"><h4>UAV Component Obsolescence Management</h4><p>The lifecycle data stream that runs parallel to origin and classification documentation.</p></div>
+            </a>
+            <a class="continue-card" href="/blog/uav-supply-chain-layers/">
+              <div class="continue-card-img"><img src="/generated/blog-cover-supply.webp" alt="UAV Supply Chain Layers" loading="lazy"></div>
+              <div class="continue-card-body"><h4>How UAV Supply-Chain Layers Connect</h4><p>Where each layer's components and documentation originate in a typical international build.</p></div>
+            </a>
+          </div>
+        </section>
+      </div>
+      </div>
+    </article>
+
+    <section class="section section-alt" style="--cta-bg:url(/generated/blog-cta-export-logistics.webp)">
+      <div class="container">
+        <div class="spec-panel reveal">
+          <div class="spec-panel-inner">
+            <div>
+              <span class="eyebrow">Export-Ready Component Sourcing</span>
+              <h2>Tell us your destination country and mission profile — we will provide the classification, documentation and DG-compliant shipping path for your build.</h2>
+              <p>Share your export program — the component list, the destination market and the operating context — we will confirm the control status of every item, supply the documentation set and quote DG-compliant freight. Every consignment ships with its classification statement, battery test summary and traceability records.</p>
+            </div>
+            <div class="spec-actions">
+              <button class="btn btn-primary" type="button" data-open-inquiry>Start Your Build <svg aria-hidden="true"><use href="#icon-arrow"/></svg></button>
+              <button class="btn btn-outline" data-open-inquiry>Open RFQ Brief</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="brand" href="/" aria-label="EMS Drone home"><span class="brand-mark"><svg aria-hidden="true"><use href="#icon-drone"/></svg></span><span>EMS Drone</span></a>
+          <p>Configurable UAV components, complete systems and engineering support.</p>
+        </div>
+        <div class="footer-col"><h3>System</h3><a href="/capabilities/">Capabilities</a><a href="/customization/">Customization</a><a href="/testing/">Testing</a></div>
+        <div class="footer-col"><h3>Context</h3><a href="/industries/">Industries</a><a href="/about/">About</a><a href="/blog/">Blog</a></div>
+        <div class="footer-col"><h3>More reading</h3><a href="/blog/drone-powertrain-matching/">Powertrain guide</a><a href="/blog/uav-rf-communication-systems/">RF systems</a><a href="/contact/">RFQ Brief</a></div>
+      </div>
+      <div class="footer-bottom"><span>&copy; 2026 EMS Drone</span><span>Define &rarr; Integrate &rarr; Deploy</span></div>
+    </div>
+  </footer>
+  <div class="modal-overlay" id="inquiryModal" aria-hidden="true">
+    <div class="modal-dialog" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <button class="modal-close" type="button" aria-label="Close inquiry">&times;</button>
+      <div class="modal-aside">
+        <span class="tech-label">Engineering Intake</span>
+        <div><h3 id="modalTitle">Start with your mission.</h3><p>Tell us what you are building and where you need support: component sourcing, a matched stack or a complete UAV.</p></div>
+      </div>
+      <form class="modal-form" data-preview-form>
+        <div class="field"><label for="modal-name">Name</label><input id="modal-name" name="name" autocomplete="name" required></div>
+        <div class="field" style="margin-top:18px"><label for="modal-email">Email</label><input id="modal-email" name="email" type="email" autocomplete="email" required></div>
+        <div class="field" style="margin-top:18px"><label for="modal-message">Project brief</label><textarea id="modal-message" name="message" required placeholder="Aircraft type, payload, environment, component list or complete-system goal"></textarea></div>
+        <button class="btn btn-primary" type="submit">Submit Engineering Brief</button>
+        <div class="form-status" role="status" aria-live="polite" aria-atomic="true"></div>
+      </form>
+    </div>
+  </div>
+<script src="/site.js?v=9"></script>
+  <script src="/reveal.js?v=9"></script>
+</body>
+</html>

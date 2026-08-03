@@ -49,7 +49,10 @@ new_ld = {
 }
 new_ld_json = json.dumps(new_ld, indent=2, ensure_ascii=False)
 
-pages = ["index.html", "blog-page-2.html", "blog-page-3.html", "blog-page-4.html", "blog-page-5.html"]
+pages = ["index.html"] + sorted(
+    f for f in os.listdir(blog_dir)
+    if f.startswith("blog-page-") and f.endswith(".html")
+)
 for pg in pages:
     path = os.path.join(blog_dir, pg)
     content = open(path).read()

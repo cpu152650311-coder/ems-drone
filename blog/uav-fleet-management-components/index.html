@@ -1,0 +1,280 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>UAV Fleet Management Components: Telemetry, Tracking and Maintenance for Multi-Aircraft Operations | EMS Drone</title>
+  <meta name="description" content="A component-level guide to operating a fleet of UAVs — onboard telemetry and cellular IoT modules, battery serialization and cycle-count tracking, health monitoring and vibration sensing, automated maintenance logging, charging infrastructure, spares management, fleet software integration, and an 11-line-item RFQ checklist for fleet-ready aircraft hardware.">
+  <link rel="canonical" href="https://ems-drone.com/blog/uav-fleet-management-components/">
+  <meta property="og:title" content="UAV Fleet Management Components: Telemetry, Tracking and Maintenance for Multi-Aircraft Operations">
+  <meta property="og:description" content="How to specify and procure the hardware behind a multi-aircraft operation — fleet telemetry modules, battery lifecycle tracking, health monitoring sensors, charging infrastructure and the RFQ checklist for fleet-ready UAVs.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://ems-drone.com/blog/uav-fleet-management-components/">
+  <meta property="og:image" content="https://ems-drone.com/generated/og-cover.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <link rel="icon" type="image/x-icon" href="/generated/favicon.ico">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="apple-touch-icon" sizes="180x180" href="/generated/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/generated/icon-192.png">
+<link rel="icon" type="image/png" sizes="512x512" href="/generated/icon-512.png">
+  <link rel="stylesheet" href="/design-tokens.css?v=21">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "UAV Fleet Management Components: Telemetry, Tracking and Maintenance for Multi-Aircraft Operations",
+  "description": "A component-level guide to operating a fleet of UAVs — onboard telemetry and cellular IoT modules, battery serialization and cycle-count tracking, health monitoring and vibration sensing, automated maintenance logging, charging infrastructure, spares management, fleet software integration, and an 11-line-item RFQ checklist for fleet-ready aircraft hardware.",
+  "image": "https://ems-drone.com/generated/blog-cover-fleet-management.webp",
+  "author": {
+    "@type": "Organization",
+    "name": "EMS Drone"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "EMS Drone",
+    "url": "https://ems-drone.com/",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://ems-drone.com/favicon.svg"
+    }
+  },
+  "mainEntityOfPage": "https://ems-drone.com/blog/uav-fleet-management-components/",
+  "datePublished": "2026-08-03",
+  "dateModified": "2026-08-03"
+}
+</script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <svg aria-hidden="true" style="position:absolute;width:0;height:0;overflow:hidden">
+    <symbol id="icon-drone" viewBox="0 0 24 24" fill="none" stroke="#b8f34a" stroke-width="1.5"><circle cx="12" cy="12" r="2.6"/><path d="m10.2 10.2-4-4m7.6 4 4-4m-7.6 7.6-4 4m7.6-4 4 4"/><circle cx="4.7" cy="4.7" r="2.2"/><circle cx="19.3" cy="4.7" r="2.2"/><circle cx="4.7" cy="19.3" r="2.2"/><circle cx="19.3" cy="19.3" r="2.2"/></symbol>
+    <symbol id="icon-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12h14m-5-5 5 5-5 5"/></symbol>
+  </svg>
+
+  <header class="site-header">
+    <div class="nav-shell">
+      <a class="brand" href="/" aria-label="EMS Drone home"><span class="brand-mark"><svg aria-hidden="true"><use href="#icon-drone"/></svg></span><span>EMS Drone</span></a>
+      <button class="nav-toggle" type="button" aria-label="Open navigation" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+                                        <nav class="site-nav" aria-label="Primary navigation"><a href="/">Home</a>
+        <div class="nav-dropdown">
+          <a href="/capabilities/" class="nav-parent">Capabilities</a>
+          <div class="nav-submenu">
+            <a href="/capabilities/flight-control/">Flight Controllers</a>
+            <a href="/capabilities/esc-power/">ESC &amp; Power Systems</a>
+            <a href="/capabilities/propulsion/">Propulsion</a>
+            <a href="/capabilities/airframe/">Airframes &amp; Structures</a>
+            <a href="/capabilities/communications/">Communications &amp; RF</a>
+            <a href="/capabilities/payload/">Payloads &amp; Gimbals</a>
+          </div>
+        </div>
+        <div class="nav-dropdown">
+          <a href="/customization/" class="nav-parent">Services</a>
+          <div class="nav-submenu">
+            <a href="/customization/">Custom Engineering</a>
+            <a href="/testing/">Testing &amp; Validation</a>
+          </div>
+        </div>
+        <div class="nav-dropdown">
+          <a href="/industries/" class="nav-parent">Industries</a>
+          <div class="nav-submenu">
+            <a href="/industries/inspection/">Industrial Inspection</a>
+            <a href="/industries/mapping-survey/">Mapping &amp; Survey</a>
+            <a href="/industries/logistics/">Logistics &amp; Delivery</a>
+            <a href="/industries/agriculture/">Precision Agriculture</a>
+            <a href="/industries/research/">Research &amp; Development</a>
+          </div>
+        </div>
+        <div class="nav-dropdown">
+          <a href="/resources/" class="nav-parent">Resources</a>
+          <div class="nav-submenu">
+            <a href="/design-guides/">Design Guides</a>
+            <a href="/projects/">Engineering Projects</a>
+            <a href="/how-it-works/">How We Work</a>
+            <a href="/faq/">FAQ</a>
+            <a href="/blog/" aria-current="page">Blog</a>
+          </div>
+        </div>
+        <div class="nav-dropdown">
+          <a href="/about/" class="nav-parent">Company</a>
+          <div class="nav-submenu">
+            <a href="/about/">About</a>
+            <a href="/factory/">Factory</a>
+            <a href="/quality/">Quality</a>
+            <a href="/shipping/">Shipping</a>
+            <a href="/contact/">Contact</a>
+          </div>
+        </div>
+        <button class="btn btn-primary" data-open-inquiry>Start Your Build</button>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <header class="article-hero">
+      <div class="container reveal">
+        <span class="eyebrow"><a href="/blog/" style="color:inherit;text-decoration:none">Blog</a> · Operations</span>
+        <h1>UAV fleet management components: telemetry, tracking and maintenance infrastructure for multi-aircraft operations</h1>
+        <p style="color:var(--muted-dark);max-width:640px">The difference between flying five drones and operating a fleet of fifty is not the aircraft — it is the information that comes off each aircraft when it is not being flown. A fleet operation needs to know where every airframe is, how many charge cycles every battery has consumed, which ESC is starting to run hot, and which airframe is due for a 100-hour inspection. That information is produced by components: telemetry modules that report outside the radio link's range, sensors that log health data the pilot never sees, battery management hardware that counts cycles, and ground infrastructure that turns shop-floor data into maintenance decisions. This article is a procurement guide to the fleet management stack — the onboard telemetry layer, the battery lifecycle tracking system, the health monitoring sensors, the charging and storage infrastructure, and the RFQ line items that make an aircraft fleet-ready.</p>
+        <div class="article-cover">
+          <img src="/generated/blog-cover-fleet-management.webp" alt="UAV fleet operations — several multirotor drones lined up on a landing pad at dusk with a ground control station and charging racks in the background, green and blue accent lighting, dark cinematic mood, professional photography, no people faces, no text, no logos" loading="lazy">
+        </div>
+      </div>
+    </header>
+
+    <article class="article-body">
+      <div class="container reveal">
+        <p>Fleet management is the operational layer between the aircraft and the maintenance program. The single-aircraft stack covered in the <a href="/blog/uav-ground-control-station-hardware/">ground control station hardware guide</a> ends when the pilot lands; the fleet stack begins when the airframe is back on the ground and the next mission needs to know its state. The components that produce that state fall into five groups, and each group maps to a specific procurement decision.</p>
+
+        <h2>The fleet telemetry layer: reporting beyond the radio link</h2>
+        <p>The single-aircraft telemetry link closes when the aircraft lands or leaves range. A fleet operation needs a second, independent reporting path that works on the ground, in the hangar and across the city — and that path is usually a cellular or satellite IoT module rather than the control link. The <a href="/blog/uav-rf-communication-systems/">UAV RF communication systems guide</a> covers the mission link; the fleet telemetry module is a separate radio with different economics: it transmits short status messages — position, battery state, flight hours, health flags — at intervals measured in seconds or minutes, over a network that is already deployed.</p>
+        <p><strong>The cellular IoT option.</strong> A 4G/LTE Cat-M or NB-IoT module reports from anywhere with coverage. Cat-M (LTE-M) is the practical choice for UAV fleet telemetry: it supports mobility and voice-grade latency, works while the aircraft is moving, and its power draw is compatible with a small backup cell or the main battery bus. NB-IoT is cheaper and lower-power but not designed for moving nodes — it suits fixed assets like charging stations more than airframes. The spec numbers: a Cat-M module at a 5-minute report interval consumes roughly 10–30 mAh per day in normal operation, which a dedicated 500 mAh backup cell supports for weeks.</p>
+        <p><strong>The satellite option.</strong> For fleets operating beyond cellular coverage — long-range inspection programs, offshore logistics, agricultural operations in remote regions — a satellite IoT transceiver (Iridium-style short-burst or L-band) reports position and health from anywhere. The economics are per-message: a short-burst satellite report costs more per byte than cellular by orders of magnitude, so the fleet spec should define the report budget: which events are worth a satellite message (lost cellular contact, emergency beacon, mission-complete confirmation) and which wait for the next cellular window.</p>
+        <p><strong>Integration into the aircraft.</strong> The fleet module needs a power input, an antenna with a clear sky view, and a data interface to the flight controller or companion computer. The integration decision belongs in the <a href="/blog/uav-edge-ai-onboard-computing/">edge AI and onboard computing guide</a>'s architecture conversation: the companion computer can pre-process the status messages before transmission, so the fleet module reports derived health state rather than raw logs. The <a href="/blog/uav-connectors-wiring-power-distribution/">connectors and wiring guide</a> covers the physical layer — a fleet module is one more antenna and one more power tap, and its wiring discipline is the same as the mission radio's.</p>
+
+        <div class="media-visual reveal" style="max-width:640px;margin:32px auto">
+          <img src="/generated/blog-inline-fleet-management-telemetry.webp" alt="Cellular IoT fleet telemetry module for UAVs — compact PCB with a 4G LTE modem chip, SIM socket, SMA antenna connector and green status LED, mounted beside a flight controller on a dark bench, macro photography, precision electronics aesthetic, no people faces, no text, no logos" loading="lazy">
+          <span class="concept-badge">Concept illustration</span>
+        </div>
+
+        <h2>Battery lifecycle tracking: the fleet's most expensive consumable</h2>
+        <p>In a multi-aircraft operation, batteries are simultaneously the most expensive consumable and the component with the clearest failure curve. The <a href="/blog/uav-battery-power-management/">UAV battery and power management guide</a> covers the chemistry selection; the fleet layer adds the tracking infrastructure that turns a pile of identical packs into a managed inventory with known state. Three mechanisms do the work:</p>
+        <p><strong>Serialization.</strong> Every pack gets a unique identity — a printed label, an RFID tag, or an electronic ID in the battery's management system. The identity is the key to every other tracking mechanism: without it, a flight log cannot be attributed to a physical pack.</p>
+        <p><strong>Cycle counting.</strong> The pack's charge/discharge cycles are recorded — by the charger, by a battery management system (BMS) in the pack, or by the fleet software reading the pack's telemetry. The procurement-relevant spec is the cycle budget: a typical 6S LiPo pack in fleet service is retired at 200–400 cycles depending on discharge depth, and a Li-Ion pack at 400–800, numbers the <a href="/blog/uav-battery-power-management/">power management guide</a> explains in depth. The fleet system should flag packs approaching the budget before a flight, not after a failure.</p>
+        <p><strong>State-of-health estimation.</strong> Beyond cycle count, the useful signal is internal resistance growth and capacity fade, which the charger or BMS can measure. A pack whose internal resistance has risen 30% delivers less peak current — visible as voltage sag under load — and should be downgraded to low-current missions or retired. The fleet spec should name the measurement: internal resistance at a defined SOC, capacity at a defined discharge rate, or both.</p>
+        <p>The ground infrastructure that supports battery tracking is covered in the charging section below; the procurement point is that battery lifecycle hardware — serialization, BMS with telemetry, charger with logging — must be specified as part of the aircraft order, because retrofitting cycle tracking onto packs after delivery is far more expensive than specifying it at the RFQ stage.</p>
+
+        <h2>Health monitoring: the sensors that log what the pilot does not see</h2>
+        <p>Fleet maintenance decisions are only as good as the data behind them. The health monitoring layer adds sensors and logging that capture the aircraft's condition across its life, independent of any single flight's telemetry:</p>
+        <p><strong>Vibration sensing.</strong> An accelerometer on the airframe or the motor mounts logs vibration spectra per flight. The diagnostic value is specific: a bearing degrading on motor 3 produces a characteristic vibration signature — rising amplitude at the motor's rotation frequency and its harmonics — long before it fails visibly. The fleet system's job is to compare each flight's vibration profile to the airframe's baseline and flag deviations. The procurement spec is the sensor's bandwidth (a 1–10 kHz accelerometer captures motor-order vibrations on most multirotors) and the logging rate.</p>
+        <p><strong>Temperature logging.</strong> The <a href="/blog/uav-thermal-management-electronics/">thermal management guide</a> explains why ESC and motor temperatures are the primary health signal for propulsion; the fleet layer records them per flight and trends them across flights. An ESC whose peak temperature climbs 10°C over 50 flights — at constant load — is telling the maintenance program something a single flight log cannot.</p>
+        <p><strong>Flight-hours and cycle counters.</strong> The flight controller or companion computer maintains the airframe's flight-hour total and the per-component cycle counts (motor starts, gimbal movements, payload actuations). These numbers drive the inspection schedule: an airframe at 100 flight hours, or a propulsion group at 500 motor starts, enters a defined inspection checklist. The <a href="/blog/uav-sensor-fusion-redundant-navigation/">sensor fusion and redundant navigation guide</a> covers the IMU and navigation sensor layer that most health logging reuses — the same accelerometers that feed the flight controller also feed the fleet's vibration analysis, if the data path is specified.</p>
+        <p>The health data has a home: the fleet software platform that aggregates logs, computes baselines and generates maintenance work orders. The <a href="/blog/uav-edge-ai-onboard-computing/">edge AI guide</a> covers the onboard compute that pre-processes this data; the fleet platform is its ground counterpart, and the interface between them — the log format, the report interval, the alert thresholds — should be specified at procurement time, not improvised after the first 1,000 flight hours.</p>
+
+        <div class="media-visual reveal" style="max-width:640px;margin:32px auto">
+          <img src="/generated/blog-inline-fleet-management-health.webp" alt="UAV health monitoring sensor stack — small accelerometer and temperature sensor modules on a carbon fiber motor arm, thin sensor wires routed along the arm, dark engineering bench, green LED indicators, macro photography, precision electronics aesthetic, no people faces, no text, no logos" loading="lazy">
+          <span class="concept-badge">Concept illustration</span>
+        </div>
+
+        <h2>Charging and storage infrastructure: the ground side of the fleet</h2>
+        <p>A fleet operation is a ground operation: aircraft spend most of their life on the ground, and the ground infrastructure determines how many missions per day the fleet can fly. The <a href="/blog/uav-logistics-delivery-components/">logistics and delivery components guide</a> covers the mission-level ground stack; the fleet layer adds three infrastructure components:</p>
+        <p><strong>Parallel charging racks.</strong> A battery rotation system — one pack flying, one cooling, one charging — keeps the fleet flying continuously. The rack's spec is the charge current per channel (a 6S 12,000 mAh pack charges at 1C in roughly 60 minutes; the rack's throughput, not the aircraft count, sets the fleet's mission rate), the balance accuracy, and the logging interface that feeds the cycle-counting system.</p>
+        <p><strong>Storage and containment.</strong> Batteries in storage, transport and charging need fire-containment and a defined storage SOC (typically 40–60% for long-term LiPo storage). The containment hardware is a procurement line item for fleet operations — a charging rack with per-channel temperature monitoring and a fire-containment enclosure is the difference between a battery event and a hangar fire. The <a href="/blog/uav-safety-redundancy-systems/">safety and redundancy systems guide</a> covers the aircraft-side failure protections; the ground side deserves the same rigor.</p>
+        <p><strong>Ground power and connectivity.</strong> The charging infrastructure needs power distribution sized for the fleet (a 10-aircraft fleet with 6S packs charging simultaneously draws several kilowatts) and network connectivity so chargers report cycle data to the fleet platform. The wiring and connector discipline from the <a href="/blog/uav-connectors-wiring-power-distribution/">connectors and power distribution guide</a> applies on the ground side as much as in the air — ground infrastructure is where intermittent connections cause the fleet data gaps that defeat the entire tracking system.</p>
+
+        <div class="media-visual reveal" style="max-width:640px;margin:32px auto">
+          <img src="/generated/blog-inline-fleet-management-charging.webp" alt="UAV battery charging infrastructure — rows of LiPo battery packs in a parallel charging rack with status LEDs and temperature sensors, fire-containment enclosure, dark workshop environment with green accent lighting, professional photography, no people faces, no text, no logos" loading="lazy">
+          <span class="concept-badge">Concept illustration</span>
+        </div>
+
+        <h2>Spares management and the obsolescence loop</h2>
+        <p>A fleet makes the spares question quantitative: with N airframes flying M hours per week, the consumption rate of consumables — propellers, batteries, motors, connectors — is a forecastable number, and the inventory follows. The spares calculation belongs in the fleet procurement spec: the <a href="/blog/uav-component-obsolescence-management/">obsolescence management guide</a> covers the lifecycle side (which components go EOL and when); the fleet layer adds the stock-level side (how many spares to hold for a given fleet size and utilization).</p>
+        <p>The connection is direct: a fleet of twenty airframes flying the same motor has a known motor-failure distribution, and the fleet platform's maintenance logs produce the empirical failure rate that refines the spares forecast. A fleet program that procures its initial spares package from the supplier's data — not from a guess — starts with the right inventory. The same fleet data feeds the procurement loop for the next aircraft order: airframe utilization, payload wear and the component failure history become the input to the <a href="/blog/uav-supplier-evaluation-checklist/">supplier evaluation checklist</a> and the <a href="/blog/uav-component-build-vs-buy/">build vs buy decision</a> for the fleet's next generation.</p>
+
+        <h2>Fleet software integration: where the components report</h2>
+        <p>Every component described above produces data; the fleet software platform consumes it. The procurement-relevant question is not which platform to buy — it is which data interfaces the aircraft hardware must expose for any platform to consume:</p>
+        <p><strong>The telemetry interface.</strong> The flight controller and the fleet module must expose position, battery state and health flags in a documented format — MAVLink telemetry, a JSON REST feed from the companion computer, or a vendor API. The <a href="/blog/uav-communication-protocols-guide/">communication protocols guide</a> covers the onboard buses (CAN, DShot, SBUS, CRSF) that carry the raw data; the fleet platform consumes it one layer up.</p>
+        <p><strong>The maintenance interface.</strong> The aircraft's log storage — the vibration spectra, the temperature histories, the cycle counters — must be exportable in a documented format with timestamps the platform can reconcile against flight logs.</p>
+        <p><strong>The identity interface.</strong> The fleet module and the battery BMS must report serialized identities that the platform can attribute data to. An aircraft whose telemetry is not attributable to a serial number is invisible to the fleet system.</p>
+        <p>The specification discipline is the same one the <a href="/blog/uav-ground-control-station-hardware/">ground control station guide</a> applies to mission hardware: the data interfaces are contract items, not implementation details. A fleet aircraft whose hardware exposes clean, documented interfaces integrates with any fleet platform; one whose data is locked in a vendor format integrates with none.</p>
+
+        <h2>The RFQ checklist: 11 line items for fleet-ready aircraft</h2>
+        <p>The following line items make a fleet aircraft orderable. They apply to the aircraft hardware itself, and each item names the evidence the supplier should provide.</p>
+        <p><strong>1. Fleet telemetry module.</strong> The aircraft includes a cellular IoT or satellite reporting path independent of the mission link, with the report interval and message content specified. Verification: module datasheet and integration drawing.</p>
+        <p><strong>2. Telemetry data interface.</strong> Position, battery state and health flags are exposed in a documented format (MAVLink, REST or vendor API) with the update rate stated. Verification: interface documentation and a sample telemetry payload.</p>
+        <p><strong>3. Battery serialization.</strong> Every pack carries a unique identity readable by the fleet system. Verification: serialization label or electronic ID implementation.</p>
+        <p><strong>4. Battery state-of-health reporting.</strong> The pack or charger reports cycle count, internal resistance and capacity, with the measurement method documented. Verification: sample SOH report from a delivered pack.</p>
+        <p><strong>5. Health monitoring sensors.</strong> The aircraft carries vibration and temperature logging on the propulsion group, with the sensor bandwidth and logging rate stated. Verification: sensor spec and a sample flight log.</p>
+        <p><strong>6. Flight-hours and cycle counters.</strong> The airframe maintains flight-hour and component-cycle totals accessible to the fleet platform. Verification: counter access method and reset policy.</p>
+        <p><strong>7. Charging interface.</strong> The packs charge on the fleet's parallel rack with the charge profile, connector and balance interface documented. Verification: charge connector spec and profile data.</p>
+        <p><strong>8. Ground infrastructure fit.</strong> The aircraft's storage and transport configuration is compatible with the fleet's containment and racking hardware. Verification: dimensional drawings and storage SOC guidance.</p>
+        <p><strong>9. Spares consumption data.</strong> The supplier provides initial consumption-rate estimates for consumables (propellers, motors, batteries) based on fleet-scale utilization. Verification: consumption data sheet with confidence basis.</p>
+        <p><strong>10. Maintenance documentation.</strong> Inspection intervals, service procedures and the log-review workflow are documented for fleet maintenance staff. Verification: maintenance manual and inspection checklist.</p>
+        <p><strong>11. Traceability.</strong> Each airframe's logs, telemetry and maintenance records remain attributable to its serial number for the platform's retention period. Verification: traceability policy and record sample.</p>
+        <p>The fleet stack connects to the rest of the procurement picture: the <a href="/blog/uav-battery-power-management/">battery and power management guide</a> for the packs, the <a href="/blog/uav-ground-control-station-hardware/">ground control station guide</a> for the mission ground layer, and the <a href="/blog/uav-component-obsolescence-management/">obsolescence management guide</a> for the lifecycle loop that keeps a fleet flying past its first year.</p>
+
+        <p style="margin-top:42px"><a class="btn btn-primary" href="/customization/">Explore custom engineering</a> <a class="btn btn-outline" href="/blog/" style="margin-left:12px">Back to Blog</a></p>
+
+        <section class="continue-reading">
+          <h3>Continue Reading</h3>
+          <div class="continue-grid">
+            <a class="continue-card" href="/blog/uav-battery-power-management/">
+              <div class="continue-card-img"><img src="/generated/blog-cover-battery.webp" alt="Battery and Power Management" loading="lazy"></div>
+              <div class="continue-card-body"><h4>UAV Battery and Power Management</h4><p>The chemistry and pack-design layer behind the fleet's most expensive consumable.</p></div>
+            </a>
+            <a class="continue-card" href="/blog/uav-ground-control-station-hardware/">
+              <div class="continue-card-img"><img src="/generated/blog-cover-gcs-hardware.webp" alt="Ground Control Station Hardware" loading="lazy"></div>
+              <div class="continue-card-body"><h4>UAV Ground Control Station Hardware</h4><p>The mission ground stack that the fleet layer extends with tracking and maintenance infrastructure.</p></div>
+            </a>
+            <a class="continue-card" href="/blog/uav-edge-ai-onboard-computing/">
+              <div class="continue-card-img"><img src="/generated/blog-cover-edge-ai.webp" alt="Edge AI and Onboard Computing" loading="lazy"></div>
+              <div class="continue-card-body"><h4>UAV Edge AI &amp; Onboard Computing</h4><p>The companion computers that pre-process fleet telemetry and health data before transmission.</p></div>
+            </a>
+            <a class="continue-card" href="/blog/uav-thermal-management-electronics/">
+              <div class="continue-card-img"><img src="/generated/blog-cover-thermal-management.webp" alt="Thermal Management for UAV Electronics" loading="lazy"></div>
+              <div class="continue-card-body"><h4>Thermal Management for UAV Electronics</h4><p>The temperature data that powers propulsion health trending across a fleet.</p></div>
+            </a>
+            <a class="continue-card" href="/blog/uav-component-obsolescence-management/">
+              <div class="continue-card-img"><img src="/generated/blog-cover-obsolescence.webp" alt="Component Obsolescence Management" loading="lazy"></div>
+              <div class="continue-card-body"><h4>UAV Component Obsolescence Management</h4><p>The lifecycle loop that keeps a fleet's spares and BOM flying past year one.</p></div>
+            </a>
+          </div>
+        </section>
+      </div>
+      </div>
+    </article>
+
+    <section class="section section-alt" style="--cta-bg:url(/generated/blog-cta-fleet-management.webp)">
+      <div class="container">
+        <div class="spec-panel reveal">
+          <div class="spec-panel-inner">
+            <div>
+              <span class="eyebrow">Fleet-Ready Aircraft Configuration</span>
+              <h2>Tell us your fleet size and mission tempo — we will specify the telemetry, battery tracking and health monitoring hardware that keeps every airframe accountable.</h2>
+              <p>Share your fleet program — the aircraft count, the daily sortie rate and the operating area — we will configure the fleet telemetry layer, the battery lifecycle tracking, the health monitoring sensors and the charging infrastructure for your operation. Every fleet aircraft ships with its data interfaces documented and its traceability records in place.</p>
+            </div>
+            <div class="spec-actions">
+              <button class="btn btn-primary" type="button" data-open-inquiry>Start Your Build <svg aria-hidden="true"><use href="#icon-arrow"/></svg></button>
+              <button class="btn btn-outline" data-open-inquiry>Open RFQ Brief</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="brand" href="/" aria-label="EMS Drone home"><span class="brand-mark"><svg aria-hidden="true"><use href="#icon-drone"/></svg></span><span>EMS Drone</span></a>
+          <p>Configurable UAV components, complete systems and engineering support.</p>
+        </div>
+        <div class="footer-col"><h3>System</h3><a href="/capabilities/">Capabilities</a><a href="/customization/">Customization</a><a href="/testing/">Testing</a></div>
+        <div class="footer-col"><h3>Context</h3><a href="/industries/">Industries</a><a href="/about/">About</a><a href="/blog/">Blog</a></div>
+        <div class="footer-col"><h3>More reading</h3><a href="/blog/drone-powertrain-matching/">Powertrain guide</a><a href="/blog/uav-rf-communication-systems/">RF systems</a><a href="/contact/">RFQ Brief</a></div>
+      </div>
+      <div class="footer-bottom"><span>&copy; 2026 EMS Drone</span><span>Define &rarr; Integrate &rarr; Deploy</span></div>
+    </div>
+  </footer>
+  <div class="modal-overlay" id="inquiryModal" aria-hidden="true">
+    <div class="modal-dialog" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <button class="modal-close" type="button" aria-label="Close inquiry">&times;</button>
+      <div class="modal-aside">
+        <span class="tech-label">Engineering Intake</span>
+        <div><h3 id="modalTitle">Start with your mission.</h3><p>Tell us what you are building and where you need support: component sourcing, a matched stack or a complete UAV.</p></div>
+      </div>
+      <form class="modal-form" data-preview-form>
+        <div class="field"><label for="modal-name">Name</label><input id="modal-name" name="name" autocomplete="name" required></div>
+        <div class="field" style="margin-top:18px"><label for="modal-email">Email</label><input id="modal-email" name="email" type="email" autocomplete="email" required></div>
+        <div class="field" style="margin-top:18px"><label for="modal-message">Project brief</label><textarea id="modal-message" name="message" required placeholder="Aircraft type, payload, environment, component list or complete-system goal"></textarea></div>
+        <button class="btn btn-primary" type="submit">Submit Engineering Brief</button>
+        <div class="form-status" role="status" aria-live="polite" aria-atomic="true"></div>
+      </form>
+    </div>
+  </div>
+<script src="/site.js?v=9"></script>
+  <script src="/reveal.js?v=9"></script>
+</body>
+</html>
