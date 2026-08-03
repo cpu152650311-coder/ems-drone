@@ -1,0 +1,305 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>UAV GNSS Anti-Jamming and Spoofing Protection: Components and Procurement Guide | EMS Drone</title>
+  <meta name="description" content="A procurement engineering guide to GNSS anti-jamming and anti-spoofing for UAVs — jamming vs spoofing threat models, CRPA and anti-jam antennas, RF front-end hardening, RAIM and multi-constellation receivers, IMU-aided navigation fallbacks, jamming detection thresholds, and a 12-line-item RFQ checklist for defense, public safety and BVLOS platforms that must navigate in contested spectrum.">
+  <link rel="canonical" href="https://ems-drone.com/blog/uav-gnss-anti-jamming-spoofing/">
+  <meta property="og:title" content="UAV GNSS Anti-Jamming and Spoofing Protection: Components and Procurement Guide">
+  <meta property="og:description" content="How to specify and procure GNSS anti-jamming and anti-spoofing components for UAVs — the threat models, the antenna and receiver defense layers, the IMU fallback architecture and an RFQ-ready component checklist for operations in contested spectrum.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://ems-drone.com/blog/uav-gnss-anti-jamming-spoofing/">
+  <meta property="og:image" content="https://ems-drone.com/generated/og-cover.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <link rel="icon" type="image/x-icon" href="/generated/favicon.ico">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="apple-touch-icon" sizes="180x180" href="/generated/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/generated/icon-192.png">
+<link rel="icon" type="image/png" sizes="512x512" href="/generated/icon-512.png">
+  <link rel="stylesheet" href="/design-tokens.css?v=21">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "UAV GNSS Anti-Jamming and Spoofing Protection: Components and Procurement Guide",
+  "description": "A procurement engineering guide to GNSS anti-jamming and anti-spoofing for UAVs — jamming vs spoofing threat models, CRPA and anti-jam antennas, RF front-end hardening, RAIM and multi-constellation receivers, IMU-aided navigation fallbacks, jamming detection thresholds, and a 12-line-item RFQ checklist for defense, public safety and BVLOS platforms that must navigate in contested spectrum.",
+  "image": "https://ems-drone.com/generated/blog-cover-gnss-antijam.webp",
+  "author": {
+    "@type": "Organization",
+    "name": "EMS Drone"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "EMS Drone",
+    "url": "https://ems-drone.com/",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://ems-drone.com/favicon.svg"
+    }
+  },
+  "mainEntityOfPage": "https://ems-drone.com/blog/uav-gnss-anti-jamming-spoofing/",
+  "datePublished": "2026-08-03",
+  "dateModified": "2026-08-03"
+}
+</script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <svg aria-hidden="true" style="position:absolute;width:0;height:0;overflow:hidden">
+    <symbol id="icon-drone" viewBox="0 0 24 24" fill="none" stroke="#b8f34a" stroke-width="1.5"><circle cx="12" cy="12" r="2.6"/><path d="m10.2 10.2-4-4m7.6 4 4-4m-7.6 7.6-4 4m7.6-4 4 4"/><circle cx="4.7" cy="4.7" r="2.2"/><circle cx="19.3" cy="19.3" r="2.2"/><circle cx="4.7" cy="19.7" r="2.2"/><circle cx="19.3" cy="19.3" r="2.2"/></symbol>
+    <symbol id="icon-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12h14m-5-5 5 5-5 5"/></symbol>
+  </svg>
+
+  <header class="site-header">
+    <div class="nav-shell">
+      <a class="brand" href="/" aria-label="EMS Drone home"><span class="brand-mark"><svg aria-hidden="true"><use href="#icon-drone"/></svg></span><span>EMS Drone</span></a>
+      <button class="nav-toggle" type="button" aria-label="Open navigation" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+                                        <nav class="site-nav" aria-label="Primary navigation"><a href="/">Home</a>
+        <div class="nav-dropdown">
+          <a href="/capabilities/" class="nav-parent">Capabilities</a>
+          <div class="nav-submenu">
+            <a href="/capabilities/flight-control/">Flight Controllers</a>
+            <a href="/capabilities/esc-power/">ESC &amp; Power Systems</a>
+            <a href="/capabilities/propulsion/">Propulsion</a>
+            <a href="/capabilities/airframe/">Airframes &amp; Structures</a>
+            <a href="/capabilities/communications/">Communications &amp; RF</a>
+            <a href="/capabilities/payload/">Payloads &amp; Gimbals</a>
+          </div>
+        </div>
+        <div class="nav-dropdown">
+          <a href="/customization/" class="nav-parent">Services</a>
+          <div class="nav-submenu">
+            <a href="/customization/">Custom Engineering</a>
+            <a href="/testing/">Testing &amp; Validation</a>
+          </div>
+        </div>
+        <div class="nav-dropdown">
+          <a href="/industries/" class="nav-parent">Industries</a>
+          <div class="nav-submenu">
+            <a href="/industries/inspection/">Industrial Inspection</a>
+            <a href="/industries/mapping-survey/">Mapping &amp; Survey</a>
+            <a href="/industries/logistics/">Logistics &amp; Delivery</a>
+            <a href="/industries/agriculture/">Precision Agriculture</a>
+            <a href="/industries/research/">Research &amp; Development</a>
+          </div>
+        </div>
+        <div class="nav-dropdown">
+          <a href="/resources/" class="nav-parent">Resources</a>
+          <div class="nav-submenu">
+            <a href="/design-guides/">Design Guides</a>
+            <a href="/projects/">Engineering Projects</a>
+            <a href="/how-it-works/">How We Work</a>
+            <a href="/faq/">FAQ</a>
+            <a href="/blog/" aria-current="page">Blog</a>
+          </div>
+        </div>
+        <div class="nav-dropdown">
+          <a href="/about/" class="nav-parent">Company</a>
+          <div class="nav-submenu">
+            <a href="/about/">About</a>
+            <a href="/factory/">Factory</a>
+            <a href="/quality/">Quality</a>
+            <a href="/shipping/">Shipping</a>
+            <a href="/contact/">Contact</a>
+          </div>
+        </div>
+        <button class="btn btn-primary" data-open-inquiry>Start Your Build</button>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <header class="article-hero">
+      <div class="container reveal">
+        <span class="eyebrow"><a href="/blog/" style="color:inherit;text-decoration:none">Blog</a> · Navigation &amp; Payload</span>
+        <h1>UAV GNSS anti-jamming and spoofing protection: components and procurement guide</h1>
+        <p style="color:var(--muted-dark);max-width:640px">A $100 portable jammer can deny GNSS to every receiver within a kilometer; a $500 software-defined radio can make a drone fly to the wrong coordinates while its flight controller reports a perfectly healthy position fix. For UAV operators the question is no longer whether jamming and spoofing will happen, but what the aircraft is built to do when they do. This article is a procurement engineering guide to the GNSS protection stack — the anti-jam antenna, the hardened RF front end, the receiver-internal defenses, the IMU fallback and the detection logic — with the specification numbers and the RFQ line items that separate a platform that degrades gracefully from one that fails silently.</p>
+        <div class="article-cover">
+          <img src="/generated/blog-cover-gnss-antijam.webp" alt="Compact UAV with multi-element GNSS antenna array on a dark engineering workstation — carbon fiber airframe, green LED status indicators, blue-green accent lighting, precision electronics aesthetic, no people faces, no text, no logos" loading="lazy">
+        </div>
+      </div>
+    </header>
+
+    <article class="article-body">
+      <div class="container reveal">
+        <p>Every UAV navigation conversation starts with GNSS and most end with an accuracy number — centimeters with RTK, meters with a standalone receiver. The contested-spectrum conversation starts with a different question: what happens to the aircraft when the GNSS signal is not degraded but deliberately attacked? The attack surface is real and measurable. Portable jammers rated at 10 W can blanket L1 at ranges of hundreds of meters to kilometers, and GPS spoofing demonstrations have steered drone autopilots off course with nothing more than a $500 transmitter. For defense, public safety, UTM-enabled BVLOS and logistics platforms, GNSS resilience is now a written procurement requirement, not a nice-to-have. This guide covers the five defense layers you can actually specify — antenna, front end, receiver, inertial backup and detection — and the procurement evidence that proves a supplier's claims.</p>
+
+        <h2>Jamming vs spoofing: the two threat models and their signatures</h2>
+        <p>The two attacks are often discussed together, but they target different vulnerabilities and require different countermeasures. <strong>Jamming</strong> is a denial-of-service attack: the attacker transmits noise or continuous wave energy on the GNSS bands, raising the noise floor until the receiver can no longer lock the satellite signals. A typical GPS L1 signal arrives at the antenna at roughly −130 dBm; a jammer that lifts the noise floor by 30 dB destroys the carrier-to-noise ratio (C/N0) margin for every receiver in range. Jamming is easy to detect — the C/N0 values collapse across all satellites simultaneously — and the consequence is a loss of position, usually with the aircraft still under manual or inertial control.</p>
+        <p><strong>Spoofing</strong> is a deception attack: the attacker transmits counterfeit satellite signals that the receiver locks onto and tracks as genuine. The receiver then computes a position chosen by the attacker — a few meters offset to push a survey drone off line, or a few kilometers offset to redirect a delivery aircraft. The dangerous part of spoofing is that the receiver reports a healthy fix: C/N0 looks normal, the constellation looks normal, and the navigation output is confidently wrong. Detection requires receiver-internal checks — clock jump monitoring, ephemeris validation, C/N0 anomaly signatures, and cross-checks against inertial and other sensors.</p>
+        <p>The two threats also differ in cost and legality. Jammers are cheap, widely available and banned in most jurisdictions, but enforcement is rare and incidents are common. Spoofing requires more engineering but the hardware is commodity. Both attacks are now regular enough that the <a href="/blog/uav-defense-security-components/">UAV defense and security components guide</a> treats GNSS resilience as part of the baseline contested-spectrum stack, and the <a href="/blog/uav-utm-detect-and-avoid-integration/">UTM and detect-and-avoid integration guide</a> covers how degraded navigation feeds into the BVLOS safety case.</p>
+
+        <div class="media-visual reveal" style="max-width:640px;margin:32px auto">
+          <img src="/generated/blog-inline-gnss-antijam-crpa.webp" alt="Controlled reception pattern antenna for GNSS — circular array of seven patch antenna elements on a dark metal base plate, precision RF hardware on a laboratory bench with green LED indicators, macro photography, no people faces, no text, no logos" loading="lazy">
+          <span class="concept-badge">Concept illustration</span>
+        </div>
+
+        <h2>The antenna layer: CRPA and the difference between gain and pattern control</h2>
+        <p>The first defense is at the antenna, before the RF energy reaches the receiver. A conventional GNSS antenna is a single patch element with a hemispherical gain pattern — it receives the sky and the jammer equally. A <strong>CRPA (controlled reception pattern antenna)</strong> is an array of elements whose outputs are weighted so that the antenna pattern places nulls in the direction of interference sources while maintaining gain toward the satellites. The practical specification numbers that matter in procurement:</p>
+        <p><strong>Number of elements.</strong> A 4-element CRPA can place one to three nulls; a 7-element array (the common defense-grade configuration) handles more simultaneous interferers and produces deeper, more stable nulls. More elements mean more weight, more power and more cost — a 7-element array with its electronics adds roughly 150–400 g and 2–5 W to the aircraft, which is why the element count must be matched to the threat model, not maximized.</p>
+        <p><strong>Null depth and width.</strong> Defense-grade CRPAs typically specify 20–30 dB of null depth with a beamwidth of 20–40 degrees per null. A 25 dB null reduces a jammer's effective power by a factor of 300 at the receiver input — the difference between losing lock and maintaining a degraded fix.</p>
+        <p><strong>Anti-jam gain and the J/N budget.</strong> The antenna system's anti-jam performance is usually quoted as the jamming-to-noise ratio (J/N) at which the receiver still maintains lock, or as the jammer power density the system survives. A useful procurement benchmark: a modern anti-jam antenna plus receiver combination should maintain position across a 60–80 dBJ J/N budget against continuous wave and narrowband jammers, versus roughly 30–40 dBJ for an unprotected receiver with a good front end.</p>
+        <p>The <a href="/blog/uav-gnss-rtk-module-selection/">GNSS module selection guide</a> covers the receiver-side choices — constellation support, multi-band architecture and RTK accuracy — while this article focuses on the resilience layer that sits in front of the receiver. The two specifications must be read together: an RTK-grade receiver behind a poor antenna is still jam-vulnerable, and an anti-jam antenna feeding a single-band receiver leaves the L2/L5 bands unprotected.</p>
+
+        <h2>RF front-end hardening: filtering, LNA saturation and the interference budget</h2>
+        <p>Between the antenna and the receiver's correlators sits the RF front end — the filters, low-noise amplifiers (LNAs), mixers and the ADC that conditions the signal. This is the layer where a cheap design fails first under attack. The failure mode is <strong>desensitization</strong>: a strong in-band jammer saturates the LNA or the ADC, and the receiver's noise figure collapses even if the jammer is later filtered. The procurement-relevant defenses:</p>
+        <p><strong>Out-of-band filtering.</strong> SAW filters and dielectric resonator filters reject the strong out-of-band transmitters that share the RF environment — cellular bands, 2.4 GHz ISM, FM broadcast — before they reach the LNA. The spec is the filter rejection (typically 40–60 dB at 50–100 MHz offset from the GNSS band edge) and the insertion loss in-band (below 2 dB).</p>
+        <p><strong>LNA linearity and headroom.</strong> A hardened front end uses LNAs with high IP3 (third-order intercept) and enough dynamic range to survive moderate jammers without saturation. The measurable outcome is the 1 dB compression point and the ADC headroom — typically 14–20 dB of margin above the expected signal-plus-noise floor, which lets the receiver keep processing through interference that a marginal design would clip.</p>
+        <p><strong>Jamming-to-noise budget in the spec.</strong> The most useful single procurement number is the receiver's stated J/N tolerance: the ratio of jammer power to noise power at the antenna port at which the receiver maintains a defined level of performance (e.g., position accuracy within 10 m, or time-to-first-fix under 60 s). Suppliers who quote this number have designed for it; suppliers who quote only sensitivity have not.</p>
+        <p>Front-end hardening interacts with the rest of the avionics environment — the <a href="/blog/uav-emc-emi-design-compliance/">EMC/EMI design and compliance guide</a> covers how the GNSS front end coexists with the ESC switching noise, the video transmitters and the telemetry radios on the same airframe, which is where most real-world desensitization actually originates.</p>
+
+        <h2>Receiver-internal defenses: RAIM, multi-constellation and spoofing detection</h2>
+        <p>The receiver itself carries the second and third lines of defense. The first is <strong>RAIM (receiver autonomous integrity monitoring)</strong> with fault detection and exclusion (FDE): the receiver continuously checks the consistency of the pseudorange measurements and can detect and exclude a failing satellite. RAIM is a baseline requirement for aviation-grade navigation and catches the accidental failures — a failed satellite, a bad ephemeris — but it is not a spoofing defense by itself, because a sophisticated spoofer makes all the measurements consistent with the false position. RAIM becomes useful against spoofing when the attacker makes errors: the transition from genuine to spoofed signals usually produces measurable discontinuities.</p>
+        <p>The second is <strong>multi-constellation, multi-band reception</strong>. A receiver that tracks GPS, GLONASS, Galileo and BeiDou across L1/L2/L5/E1/E5 bands is dramatically harder to jam or spoof completely, because the attacker must cover more spectrum with more power and more precision. A single-band L1-only receiver can be defeated by one narrowband jammer; a dual-band receiver forces the attacker to jam two bands; a tri-band receiver with four constellations forces the attacker to replicate the entire multi-constellation signal environment coherently — a problem that is orders of magnitude harder than replaying one band.</p>
+        <p>The third is <strong>spoofing detection logic</strong>, which lives in the receiver firmware and reports a navigation integrity flag rather than silently continuing. The detection metrics that appear in real products:</p>
+        <ul>
+          <li><strong>Carrier-to-noise anomalies.</strong> All satellites suddenly showing identical or suspiciously flat C/N0 — a signature of a single spoofer broadcasting from one location — triggers a warning.</li>
+          <li><strong>Clock and NCO jumps.</strong> A sudden receiver clock jump or a discontinuity in the numerically controlled oscillator output indicates a handover from genuine to spoofed signals.</li>
+          <li><strong>Ephemeris and almanac validation.</strong> Comparing broadcast ephemeris against known constellation data; a mismatch flags the source as suspect.</li>
+          <li><strong>Cross-band and cross-constellation consistency.</strong> The position computed from L1 must agree with the position from L5; disagreement indicates band-specific interference or spoofing.</li>
+          <li><strong>Inertial cross-check.</strong> The GNSS position compared against the integrated inertial solution — a spoof that drags the position away while the accelerometers and gyros see no corresponding motion is detectable within seconds.</li>
+        </ul>
+        <p>The receiver output that matters for the rest of the aircraft is not just the position but the <strong>integrity status</strong>: a receiver that reports "degraded — inertial hold" instead of a confidently wrong position is what lets the flight controller execute a safe fallback. The <a href="/blog/uav-sensor-fusion-redundant-navigation/">sensor fusion and redundant navigation guide</a> covers how the flight controller arbitrates between GNSS, IMU, barometer, magnetometer and vision inputs when the GNSS integrity flag drops.</p>
+
+        <div class="media-visual reveal" style="max-width:640px;margin:32px auto">
+          <img src="/generated/blog-inline-gnss-antijam-receiver.webp" alt="Open GNSS receiver module for UAV avionics — PCB with RF shield cans and dual-band antenna connector, signal processing chip, dark background with green and blue accent lighting, photorealistic 3D render, no people faces, no text, no logos" loading="lazy">
+          <span class="concept-badge">Concept illustration</span>
+        </div>
+
+        <h2>The IMU fallback: how long the aircraft can navigate without GNSS</h2>
+        <p>Every anti-jam specification eventually meets the same arithmetic: the antenna and front end extend how much jamming the receiver survives, but a determined attacker with enough power will eventually win. The platform-level answer is the <strong>navigation fallback</strong> — the sensors that keep the aircraft safe when GNSS is gone. The quality of the fallback is defined by the inertial sensor grade and the fusion architecture:</p>
+        <p><strong>Consumer MEMS IMUs</strong> (the class in most commercial flight controllers) drift at rates of several degrees per minute and tens of meters of position error within seconds to a minute of GNSS loss — they are fine for attitude hold, not for navigation. <strong>Industrial/tactical MEMS IMUs</strong> (bias stability in the single-digit deg/hr range) hold a usable position for minutes. <strong>Navigation-grade sensors</strong> (fiber-optic or high-end ring-laser gyros, 0.01–0.1 deg/hr) can navigate for tens of minutes, but they cost more than most UAVs and are not a realistic component for the commercial segment.</p>
+        <p>The realistic procurement position for a commercial or public-safety platform is: a tactical-grade MEMS IMU plus the fusion of whatever auxiliary measurements exist — the barometer for altitude, the magnetometer for heading, optical flow or visual odometry for velocity, and UWB or range measurements where a ground anchor network exists. The <a href="/blog/uav-sensor-fusion-redundant-navigation/">sensor fusion and redundant navigation guide</a> details the arbitration and the <a href="/blog/uav-remote-id-bvlos-components/">Remote ID and BVLOS components guide</a> covers the regulatory side — most BVLOS waivers now require the operator to demonstrate a defined degraded-navigation response, and the IMU grade is the first number the authority asks for.</p>
+        <p>The specification to write is not "has an IMU" but a <strong>degraded-navigation time</strong>: "the aircraft shall maintain a position error of less than 50 m for 5 minutes after total GNSS loss, using inertial and onboard sensors alone." That single sentence forces the supplier to make the IMU grade, the fusion algorithm and the antenna resilience choices explicit — and it is testable in a jam-box trial.</p>
+
+        <div class="media-visual reveal" style="max-width:640px;margin:32px auto">
+          <img src="/generated/blog-inline-gnss-antijam-imu.webp" alt="UAV inertial navigation unit — precision MEMS IMU module on a metal mounting block with vibration isolators and gold connector pins, dark bench with soft green accent light, macro photography, no people faces, no text, no logos" loading="lazy">
+          <span class="concept-badge">Concept illustration</span>
+        </div>
+
+        <h2>Detection and mitigation: the strategy that turns resilience into procedure</h2>
+        <p>The defense layers above make the aircraft harder to attack; the detection layer decides what the aircraft <em>does</em> when the attack happens. A complete GNSS resilience strategy has three phases, and the component specification should name all three:</p>
+        <p><strong>Detect.</strong> The receiver's integrity flags (C/N0 collapse, clock jump, cross-constellation inconsistency) plus an optional dedicated jamming detector — a small spectrum-monitoring front end that measures the noise floor in the GNSS bands and reports a jamming-to-noise estimate to the flight controller. The output is an event: "GNSS under attack, integrity invalid."</p>
+        <p><strong>Mitigate.</strong> The flight controller switches the navigation source — from GNSS-aided to inertial/vision-aided navigation, holds altitude and heading, and either continues the mission within the degraded-navigation envelope or executes a pre-programmed return-to-launch. The <a href="/blog/uav-public-safety-components/">public safety components guide</a> covers the operational side of this decision: for a search-and-rescue platform the procedure may be "hold position and loiter," while for a delivery platform it is usually "return to launch immediately."</p>
+        <p><strong>Report.</strong> The aircraft records the attack event — the timing, the C/N0 profile, the detected jammer direction if the CRPA provides it — and transmits the log with the telemetry. For defense and law-enforcement operators this record is often as valuable as the aircraft itself, and it is the evidence that justifies the anti-jam budget on the next program.</p>
+        <p>The mitigation behavior is specified at the flight controller level, and the <a href="/blog/ardupilot-vs-px4-autopilot/">ArduPilot vs PX4 guide</a> is a useful reference for how each open-source stack exposes GNSS integrity to the mission logic — both support EKF-based GNSS/inertial fusion and both expose the innovation/health parameters that a jamming-detection watch can monitor.</p>
+
+        <div class="media-visual reveal" style="max-width:640px;margin:32px auto">
+          <img src="/generated/blog-inline-gnss-antijam-test.webp" alt="RF shielded test chamber for GNSS receiver testing — open chamber door revealing an antenna test fixture with dark foam absorber panels, industrial laboratory setting with green status lights, precision testing environment, no people faces, no text, no logos" loading="lazy">
+          <span class="concept-badge">Concept illustration</span>
+        </div>
+
+        <h2>Testing anti-jam performance: the jam-box trial and what to measure</h2>
+        <p>Anti-jam performance is one of the most over-claimed specifications in UAV components, because it is hard to test and easy to hand-wave. The procurement team should not accept a datasheet line; it should specify a test. The standard approach is a <strong>jam-box trial</strong>: the aircraft or the receiver under test is placed in an RF-shielded chamber (or an open-field range with controlled emissions), a signal generator injects jamming at defined power levels and frequencies, and the receiver's behavior is recorded. The measurement points that belong in the acceptance test:</p>
+        <ul>
+          <li><strong>J/N at loss of lock.</strong> The jamming-to-noise ratio at which the receiver loses position — the headline anti-jam number.</li>
+          <li><strong>Time to re-acquire.</strong> How quickly the receiver re-locks after the jammer is removed — a receiver that takes 5 minutes to re-acquire is operationally useless even if it survives a strong jammer.</li>
+          <li><strong>Spoofing detection latency.</strong> How long the receiver takes to flag a spoofing attack — the target is under 10 seconds for a platform that will maneuver.</li>
+          <li><strong>Degraded-navigation accuracy.</strong> The position error growth over the specified GNSS-denied period, measured against a truth reference.</li>
+          <li><strong>Multi-threat scenarios.</strong> Continuous wave, swept, chirp and pulsed jamming across the band plan, plus combined jamming-plus-spoofing — the realistic attack.</li>
+        </ul>
+        <p>The <a href="/blog/uav-propulsion-testing-validation/">UAV propulsion testing and validation guide</a> covers the general testing framework for UAV components — the same discipline of specified inputs, recorded outputs and pass criteria applies to RF resilience. A supplier that offers a documented jam-box report for its GNSS stack is a different procurement category from a supplier that offers a brochure.</p>
+
+        <h2>The RFQ checklist: 12 line items for specifying GNSS resilience</h2>
+        <p>The following line items translate the defense layers into an RFQ-ready specification. Each item names the evidence the supplier should provide, and the checklist works for a complete GNSS stack, a standalone anti-jam antenna or a receiver upgrade.</p>
+        <p><strong>1. Threat model statement.</strong> The RFQ states the design basis: the jammer power levels, the frequency bands and the spoofing sophistication the platform must survive. Verification: the supplier's threat-model response and the architecture that follows from it.</p>
+        <p><strong>2. Anti-jam antenna architecture.</strong> Element count, null depth (≥20 dB recommended for the defense tier), null steering method (analog vs digital beamforming) and the mass/power budget. Verification: the antenna datasheet and the pattern measurements.</p>
+        <p><strong>3. J/N tolerance.</strong> The receiver shall maintain position at a stated J/N (e.g., 70 dBJ against narrowband continuous-wave jamming). Verification: the jam-box test report.</p>
+        <p><strong>4. Front-end headroom.</strong> LNA IP3, ADC dynamic range and out-of-band filter rejection specified numerically. Verification: the front-end test data.</p>
+        <p><strong>5. Constellation and band plan.</strong> The receiver shall track the constellations and bands required for the operating region — minimum dual-band, quad-constellation for defense and BVLOS tiers. Verification: the receiver's tracking specification and a recorded skyplot.</p>
+        <p><strong>6. RAIM/FDE.</strong> The receiver shall implement RAIM with fault detection and exclusion, with the protection-level output exposed. Verification: the receiver interface document and a test log showing an excluded satellite.</p>
+        <p><strong>7. Spoofing detection.</strong> The receiver shall detect spoofing within 10 seconds and raise a navigation integrity flag. Verification: the spoofing-detection test record with the detection latency.</p>
+        <p><strong>8. Integrity output.</strong> The receiver shall expose a machine-readable integrity status (not just a position) to the flight controller. Verification: the interface control document and a signal trace showing the flag transition under attack.</p>
+        <p><strong>9. Inertial fallback.</strong> The aircraft shall maintain a position error below 50 m for 5 minutes after total GNSS loss. Verification: the GNSS-denied trial record against a truth reference.</p>
+        <p><strong>10. Re-acquisition.</strong> Time to re-acquire position shall be under 60 seconds after jammer removal. Verification: the jam-box re-acquisition measurement.</p>
+        <p><strong>11. Environmental rating.</strong> The antenna and receiver shall meet the platform's operating temperature, vibration and IP requirements, and the CRPA mounting shall not interfere with the airframe's other antennas. Verification: the environmental test reports and the antenna placement study.</p>
+        <p><strong>12. Test evidence and traceability.</strong> The supplier shall provide the jam-box test methodology, the recorded results for the delivered serial numbers and the firmware version control for the receiver. Verification: the delivery documentation package.</p>
+        <p>The component selection context for the rest of the navigation and communication stack is covered in the <a href="/blog/uav-gnss-rtk-module-selection/">GNSS module selection guide</a> and the <a href="/blog/uav-rf-communication-systems/">UAV RF communication systems guide</a> — the antenna placement and the RF coexistence decisions are made together, not separately.</p>
+
+        <p style="margin-top:42px"><a class="btn btn-primary" href="/customization/">Explore custom engineering</a> <a class="btn btn-outline" href="/blog/" style="margin-left:12px">Back to Blog</a></p>
+
+        <section class="continue-reading">
+          <h3>Continue Reading</h3>
+          <div class="continue-grid">
+            <a class="continue-card" href="/blog/uav-gnss-rtk-module-selection/">
+              <div class="continue-card-img"><img src="/generated/blog-cover-gnss-module.webp" alt="GNSS Module Selection" loading="lazy"></div>
+              <div class="continue-card-body"><h4>UAV GNSS Module Selection Guide</h4><p>The receiver-side decisions — constellation support, multi-band architecture, RTK vs PPK accuracy tiers — that the resilience layer protects.</p></div>
+            </a>
+            <a class="continue-card" href="/blog/uav-sensor-fusion-redundant-navigation/">
+              <div class="continue-card-img"><img src="/generated/blog-cover-sensor-fusion.webp" alt="Sensor Fusion and Redundant Navigation" loading="lazy"></div>
+              <div class="continue-card-body"><h4>UAV Sensor Fusion and Redundant Navigation</h4><p>How the flight controller arbitrates between GNSS, IMU, barometer and vision when the GNSS integrity flag drops.</p></div>
+            </a>
+            <a class="continue-card" href="/blog/uav-defense-security-components/">
+              <div class="continue-card-img"><img src="/generated/blog-cover-defense.webp" alt="Defense and Security Components" loading="lazy"></div>
+              <div class="continue-card-body"><h4>UAV Defense &amp; Security Components</h4><p>The contested-spectrum stack — encrypted links, anti-jam navigation and ruggedization — as a single procurement picture.</p></div>
+            </a>
+            <a class="continue-card" href="/blog/uav-utm-detect-and-avoid-integration/">
+              <div class="continue-card-img"><img src="/generated/blog-cover-utm-daa.webp" alt="UTM and Detect-and-Avoid Integration" loading="lazy"></div>
+              <div class="continue-card-body"><h4>UTM and Detect-and-Avoid Integration</h4><p>How degraded navigation feeds into the BVLOS safety case and the UTM compliance architecture.</p></div>
+            </a>
+            <a class="continue-card" href="/blog/uav-public-safety-components/">
+              <div class="continue-card-img"><img src="/generated/blog-cover-public-safety.webp" alt="Public Safety Components" loading="lazy"></div>
+              <div class="continue-card-body"><h4>UAV Public Safety Components</h4><p>The operational mitigation procedures — loiter, return-to-launch, report — that the detection layer triggers.</p></div>
+            </a>
+          </div>
+        </section>
+      </div>
+      </div>
+    </article>
+
+    <section class="section section-alt" style="--cta-bg:url(/generated/blog-cta-gnss-antijam.webp)">
+      <div class="container">
+        <div class="spec-panel reveal">
+          <div class="spec-panel-inner">
+            <div>
+              <span class="eyebrow">Navigation Engineering Support</span>
+              <h2>Tell us your operating environment — we will specify the GNSS resilience stack that matches your threat model.</h2>
+              <p>Share your platform, your operating regions and your degraded-navigation requirement — we will provide the anti-jam antenna options, the receiver and integrity architecture, the IMU fallback grade and the jam-box test plan for your procurement decision. Every navigation stack ships with its recorded test evidence.</p>
+            </div>
+            <div class="spec-actions">
+              <button class="btn btn-primary" type="button" data-open-inquiry>Start Your Build <svg aria-hidden="true"><use href="#icon-arrow"/></svg></button>
+              <button class="btn btn-outline" data-open-inquiry>Open RFQ Brief</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="brand" href="/" aria-label="EMS Drone home"><span class="brand-mark"><svg aria-hidden="true"><use href="#icon-drone"/></svg></span><span>EMS Drone</span></a>
+          <p>Configurable UAV components, complete systems and engineering support.</p>
+        </div>
+        <div class="footer-col"><h3>System</h3><a href="/capabilities/">Capabilities</a><a href="/customization/">Customization</a><a href="/testing/">Testing</a></div>
+        <div class="footer-col"><h3>Context</h3><a href="/industries/">Industries</a><a href="/about/">About</a><a href="/blog/">Blog</a></div>
+        <div class="footer-col"><h3>More reading</h3><a href="/blog/drone-powertrain-matching/">Powertrain guide</a><a href="/blog/uav-rf-communication-systems/">RF systems</a><a href="/contact/">RFQ Brief</a></div>
+      </div>
+      <div class="footer-bottom"><span>&copy; 2026 EMS Drone</span><span>Define &rarr; Integrate &rarr; Deploy</span></div>
+    </div>
+  </footer>
+  <div class="modal-overlay" id="inquiryModal" aria-hidden="true">
+    <div class="modal-dialog" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <button class="modal-close" type="button" aria-label="Close inquiry">&times;</button>
+      <div class="modal-aside">
+        <span class="tech-label">Engineering Intake</span>
+        <div><h3 id="modalTitle">Start with your mission.</h3><p>Tell us what you are building and where you need support: component sourcing, a matched stack or a complete UAV.</p></div>
+      </div>
+      <form class="modal-form" data-preview-form>
+        <div class="field"><label for="modal-name">Name</label><input id="modal-name" name="name" autocomplete="name" required></div>
+        <div class="field" style="margin-top:18px"><label for="modal-email">Email</label><input id="modal-email" name="email" type="email" autocomplete="email" required></div>
+        <div class="field" style="margin-top:18px"><label for="modal-message">Project brief</label><textarea id="modal-message" name="message" required placeholder="Aircraft type, payload, environment, component list or complete-system goal"></textarea></div>
+        <button class="btn btn-primary" type="submit">Submit Engineering Brief</button>
+        <div class="form-status" role="status" aria-live="polite" aria-atomic="true"></div>
+      </form>
+    </div>
+  </div>
+<script src="/site.js?v=9"></script>
+  <script src="/reveal.js?v=9"></script>
+</body>
+</html>
