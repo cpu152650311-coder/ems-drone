@@ -1,0 +1,284 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>UTM and Detect-and-Avoid Integration: Component Requirements for BVLOS UAV Operations | EMS Drone</title>
+  <meta name="description" content="A procurement engineering guide to BVLOS UAV operations — the regulatory chain from remote ID (FAA Part 89, ASTM F3411) to detect-and-avoid (RTCA DO-365), remote ID broadcast and network modules, ADS-B, radar and vision DAA sensors, the detection-to-maneuver decision chain, dual-link C2 resilience, UTM service integration, geofencing and a BVLOS component procurement checklist.">
+  <link rel="canonical" href="https://ems-drone.com/blog/uav-utm-detect-and-avoid-integration/">
+  <meta property="og:title" content="UTM and Detect-and-Avoid Integration: Component Requirements for BVLOS UAV Operations">
+  <meta property="og:description" content="What beyond-visual-line-of-sight operations actually require from the aircraft's electronics — a component-level guide to remote ID modules, ADS-B and radar and vision detect-and-avoid sensors, the onboard fusion compute, dual-link command and control, UTM service integration and the BVLOS procurement checklist.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://ems-drone.com/blog/uav-utm-detect-and-avoid-integration/">
+  <meta property="og:image" content="https://ems-drone.com/generated/og-cover.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <link rel="icon" type="image/x-icon" href="/generated/favicon.ico">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="apple-touch-icon" sizes="180x180" href="/generated/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/generated/icon-192.png">
+<link rel="icon" type="image/png" sizes="512x512" href="/generated/icon-512.png">
+  <link rel="stylesheet" href="/design-tokens.css?v=21">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "UTM and Detect-and-Avoid Integration: Component Requirements for BVLOS UAV Operations",
+  "description": "A procurement engineering guide to BVLOS UAV operations — the regulatory chain from remote ID (FAA Part 89, ASTM F3411) to detect-and-avoid (RTCA DO-365), remote ID broadcast and network modules, ADS-B, radar and vision DAA sensors, the detection-to-maneuver decision chain, dual-link C2 resilience, UTM service integration, geofencing and a BVLOS component procurement checklist.",
+  "image": "https://ems-drone.com/generated/blog-cover-utm-daa.webp",
+  "author": {
+    "@type": "Organization",
+    "name": "EMS Drone"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "EMS Drone",
+    "url": "https://ems-drone.com/",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://ems-drone.com/favicon.svg"
+    }
+  },
+  "mainEntityOfPage": "https://ems-drone.com/blog/uav-utm-detect-and-avoid-integration/",
+  "datePublished": "2026-08-03",
+  "dateModified": "2026-08-03"
+}
+</script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <svg aria-hidden="true" style="position:absolute;width:0;height:0;overflow:hidden">
+    <symbol id="icon-drone" viewBox="0 0 24 24" fill="none" stroke="#b8f34a" stroke-width="1.5"><circle cx="12" cy="12" r="2.6"/><path d="m10.2 10.2-4-4m7.6 4 4-4m-7.6 7.6-4 4m7.6-4 4 4"/><circle cx="4.7" cy="4.7" r="2.2"/><circle cx="19.3" cy="4.7" r="2.2"/><circle cx="4.7" cy="19.3" r="2.2"/><circle cx="19.3" cy="19.3" r="2.2"/></symbol>
+    <symbol id="icon-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12h14m-5-5 5 5-5 5"/></symbol>
+  </svg>
+
+  <header class="site-header">
+    <div class="nav-shell">
+      <a class="brand" href="/" aria-label="EMS Drone home"><span class="brand-mark"><svg aria-hidden="true"><use href="#icon-drone"/></svg></span><span>EMS Drone</span></a>
+      <button class="nav-toggle" type="button" aria-label="Open navigation" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+                                        <nav class="site-nav" aria-label="Primary navigation"><a href="/">Home</a>
+        <div class="nav-dropdown">
+          <a href="/capabilities/" class="nav-parent">Capabilities</a>
+          <div class="nav-submenu">
+            <a href="/capabilities/flight-control/">Flight Controllers</a>
+            <a href="/capabilities/esc-power/">ESC &amp; Power Systems</a>
+            <a href="/capabilities/propulsion/">Propulsion</a>
+            <a href="/capabilities/airframe/">Airframes &amp; Structures</a>
+            <a href="/capabilities/communications/">Communications &amp; RF</a>
+            <a href="/capabilities/payload/">Payloads &amp; Gimbals</a>
+          </div>
+        </div>
+        <div class="nav-dropdown">
+          <a href="/customization/" class="nav-parent">Services</a>
+          <div class="nav-submenu">
+            <a href="/customization/">Custom Engineering</a>
+            <a href="/testing/">Testing &amp; Validation</a>
+          </div>
+        </div>
+        <div class="nav-dropdown">
+          <a href="/industries/" class="nav-parent">Industries</a>
+          <div class="nav-submenu">
+            <a href="/industries/inspection/">Industrial Inspection</a>
+            <a href="/industries/mapping-survey/">Mapping &amp; Survey</a>
+            <a href="/industries/logistics/">Logistics &amp; Delivery</a>
+            <a href="/industries/agriculture/">Precision Agriculture</a>
+            <a href="/industries/research/">Research &amp; Development</a>
+          </div>
+        </div>
+        <div class="nav-dropdown">
+          <a href="/resources/" class="nav-parent">Resources</a>
+          <div class="nav-submenu">
+            <a href="/design-guides/">Design Guides</a>
+            <a href="/projects/">Engineering Projects</a>
+            <a href="/how-it-works/">How We Work</a>
+            <a href="/faq/">FAQ</a>
+            <a href="/blog/" aria-current="page">Blog</a>
+          </div>
+        </div>
+        <div class="nav-dropdown">
+          <a href="/about/" class="nav-parent">Company</a>
+          <div class="nav-submenu">
+            <a href="/about/">About</a>
+            <a href="/factory/">Factory</a>
+            <a href="/quality/">Quality</a>
+            <a href="/shipping/">Shipping</a>
+            <a href="/contact/">Contact</a>
+          </div>
+        </div>
+        <button class="btn btn-primary" data-open-inquiry>Start Your Build</button>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <header class="article-hero">
+      <div class="container reveal">
+        <span class="eyebrow"><a href="/blog/" style="color:inherit;text-decoration:none">Blog</a> · Compliance &amp; Operations</span>
+        <h1>UTM and detect-and-avoid integration: component requirements for BVLOS UAV operations</h1>
+        <p style="color:var(--muted-dark);max-width:640px">Beyond-visual-line-of-sight (BVLOS) operation is the difference between a drone program that is a pilot-intensive demonstration and one that scales as an infrastructure business — pipeline inspection, linear asset patrol, delivery and wide-area survey all become economically viable only when the aircraft can fly where the pilot cannot see it. The regulatory gate is no longer theoretical: remote ID rules are in force, BVLOS rulemaking is converging in the US and the EU, and the aircraft-side requirement is a defined set of components — remote ID modules, detect-and-avoid sensors, the onboard fusion compute, and a command-and-control link that survives degraded conditions. This article is a procurement engineering guide to the UTM and DAA integration chain: the regulatory structure, the sensor trade-offs, the decision chain from detection to maneuver, the C2 resilience architecture and the component checklist for a BVLOS-capable platform.</p>
+        <div class="article-cover">
+          <img src="/generated/blog-cover-utm-daa.webp" alt="UAV operating in controlled airspace concept — fixed-wing drone silhouette flying under a night sky with subtle network grid lines suggesting airspace integration, dark blue and green toned engineering visualization, professional concept photography, no people faces, no text, no logos" loading="lazy">
+        </div>
+      </div>
+    </header>
+
+    <article class="article-body">
+      <div class="container reveal">
+        <p>BVLOS is not a single approval and not a single component. It is a chain of capabilities — the aircraft must be visible to the airspace system (remote ID), aware of the traffic around it (detect-and-avoid), controllable beyond the radio horizon (C2 link resilience), and able to execute the contingency plan when anything degrades (autonomy and flight termination). The regulatory frameworks differ by region — the FAA's Part 89 remote ID rule and the BVLOS rulemaking under the FAA Reauthorization Act, EASA's U-space and Specific Operations Risk Assessment (SORA), the UK CAA's BVLOS path — but the component requirements converge. This article walks the chain from the airspace layer down to the bill of materials, so a procurement team can specify the aircraft electronics for a BVLOS program with the same rigor as the propulsion system.</p>
+
+        <h2>What BVLOS actually requires: the regulatory chain from remote ID to DAA</h2>
+        <p>The regulatory logic of BVLOS runs in three layers. First, the aircraft must identify itself — remote ID makes every UAS visible to regulators, other airspace users and UTM service providers, which is the precondition for operating where a human observer cannot keep visual contact. Second, the aircraft must be able to avoid collisions it cannot see from the ground — detect-and-avoid replaces the remote pilot's eyes with sensors and onboard decision logic. Third, the operation must fit into the traffic management system — the flight plan, the geofences, the contingencies and the telemetry are exchanged with UTM services, not just with the pilot's ground station.</p>
+        <p>In the United States, the FAA's Part 89 rule (Standard Remote ID, in force since March 2024) requires broadcast and network remote ID for the aircraft classes that apply to commercial operations. The BVLOS rulemaking mandated by the FAA Reauthorization Act of 2024 is the framework that will replace the current case-by-case waiver path (107.31 waivers and Part 135 operations specifications) with a performance-based standard — and every draft of that standard leans on the same building blocks: remote ID, DAA, C2 link robustness and contingency procedures. In Europe, EASA's U-space regulation (the EU 2021/664 framework) requires e-identification, geofencing and traffic information services in U-space airspace, and the SORA process grades the operation's risk and the mitigation the aircraft must carry. The <a href="/blog/uav-certification-compliance-guide/">UAV certification and compliance guide</a> covers the certification documentation chain that ties these airspace rules to the component evidence, and the <a href="/blog/uav-remote-id-bvlos-components/">UAV remote ID and BVLOS compliance guide</a> covers the remote ID regulatory detail in depth — this article focuses on the component integration decisions.</p>
+        <p>The procurement consequence: the aircraft electronics for a BVLOS program are specified by regulation, not by preference. The flight controller, the navigation stack, the radios and the compute module must all support the remote ID and DAA functions — which is a different specification process than buying a VLOS inspection platform and is worth doing before the airframe is selected, not after.</p>
+
+        <div class="media-visual reveal" style="max-width:640px;margin:32px auto">
+          <img src="/generated/blog-inline-utm-daa-adsb.webp" alt="Compact ADS-B receiver module with small blade antenna mounted on a UAV airframe — surface-mount electronics module with SMA connector and antenna, dark engineering bench with green accent lighting, precision avionics component photography, no people faces, no text, no logos" loading="lazy">
+          <span class="concept-badge">Concept illustration</span>
+        </div>
+
+        <h2>Remote ID components: broadcast and network modules</h2>
+        <p>Remote ID is the identity and position broadcast that makes the aircraft visible to the airspace system. The component decision has three options: a broadcast-only module (Wi-Fi Beacon and/or Bluetooth), a network-only module (cellular), or a broadcast-plus-network module. The ASTM F3411 standard (the F3411-22a revision is the current baseline) defines the message set, the transmission requirements and the performance — the procurement specification should cite the standard revision explicitly, because the earlier revisions are not interchangeable.</p>
+        <p><strong>The broadcast module.</strong> The module transmits the ASTM F3411 message set over Wi-Fi Beacon (802.11 in beacon mode) or Bluetooth 4.0 — the aircraft ID, the operator ID or location, the aircraft position, altitude, velocity, the control station position, a time mark and the emergency status, at a 1 Hz update rate. The practical range of the Wi-Fi Beacon broadcast is roughly 1–3 km to a compatible receiver, which covers the near-airspace visibility requirement; the module must be integrated with the aircraft's position source (the GNSS receiver) and its power bus, and the antenna placement matters — the broadcast is omnidirectional and the airframe structure (carbon fiber in particular) can shadow it, so the module antenna should be positioned to avoid the propellers, the payload and the carbon laminate. The <a href="/blog/uav-gnss-rtk-module-selection/">GNSS module selection guide</a> covers the position-source requirements that the remote ID message depends on — the remote ID position accuracy is only as good as the navigation source feeding it.</p>
+        <p><strong>The network module.</strong> The network remote ID path delivers the same message set over a cellular (LTE/4G) connection to the UTM service providers, which makes the aircraft visible beyond the broadcast range — the visibility that matters for BVLOS operations along a pipeline or a power line where the aircraft is tens of kilometers from any observer. The network module adds a SIM/eSIM, a cellular modem and the integration with the operator's USS account; the coverage question (the cellular coverage along the mission corridor) becomes an operational constraint that belongs in the flight-planning process, not just the component spec.</p>
+        <p><strong>Integration requirements.</strong> The remote ID module must receive the aircraft position and status from the flight controller (typically over UART or CAN), must fail in a defined way if the position source degrades (the ASTM standard defines the behavior when GNSS is lost — the message set includes a position source flag), and must not interfere with the control and telemetry links. The spectrum question matters: the Wi-Fi Beacon transmission shares the 2.4 GHz band with the control link in many platforms, and the coexistence plan (channel selection, transmission timing) should be part of the integration spec. The <a href="/blog/uav-rf-communication-systems/">UAV RF communication systems guide</a> covers the frequency planning and the coexistence analysis for the full radio stack.</p>
+
+        <h2>Detect-and-avoid sensors: ADS-B, radar, vision and the fusion requirement</h2>
+        <p>Detect-and-avoid replaces the pilot's eyes. The sensor suite must detect cooperative traffic (aircraft carrying transponders or ADS-B Out), non-cooperative traffic (aircraft, drones and obstacles without any electronic signature), and provide the tracking data that the avoidance logic needs. No single sensor class covers all three, which is why the DAA system is a sensor fusion problem — and why the procurement spec must treat the fusion compute as a first-class component, not an afterthought.</p>
+        <p><strong>ADS-B In.</strong> The ADS-B receiver (1090 MHz extended squitter) detects cooperative traffic — the airliners, general aviation and increasingly the drones that transmit ADS-B or equivalent surveillance data. The 1090ES receiver is a mature, low-power module (a few watts, a small blade or patch antenna) with a detection range of tens of nautical miles for high-power transponder traffic. The two limitations: ADS-B only sees aircraft that broadcast (a non-transponder drone or a glider is invisible), and the 1090 MHz band is congested — the receiver's filtering and its ability to reject interference define the usable tracking performance. For a BVLOS corridor that crosses general aviation traffic, ADS-B In is the baseline cooperative sensor; for operations in congested low-altitude airspace, it is necessary but not sufficient.</p>
+        <p><strong>Radar.</strong> Compact radar — typically the 77/79 GHz automotive-grade FMCW modules adapted for airborne use, or the purpose-built UAS detection radars — detects non-cooperative traffic by reflection, with no cooperation required. The performance envelope: small-UAS detection at 100–400 m depending on the target radar cross-section and the mounting, range and velocity directly measured, and a wide field of regard when multiple modules are used. The trade-offs are weight (0.5–2 kg for the airborne-qualified units), power (tens of watts), and the mounting and vibration requirements — the radar needs a stable platform and a clear field of view, which interacts with the airframe design. For the defense and security operators, the <a href="/blog/uav-defense-security-components/">UAV defense and security components guide</a> covers the hardened and anti-jam variants of the detection and link hardware.</p>
+        <p><strong>EO/IR vision.</strong> Camera-based detection runs a neural network detector on the video stream to find aircraft and drones by appearance — the sensor that "sees" what radar and ADS-B cannot resolve at close range and that verifies the target before the maneuver. The detection range is set by the optics and the sensor resolution: a 20 mm lens with a 12 MP sensor detects a small multirotor at roughly 200–500 m in good light, with the range falling in haze and darkness (an IR camera extends the night capability). The compute requirement is the cost driver: running a real-time detector at 10–30 frames per second needs 10–50 TOPS of edge AI performance — the class of compute covered in the <a href="/blog/uav-edge-ai-onboard-computing/">UAV edge AI and onboard computing guide</a>. The vision DAA is also the sensor that integrates with the avoidance path planning, because it produces the target bearing and angular rate that the maneuver logic consumes.</p>
+        <p><strong>The fusion requirement.</strong> The DAA sensor manager fuses the ADS-B tracks, the radar tracks and the vision tracks into a single air picture — track association (deciding that the radar blip and the vision target are the same aircraft), track quality, and the threat assessment per track. The fusion runs on the same edge compute module as the vision detector (a Jetson-class or Hailo-class device with 26–100 TOPS), and its output feeds the autopilot's avoidance logic. The <a href="/blog/uav-sensor-fusion-redundant-navigation/">sensor fusion and redundant navigation guide</a> covers the navigation-side fusion; the DAA side is the same discipline applied to the outside world. The procurement spec should name the fusion architecture — which sensors feed which trackers, and what happens to the DAA function when each sensor degrades — because the redundancy story is what the regulator and the operator both audit.</p>
+
+        <div class="media-visual reveal" style="max-width:640px;margin:32px auto">
+          <img src="/generated/blog-inline-utm-daa-radar.webp" alt="Compact millimetre-wave radar sensor mounted on the nose of a UAV airframe — small flat radar module with visible antenna array panel, carbon fiber airframe, dark engineering workshop with green accent lighting, precision avionics component photography, no people faces, no text, no logos" loading="lazy">
+          <span class="concept-badge">Concept illustration</span>
+        </div>
+
+        <h2>The DAA decision chain: detection range, tracking latency and the avoidance maneuver</h2>
+        <p>Detecting traffic is only the first link in the chain; the DAA system must decide and maneuver. The decision chain has four stages, and the component specification affects every stage:</p>
+        <p><strong>Detection range vs closure rate.</strong> The required detection range is set by the closing speed and the maneuver performance of the platform. A fixed-wing BVLOS aircraft cruising at 25 m/s meeting a general aviation aircraft at 50 m/s has a 75 m/s closure rate: a 10-second decision-and-maneuver cycle needs roughly 750 m of detection range, which is inside the radar and vision envelope but requires the sensors to actually deliver that range in the operating conditions (haze, rain, sun angle). The requirement flows down to the lens, the sensor, the detector model and the radar configuration — the spec should state the worst-case detection range against a defined target (for example, "a 1 m² RCS target at 400 m in 2 km visibility").</p>
+        <p><strong>Tracking latency.</strong> The end-to-end latency from photon to maneuver command — the sensor frame time, the detector inference, the tracker update, the threat assessment and the autopilot response — must fit inside the decision cycle. The budget is typically 100–500 ms for the detection-and-tracking portion; a 300 ms latency at a 75 m/s closure rate costs 22 m of separation, which is why the compute selection (the inference latency of the vision detector) and the communication path (the DAA output to the autopilot over a deterministic interface) are specified numbers, not marketing claims.</p>
+        <p><strong>Threat assessment and well clear.</strong> The tracker maintains each target's predicted trajectory and computes the closest point of approach (CPA) and the time to CPA. The RTCA DO-365 minimum operational performance standards for UAS DAA systems define the "well clear" boundary — in the DO-365 MOPS, well clear is defined at 4,000 ft (approximately 1,220 m) horizontal and 450 ft (approximately 137 m) vertical separation for the cooperative case, with the alerting thresholds tuned per platform and per airspace class. The threat assessment logic (which targets trigger an alert, when, and at what confidence) is part of the DAA system design, and the aircraft's performance — its turn rate, its climb capability — determines whether the required avoidance maneuver is physically achievable, which links the DAA specification to the <a href="/blog/uav-safety-redundancy-systems/">UAV safety and redundancy systems</a> design.</p>
+        <p><strong>The avoidance maneuver and the autopilot interface.</strong> The avoidance logic produces a maneuver — a heading change, an altitude change or a speed change — that is passed to the flight controller. The integration architecture matters: the DAA system can command the autopilot through the mission interface (the same interface that the ground control station uses, in ArduPilot and PX4 terms) or through a dedicated avoidance interface, and the handover between the DAA command and the operator's command must be deterministic — who wins when the operator commands one way and the DAA commands another is a defined policy, not a runtime decision. The <a href="/blog/ardupilot-vs-px4-autopilot/">ArduPilot vs PX4 comparison</a> covers the autopilot capabilities and interfaces that the DAA integration consumes, and the <a href="/blog/uav-communication-protocols-guide/">communication protocols guide</a> covers the CAN, MAVLink and serial interfaces between the DAA compute, the remote ID module and the flight controller.</p>
+
+        <div class="media-visual reveal" style="max-width:640px;margin:32px auto">
+          <img src="/generated/blog-inline-utm-daa-gcs.webp" alt="Ground control station for BVLOS operations — rugged laptop and controller on a field table with an airspace situation display showing aircraft tracks, antennas in the background, dusk lighting with green screen glow, professional operational photography, no people faces, no text, no logos" loading="lazy">
+          <span class="concept-badge">Concept illustration</span>
+        </div>
+
+        <h2>C2 link resilience: dual-link, link budget and the degraded-mode handover</h2>
+        <p>Command and control (C2) is the link that carries the control commands and the telemetry between the pilot and the aircraft. In VLOS operation a lost link means the pilot watches the aircraft fly away and recovers it visually; in BVLOS operation the lost-link behavior is the contingency plan, and the C2 architecture is specified to make the loss a defined, handled event rather than an emergency. The resilience architecture has three parts:</p>
+        <p><strong>The dual-link design.</strong> The primary link is the high-bandwidth digital link — typically 2.4 GHz or 5.8 GHz for the video and the telemetry — and the secondary link is the independent path: a 4G/LTE cellular link, or the 868/915 MHz telemetry band that trades bandwidth for range and propagation. The two links must be physically and electrically independent — separate radios, separate antennas, and ideally separate power feeds — so that a single failure (a radio, an antenna, a cable) cannot take out both. The link architecture and the frequency planning are covered in the <a href="/blog/uav-rf-communication-systems/">UAV RF communication systems guide</a>; the resilience requirement here is that the handover between the links is automatic, tested and logged.</p>
+        <p><strong>The link budget.</strong> The BVLOS C2 range is a link-budget calculation, not a datasheet claim: the transmit power and the antenna gain at each end, the free-space path loss over the mission range, the fade margin for the terrain and the weather, and the receiver sensitivity. The practical number for a mid-size multirotor with a 2.4 GHz digital link at 1 W EIRP is a control range in the tens of kilometers in line of sight, with the margin collapsing in rain and over terrain — which is why the BVLOS corridor planning includes a link analysis per route segment. The procurement spec should state the required range at a defined margin (for example, "20 km control range with 10 dB fade margin at 30 dBm EIRP") and require the measured link performance, not the chipset's marketing range.</p>
+        <p><strong>The degraded-mode handover.</strong> The aircraft behavior when the primary link degrades is a designed sequence: the handover to the secondary link, the telemetry downsampling, the operator notification, and — if both links fail — the lost-link contingency (return to a defined point, hold position, or land at the planned alternate) executed by the flight controller from its onboard state. The lost-link behavior is one of the contingency procedures that the BVLOS approval reviews, and the <a href="/blog/uav-safety-redundancy-systems/">UAV safety and redundancy systems guide</a> covers the fail-safe design and the redundant avionics that make the contingency executable. The C2 resilience is also where the <a href="/blog/uav-public-safety-components/">public safety</a> and <a href="/blog/uav-environmental-monitoring-components/">environmental monitoring</a> mission profiles diverge — the first prioritizes link robustness in congested urban RF, the second prioritizes range in remote terrain, and the component selection follows the mission.</p>
+
+        <h2>Airspace integration: UTM service providers, geofencing and contingency procedures</h2>
+        <p>The aircraft-side components connect to the airspace system through the UTM services: the UAS Service Supplier (USS) that the operator uses to file the flight plan, exchange the telemetry and receive the traffic information; the Flight Information Management System (FIMS) layer that connects the USSs to the air navigation service provider; and, in Europe, the U-space services — e-identification, geofencing, flight authorization and traffic information. The ASTM F3548 standard defines the UTM technical framework, and the aircraft integration points are three:</p>
+        <p><strong>The flight plan and telemetry exchange.</strong> The operation's flight plan (the 4D trajectory — position and time) is filed through the USS before the flight, and the aircraft's real-time position is exchanged during it. The aircraft-side requirement is the interface: the flight controller and the network remote ID module must provide the position and status stream that the operator's USS integration consumes — which is a MAVLink or custom telemetry integration on the ground station side, and the cellular network remote ID on the aircraft side. The <a href="/blog/uav-ground-control-station-hardware/">ground control station hardware guide</a> covers the operator-side compute and display that hosts the USS client.</p>
+        <p><strong>Geofencing.</strong> The geofence is the operational boundary — the airspace volumes the flight may and may not enter, from the permanent restricted areas to the temporary flight restrictions (TFRs) and the U-space geofences. The enforcement can be ground-side (the USS or the ground station stops the mission) or aircraft-side (the onboard geofence database and the GNSS position trigger a response), and the aircraft-side enforcement is the layer that keeps the aircraft inside the approved volume when the link is lost. The geofence logic runs on the flight controller or the companion computer, uses the navigation position, and its response — turn back, land, hold — is part of the contingency set. The position integrity requirement connects to the <a href="/blog/uav-gnss-rtk-module-selection/">GNSS module selection</a> and the <a href="/blog/uav-sensor-fusion-redundant-navigation/">sensor fusion and redundant navigation</a> design: a geofence enforcement is only as trustworthy as the position source, and the redundant navigation stack (GNSS plus inertial plus the integrity monitoring) is what makes the enforcement reliable.</p>
+        <p><strong>Contingency procedures.</strong> The BVLOS approval requires the documented contingency set — the lost-link behavior, the GNSS degradation behavior, the engine or motor failure behavior, the geofence breach behavior, and the flight termination (the flight termination system, or FTS, that ends the flight deliberately when the situation cannot be recovered). Each contingency maps to aircraft capability: the lost-link behavior needs the autopilot's onboard mission state, the GNSS degradation needs the redundant navigation, the motor failure needs the propulsion redundancy and the safe-landing envelope, and the flight termination needs the FTS actuation channel that is independent of the flight controller. The procurement spec should list the contingency set with the component that executes each one — the mapping is the actual BVLOS readiness statement, more than any single component.</p>
+
+        <div class="media-visual reveal" style="max-width:640px;margin:32px auto">
+          <img src="/generated/blog-inline-utm-daa-c2-link.webp" alt="Dual command and control link antennas on a UAV — two independent RF antennas mounted on the airframe with separate cabling, telemetry module with SMA connectors visible, dark engineering bench with green accent lighting, precision avionics component photography, no people faces, no text, no logos" loading="lazy">
+          <span class="concept-badge">Concept illustration</span>
+        </div>
+
+        <h2>The BVLOS component procurement checklist</h2>
+        <p>The following ten line items translate the BVLOS architecture into a component-level specification. Each line item names the evidence the procurement team should collect, and the checklist assumes the base platform (airframe, propulsion, flight controller, navigation) is specified separately.</p>
+        <p><strong>1. Remote ID module.</strong> The aircraft shall carry an ASTM F3411-22a compliant remote ID module with broadcast (Wi-Fi Beacon) and network (LTE) capability, integrated with the flight controller position source and the power bus. Verification: the module's declaration of compliance, the integration test report (the broadcast received by a reference receiver at 1 km), and the network registration test.</p>
+        <p><strong>2. ADS-B In receiver.</strong> The aircraft shall carry a 1090 MHz ADS-B In receiver for cooperative traffic. Verification: the receiver's sensitivity and filtering specification, and the measured detection range against live traffic in the operating airspace.</p>
+        <p><strong>3. Non-cooperative detection.</strong> The aircraft shall carry radar and/or EO/IR vision detection with a documented worst-case detection range against a defined target. Verification: the sensor datasheets and the flight test report demonstrating the detection range in the specified visibility.</p>
+        <p><strong>4. DAA fusion compute.</strong> The aircraft shall carry an edge AI compute module (10–50 TOPS class) running the detector and the track fusion, with the inference latency and the tracking update rate documented. Verification: the benchmark report (frames per second, inference latency) and the thermal performance in the airframe. The compute selection is covered in the <a href="/blog/uav-edge-ai-onboard-computing/">edge AI and onboard computing guide</a>.</p>
+        <p><strong>5. Autopilot DAA interface.</strong> The flight controller shall support the DAA command interface with a deterministic handover policy between the operator and the DAA system. Verification: the interface documentation and the integration test report. The autopilot selection context is in the <a href="/blog/ardupilot-vs-px4-autopilot/">ArduPilot vs PX4 guide</a>.</p>
+        <p><strong>6. Dual-link C2.</strong> The aircraft shall carry two independent C2 links (for example, 2.4 GHz digital plus 4G/LTE or 868/915 MHz) with automatic handover, and a documented link budget for the mission range with a defined fade margin. Verification: the measured link performance report and the handover test results.</p>
+        <p><strong>7. Lost-link behavior.</strong> The autopilot shall execute a defined lost-link contingency (return, hold or land) from the onboard state with no operator input. Verification: the lost-link flight test report with the link intentionally terminated.</p>
+        <p><strong>8. Geofence enforcement.</strong> The aircraft shall carry an onboard geofence database with GNSS-based enforcement and a defined breach response. Verification: the geofence test report (a planned geofence crossing at speed) and the position integrity documentation from the <a href="/blog/uav-sensor-fusion-redundant-navigation/">redundant navigation</a> stack.</p>
+        <p><strong>9. Redundant navigation.</strong> The aircraft shall carry the redundant navigation stack (multi-GNSS plus IMU fusion with integrity monitoring) required for the position-trusted functions. Verification: the navigation performance report and the <a href="/blog/uav-gnss-rtk-module-selection/">GNSS module</a> qualification data.</p>
+        <p><strong>10. Flight termination and safety architecture.</strong> The aircraft shall carry the flight termination channel and the fail-safe architecture defined in the safety case, independent of the primary flight controller. Verification: the FTS test report and the <a href="/blog/uav-safety-redundancy-systems/">safety and redundancy</a> design documentation.</p>
+        <p>For the component-level testing and validation practices that verify the BVLOS chain — the link tests, the sensor range tests, the lost-link and geofence flight tests and the acceptance criteria — the <a href="/blog/uav-propulsion-testing-validation/">UAV propulsion testing and validation guide</a> describes the test bench framework that extends to the avionics and the airspace functions, and the <a href="/blog/uav-supplier-evaluation-checklist/">supplier evaluation checklist</a> covers how to verify the evidence chain during a supplier audit.</p>
+
+        <p style="margin-top:42px"><a class="btn btn-primary" href="/customization/">Explore custom engineering</a> <a class="btn btn-outline" href="/blog/" style="margin-left:12px">Back to Blog</a></p>
+
+        <section class="continue-reading">
+          <h3>Continue Reading</h3>
+          <div class="continue-grid">
+            <a class="continue-card" href="/blog/uav-remote-id-bvlos-components/">
+              <div class="continue-card-img"><img src="/generated/blog-cover-remote-id.webp" alt="Remote ID and BVLOS Compliance" loading="lazy"></div>
+              <div class="continue-card-body"><h4>UAV Remote ID and BVLOS Compliance Components</h4><p>The regulatory detail of remote ID — Part 89, ASTM F3411, the module options and the compliance documentation chain for exported platforms.</p></div>
+            </a>
+            <a class="continue-card" href="/blog/uav-sensor-fusion-redundant-navigation/">
+              <div class="continue-card-img"><img src="/generated/blog-cover-sensor-fusion.webp" alt="Sensor Fusion and Redundant Navigation" loading="lazy"></div>
+              <div class="continue-card-body"><h4>UAV Sensor Fusion and Redundant Navigation</h4><p>The navigation stack that the position-trusted BVLOS functions — remote ID, geofencing, DAA track association — depend on for integrity.</p></div>
+            </a>
+            <a class="continue-card" href="/blog/uav-safety-redundancy-systems/">
+              <div class="continue-card-img"><img src="/generated/blog-cover-safety-redundancy.webp" alt="Safety and Redundancy Systems" loading="lazy"></div>
+              <div class="continue-card-body"><h4>UAV Safety and Redundancy Systems</h4><p>The fail-safe architecture, the redundant avionics and the flight termination design that make the BVLOS contingency set executable.</p></div>
+            </a>
+            <a class="continue-card" href="/blog/uav-rf-communication-systems/">
+              <div class="continue-card-img"><img src="/generated/blog-cover-rf-systems.webp" alt="RF Communication Systems" loading="lazy"></div>
+              <div class="continue-card-body"><h4>UAV RF Communication Systems Guide</h4><p>The frequency planning, the link budget and the coexistence analysis for the dual-link C2 architecture and the remote ID broadcast.</p></div>
+            </a>
+            <a class="continue-card" href="/blog/uav-gnss-rtk-module-selection/">
+              <div class="continue-card-img"><img src="/generated/blog-cover-gnss-module.webp" alt="GNSS Module Selection" loading="lazy"></div>
+              <div class="continue-card-body"><h4>UAV GNSS Module Selection Guide</h4><p>The multi-GNSS, RTK and integrity features that the position source feeding remote ID, geofencing and DAA must deliver.</p></div>
+            </a>
+          </div>
+        </section>
+      </div>
+      </div>
+    </article>
+
+    <section class="section section-alt" style="--cta-bg:url(/generated/blog-cta-utm-daa.webp)">
+      <div class="container">
+        <div class="spec-panel reveal">
+          <div class="spec-panel-inner">
+            <div>
+              <span class="eyebrow">BVLOS Engineering Support</span>
+              <h2>Tell us the operation you are planning — we will specify the UTM and DAA component stack.</h2>
+              <p>Share your mission corridor, the airspace class, the traffic environment and your target approval path — we will provide the remote ID module selection, the ADS-B and radar and vision sensor recommendation, the fusion compute, the dual-link C2 architecture and the contingency mapping for your BVLOS platform specification.</p>
+            </div>
+            <div class="spec-actions">
+              <button class="btn btn-primary" type="button" data-open-inquiry>Start Your Build <svg aria-hidden="true"><use href="#icon-arrow"/></svg></button>
+              <button class="btn btn-outline" data-open-inquiry>Open RFQ Brief</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="brand" href="/" aria-label="EMS Drone home"><span class="brand-mark"><svg aria-hidden="true"><use href="#icon-drone"/></svg></span><span>EMS Drone</span></a>
+          <p>Configurable UAV components, complete systems and engineering support.</p>
+        </div>
+        <div class="footer-col"><h3>System</h3><a href="/capabilities/">Capabilities</a><a href="/customization/">Customization</a><a href="/testing/">Testing</a></div>
+        <div class="footer-col"><h3>Context</h3><a href="/industries/">Industries</a><a href="/about/">About</a><a href="/blog/">Blog</a></div>
+        <div class="footer-col"><h3>More reading</h3><a href="/blog/drone-powertrain-matching/">Powertrain guide</a><a href="/blog/uav-rf-communication-systems/">RF systems</a><a href="/contact/">RFQ Brief</a></div>
+      </div>
+      <div class="footer-bottom"><span>&copy; 2026 EMS Drone</span><span>Define &rarr; Integrate &rarr; Deploy</span></div>
+    </div>
+  </footer>
+  <div class="modal-overlay" id="inquiryModal" aria-hidden="true">
+    <div class="modal-dialog" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <button class="modal-close" type="button" aria-label="Close inquiry">&times;</button>
+      <div class="modal-aside">
+        <span class="tech-label">Engineering Intake</span>
+        <div><h3 id="modalTitle">Start with your mission.</h3><p>Tell us what you are building and where you need support: component sourcing, a matched stack or a complete UAV.</p></div>
+      </div>
+      <form class="modal-form" data-preview-form>
+        <div class="field"><label for="modal-name">Name</label><input id="modal-name" name="name" autocomplete="name" required></div>
+        <div class="field" style="margin-top:18px"><label for="modal-email">Email</label><input id="modal-email" name="email" type="email" autocomplete="email" required></div>
+        <div class="field" style="margin-top:18px"><label for="modal-message">Project brief</label><textarea id="modal-message" name="message" required placeholder="Aircraft type, payload, environment, component list or complete-system goal"></textarea></div>
+        <button class="btn btn-primary" type="submit">Submit Engineering Brief</button>
+        <div class="form-status" role="status" aria-live="polite" aria-atomic="true"></div>
+      </form>
+    </div>
+  </div>
+<script src="/site.js?v=9"></script>
+  <script src="/reveal.js?v=9"></script>
+</body>
+</html>

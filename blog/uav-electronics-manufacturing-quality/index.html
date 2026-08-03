@@ -1,0 +1,298 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>UAV Electronics Manufacturing Quality: IPC-A-610 Class 3, J-STD-001 and the Supplier Audit That Finds Real Defects | EMS Drone</title>
+  <meta name="description" content="A procurement engineering guide to UAV electronics manufacturing quality — IPC-A-610 Class 2 vs Class 3 acceptance criteria, J-STD-001 process control, AOI and X-ray inspection, ionic contamination limits, ISO 9001 and AS9100 quality systems, and a 12-line-item RFQ checklist for flight controllers, ESCs and communication modules that survive field operation.">
+  <link rel="canonical" href="https://ems-drone.com/blog/uav-electronics-manufacturing-quality/">
+  <meta property="og:title" content="UAV Electronics Manufacturing Quality: IPC-A-610 Class 3, J-STD-001 and the Supplier Audit That Finds Real Defects">
+  <meta property="og:description" content="How to verify the manufacturing quality of UAV flight controllers, ESCs and communication modules — a procurement guide covering IPC-A-610 Class 2 vs Class 3, J-STD-001 soldering requirements, AOI and X-ray inspection coverage, ionic contamination testing, quality system audits and a ready-to-use RFQ checklist.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://ems-drone.com/blog/uav-electronics-manufacturing-quality/">
+  <meta property="og:image" content="https://ems-drone.com/generated/og-cover.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <link rel="icon" type="image/x-icon" href="/generated/favicon.ico">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="apple-touch-icon" sizes="180x180" href="/generated/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/generated/icon-192.png">
+<link rel="icon" type="image/png" sizes="512x512" href="/generated/icon-512.png">
+  <link rel="stylesheet" href="/design-tokens.css?v=21">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "UAV Electronics Manufacturing Quality: IPC-A-610 Class 3, J-STD-001 and the Supplier Audit That Finds Real Defects",
+  "description": "A procurement engineering guide to UAV electronics manufacturing quality — IPC-A-610 Class 2 vs Class 3 acceptance criteria, J-STD-001 process control, AOI and X-ray inspection, ionic contamination limits, ISO 9001 and AS9100 quality systems, and a 12-line-item RFQ checklist for flight controllers, ESCs and communication modules that survive field operation.",
+  "image": "https://ems-drone.com/generated/blog-cover-mfg-quality.webp",
+  "author": {
+    "@type": "Organization",
+    "name": "EMS Drone"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "EMS Drone",
+    "url": "https://ems-drone.com/",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://ems-drone.com/favicon.svg"
+    }
+  },
+  "mainEntityOfPage": "https://ems-drone.com/blog/uav-electronics-manufacturing-quality/",
+  "datePublished": "2026-08-03",
+  "dateModified": "2026-08-03"
+}
+</script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <svg aria-hidden="true" style="position:absolute;width:0;height:0;overflow:hidden">
+    <symbol id="icon-drone" viewBox="0 0 24 24" fill="none" stroke="#b8f34a" stroke-width="1.5"><circle cx="12" cy="12" r="2.6"/><path d="m10.2 10.2-4-4m7.6 4 4-4m-7.6 7.6-4 4m7.6-4 4 4"/><circle cx="4.7" cy="4.7" r="2.2"/><circle cx="19.3" cy="4.7" r="2.2"/><circle cx="4.7" cy="19.3" r="2.2"/><circle cx="19.3" cy="19.3" r="2.2"/></symbol>
+    <symbol id="icon-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12h14m-5-5 5 5-5 5"/></symbol>
+  </svg>
+
+  <header class="site-header">
+    <div class="nav-shell">
+      <a class="brand" href="/" aria-label="EMS Drone home"><span class="brand-mark"><svg aria-hidden="true"><use href="#icon-drone"/></svg></span><span>EMS Drone</span></a>
+      <button class="nav-toggle" type="button" aria-label="Open navigation" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+                                        <nav class="site-nav" aria-label="Primary navigation"><a href="/">Home</a>
+        <div class="nav-dropdown">
+          <a href="/capabilities/" class="nav-parent">Capabilities</a>
+          <div class="nav-submenu">
+            <a href="/capabilities/flight-control/">Flight Controllers</a>
+            <a href="/capabilities/esc-power/">ESC &amp; Power Systems</a>
+            <a href="/capabilities/propulsion/">Propulsion</a>
+            <a href="/capabilities/airframe/">Airframes &amp; Structures</a>
+            <a href="/capabilities/communications/">Communications &amp; RF</a>
+            <a href="/capabilities/payload/">Payloads &amp; Gimbals</a>
+          </div>
+        </div>
+        <div class="nav-dropdown">
+          <a href="/customization/" class="nav-parent">Services</a>
+          <div class="nav-submenu">
+            <a href="/customization/">Custom Engineering</a>
+            <a href="/testing/">Testing &amp; Validation</a>
+          </div>
+        </div>
+        <div class="nav-dropdown">
+          <a href="/industries/" class="nav-parent">Industries</a>
+          <div class="nav-submenu">
+            <a href="/industries/inspection/">Industrial Inspection</a>
+            <a href="/industries/mapping-survey/">Mapping &amp; Survey</a>
+            <a href="/industries/logistics/">Logistics &amp; Delivery</a>
+            <a href="/industries/agriculture/">Precision Agriculture</a>
+            <a href="/industries/research/">Research &amp; Development</a>
+          </div>
+        </div>
+        <div class="nav-dropdown">
+          <a href="/resources/" class="nav-parent">Resources</a>
+          <div class="nav-submenu">
+            <a href="/design-guides/">Design Guides</a>
+            <a href="/projects/">Engineering Projects</a>
+            <a href="/how-it-works/">How We Work</a>
+            <a href="/faq/">FAQ</a>
+            <a href="/blog/" aria-current="page">Blog</a>
+          </div>
+        </div>
+        <div class="nav-dropdown">
+          <a href="/about/" class="nav-parent">Company</a>
+          <div class="nav-submenu">
+            <a href="/about/">About</a>
+            <a href="/factory/">Factory</a>
+            <a href="/quality/">Quality</a>
+            <a href="/shipping/">Shipping</a>
+            <a href="/contact/">Contact</a>
+          </div>
+        </div>
+        <button class="btn btn-primary" data-open-inquiry>Start Your Build</button>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <header class="article-hero">
+      <div class="container reveal">
+        <span class="eyebrow"><a href="/blog/" style="color:inherit;text-decoration:none">Blog</a> · Procurement</span>
+        <h1>UAV electronics manufacturing quality: IPC-A-610 Class 3, J-STD-001 and the supplier audit that finds real defects</h1>
+        <p style="color:var(--muted-dark);max-width:640px">Two flight controllers with identical schematics, identical components and identical firmware can differ by 10x in field reliability — the difference is not the design, it is the manufacturing quality: the solder joint acceptance criteria, the inspection coverage, the cleaning process and the traceability chain behind each board. A UAV avionics board carries 500–1,200 solder joints, each one a potential intermittent failure that a datasheet will never reveal. This article is a procurement engineering guide to specifying and verifying UAV electronics manufacturing quality — the IPC-A-610 Class 2 vs Class 3 acceptance criteria, the J-STD-001 process requirements, the AOI, X-ray, ICT and functional test layers that determine the escape rate, the contamination and coating controls, and the quality-system evidence that separates a real manufacturing partner from a board assembler with a certificate.</p>
+        <div class="article-cover">
+          <img src="/generated/blog-cover-mfg-quality.webp" alt="UAV flight controller PCB under precision inspection — surface-mount electronics board with green LED indicators examined under a laboratory microscope, dark engineering workstation with probe station, signal green accent lighting, professional electronics manufacturing photography, no people faces, no text, no logos" loading="lazy">
+        </div>
+      </div>
+    </header>
+
+    <article class="article-body">
+      <div class="container reveal">
+        <p>The procurement conversation about UAV electronics usually starts with the component spec — the MCU clock speed, the ESC current rating, the radio sensitivity — and ends at the datasheet. The field failure conversation starts somewhere else entirely: a flight controller that develops intermittent attitude drift after 40 flight hours, an ESC that desyncs only in hot weather, a telemetry module that loses packets when the airframe vibrates. All three are manufacturing-quality failures: marginal solder joints that pass a bench test and fail under thermal cycling, flux residue that conducts under humidity, a BGA void that cracks when the board flexes. The datasheet cannot tell you which one you are buying. The manufacturing evidence can.</p>
+
+        <h2>Why UAV electronics fail: the defect classes that never appear on a datasheet</h2>
+        <p>UAV avionics fail differently from consumer electronics because the operating environment is more brutal: continuous vibration across the propulsion band, thermal cycles from −20°C ground soak to 60°C+ internal temperatures during flight, humidity and condensation inside sealed compartments, and high-G landing shocks. The defect classes that dominate field returns are exactly the ones that pass a single bench test at the factory:</p>
+        <p><strong>Intermittent solder joints.</strong> A solder joint with insufficient wetting, a hairline crack or an excessive void passes a resistance test at 25°C and fails at −10°C or under vibration. The classic failure signature is a board that works on the bench, fails in flight, and passes again when the technician reflows it with a hot-air station. The manufacturing controls are the acceptance criteria (IPC-A-610), the process (J-STD-001) and the inspection coverage (AOI plus X-ray for BGA and QFN packages).</p>
+        <p><strong>Contamination and residue.</strong> Flux residue left on the board absorbs moisture and creates ionic conduction paths between pins — the failure appears as intermittent brownouts, sensor noise or ESC misfires that correlate with humidity. The manufacturing control is the cleaning process and the ionic contamination test (the ROSE test per IPC-TM-650, with a typical acceptance limit of 1.56 µg/cm² NaCl equivalent on the final clean board).</p>
+        <p><strong>Component-level defects.</strong> A counterfeit or substandard IMU, a memory chip from a questionable lot, or a MOSFET operated inside a derating margin that the manufacturer quietly relaxed. The manufacturing control is component sourcing discipline, date-code and lot traceability, and incoming inspection (IQC) with the original manufacturer's verification.</p>
+        <p><strong>Handling and ESD damage.</strong> Bare-hand handling of a Class 3 board, an ungrounded workstation or a missing ESD bag can damage components in ways that pass final test and fail in the field. The manufacturing control is the ESD program (ANSI/ESD S20.20) and the handling rules that IPC-A-610 Class 3 inspection enforces.</p>
+        <p>The procurement consequence: quality is specified, not assumed. The rest of this article gives you the specification language, the verification evidence and the audit questions.</p>
+
+        <div class="media-visual reveal" style="max-width:640px;margin:32px auto">
+          <img src="/generated/blog-inline-mfg-quality-aoi.webp" alt="Automated optical inspection machine scanning a UAV flight controller PCB — camera head traversing the board surface with green inspection illumination, surface-mount electronics on the conveyor, dark factory environment with precision instrumentation, professional manufacturing photography, no people faces, no text, no logos" loading="lazy">
+          <span class="concept-badge">Concept illustration</span>
+        </div>
+
+        <h2>IPC-A-610 Class 2 vs Class 3: what the acceptance criteria actually change</h2>
+        <p>IPC-A-610 is the worldwide acceptance standard for electronic assemblies — it defines what a good solder joint looks like and what a reject looks like, across three classes. Class 1 (general electronics) accepts cosmetic imperfections that Class 2 rejects. Class 2 (dedicated service electronics) is the commercial default — the phone, the laptop, the consumer drone. Class 3 (high-performance/high-reliability electronics) is the class for equipment that must keep operating in the field — flight avionics, medical devices, military electronics. UAV flight controllers, ESCs, power distribution boards and communication modules used in commercial operations should be built and inspected to Class 3. The differences are concrete, not marketing:</p>
+        <p><strong>Side fillet height on surface-mount leads.</strong> For a gull-wing lead, Class 2 accepts a minimum side fillet height of 50% of the lead thickness; Class 3 requires 75%. The taller fillet is the difference between a joint that survives thermal cycling and one that develops a fatigue crack after hundreds of cycles. The inspection is visual (under magnification) and, for the critical joints, verified by AOI.</p>
+        <p><strong>Wetting and dewetting.</strong> Class 2 permits minor dewetting on the termination end; Class 3 requires complete wetting of the solderable surfaces with no exposed base metal on the termination ends. Dewetting is the signature of a marginal solderability problem — the joint looks soldered but the metallurgical bond is incomplete.</p>
+        <p><strong>BGA voiding.</strong> Voiding inside BGA solder balls is invisible to visual inspection and detectable only by X-ray. IPC-7095 guidance for high-reliability BGA assemblies recommends keeping voiding below 25% of the ball cross-section, and Class 3 programs typically enforce an X-ray sampling plan on every board with BGAs and QFNs. A large void under a BGA ball creates a hot spot, reduces current-carrying capacity and provides a crack initiation site under thermal cycling.</p>
+        <p><strong>Handling and workmanship.</strong> Class 3 inspection enforces glove or finger-cot handling, no bare-hand contact with the board surfaces, controlled storage of moisture-sensitive devices (MSL bake requirements), and restrictions on rework — typically a maximum of two rework cycles on a pad before the board is dispositioned. The handling rules are invisible in the final product but predict its long-term reliability.</p>
+        <p><strong>Inspection intensity.</strong> Class 3 programs apply 100% inspection of the critical criteria (via AOI plus operator verification), documented first-article inspection, and a tighter sampling plan on the process-control attributes. The cost is real — Class 3 acceptance typically adds 15–30% to the assembly cost per board and 2–4 days to the lead time for a flight controller — which is exactly why the class must be written into the RFQ and verified in the audit, not assumed.</p>
+        <p>The <a href="/blog/uav-certification-compliance-guide/">UAV certification and compliance guide</a> covers how the Class 3 manufacturing evidence fits into the CE, FCC and airworthiness documentation package for exported platforms, and the <a href="/blog/uav-supplier-evaluation-checklist/">UAV supplier evaluation checklist</a> turns these acceptance criteria into an audit script you can run in a factory visit.</p>
+
+        <h2>J-STD-001: solder joint quality, materials traceability and the workmanship chain</h2>
+        <p>Where IPC-A-610 defines the acceptance of the finished assembly, J-STD-001 defines the process that produces it: the soldering requirements, the materials control, the cleanliness verification and the process control records. The two standards are used together — J-STD-001 for the process, IPC-A-610 for the product — and a supplier that quotes "IPC Class 3" should be able to show both the process documentation (J-STD-001) and the acceptance records (IPC-A-610).</p>
+        <p><strong>Materials control.</strong> J-STD-001 requires the solder alloy, flux and cleaning agents to be specified and controlled. For UAV avionics the relevant detail is the solder alloy: lead-free SAC305 (Sn96.5/Ag3.0/Cu0.5) is the default, but the higher operating temperatures and vibration environment of UAV power electronics are one of the applications where a tin-lead or high-reliability alloy is sometimes specified for the high-current joints. The requirement is that the alloy, the flux chemistry and the reflow profile are documented and consistent — an undocumented alloy change is one of the most common silent reliability regressions in contract manufacturing.</p>
+        <p><strong>Cleanliness verification.</strong> J-STD-001 section 8 requires the assembled board to be cleaned to a defined level and verified. The standard method is the ROSE (Resistivity of Solvent Extract) test per IPC-TM-650 method 2.3.25, with the widely used acceptance limit of 1.56 µg/cm² NaCl equivalent on boards that will be conformal-coated. The test matters because the flux residue that looks harmless under a microscope becomes a leakage path under humidity — the failure mechanism behind the "works on the bench, brownouts in the field" pattern in agricultural and marine UAV platforms. The cleaning specification for the flight controller and ESC boards should be written into the RFQ as a numeric limit, not a process description.</p>
+        <p><strong>Process records.</strong> J-STD-001 requires traceable process control: the reflow profiles, the solder paste print inspection (SPI) results, the rework records and the operator certifications. The audit value of the records is that they let you verify the process did not drift between your first article and your production lot — the reflow profile from last week's run, the SPI pass rate, and the AOI coverage on your specific board revision.</p>
+        <p>The interaction between soldering quality and the other reliability domains is covered across the site: the <a href="/blog/uav-thermal-management-electronics/">thermal management guide</a> explains why the solder joint is the thermal bottleneck in high-current ESC design, the <a href="/blog/uav-emc-emi-design-compliance/">EMC/EMI design and compliance guide</a> covers the PCB-level layout and shielding that manufacturing must preserve, and the <a href="/blog/uav-connectors-wiring-power-distribution/">connectors, wiring and power distribution guide</a> covers the harness-side workmanship that the J-STD-001 discipline extends to.</p>
+
+        <div class="media-visual reveal" style="max-width:640px;margin:32px auto">
+          <img src="/generated/blog-inline-mfg-quality-xray.webp" alt="X-ray inspection image of BGA solder joints on a UAV flight controller — circular solder balls with visible void structure under the ball grid array package, dark background with green-tinted imaging, precision electronics inspection photography, no people faces, no text, no logos" loading="lazy">
+          <span class="concept-badge">Concept illustration</span>
+        </div>
+
+        <h2>The inspection layers: AOI, X-ray, ICT, functional test and the escape-rate math</h2>
+        <p>No single inspection catches every defect. The manufacturing quality of a UAV avionics board is the product of the inspection layers stacked on top of each other, and the escape rate (the defects that reach you despite inspection) is a function of the layer coverage. The procurement specification should name the layers and their coverage, not just "100% testing":</p>
+        <p><strong>SPI (solder paste inspection).</strong> 3D measurement of the paste deposit before reflow — volume, height, area and alignment on every pad. Paste defects (insufficient paste, paste bridges, misalignment) are the root cause of most reflow defects, and SPI is the cheapest layer to catch them. A serious supplier runs SPI on every board with a 3D system.</p>
+        <p><strong>AOI (automated optical inspection).</strong> Post-reflow 2D or 3D optical inspection of every visible joint — missing components, tombstoning, solder bridges, insufficient or excessive solder, wrong polarity, wrong component. AOI catches the visible defects at high speed; its blind spot is anything under a package (BGA balls, QFN pads) and anything that looks right optically but is cracked internally.</p>
+        <p><strong>X-ray / AXI.</strong> Inspection of the hidden joints — BGA and QFN voiding, solder ball collapse, head-in-pillow defects. For boards with BGA packages (common on the latest flight controllers with dense SoCs and on companion computers for edge AI), X-ray inspection is not optional: the head-in-pillow defect — where the solder ball melts but fails to fuse with the paste — passes AOI completely and produces an intermittent failure that appears after thermal cycling. The <a href="/blog/uav-edge-ai-onboard-computing/">UAV edge AI and onboard computing guide</a> covers the dense-package boards where X-ray inspection matters most.</p>
+        <p><strong>ICT (in-circuit test).</strong> Electrical verification of every node on the board through a bed-of-nails fixture — opens, shorts, missing components, wrong values, and basic device function. ICT catches the electrical defects that optics cannot see. Its limitation is that it verifies the board, not the system.</p>
+        <p><strong>Functional test.</strong> The board powered up and exercised as a system: for a flight controller, the IMU initialization and bias calibration, the barometer readout, the PWM and DShot outputs, the CAN bus traffic, the telemetry link; for an ESC, the throttle sweep, the current draw, the commutation at speed, the thermal shutdown behavior. A 100% functional test with recorded results — the pass/fail data, not a sticker — is the layer that catches the interaction defects.</p>
+        <p><strong>Environmental screening.</strong> For the components that will see the harshest duty — the propulsion ESCs, the power distribution board — thermal cycling and burn-in screening (per IPC-9701 for solder joint reliability, or a burn-in soak of 12–48 hours at elevated temperature) shifts the early-life failures out of the field and into the factory. The cost is real and the specification should be explicit about which boards get screened.</p>
+        <p>The escape-rate math works like this: a flight controller with 800 solder joints, a process defect rate of 20 ppm per joint and no inspection escapes roughly 1.6% of boards with at least one defective joint. Add SPI and AOI (which catch 90–95% of the visible defects), X-ray on the BGA joints, ICT and a 100% functional test, and the effective escape rate drops to well under 100 ppm of boards — but only if every layer actually ran on every board and the results are recorded. The audit question is never "do you have an AOI machine" — it is "show me the AOI results for the last lot of my board, and the defect Pareto over the last three months".</p>
+
+        <div class="media-visual reveal" style="max-width:640px;margin:32px auto">
+          <img src="/generated/blog-inline-mfg-quality-assembly.webp" alt="Surface-mount assembly line producing UAV avionics — pick-and-place machine placing components on a circuit board, reflow oven in the background, clean factory environment with green status lighting, professional electronics manufacturing photography, no people faces, no text, no logos" loading="lazy">
+          <span class="concept-badge">Concept illustration</span>
+        </div>
+
+        <h2>Cleaning, conformal coating and the contamination failures</h2>
+        <p>The cleanliness of a UAV avionics board interacts directly with the environmental protection package. A board that leaves the factory with flux residue and then receives conformal coating has the contamination sealed in — the residue absorbs moisture under the coating, and the failure appears as intermittent behavior in high-humidity missions that is almost impossible to diagnose because the coating hides the contamination. The manufacturing specification must therefore sequence the quality steps correctly:</p>
+        <p><strong>Clean before coat.</strong> The ionic contamination limit (1.56 µg/cm² NaCl equivalent per the ROSE test) should be verified before the conformal coating is applied. The coating process itself is specified under IPC-CC-830 (the coating chemistry and application) and inspected under IPC-A-610 (the coverage and the masked areas). The <a href="/blog/uav-waterproofing-ip-rated-components/">waterproofing and IP-rated components guide</a> covers the coating chemistries, the thickness ranges and the masking requirements in detail — the manufacturing-quality angle here is that the coating is only as good as the board it covers.</p>
+        <p><strong>Underfill for the fragile packages.</strong> For the ball grid array and chip-scale packages on the flight controller and the companion computer, underfill (the epoxy that locks the package to the board) prevents the solder balls from cracking under vibration and thermal cycling. Underfill is a manufacturing process with its own material and cure controls, and its absence is invisible in final test — the failure appears after hundreds of flight hours. The RFQ should state which packages receive underfill and require the process record.</p>
+        <p><strong>The wash process.</strong> The cleaning chemistry (water-based, semi-aqueous or solvent), the wash cycle and the verification must be documented. The ROSE test result is the acceptance evidence — a numeric limit, not an assurance.</p>
+        <p>The contamination and coating failure modes are the same ones that drive the <a href="/blog/uav-sensor-fusion-redundant-navigation/">sensor fusion and redundant navigation</a> reliability discussion: the avionics must maintain its accuracy not just on the bench but after months of field exposure, and the manufacturing quality determines how long the board keeps its specification.</p>
+
+        <h2>Quality systems: ISO 9001, AS9100 and what an audit can and cannot prove</h2>
+        <p>The quality-system certificate is the entry ticket, not the evidence. ISO 9001:2015 certifies that a supplier has a documented quality management system — it does not certify the Class of the boards, the inspection coverage or the traceability depth. AS9100D (the aerospace add-on to ISO 9001) adds the requirements that matter for flight hardware: configuration management, first-article inspection per AS9102, counterfeit-parts prevention, FOD (foreign object debris) control, and tighter traceability. For UAV avionics in commercial operations, AS9100 is the stronger signal, but the certificate alone still proves little — the audit evidence is in the records:</p>
+        <p><strong>First-article inspection (FAI).</strong> Per AS9102, a complete dimensional, material and process verification of the first production article against the drawing and the spec. The FAI report for your board revision — not the supplier's generic FAI for a different board — is the first document to request. It proves the board was actually built and inspected against the criteria you specified.</p>
+        <p><strong>Lot traceability.</strong> The ability to trace a serialized board to its component lots (the IMU date code, the memory lot, the solder paste lot) and to its process records (the reflow profile, the AOI results, the functional test data). Lot traceability is what turns a field failure into a containment decision — "which boards are affected" — instead of a whole-fleet gamble. The <a href="/blog/uav-component-obsolescence-management/">component obsolescence management guide</a> covers the related question of how the component lots and the lifecycle status interact with the maintenance plan.</p>
+        <p><strong>Corrective action history.</strong> The supplier's 8D or CAPA records over the last 12 months — what failed, what was found, what changed. A supplier with no corrective actions in a year is either excellent or not looking; the audit question is the depth of the analysis, not the count.</p>
+        <p><strong>What the audit cannot prove.</strong> An audit is a point-in-time sample. The certificate, the FAI and the records prove the capability; they do not prove that this week's production lot ran to the same standard. That is what the lot-level evidence — the SPI and AOI results, the X-ray sampling, the functional test data for your serial numbers — is for, and why the delivery documentation should include it with every shipment.</p>
+        <p>The procurement decision context — when to buy from an assembler versus a manufacturing partner, and what the difference costs — is covered in the <a href="/blog/uav-component-build-vs-buy/">UAV component sourcing: build vs buy guide</a>, and the end-to-end supplier qualification process in the <a href="/blog/uav-supplier-evaluation-checklist/">supplier evaluation checklist</a>.</p>
+
+        <div class="media-visual reveal" style="max-width:640px;margin:32px auto">
+          <img src="/generated/blog-inline-mfg-quality-solder-joint.webp" alt="Macro photograph of precision solder joints on a UAV ESC power board — clean shiny solder fillets on surface-mount components and power MOSFETs, microscope view with sharp focus, dark laboratory lighting with green accent, professional electronics inspection photography, no people faces, no text, no logos" loading="lazy">
+          <span class="concept-badge">Concept illustration</span>
+        </div>
+
+        <h2>The RFQ checklist: 12 line items for specifying manufacturing quality</h2>
+        <p>The following twelve line items translate the manufacturing-quality discussion into an RFQ-ready specification. Each line item includes the evidence the procurement team should collect before acceptance, and the checklist works for flight controllers, ESCs, power distribution boards, communication modules and payload electronics alike.</p>
+        <p><strong>1. Acceptance class.</strong> All avionics assemblies shall be built and inspected to IPC-A-610 Class 3 and J-STD-001 Class 3. Verification: the FAI report (AS9102 format) for this board revision, referencing the Class 3 criteria.</p>
+        <p><strong>2. Solder joint criteria.</strong> The side fillet height on surface-mount leads shall meet the Class 3 minimum (75% of the lead thickness on gull-wing leads), with no dewetting and no exposed base metal on termination ends. Verification: the AOI results and the operator inspection records for the last production lot.</p>
+        <p><strong>3. Hidden-joint inspection.</strong> All BGA and QFN packages shall be X-ray inspected with voiding below 25% of the ball cross-section. Verification: the X-ray images and the disposition records for each board in the lot.</p>
+        <p><strong>4. Solder paste inspection.</strong> Every board shall pass 3D SPI before reflow, with the paste volume, height and alignment within the process window. Verification: the SPI statistics for the lot (the Cpk or the pass rate).</p>
+        <p><strong>5. Cleanliness.</strong> The final clean boards shall pass the ROSE test per IPC-TM-650 2.3.25 at ≤ 1.56 µg/cm² NaCl equivalent before conformal coating. Verification: the ROSE test report with the board serial numbers.</p>
+        <p><strong>6. Conformal coating.</strong> The specified boards shall be conformal-coated per IPC-CC-830 with the chemistry, thickness and masking documented, and the coating thickness verified on process coupons. Verification: the coating process spec and the thickness records. The coating interaction with thermal performance is covered in the <a href="/blog/uav-thermal-management-electronics/">thermal management guide</a>.</p>
+        <p><strong>7. Underfill.</strong> The BGA and chip-scale packages on the flight controller and the companion computer shall be underfilled with the material and cure schedule documented. Verification: the underfill process record.</p>
+        <p><strong>8. In-circuit test.</strong> Every board shall pass ICT covering opens, shorts, component values and device function on all nodes. Verification: the ICT fixture coverage report and the lot pass rate.</p>
+        <p><strong>9. Functional test.</strong> Every board shall pass a 100% functional test at operating voltage and temperature: the IMU initialization and bias, the PWM/DShot/CAN outputs, the telemetry link, the current draw and the thermal behavior. Verification: the recorded functional test results per serial number.</p>
+        <p><strong>10. Environmental screening.</strong> The propulsion ESCs and the power distribution boards shall receive thermal cycling or burn-in per the agreed profile. Verification: the screening profile and the results.</p>
+        <p><strong>11. ESD and handling.</strong> The assembly line shall operate an ANSI/ESD S20.20-compliant ESD program with grounded workstations, and the boards shall be handled with gloves per the Class 3 handling rules. Verification: the ESD program documentation and the audit records.</p>
+        <p><strong>12. Traceability and delivery documentation.</strong> Each serialized board shall be traceable to its component lots and its process records, and the shipment shall include the FAI report, the lot-level inspection statistics, the functional test data and the corrective-action history relevant to the board. Verification: the delivery documentation package.</p>
+        <p>For the test bench and acceptance-test methodology that verifies the assembled propulsion and power hardware — the thrust, the thermal and the endurance data that complement the manufacturing evidence — the <a href="/blog/uav-propulsion-testing-validation/">UAV propulsion testing and validation guide</a> covers the full framework.</p>
+
+        <p style="margin-top:42px"><a class="btn btn-primary" href="/customization/">Explore custom engineering</a> <a class="btn btn-outline" href="/blog/" style="margin-left:12px">Back to Blog</a></p>
+
+        <section class="continue-reading">
+          <h3>Continue Reading</h3>
+          <div class="continue-grid">
+            <a class="continue-card" href="/blog/uav-supplier-evaluation-checklist/">
+              <div class="continue-card-img"><img src="/generated/blog-cover-supplier-checklist.webp" alt="Supplier Evaluation Checklist" loading="lazy"></div>
+              <div class="continue-card-body"><h4>How to Evaluate a UAV Component Supplier</h4><p>The audit script that turns the Class 3 criteria and the inspection layers into a factory-visit checklist — documentation, records, line observation and the red flags.</p></div>
+            </a>
+            <a class="continue-card" href="/blog/uav-certification-compliance-guide/">
+              <div class="continue-card-img"><img src="/generated/blog-cover-certification.webp" alt="Certification and Compliance" loading="lazy"></div>
+              <div class="continue-card-body"><h4>UAV Component Certification &amp; Compliance</h4><p>How the manufacturing evidence — the Class 3 records, the test reports, the traceability — fits into the CE, FCC, RoHS and airworthiness documentation package.</p></div>
+            </a>
+            <a class="continue-card" href="/blog/uav-emc-emi-design-compliance/">
+              <div class="continue-card-img"><img src="/generated/blog-cover-emc-emi.webp" alt="EMC/EMI Design Compliance" loading="lazy"></div>
+              <div class="continue-card-body"><h4>UAV Avionics EMC/EMI Design &amp; Compliance</h4><p>The PCB-level layout, shielding and manufacturing consistency that determine whether the emissions and immunity performance survives production.</p></div>
+            </a>
+            <a class="continue-card" href="/blog/uav-waterproofing-ip-rated-components/">
+              <div class="continue-card-img"><img src="/generated/blog-cover-waterproofing.webp" alt="Waterproofing and IP Ratings" loading="lazy"></div>
+              <div class="continue-card-body"><h4>Waterproofing UAV Components: IP Ratings</h4><p>The cleaning-before-coating sequence, the conformal coating specification and the contamination failures that the manufacturing process must prevent.</p></div>
+            </a>
+            <a class="continue-card" href="/blog/uav-component-obsolescence-management/">
+              <div class="continue-card-img"><img src="/generated/blog-cover-obsolescence.webp" alt="Component Obsolescence Management" loading="lazy"></div>
+              <div class="continue-card-body"><h4>UAV Component Obsolescence Management</h4><p>How lot traceability and the component date-code records interact with the lifecycle plan for long-lived UAV programs.</p></div>
+            </a>
+          </div>
+        </section>
+      </div>
+      </div>
+    </article>
+
+    <section class="section section-alt" style="--cta-bg:url(/generated/blog-cta-mfg-quality.webp)">
+      <div class="container">
+        <div class="spec-panel reveal">
+          <div class="spec-panel-inner">
+            <div>
+              <span class="eyebrow">Quality Engineering Support</span>
+              <h2>Tell us your reliability requirement — we will build the board to the class that meets it.</h2>
+              <p>Share your avionics design, your operating environment and your field-reliability target — we will provide the Class 3 assembly specification, the inspection plan (SPI, AOI, X-ray, ICT, functional test), the FAI report and the lot-level test data for your procurement decision. Every flight controller, ESC and communication module ships with its functional test record.</p>
+            </div>
+            <div class="spec-actions">
+              <button class="btn btn-primary" type="button" data-open-inquiry>Start Your Build <svg aria-hidden="true"><use href="#icon-arrow"/></svg></button>
+              <button class="btn btn-outline" data-open-inquiry>Open RFQ Brief</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="brand" href="/" aria-label="EMS Drone home"><span class="brand-mark"><svg aria-hidden="true"><use href="#icon-drone"/></svg></span><span>EMS Drone</span></a>
+          <p>Configurable UAV components, complete systems and engineering support.</p>
+        </div>
+        <div class="footer-col"><h3>System</h3><a href="/capabilities/">Capabilities</a><a href="/customization/">Customization</a><a href="/testing/">Testing</a></div>
+        <div class="footer-col"><h3>Context</h3><a href="/industries/">Industries</a><a href="/about/">About</a><a href="/blog/">Blog</a></div>
+        <div class="footer-col"><h3>More reading</h3><a href="/blog/drone-powertrain-matching/">Powertrain guide</a><a href="/blog/uav-rf-communication-systems/">RF systems</a><a href="/contact/">RFQ Brief</a></div>
+      </div>
+      <div class="footer-bottom"><span>&copy; 2026 EMS Drone</span><span>Define &rarr; Integrate &rarr; Deploy</span></div>
+    </div>
+  </footer>
+  <div class="modal-overlay" id="inquiryModal" aria-hidden="true">
+    <div class="modal-dialog" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <button class="modal-close" type="button" aria-label="Close inquiry">&times;</button>
+      <div class="modal-aside">
+        <span class="tech-label">Engineering Intake</span>
+        <div><h3 id="modalTitle">Start with your mission.</h3><p>Tell us what you are building and where you need support: component sourcing, a matched stack or a complete UAV.</p></div>
+      </div>
+      <form class="modal-form" data-preview-form>
+        <div class="field"><label for="modal-name">Name</label><input id="modal-name" name="name" autocomplete="name" required></div>
+        <div class="field" style="margin-top:18px"><label for="modal-email">Email</label><input id="modal-email" name="email" type="email" autocomplete="email" required></div>
+        <div class="field" style="margin-top:18px"><label for="modal-message">Project brief</label><textarea id="modal-message" name="message" required placeholder="Aircraft type, payload, environment, component list or complete-system goal"></textarea></div>
+        <button class="btn btn-primary" type="submit">Submit Engineering Brief</button>
+        <div class="form-status" role="status" aria-live="polite" aria-atomic="true"></div>
+      </form>
+    </div>
+  </div>
+<script src="/site.js?v=9"></script>
+  <script src="/reveal.js?v=9"></script>
+</body>
+</html>

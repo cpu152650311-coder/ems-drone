@@ -5,12 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>UAV Engineering Blog | EMS Drone</title>
   <meta name="description" content="Industry education on UAV supply-chain layers, flight-controller and ESC matching, and component priorities for low-altitude economy platforms.">
-  <link rel="canonical" href="https://ems-drone.pages.dev/blog/">
+  <link rel="canonical" href="https://ems-drone.com/blog/">
   <meta property="og:title" content="EMS Drone Blog — UAV System &amp; Supply-Chain Notes">
   <meta property="og:description" content="Practical engineering primers for teams building configurable UAV stacks—not case studies or capacity claims.">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://ems-drone.pages.dev/blog/">
-  <meta property="og:image" content="https://ems-drone.pages.dev/generated/og-cover.png">
+  <meta property="og:url" content="https://ems-drone.com/blog/">
+  <meta property="og:image" content="https://ems-drone.com/generated/og-cover.png">
   <meta property="og:image:type" content="image/png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
@@ -21,165 +21,279 @@
 <link rel="icon" type="image/png" sizes="512x512" href="/generated/icon-512.png">
   <link rel="stylesheet" href="/design-tokens.css?v=21">
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Blog",
-    "name": "EMS Drone Blog",
-    "url": "https://ems-drone.pages.dev/blog/",
-    "description": "Industry education on UAV supply-chain architecture, control-power matching and low-altitude component priorities.",
-    "publisher": {
-      "@type": "Organization",
-      "name": "EMS Drone",
-      "url": "https://ems-drone.pages.dev/"
+{
+  "@context": "https://schema.org",
+  "@type": "Blog",
+  "name": "EMS Drone Blog",
+  "url": "https://ems-drone.com/blog/",
+  "description": "Industry education on UAV component selection, propulsion matching, safety systems and procurement for industrial drone programs.",
+  "publisher": {
+    "@type": "Organization",
+    "name": "EMS Drone",
+    "url": "https://ems-drone.com/"
+  },
+  "blogPost": [
+    {
+      "@type": "BlogPosting",
+      "headline": "ArduPilot vs PX4: Which Open-Source Autopilot for Your Industrial UAV Fleet",
+      "url": "https://ems-drone.com/blog/ardupilot-vs-px4-autopilot/",
+      "image": "https://ems-drone.com/generated/blog-cover-ardupilot-px4.webp"
     },
-    "blogPost": [
-      {
-        "@type": "BlogPosting",
-        "headline": "Carbon Fiber vs Aluminum vs G10: UAV Airframe Materials Guide",
-        "url": "https://ems-drone.pages.dev/blog/uav-airframe-materials-guide/",
-        "image": "https://ems-drone.pages.dev/generated/blog-cover-airframe.webp"
-      },
-      {
-        "@type": "BlogPosting",
-        "headline": "UAV Component Sourcing Strategy: Build vs Buy",
-        "url": "https://ems-drone.pages.dev/blog/uav-component-build-vs-buy/",
-        "image": "https://ems-drone.pages.dev/generated/blog-cover-build-vs-buy.webp"
-      },
-      {
-        "@type": "BlogPosting",
-        "headline": "How to Match Flight Controller, ESC and Motor for Industrial UAVs",
-        "url": "https://ems-drone.pages.dev/blog/drone-powertrain-matching/",
-        "image": "https://ems-drone.pages.dev/generated/blog-cover-powertrain.webp"
-      },
-      {
-        "@type": "BlogPosting",
-        "headline": "How UAV Supply-Chain Layers Connect",
-        "url": "https://ems-drone.pages.dev/blog/uav-supply-chain-layers/",
-        "image": "https://ems-drone.pages.dev/generated/blog-cover-supply.webp"
-      },
-      {
-        "@type": "BlogPosting",
-        "headline": "Matching Flight Controllers and ESCs",
-        "url": "https://ems-drone.pages.dev/blog/flight-controller-esc-matching/",
-        "image": "https://ems-drone.pages.dev/generated/blog-cover-matching.webp"
-      },
-      {
-        "@type": "BlogPosting",
-        "headline": "Component Priorities for Low-Altitude Economy UAVs",
-        "url": "https://ems-drone.pages.dev/blog/low-altitude-economy-components/",
-        "image": "https://ems-drone.pages.dev/generated/blog-cover-lowalt.webp"
-        },
-        {
-        "@type": "BlogPosting",
-        "headline": "How to Evaluate a UAV Component Supplier: Procurement Checklist",
-        "url": "https://ems-drone.pages.dev/blog/uav-supplier-evaluation-checklist/",
-        "image": "https://ems-drone.pages.dev/generated/blog-cover-supplier-checklist.webp"
-        },
-        {
-        "@type": "BlogPosting",
-        "headline": "UAV RF Communication Systems: How to Choose the Right Data Link for Your Drone",
-        "url": "https://ems-drone.pages.dev/blog/uav-rf-communication-systems/",
-        "image": "https://ems-drone.pages.dev/generated/blog-cover-rf-systems.webp"
-        },
-        {
-        "@type": "BlogPosting",
-        "headline": "UAV Payload Integration Guide: Sensors, Gimbals and Release Mechanisms",
-        "url": "https://ems-drone.pages.dev/blog/uav-payload-integration-guide/",
-        "image": "https://ems-drone.pages.dev/generated/blog-cover-payload.webp"
-        },
-        {
-        "@type": "BlogPosting",
-        "headline": "UAV Battery and Power Management: LiPo vs Li-Ion for Industrial Drones",
-        "url": "https://ems-drone.pages.dev/blog/uav-battery-power-management/",
-        "image": "https://ems-drone.pages.dev/generated/blog-cover-battery.webp"
-        },
-        {
-        "@type": "BlogPosting",
-        "headline": "UAV Components for Industrial Inspection: How to Select the Right Drone Hardware",
-        "url": "https://ems-drone.pages.dev/blog/uav-industrial-inspection-components/",
-        "image": "https://ems-drone.pages.dev/generated/blog-cover-inspection.webp"
-        },
-        {
-        "@type": "BlogPosting",
-        "headline": "UAV Components for Mapping and Surveying: GNSS, Cameras, LiDAR and Airframe Selection",
-        "url": "https://ems-drone.pages.dev/blog/uav-mapping-survey-components/",
-        "image": "https://ems-drone.pages.dev/generated/blog-cover-mapping.webp"
-        }
-        {
-        "@type": "BlogPosting",
-        "headline": "UAV Components for Logistics and Delivery: Motors, Batteries, Navigation and Cargo Systems",
-        "url": "https://ems-drone.pages.dev/blog/uav-logistics-delivery-components/",
-        "image": "https://ems-drone.pages.dev/generated/blog-cover-logistics.webp"
-        },
-        {
-        "@type": "BlogPosting",
-        "headline": "Precision Agriculture UAV Components: Spraying Systems, RTK Navigation and Chemical-Resistant Hardware",
-        "url": "https://ems-drone.pages.dev/blog/uav-agriculture-spraying-components/",
-        "image": "https://ems-drone.pages.dev/generated/blog-cover-agriculture.webp"
-        },
-        {
-        "@type": "BlogPosting",
-        "headline": "Environmental Monitoring UAV Components: Long-Endurance Platforms, Remote Telemetry and Multi-Sensor Integration",
-        "url": "https://ems-drone.pages.dev/blog/uav-environmental-monitoring-components/",
-        "image": "https://ems-drone.pages.dev/generated/blog-cover-environmental.webp"
-        },
-        {
-        "@type": "BlogPosting",
-        "headline": "Public Safety UAV Components: Thermal Imaging, Encrypted Communications and Rapid-Deployment Systems for First Responders",
-        "url": "https://ems-drone.pages.dev/blog/uav-public-safety-components/",
-        "image": "https://ems-drone.pages.dev/generated/blog-cover-public-safety.webp"
-        },
-        {
-        "@type": "BlogPosting",
-        "headline": "UAV Components for Research & Development: Open-Architecture Flight Controllers, Modular Airframes and Configurable Sensor Payloads",
-        "url": "https://ems-drone.pages.dev/blog/uav-research-development-components/",
-        "image": "https://ems-drone.pages.dev/generated/blog-cover-rd.webp"
-        },
-        {
-        "@type": "BlogPosting",
-        "headline": "FPV \& Video Downlink Systems for UAVs: Digital vs Analog, Latency, Range and Procurement",
-        "url": "https://ems-drone.pages.dev/blog/uav-fpv-video-downlink-systems/",
-        "image": "https://ems-drone.pages.dev/generated/blog-cover-fpv-downlink.webp"
-        },
-        {
-        "@type": "BlogPosting",
-        "headline": "UAV Communication Protocols: CAN, DShot, PWM, SBUS, CRSF Compared for Industrial Drone Integration",
-        "url": "https://ems-drone.pages.dev/blog/uav-communication-protocols-guide/",
-        "image": "https://ems-drone.pages.dev/generated/blog-cover-comm-protocols.webp"
-        },
-        {
-        "@type": "BlogPosting",
-        "headline": "ArduPilot vs PX4: Which Open-Source Autopilot for Your Industrial UAV Fleet",
-        "url": "https://ems-drone.pages.dev/blog/ardupilot-vs-px4-autopilot/",
-        "image": "https://ems-drone.pages.dev/generated/blog-cover-ardupilot-px4.webp"
-        },
-        {
-        "@type": "BlogPosting",
-        "headline": "UAV Propulsion System Testing &amp; Validation: Thrust Stand, Thermal Endurance and Lifetime Prediction",
-        "url": "https://ems-drone.pages.dev/blog/uav-propulsion-testing-validation/",
-        "image": "https://ems-drone.pages.dev/generated/blog-cover-propulsion-testing.webp"
-        },
-        {
-        "@type": "BlogPosting",
-        "headline": "UAV GNSS Module Selection Guide: RTK, PPK and Multi-Frequency GPS for Industrial Drones",
-        "url": "https://ems-drone.pages.dev/blog/uav-gnss-rtk-module-selection/",
-        "image": "https://ems-drone.pages.dev/generated/blog-cover-gnss-module.webp"
-        },
-        {
-        "@type": "BlogPosting",
-        "headline": "UAV Edge AI and Onboard Computing: Selecting Companion Computers and AI Accelerators for Autonomous Drone Operations",
-        "url": "https://ems-drone.pages.dev/blog/uav-edge-ai-onboard-computing/",
-        "image": "https://ems-drone.pages.dev/generated/blog-cover-edge-ai.webp"
-        },
-        {
-        "@type": "BlogPosting",
-        "headline": "UAV Connectors, Wiring and Power Distribution: Selecting Electrical Interconnects for Industrial Drone Builds",
-        "url": "https://ems-drone.pages.dev/blog/uav-connectors-wiring-power-distribution/",
-        "image": "https://ems-drone.pages.dev/generated/blog-cover-connectors.webp"
-        }
-        ]
-  }
-  </script>
+    {
+      "@type": "BlogPosting",
+      "headline": "How to Match Flight Controller, ESC and Motor for Industrial UAVs — A Powertrain Selection Guide",
+      "url": "https://ems-drone.com/blog/drone-powertrain-matching/",
+      "image": "https://ems-drone.com/generated/blog-cover-powertrain.webp"
+    },
+    {
+      "@type": "BlogPosting",
+      "headline": "ESC Firmware Guide: BLHeli_32 vs AM32 vs FOC — Which Protocol for Industrial UAVs",
+      "url": "https://ems-drone.com/blog/esc-firmware-selection-guide/",
+      "image": "https://ems-drone.com/generated/blog-cover-esc-firmware.webp"
+    },
+    {
+      "@type": "BlogPosting",
+      "headline": "Matching Flight Controllers and ESCs",
+      "url": "https://ems-drone.com/blog/flight-controller-esc-matching/",
+      "image": "https://ems-drone.com/generated/blog-cover-matching.webp"
+    },
+    {
+      "@type": "BlogPosting",
+      "headline": "Component Priorities for Low-Altitude Economy UAVs",
+      "url": "https://ems-drone.com/blog/low-altitude-economy-components/",
+      "image": "https://ems-drone.com/generated/blog-cover-lowalt.webp"
+    },
+    {
+      "@type": "BlogPosting",
+      "headline": "Precision Agriculture UAV Components: Spraying Systems, RTK Navigation and Chemical-Resistant Hardware",
+      "url": "https://ems-drone.com/blog/uav-agriculture-spraying-components/",
+      "image": "https://ems-drone.com/generated/blog-cover-agriculture.webp"
+    },
+    {
+      "@type": "BlogPosting",
+      "headline": "Carbon Fiber vs Aluminum vs G10: UAV Airframe Materials Guide",
+      "url": "https://ems-drone.com/blog/uav-airframe-materials-guide/",
+      "image": "https://ems-drone.com/generated/blog-cover-airframe.webp"
+    },
+    {
+      "@type": "BlogPosting",
+      "headline": "UAV Battery and Power Management Guide: LiPo vs Li-Ion for Industrial Drones",
+      "url": "https://ems-drone.com/blog/uav-battery-power-management/",
+      "image": "https://ems-drone.com/generated/blog-cover-battery.webp"
+    },
+    {
+      "@type": "BlogPosting",
+      "headline": "UAV Component Certification & Compliance: CE, FCC, RoHS, NDAA and ITAR for Export Markets",
+      "url": "https://ems-drone.com/blog/uav-certification-compliance-guide/",
+      "image": "https://ems-drone.com/generated/blog-cover-certification.webp"
+    },
+    {
+      "@type": "BlogPosting",
+      "headline": "UAV Communication Protocols: CAN, DShot, PWM, SBUS, CRSF Compared for Industrial Drone Integration",
+      "url": "https://ems-drone.com/blog/uav-communication-protocols-guide/",
+      "image": "https://ems-drone.com/generated/blog-cover-comm-protocols.webp"
+    },
+    {
+      "@type": "BlogPosting",
+      "headline": "UAV Component Sourcing Strategy: When to Build vs Buy for Drone Systems",
+      "url": "https://ems-drone.com/blog/uav-component-build-vs-buy/",
+      "image": "https://ems-drone.com/generated/blog-cover-build-vs-buy.webp"
+    },
+    {
+      "@type": "BlogPosting",
+      "headline": "UAV Component Obsolescence Management: EOL Strategies, Lifetime Buys & Redesign",
+      "url": "https://ems-drone.com/blog/uav-component-obsolescence-management/",
+      "image": "https://ems-drone.com/generated/blog-cover-obsolescence.webp"
+    },
+    {
+      "@type": "BlogPosting",
+      "headline": "UAV Connectors, Wiring and Power Distribution: Selecting Electrical Interconnects for Industrial Drone Builds",
+      "url": "https://ems-drone.com/blog/uav-connectors-wiring-power-distribution/",
+      "image": "https://ems-drone.com/generated/blog-cover-connectors.webp"
+    },
+    {
+      "@type": "BlogPosting",
+      "headline": "Defense & Security UAV Components: MIL-STD Hardware, Encrypted Data Links and GNSS-Denied Navigation for Tactical Operations",
+      "url": "https://ems-drone.com/blog/uav-defense-security-components/",
+      "image": "https://ems-drone.com/generated/blog-cover-defense.webp"
+    },
+    {
+      "@type": "BlogPosting",
+      "headline": "UAV Edge AI and Onboard Computing: Selecting Companion Computers and AI Accelerators for Autonomous Drone Operations",
+      "url": "https://ems-drone.com/blog/uav-edge-ai-onboard-computing/",
+      "image": "https://ems-drone.com/generated/blog-cover-edge-ai.webp"
+    },
+    {
+      "@type": "BlogPosting",
+      "headline": "UAV Electronics Manufacturing Quality: IPC-A-610 Class 3, J-STD-001 and the Supplier Audit That Finds Real Defects",
+      "url": "https://ems-drone.com/blog/uav-electronics-manufacturing-quality/",
+      "image": "https://ems-drone.com/generated/blog-cover-mfg-quality.webp"
+    },
+    {
+      "@type": "BlogPosting",
+      "headline": "UAV Avionics EMC/EMI Design & Compliance: Emissions, Immunity and Procurement Specifications for Industrial Drone Electronics",
+      "url": "https://ems-drone.com/blog/uav-emc-emi-design-compliance/",
+      "image": "https://ems-drone.com/generated/blog-cover-emc-emi.webp"
+    },
+    {
+      "@type": "BlogPosting",
+      "headline": "Environmental Monitoring UAV Components: Long-Endurance Platforms, Remote Telemetry and Multi-Sensor Integration",
+      "url": "https://ems-drone.com/blog/uav-environmental-monitoring-components/",
+      "image": "https://ems-drone.com/generated/blog-cover-environmental.webp"
+    },
+    {
+      "@type": "BlogPosting",
+      "headline": "FPV & Video Downlink Systems for UAVs: Digital vs Analog, Latency, Range and Procurement",
+      "url": "https://ems-drone.com/blog/uav-fpv-video-downlink-systems/",
+      "image": "https://ems-drone.com/generated/blog-cover-fpv-downlink.webp"
+    },
+    {
+      "@type": "BlogPosting",
+      "headline": "UAV GNSS Module Selection Guide: RTK, PPK and Multi-Frequency GPS for Industrial Drones",
+      "url": "https://ems-drone.com/blog/uav-gnss-rtk-module-selection/",
+      "image": "https://ems-drone.com/generated/blog-cover-gnss-module.webp"
+    },
+    {
+      "@type": "BlogPosting",
+      "headline": "UAV Ground Control Station Hardware: Telemetry Radios, Antenna Systems and GCS Software for Industrial Drone Operations",
+      "url": "https://ems-drone.com/blog/uav-ground-control-station-hardware/",
+      "image": "https://ems-drone.com/generated/blog-cover-gcs-hardware.webp"
+    },
+    {
+      "@type": "BlogPosting",
+      "headline": "Heavy-Lift UAV Propulsion Design: Motors, ESCs, Batteries and Propellers for 10–50 kg Payload Drones",
+      "url": "https://ems-drone.com/blog/uav-heavy-lift-propulsion-design/",
+      "image": "https://ems-drone.com/generated/blog-cover-heavy-lift.webp"
+    },
+    {
+      "@type": "BlogPosting",
+      "headline": "UAV Hydrogen Fuel Cell Propulsion: Procurement Guide for Long-Endurance Drone Power Systems",
+      "url": "https://ems-drone.com/blog/uav-hydrogen-fuel-cell-propulsion/",
+      "image": "https://ems-drone.com/generated/blog-cover-hydrogen-fuel-cell.webp"
+    },
+    {
+      "@type": "BlogPosting",
+      "headline": "UAV Components for Industrial Inspection: How to Select the Right Drone Hardware",
+      "url": "https://ems-drone.com/blog/uav-industrial-inspection-components/",
+      "image": "https://ems-drone.com/generated/blog-cover-inspection.webp"
+    },
+    {
+      "@type": "BlogPosting",
+      "headline": "UAV Components for Logistics and Delivery: Motors, Batteries, Navigation and Cargo Systems",
+      "url": "https://ems-drone.com/blog/uav-logistics-delivery-components/",
+      "image": "https://ems-drone.com/generated/blog-cover-logistics.webp"
+    },
+    {
+      "@type": "BlogPosting",
+      "headline": "UAV Components for Mapping and Surveying: GNSS, Cameras, LiDAR and Airframe Selection",
+      "url": "https://ems-drone.com/blog/uav-mapping-survey-components/",
+      "image": "https://ems-drone.com/generated/blog-cover-mapping.webp"
+    },
+    {
+      "@type": "BlogPosting",
+      "headline": "UAV Brushless Motor KV Selection: Thrust Calculation, Stator Sizing and Thermal Budget for Industrial Drones",
+      "url": "https://ems-drone.com/blog/uav-motor-kv-selection-guide/",
+      "image": "https://ems-drone.com/generated/blog-cover-motor-kv.webp"
+    },
+    {
+      "@type": "BlogPosting",
+      "headline": "BLDC vs PMSM vs PMAC: Choosing the Right Motor Topology for Industrial UAV Propulsion",
+      "url": "https://ems-drone.com/blog/uav-motor-topology-bldc-pmsm-pmac/",
+      "image": "https://ems-drone.com/generated/blog-cover-motor-topology.webp"
+    },
+    {
+      "@type": "BlogPosting",
+      "headline": "UAV Payload Integration Guide: Sensors, Gimbals and Release Mechanisms",
+      "url": "https://ems-drone.com/blog/uav-payload-integration-guide/",
+      "image": "https://ems-drone.com/generated/blog-cover-payload.webp"
+    },
+    {
+      "@type": "BlogPosting",
+      "headline": "UAV Propeller Selection Guide: Diameter, Pitch, Blade Count and Efficiency Optimization",
+      "url": "https://ems-drone.com/blog/uav-propeller-selection-guide/",
+      "image": "https://ems-drone.com/generated/blog-cover-propeller-guide.webp"
+    },
+    {
+      "@type": "BlogPosting",
+      "headline": "UAV Propulsion System Testing & Validation: Thrust Stand, Thermal Endurance and Lifetime Prediction",
+      "url": "https://ems-drone.com/blog/uav-propulsion-testing-validation/",
+      "image": "https://ems-drone.com/generated/blog-cover-propulsion-testing.webp"
+    },
+    {
+      "@type": "BlogPosting",
+      "headline": "Public Safety UAV Components: Thermal Imaging, Encrypted Communications and Rapid-Deployment Systems for First Responders",
+      "url": "https://ems-drone.com/blog/uav-public-safety-components/",
+      "image": "https://ems-drone.com/generated/blog-cover-public-safety.webp"
+    },
+    {
+      "@type": "BlogPosting",
+      "headline": "UAV Remote ID and BVLOS Compliance Components: FAA, EASA and the Hardware Supply Chain",
+      "url": "https://ems-drone.com/blog/uav-remote-id-bvlos-components/",
+      "image": "https://ems-drone.com/generated/blog-cover-remote-id.webp"
+    },
+    {
+      "@type": "BlogPosting",
+      "headline": "UAV Components for Research & Development: Open-Architecture Flight Controllers, Modular Airframes and Configurable Sensor Payloads",
+      "url": "https://ems-drone.com/blog/uav-research-development-components/",
+      "image": "https://ems-drone.com/generated/blog-cover-rd.webp"
+    },
+    {
+      "@type": "BlogPosting",
+      "headline": "UAV RF Communication Systems: How to Choose the Right Data Link for Your Drone",
+      "url": "https://ems-drone.com/blog/uav-rf-communication-systems/",
+      "image": "https://ems-drone.com/generated/blog-cover-rf-systems.webp"
+    },
+    {
+      "@type": "BlogPosting",
+      "headline": "UAV Safety and Redundancy Systems: Parachutes, Fail-Safe Architecture and Redundant Avionics for Industrial Drones",
+      "url": "https://ems-drone.com/blog/uav-safety-redundancy-systems/",
+      "image": "https://ems-drone.com/generated/blog-cover-safety-redundancy.webp"
+    },
+    {
+      "@type": "BlogPosting",
+      "headline": "UAV Sensor Fusion and Redundant Navigation: Dual IMU, Dual GNSS and EKF Architecture for Safety-Critical Drone Operations",
+      "url": "https://ems-drone.com/blog/uav-sensor-fusion-redundant-navigation/",
+      "image": "https://ems-drone.com/generated/blog-cover-sensor-fusion.webp"
+    },
+    {
+      "@type": "BlogPosting",
+      "headline": "How to Evaluate a UAV Component Supplier: Procurement Checklist",
+      "url": "https://ems-drone.com/blog/uav-supplier-evaluation-checklist/",
+      "image": "https://ems-drone.com/generated/blog-cover-supplier-checklist.webp"
+    },
+    {
+      "@type": "BlogPosting",
+      "headline": "How UAV Supply-Chain Layers Connect",
+      "url": "https://ems-drone.com/blog/uav-supply-chain-layers/",
+      "image": "https://ems-drone.com/generated/blog-cover-supply.webp"
+    },
+    {
+      "@type": "BlogPosting",
+      "headline": "Thermal Management for UAV Electronics: Keeping Flight Controllers, ESCs and Batteries Within Safe Limits",
+      "url": "https://ems-drone.com/blog/uav-thermal-management-electronics/",
+      "image": "https://ems-drone.com/generated/blog-cover-thermal-management.webp"
+    },
+    {
+      "@type": "BlogPosting",
+      "headline": "UTM and Detect-and-Avoid Integration: Component Requirements for BVLOS UAV Operations",
+      "url": "https://ems-drone.com/blog/uav-utm-detect-and-avoid-integration/",
+      "image": "https://ems-drone.com/generated/blog-cover-utm-daa.webp"
+    },
+    {
+      "@type": "BlogPosting",
+      "headline": "UAV VTOL Transition Components: Tilt-Rotor, Tail-Sitter and Dual Propulsion Procurement Guide",
+      "url": "https://ems-drone.com/blog/uav-vtol-transition-components/",
+      "image": "https://ems-drone.com/generated/blog-cover-vtol-transition.webp"
+    },
+    {
+      "@type": "BlogPosting",
+      "headline": "Waterproofing UAV Components: IP Ratings, Conformal Coating and Sealed Enclosures for All-Weather Drone Operations",
+      "url": "https://ems-drone.com/blog/uav-waterproofing-ip-rated-components/",
+      "image": "https://ems-drone.com/generated/blog-cover-waterproofing.webp"
+    }
+  ]
+}
+</script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -277,6 +391,16 @@
           <p>Each note is written to help teams ask better interface questions before locking a BOM.</p>
         </div>
     <div class="blog-grid reveal">
+      <a data-cat="design-engineering" href="/blog/uav-waterproofing-ip-rated-components/" class="blog-card-link">
+        <div class="blog-card">
+          <img src="/generated/blog-cover-waterproofing.webp" alt="Waterproofing UAV Components: IP Ratings, Conformal Coating and Sealed Enclosures for All-Weather Dr" loading="lazy" class="blog-card-img">
+          <div class="blog-card-body">
+            
+            <h3>Waterproofing UAV Components: IP Ratings, Conformal Coating and Sealed Enclosures for All-Weather Dr</h3>
+            <p>A procurement engineering guide to waterproofing UAV components — decoding IP54, IP65, IP67 and IP68 ratings, conformal coating for flight controllers and ESCs,</p>
+          </div>
+        </div>
+      </a>
       <a data-cat="design-engineering" href="/blog/uav-vtol-transition-components/" class="blog-card-link">
         <div class="blog-card">
           <img src="/generated/blog-cover-vtol-transition.webp" alt="UAV VTOL Transition Components: Tilt-Rotor, Tail-Sitter and Dual Propulsion Procurement Guide" loading="lazy" class="blog-card-img">
@@ -284,6 +408,16 @@
             
             <h3>UAV VTOL Transition Components: Tilt-Rotor, Tail-Sitter and Dual Propulsion Procurement Guide</h3>
             <p>A procurement engineer's guide to VTOL transition components — tilt-rotor actuators, tail-sitter airframes, dual propulsion systems, transition flight controlle</p>
+          </div>
+        </div>
+      </a>
+      <a data-cat="design-engineering" href="/blog/uav-utm-detect-and-avoid-integration/" class="blog-card-link">
+        <div class="blog-card">
+          <img src="/generated/blog-cover-utm-daa.webp" alt="UTM and Detect-and-Avoid Integration: Component Requirements for BVLOS UAV Operations" loading="lazy" class="blog-card-img">
+          <div class="blog-card-body">
+            
+            <h3>UTM and Detect-and-Avoid Integration: Component Requirements for BVLOS UAV Operations</h3>
+            <p>A procurement engineering guide to BVLOS UAV operations — the regulatory chain from remote ID (FAA Part 89, ASTM F3411) to detect-and-avoid (RTCA DO-365), remot</p>
           </div>
         </div>
       </a>
@@ -327,6 +461,16 @@
           </div>
         </div>
       </a>
+      <a data-cat="design-engineering" href="/blog/uav-safety-redundancy-systems/" class="blog-card-link">
+        <div class="blog-card">
+          <img src="/generated/blog-cover-safety-redundancy.webp" alt="UAV Safety and Redundancy Systems: Parachutes, Fail-Safe Architecture and Redundant Avionics for Ind" loading="lazy" class="blog-card-img">
+          <div class="blog-card-body">
+            
+            <h3>UAV Safety and Redundancy Systems: Parachutes, Fail-Safe Architecture and Redundant Avionics for Ind</h3>
+            <p>A procurement engineering guide to UAV safety and redundancy systems — ballistic recovery parachutes, redundant flight controllers, redundant power buses, motor</p>
+          </div>
+        </div>
+      </a>
       <a data-cat="design-engineering" href="/blog/uav-rf-communication-systems/" class="blog-card-link">
         <div class="blog-card">
           <img src="/generated/blog-cover-rf-systems.webp" alt="UAV RF Communication Systems: How to Choose the Right Data Link" loading="lazy" class="blog-card-img">
@@ -334,36 +478,6 @@
             
             <h3>UAV RF Communication Systems: How to Choose the Right Data Link</h3>
             <p>Compare 433 MHz, 868/915 MHz, 2.4 GHz and 4G/LTE data links for industrial UAVs. Covers range, throughput, latency, regulatory compliance and redundancy archite</p>
-          </div>
-        </div>
-      </a>
-      <a data-cat="design-engineering" href="/blog/uav-research-development-components/" class="blog-card-link">
-        <div class="blog-card">
-          <img src="/generated/blog-cover-rd.webp" alt="UAV Components for Research &amp; Development: Open-Architecture Flight Controllers, Modular Airfram" loading="lazy" class="blog-card-img">
-          <div class="blog-card-body">
-            
-            <h3>UAV Components for Research &amp; Development: Open-Architecture Flight Controllers, Modular Airfram</h3>
-            <p>How to select UAV components for academic and industrial R&amp;D programs — open-architecture flight controllers with full SDK access, modular airframes for rap</p>
-          </div>
-        </div>
-      </a>
-      <a data-cat="design-engineering" href="/blog/uav-remote-id-bvlos-components/" class="blog-card-link">
-        <div class="blog-card">
-          <img src="/generated/blog-cover-remote-id.webp" alt="UAV Remote ID and BVLOS Compliance Components: FAA, EASA and the Hardware Supply Chain" loading="lazy" class="blog-card-img">
-          <div class="blog-card-body">
-            
-            <h3>UAV Remote ID and BVLOS Compliance Components: FAA, EASA and the Hardware Supply Chain</h3>
-            <p>A procurement guide to UAV Remote ID broadcast modules, network Remote ID hardware, and BVLOS component stacks — FAA 14 CFR Part 89, EASA U-space, ASTM F3411 co</p>
-          </div>
-        </div>
-      </a>
-      <a data-cat="design-engineering" href="/blog/uav-public-safety-components/" class="blog-card-link">
-        <div class="blog-card">
-          <img src="/generated/blog-cover-public-safety.webp" alt="Public Safety UAV Components: Thermal Imaging, Encrypted Communications and Rapid-Deployment Systems" loading="lazy" class="blog-card-img">
-          <div class="blog-card-body">
-            
-            <h3>Public Safety UAV Components: Thermal Imaging, Encrypted Communications and Rapid-Deployment Systems</h3>
-            <p>How to select UAV components for public safety and first responder operations — thermal imaging payloads for search and rescue, AES-256 encrypted data links for</p>
           </div>
         </div>
       </a>
