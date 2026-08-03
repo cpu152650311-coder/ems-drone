@@ -1,6 +1,6 @@
 {
   "site": "ems-drone",
-  "updated": "2026-07-30",
+  "updated": "2026-08-03",
   "topics": [
     {
       "id": 21,
@@ -41,6 +41,26 @@
       "file": "/blog/uav-connectors-wiring-power-distribution/",
       "created": "2026-07-30",
       "published": "2026-07-30"
+    },
+    {
+      "id": 25,
+      "title": "UAV Export Logistics and ITAR/EAR Shipping: Compliance, Documentation and Freight for International Drone Trade",
+      "status": "published",
+      "score": 80,
+      "funnel": "BOFU",
+      "file": "/blog/uav-export-logistics-shipping/",
+      "created": "2026-08-03",
+      "published": "2026-08-03"
+    },
+    {
+      "id": 26,
+      "title": "UAV Fleet Management Components: Telemetry, Tracking and Maintenance Infrastructure for Multi-Aircraft Operations",
+      "status": "published",
+      "score": 79,
+      "funnel": "MOFU",
+      "file": "/blog/uav-fleet-management-components/",
+      "created": "2026-08-03",
+      "published": "2026-08-03"
     }
   ]
 }
