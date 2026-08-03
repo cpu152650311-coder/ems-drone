@@ -1,0 +1,299 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>UAV Firmware OTA Update Strategies: Secure Remote Updates for Fleet Aircraft | EMS Drone</title>
+  <meta name="description" content="A procurement engineering guide to over-the-air firmware updates for UAVs — signed firmware and secure boot, A/B partition and atomic update, rollback and fleet version control, update behavior during flight, Remote ID compliance linkage, and a 10-line-item RFQ checklist for specifying OTA capability that does not brick aircraft.">
+  <link rel="canonical" href="https://ems-drone.com/blog/uav-firmware-ota-update-strategies/">
+  <meta property="og:title" content="UAV Firmware OTA Update Strategies: Secure Remote Updates for Fleet Aircraft">
+  <meta property="og:description" content="How to specify and procure over-the-air firmware update capability for UAVs — the boot-chain security, the A/B update mechanism, the fleet version control and the RFQ line items that keep a remote update from grounding your aircraft.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://ems-drone.com/blog/uav-firmware-ota-update-strategies/">
+  <meta property="og:image" content="https://ems-drone.com/generated/og-cover.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <link rel="icon" type="image/x-icon" href="/generated/favicon.ico">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="apple-touch-icon" sizes="180x180" href="/generated/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/generated/icon-192.png">
+<link rel="icon" type="image/png" sizes="512x512" href="/generated/icon-512.png">
+  <link rel="stylesheet" href="/design-tokens.css?v=21">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "UAV Firmware OTA Update Strategies: Secure Remote Updates for Fleet Aircraft",
+  "description": "A procurement engineering guide to over-the-air firmware updates for UAVs — signed firmware and secure boot, A/B partition and atomic update, rollback and fleet version control, update behavior during flight, Remote ID compliance linkage, and a 10-line-item RFQ checklist for specifying OTA capability that does not brick aircraft.",
+  "image": "https://ems-drone.com/generated/blog-cover-ota-updates.webp",
+  "author": {
+    "@type": "Organization",
+    "name": "EMS Drone"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "EMS Drone",
+    "url": "https://ems-drone.com/",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://ems-drone.com/favicon.svg"
+    }
+  },
+  "mainEntityOfPage": "https://ems-drone.com/blog/uav-firmware-ota-update-strategies/",
+  "datePublished": "2026-08-04",
+  "dateModified": "2026-08-04"
+}
+</script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <svg aria-hidden="true" style="position:absolute;width:0;height:0;overflow:hidden">
+    <symbol id="icon-drone" viewBox="0 0 24 24" fill="none" stroke="#b8f34a" stroke-width="1.5"><circle cx="12" cy="12" r="2.6"/><path d="m10.2 10.2-4-4m7.6 4 4-4m-7.6 7.6-4 4m7.6-4 4 4"/><circle cx="4.7" cy="4.7" r="2.2"/><circle cx="19.3" cy="19.3" r="2.2"/><circle cx="4.7" cy="19.7" r="2.2"/><circle cx="19.3" cy="19.3" r="2.2"/></symbol>
+    <symbol id="icon-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12h14m-5-5 5 5-5 5"/></symbol>
+  </svg>
+
+  <header class="site-header">
+    <div class="nav-shell">
+      <a class="brand" href="/" aria-label="EMS Drone home"><span class="brand-mark"><svg aria-hidden="true"><use href="#icon-drone"/></svg></span><span>EMS Drone</span></a>
+      <button class="nav-toggle" type="button" aria-label="Open navigation" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+                                        <nav class="site-nav" aria-label="Primary navigation"><a href="/">Home</a>
+        <div class="nav-dropdown">
+          <a href="/capabilities/" class="nav-parent">Capabilities</a>
+          <div class="nav-submenu">
+            <a href="/capabilities/flight-control/">Flight Controllers</a>
+            <a href="/capabilities/esc-power/">ESC &amp; Power Systems</a>
+            <a href="/capabilities/propulsion/">Propulsion</a>
+            <a href="/capabilities/airframe/">Airframes &amp; Structures</a>
+            <a href="/capabilities/communications/">Communications &amp; RF</a>
+            <a href="/capabilities/payload/">Payloads &amp; Gimbals</a>
+          </div>
+        </div>
+        <div class="nav-dropdown">
+          <a href="/customization/" class="nav-parent">Services</a>
+          <div class="nav-submenu">
+            <a href="/customization/">Custom Engineering</a>
+            <a href="/testing/">Testing &amp; Validation</a>
+          </div>
+        </div>
+        <div class="nav-dropdown">
+          <a href="/industries/" class="nav-parent">Industries</a>
+          <div class="nav-submenu">
+            <a href="/industries/inspection/">Industrial Inspection</a>
+            <a href="/industries/mapping-survey/">Mapping &amp; Survey</a>
+            <a href="/industries/logistics/">Logistics &amp; Delivery</a>
+            <a href="/industries/agriculture/">Precision Agriculture</a>
+            <a href="/industries/research/">Research &amp; Development</a>
+          </div>
+        </div>
+        <div class="nav-dropdown">
+          <a href="/resources/" class="nav-parent">Resources</a>
+          <div class="nav-submenu">
+            <a href="/design-guides/">Design Guides</a>
+            <a href="/projects/">Engineering Projects</a>
+            <a href="/how-it-works/">How We Work</a>
+            <a href="/faq/">FAQ</a>
+            <a href="/blog/" aria-current="page">Blog</a>
+          </div>
+        </div>
+        <div class="nav-dropdown">
+          <a href="/about/" class="nav-parent">Company</a>
+          <div class="nav-submenu">
+            <a href="/about/">About</a>
+            <a href="/factory/">Factory</a>
+            <a href="/quality/">Quality</a>
+            <a href="/shipping/">Shipping</a>
+            <a href="/contact/">Contact</a>
+          </div>
+        </div>
+        <button class="btn btn-primary" data-open-inquiry>Start Your Build</button>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <header class="article-hero">
+      <div class="container reveal">
+        <span class="eyebrow"><a href="/blog/" style="color:inherit;text-decoration:none">Blog</a> · Flight Control &amp; Software</span>
+        <h1>UAV firmware OTA update strategies: secure remote updates for fleet aircraft</h1>
+        <p style="color:var(--muted-dark);max-width:640px">A single bad firmware push can ground an entire delivery fleet in one afternoon — and a fleet without an update path at all is a fleet that flies with known vulnerabilities until it is physically recalled. Over-the-air (OTA) update capability has moved from a convenience feature to a written procurement requirement for logistics, inspection and public-safety programs, because the aircraft software now touches Remote ID compliance, security patches and the liability chain between manufacturer and operator. This article is a procurement engineering guide to the OTA stack — the boot-chain security, the atomic update mechanism, the fleet version control and the flight behavior rules — with the specification numbers and RFQ line items that separate an update system from a bricking mechanism.</p>
+        <div class="article-cover">
+          <img src="/generated/blog-cover-ota-updates.webp" alt="UAV flight controller with wireless firmware update module on a dark engineering workstation — abstract light trails above the board, carbon fiber and circuit textures, green and blue accent lighting, no people faces, no text, no logos" loading="lazy">
+        </div>
+      </div>
+    </header>
+
+    <article class="article-body">
+      <div class="container reveal">
+        <p>Every UAV program reaches the same milestone: the day the aircraft stops being a prototype and becomes a fleet. At that point the firmware question changes character. A single aircraft can be reflashed at the bench by an engineer; twenty aircraft spread across three operating sites cannot. The update pipeline becomes infrastructure — and like all infrastructure, it is either designed deliberately or improvised badly. The engineering reality is that an OTA update for a UAV is not a file transfer; it is a state transition of a safety-critical system performed over an unreliable radio link, with the possibility of power loss, link loss or a corrupted image at every step. This guide breaks the problem into the five layers a procurement specification must address: the update channel, the boot-chain security, the atomic mechanism, the fleet version control, and the in-flight behavior rules.</p>
+
+        <h2>Why OTA is now a procurement requirement, not a convenience</h2>
+        <p>The shift from bench reflashing to over-the-air updates is driven by three concrete pressures, each of which shows up in a written requirement rather than a wish list:</p>
+        <p><strong>Security patches.</strong> UAV flight controllers and companion computers run real operating systems and real network stacks, and the vulnerability disclosures now arrive on the same cadence as the drone industry. When a vulnerability is disclosed in an autopilot stack or a radio protocol, the exposure window is measured in days, not weeks — a fleet that must be physically recalled to be updated is a fleet that flies with the vulnerability for that entire window. The <a href="/blog/uav-defense-security-components/">UAV defense and security components guide</a> treats the patching path as part of the security architecture for exactly this reason.</p>
+        <p><strong>Regulatory linkage.</strong> Remote ID firmware versions are tied to the declaration of compliance: an aircraft whose Remote ID broadcast format changes in firmware must match the version recorded in the operator's documentation. The <a href="/blog/uav-remote-id-bvlos-components/">Remote ID and BVLOS components guide</a> covers the compliance side, and the practical consequence is that the operator needs a controlled, traceable way to move the fleet to the new version — not a box of micro SD cards.</p>
+        <p><strong>Fleet economics.</strong> The <a href="/blog/uav-fleet-management-components/">UAV fleet management components guide</a> documents the maintenance loop that scales with fleet size: an update path that requires physical access costs a technician day per aircraft per update. At twenty aircraft and four updates a year, that is eighty technician days — the entire business case for OTA is recoverable from that line item alone.</p>
+
+        <h2>The update channel: what "over-the-air" actually means for a UAV</h2>
+        <p>The channel is the first decision, and it is a bandwidth and reliability budget, not a marketing label. The realistic options for a UAV, in order of increasing payload size:</p>
+        <ul>
+          <li><strong>Radio telemetry link (868/915 MHz, 2.4 GHz).</strong> Typical effective throughput after protocol overhead is 10–100 kbps. A 4 MB flight controller firmware image takes 5–50 minutes at these rates — feasible for a single aircraft on the bench, marginal for a fleet, and exposed to link loss for the entire window. This is the channel for small, infrequent updates.</li>
+          <li><strong>Cellular (4G/LTE, 5G).</strong> Throughput in the hundreds of kbps to several Mbps, available whenever the aircraft is within coverage — which for logistics and inspection operations is most of the time. This is the practical fleet update channel, and it is the reason the <a href="/blog/uav-rf-communication-systems/">UAV RF communication systems guide</a> treats the data link as a bidirectional resource rather than a telemetry-only pipe.</li>
+          <li><strong>Local Wi-Fi or Ethernet during servicing.</strong> Tens of Mbps, used for initial provisioning, large payload firmware (companion computer images in the hundreds of MB) and recovery from a failed update. Not OTA in the strict sense, but the mandatory fallback path in the update architecture.</li>
+        </ul>
+        <p>The specification number that matters is not the peak throughput but the <strong>update time and the link-loss behavior</strong>: "a 4 MB flight controller image shall transfer and verify in under 10 minutes over the cellular link, and the process shall be resumable from the last complete block after link loss." That sentence forces the supplier to think about chunking, checksums and resumption — the properties that make a radio-link update survivable.</p>
+
+        <div class="media-visual reveal" style="max-width:640px;margin:32px auto">
+          <img src="/generated/blog-inline-ota-signed.webp" alt="Secure element chip on a UAV flight controller PCB — cryptographic signature module with tamper-resistant shield can and green LED status indicator, macro photography on dark bench, no people faces, no text, no logos" loading="lazy">
+          <span class="concept-badge">Concept illustration</span>
+        </div>
+
+        <h2>Signed firmware and the boot chain: verifying what actually runs</h2>
+        <p>The most common OTA failure is not a dropped packet — it is a malicious or corrupt image that the aircraft accepts and boots. The defense is the <strong>signed boot chain</strong>, and it has three links that must all be specified:</p>
+        <p><strong>Image signing at build time.</strong> Every firmware image is signed with the manufacturer's private key; the signature covers the image hash, so any modification invalidates it. The signature algorithm and key length are the procurement-relevant details — a minimum of Ed25519 or ECDSA P-256 is the current benchmark; SHA-1-signed images should be rejected on sight.</p>
+        <p><strong>Signature verification at boot.</strong> The bootloader verifies the signature of the application image before executing it, using a public key stored in a write-protected region — ideally a secure element or a one-time-programmable memory. If verification fails, the bootloader refuses to boot the image and falls back to the last known-good version. This is the property that turns "the aircraft will not run unverified code" from a slogan into a testable requirement.</p>
+        <p><strong>Key management and rotation.</strong> The private key must never be on the aircraft, the update server must be able to sign images offline, and the aircraft must support key rotation so a compromised key can be revoked. The <a href="/blog/uav-electronics-manufacturing-quality/">UAV electronics manufacturing quality guide</a> covers the factory side — the programming, the write-protection and the serialized key provisioning that happen before the aircraft ships.</p>
+        <p>The test that belongs in the acceptance criteria: "the aircraft shall refuse to boot an unsigned or incorrectly signed image, and shall report the verification failure to the ground station." A supplier that cannot demonstrate this on a bench test does not have a secure update path — it has a file transfer.</p>
+
+        <h2>A/B partition and atomic update: protecting the aircraft from a failed flash</h2>
+        <p>The second structural defense is the <strong>atomic update mechanism</strong> — the reason a failed flash cannot leave the aircraft un-bootable. The industry-standard architecture is A/B partitioning: the firmware storage is divided into two banks, the active bank (A) and the standby bank (B). The update writes the new image to the standby bank, verifies it completely, and only then flips the active flag. If the new image fails verification, the flag never flips and the aircraft keeps running the old, known-good image. The update becomes a two-phase commit:</p>
+        <ul>
+          <li><strong>Download phase.</strong> The image transfers to the standby bank, chunk by chunk, with checksums. A link loss here is harmless — the transfer resumes or restarts, and the active bank is untouched.</li>
+          <li><strong>Commit phase.</strong> The image is verified (hash and signature), the boot flag is updated, and the aircraft reboots into the new version. The commit is a single atomic step — power loss exactly at this moment leaves the aircraft able to boot the previous version on the next power-up, because the flag write is itself protected.</li>
+          <li><strong>Post-boot confirmation.</strong> The new image runs a self-check and reports success to the ground station; only then does the system consider the update complete. If the new image fails its self-check, the bootloader rolls back automatically to the previous bank.</li>
+        </ul>
+        <p>The cost of A/B partitioning is flash capacity — the storage requirement doubles, and the flight controller needs enough non-volatile memory for two full images. For a flight controller with a 4–8 MB image, that means a 16–32 MB flash part, which is a routine component today. The <a href="/blog/esc-firmware-selection-guide/">ESC firmware selection guide</a> shows the same pattern on the ESC side — the modern ESC protocols support firmware updates over the CAN bus, and the same dual-bank logic applies to the ESC's own flash, where a bricked ESC is a much harder field repair than a bricked flight controller.</p>
+
+        <div class="media-visual reveal" style="max-width:640px;margin:32px auto">
+          <img src="/generated/blog-inline-ota-dualboot.webp" alt="UAV flight controller with dual firmware flash banks — two identical memory chips side by side on dark PCB, one active one standby, green and blue accent glow, photorealistic 3D render, no people faces, no text, no logos" loading="lazy">
+          <span class="concept-badge">Concept illustration</span>
+        </div>
+
+        <h2>Rollback and fleet version control: the operational discipline</h2>
+        <p>The technical mechanism is only half of the system; the operational half is <strong>fleet version control</strong> — knowing what version is on every aircraft, and being able to move the fleet forward or backward deliberately. The three artifacts a fleet operator needs:</p>
+        <p><strong>A fleet version matrix.</strong> A record of aircraft serial number, current firmware version per component (flight controller, ESC, radio, companion computer, payload), and update history. This is the input to every update decision and the evidence for any compliance audit. The <a href="/blog/uav-component-obsolescence-management/">UAV component obsolescence management guide</a> covers why the version matrix is also the obsolescence record — a component whose firmware can no longer be updated is a component approaching end-of-life.</p>
+        <p><strong>A staged rollout policy.</strong> The fleet is never updated all at once. The standard pattern is canary → pilot group → full fleet: one aircraft first, then a small operational group, then the rest after a defined observation period (typically 24–72 hours per stage). This turns a bad release from a fleet-wide grounding into a one-aircraft incident. The rollout stages should be written into the update policy, not improvised at release time.</p>
+        <p><strong>A rollback trigger.</strong> The policy must name the conditions that trigger a rollback — a defined set of failure symptoms (altitude hold error, ESC desync, telemetry dropout rate above threshold) observed within a defined window (usually the first operational flights after update). Because the A/B mechanism keeps the previous image available, a rollback is a config change, not a reflash.</p>
+        <p>The version control question is also an autopilot question: the <a href="/blog/ardupilot-vs-px4-autopilot/">ArduPilot vs PX4 guide</a> compares how each open-source stack handles release channels, parameter compatibility and version migration — differences that matter when the fleet operator must decide whether a minor autopilot release is safe to push OTA or must wait for a bench cycle.</p>
+
+        <div class="media-visual reveal" style="max-width:640px;margin:32px auto">
+          <img src="/generated/blog-inline-ota-rollback.webp" alt="UAV flight controller memory module being reflashed via USB programming tool on a lab bench — oscilloscope in background, protective anti-static mat, dark engineering environment with green accent light, no people faces, no text, no logos" loading="lazy">
+          <span class="concept-badge">Concept illustration</span>
+        </div>
+
+        <h2>Update behavior during flight: when the aircraft may and may not update</h2>
+        <p>An OTA update on a flying aircraft is a different problem from an update on the ground, and the specification must say explicitly which is allowed. The safe architecture is simple: <strong>ground-only update, with a defined state gate</strong>. The aircraft shall accept an update only when it is on the ground, the motors are disarmed, and the battery state of charge is above a threshold (typically 30–50%, depending on the flash duration and the risk of a power-loss mid-commit).</p>
+        <p>The reason is power, not bandwidth: a flash write is atomic only if power is held through the commit. A LiPo at low state of charge under load can sag below the flight controller's minimum input voltage exactly when the commit writes the boot flag. The <a href="/blog/uav-battery-power-management/">UAV battery and power management guide</a> covers the power-budget side — the same voltage sag analysis that sizes the power system for flight applies to the flash path.</p>
+        <p>Two additional in-flight rules belong in the spec. First, <strong>no update over a link that is in use for control</strong>: if the telemetry link is also the update channel, the update traffic must be throttled so that control and telemetry frames have priority — a firmware download must never crowd out the control link. Second, <strong>no auto-update</strong>: the aircraft shall never initiate an update without an explicit operator command, and the update command shall require a confirmation step. A UAV that "auto-updates" on the ground station's schedule is a UAV whose operator has surrendered the decision.</p>
+
+        <div class="media-visual reveal" style="max-width:640px;margin:32px auto">
+          <img src="/generated/blog-inline-ota-field.webp" alt="UAV technician with a tablet showing firmware update progress next to an industrial multirotor on a field stand, radio telemetry module visible, dusk outdoor engineering scene, no people faces, no text, no logos" loading="lazy">
+          <span class="concept-badge">Concept illustration</span>
+        </div>
+
+        <h2>Remote ID, compliance and the update audit trail</h2>
+        <p>The regulatory layer ties the technical update path to the compliance record. The pattern that matters: a Remote ID firmware change alters the broadcast message format, and the operator's declaration of compliance references a specific firmware version. An aircraft updated in the field without a record creates a compliance gap — the aircraft broadcasts a format that the operator's documentation does not cover. The <a href="/blog/uav-certification-compliance-guide/">UAV certification and compliance guide</a> covers the CE/FCC/RoHS side, and the <a href="/blog/uav-remote-id-bvlos-components/">Remote ID and BVLOS guide</a> covers the broadcast-format details; the OTA system's contribution is the audit trail:</p>
+        <ul>
+          <li><strong>Update log per aircraft.</strong> Serial number, previous and new firmware versions, image hash, timestamp, initiating operator, and the verification result. The log is append-only and stored both on the aircraft and on the ground station.</li>
+          <li><strong>Compliance mapping.</strong> The update system records which regulation-relevant components (Remote ID transmitter, navigation, radio) changed in each update, so the operator can regenerate the declaration-of-compliance evidence after any fleet movement.</li>
+          <li><strong>Signed update records.</strong> The same signing infrastructure that protects the firmware protects the log — a tampered log is detectable, which is the property a regulator's audit actually checks.</li>
+        </ul>
+        <p>For defense and dual-use programs, the audit trail crosses into the export-control conversation: the <a href="/blog/uav-export-logistics-shipping/">UAV export logistics and ITAR/EAR shipping guide</a> notes that the firmware configuration shipped with an aircraft is part of the export documentation, and an OTA update that changes the configuration after export should be traceable for the same reason.</p>
+
+        <h2>The RFQ checklist: 10 line items for specifying OTA capability</h2>
+        <p>The following line items translate the OTA architecture into an RFQ-ready specification. Each item names the evidence the supplier should provide, and the checklist works for a flight controller, an ESC with bus-update capability, or a complete aircraft program.</p>
+        <p><strong>1. Update channel.</strong> The update path (cellular, radio telemetry, local) and the minimum sustained throughput per channel. Verification: the interface document and a measured transfer test.</p>
+        <p><strong>2. Image signing.</strong> Signature algorithm (minimum Ed25519 or ECDSA P-256) and the signing/key-management process. Verification: a sample signed image and the verification toolchain.</p>
+        <p><strong>3. Secure boot.</strong> The bootloader shall verify the signature before executing any image, using a write-protected key store. Verification: a bench demonstration of refused unsigned image.</p>
+        <p><strong>4. A/B partition.</strong> The update shall write to a standby bank and commit atomically. Verification: the memory map documentation and a forced-power-loss test showing the aircraft boots the previous version.</p>
+        <p><strong>5. Resumable transfer.</strong> A link loss during download shall not corrupt the update; the transfer resumes from the last complete block. Verification: a link-drop test at a defined point in the transfer.</p>
+        <p><strong>6. State gate.</strong> The aircraft shall accept updates only on the ground with motors disarmed and battery above the stated threshold. Verification: the state-machine documentation and a test attempting update in flight (must be refused).</p>
+        <p><strong>7. Rollback.</strong> The previous image shall remain bootable and the rollback shall be a configuration action, not a reflash. Verification: the rollback procedure and a triggered-rollback test.</p>
+        <p><strong>8. Version reporting.</strong> The aircraft shall report the current version of every updateable component to the ground station. Verification: the version-report message and a capture.</p>
+        <p><strong>9. Update audit log.</strong> Append-only per-aircraft update records with hashes and operator attribution. Verification: the log format and a sample log.</p>
+        <p><strong>10. Key rotation.</strong> The system shall support rotating the signing keys and revoking a compromised key. Verification: the rotation procedure and a revocation test.</p>
+        <p>The component context for the rest of the update chain is covered in the <a href="/blog/uav-communication-protocols-guide/">UAV communication protocols guide</a> — the CAN, DShot and bus-level update mechanisms that move firmware between boards — and the <a href="/blog/uav-safety-redundancy-systems/">UAV safety and redundancy systems guide</a>, which covers how the update state machine interacts with the fail-safe architecture.</p>
+
+        <p style="margin-top:42px"><a class="btn btn-primary" href="/customization/">Explore custom engineering</a> <a class="btn btn-outline" href="/blog/" style="margin-left:12px">Back to Blog</a></p>
+
+        <section class="continue-reading">
+          <h3>Continue Reading</h3>
+          <div class="continue-grid">
+            <a class="continue-card" href="/blog/esc-firmware-selection-guide/">
+              <div class="continue-card-img"><img src="/generated/blog-cover-esc-firmware.webp" alt="ESC Firmware Selection" loading="lazy"></div>
+              <div class="continue-card-body"><h4>ESC Firmware: BLHeli_32 vs AM32 vs FOC</h4><p>The ESC-side update mechanisms — CAN-bus firmware updates, dual-bank flash and the firmware support-lifetime question.</p></div>
+            </a>
+            <a class="continue-card" href="/blog/ardupilot-vs-px4-autopilot/">
+              <div class="continue-card-img"><img src="/generated/blog-cover-ardupilot-px4.webp" alt="ArduPilot vs PX4" loading="lazy"></div>
+              <div class="continue-card-body"><h4>ArduPilot vs PX4: Open-Source Autopilot Comparison</h4><p>How the two autopilot stacks handle release channels, version migration and parameter compatibility across updates.</p></div>
+            </a>
+            <a class="continue-card" href="/blog/uav-remote-id-bvlos-components/">
+              <div class="continue-card-img"><img src="/generated/blog-cover-remote-id.webp" alt="Remote ID and BVLOS Components" loading="lazy"></div>
+              <div class="continue-card-body"><h4>UAV Remote ID and BVLOS Compliance Components</h4><p>Why the Remote ID firmware version must match the declaration of compliance — and how OTA updates affect it.</p></div>
+            </a>
+            <a class="continue-card" href="/blog/uav-fleet-management-components/">
+              <div class="continue-card-img"><img src="/generated/blog-cover-fleet-management.webp" alt="Fleet Management Components" loading="lazy"></div>
+              <div class="continue-card-body"><h4>UAV Fleet Management Components</h4><p>The maintenance loop that scales with fleet size — and why the update path is a fleet-management decision.</p></div>
+            </a>
+            <a class="continue-card" href="/blog/uav-communication-protocols-guide/">
+              <div class="continue-card-img"><img src="/generated/blog-cover-comm-protocols.webp" alt="Communication Protocols Guide" loading="lazy"></div>
+              <div class="continue-card-body"><h4>UAV Communication Protocols: CAN, DShot, PWM, SBUS, CRSF</h4><p>The bus-level update mechanisms that move firmware between flight controller, ESCs and peripherals.</p></div>
+            </a>
+          </div>
+        </section>
+      </div>
+      </div>
+    </article>
+
+    <section class="section section-alt" style="--cta-bg:url(/generated/blog-cta-ota-updates.webp)">
+      <div class="container">
+        <div class="spec-panel reveal">
+          <div class="spec-panel-inner">
+            <div>
+              <span class="eyebrow">Flight Control &amp; Software Engineering</span>
+              <h2>Tell us your fleet size and update policy — we will specify the OTA-capable flight stack, signed boot chain and update logistics that keep every aircraft current without grounding the fleet.</h2>
+              <p>Share your aircraft architecture, your operating regions and your firmware release cadence — we will provide the flight controller and ESC options with secure OTA support, the A/B update mechanism, the key-management approach and the update test plan for your acceptance criteria. Every stack ships with its recorded boot and update verification.</p>
+            </div>
+            <div class="spec-actions">
+              <button class="btn btn-primary" type="button" data-open-inquiry>Start Your Build <svg aria-hidden="true"><use href="#icon-arrow"/></svg></button>
+              <button class="btn btn-outline" data-open-inquiry>Open RFQ Brief</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="brand" href="/" aria-label="EMS Drone home"><span class="brand-mark"><svg aria-hidden="true"><use href="#icon-drone"/></svg></span><span>EMS Drone</span></a>
+          <p>Configurable UAV components, complete systems and engineering support.</p>
+        </div>
+        <div class="footer-col"><h3>System</h3><a href="/capabilities/">Capabilities</a><a href="/customization/">Customization</a><a href="/testing/">Testing</a></div>
+        <div class="footer-col"><h3>Context</h3><a href="/industries/">Industries</a><a href="/about/">About</a><a href="/blog/">Blog</a></div>
+        <div class="footer-col"><h3>More reading</h3><a href="/blog/drone-powertrain-matching/">Powertrain guide</a><a href="/blog/uav-rf-communication-systems/">RF systems</a><a href="/contact/">RFQ Brief</a></div>
+      </div>
+      <div class="footer-bottom"><span>&copy; 2026 EMS Drone</span><span>Define &rarr; Integrate &rarr; Deploy</span></div>
+    </div>
+  </footer>
+  <div class="modal-overlay" id="inquiryModal" aria-hidden="true">
+    <div class="modal-dialog" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <button class="modal-close" type="button" aria-label="Close inquiry">&times;</button>
+      <div class="modal-aside">
+        <span class="tech-label">Engineering Intake</span>
+        <div><h3 id="modalTitle">Start with your mission.</h3><p>Tell us what you are building and where you need support: component sourcing, a matched stack or a complete UAV.</p></div>
+      </div>
+      <form class="modal-form" data-preview-form>
+        <div class="field"><label for="modal-name">Name</label><input id="modal-name" name="name" autocomplete="name" required></div>
+        <div class="field" style="margin-top:18px"><label for="modal-email">Email</label><input id="modal-email" name="email" type="email" autocomplete="email" required></div>
+        <div class="field" style="margin-top:18px"><label for="modal-message">Project brief</label><textarea id="modal-message" name="message" required placeholder="Aircraft type, payload, environment, component list or complete-system goal"></textarea></div>
+        <button class="btn btn-primary" type="submit">Submit Engineering Brief</button>
+        <div class="form-status" role="status" aria-live="polite" aria-atomic="true"></div>
+      </form>
+    </div>
+  </div>
+<script src="/site.js?v=9"></script>
+  <script src="/reveal.js?v=9"></script>
+</body>
+</html>
