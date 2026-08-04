@@ -244,7 +244,12 @@ def main():
             idx = os.path.join(epath, 'index.html')
             if os.path.isfile(idx):
                 files.append(entry)
-    files = sorted(files)
+    def _mtime(f):
+        p = os.path.join(blog_dir, f)
+        if os.path.isdir(p):  # directory-per-article sites
+            p = os.path.join(p, 'index.html')
+        return os.path.getmtime(p)
+    files.sort(key=_mtime, reverse=True)
     
     print(f"Found {len(files)} blog articles")
     
@@ -261,9 +266,8 @@ def main():
         meta['slug'] = f.replace('.html', '')
         articles.append(meta)
     
-    # Sort by filename (newest first based on naming convention)
-    # Most sites name blogs with dates or sequential numbers
-    articles.reverse()  # newest first
+    # Articles are already in mtime order (newest first) from the file sort above.
+    # Do NOT reverse here — filename order is not publication order.
     
     # 3. Read template
     head, tail = read_template()
