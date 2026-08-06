@@ -1,86 +1,106 @@
 {
- "site": "ems-drone",
- "updated": "2026-08-04",
- "topics": [
-  {
-   "id": 21,
-   "title": "UAV Propeller Selection Guide: Diameter, Pitch, Blade Count and Efficiency Optimization",
-   "status": "published",
-   "score": 82,
-   "funnel": "MOFU",
-   "file": "/blog/uav-propeller-selection-guide/",
-   "created": "2026-07-29",
-   "published": "2026-07-29"
-  },
-  {
-   "id": 22,
-   "title": "Thermal Management for UAV Electronics: Keeping Flight Controllers, ESCs and Batteries Within Safe Limits",
-   "status": "published",
-   "score": 78,
-   "funnel": "TOFU",
-   "file": "/blog/uav-thermal-management-electronics/",
-   "created": "2026-07-29",
-   "published": "2026-07-29"
-  },
-  {
-   "id": 23,
-   "title": "UAV Edge AI and Onboard Computing: Selecting Companion Computers and AI Accelerators for Autonomous Drone Operations",
-   "status": "published",
-   "score": 85,
-   "funnel": "MOFU",
-   "file": "/blog/uav-edge-ai-onboard-computing/",
-   "created": "2026-07-30",
-   "published": "2026-07-30"
-  },
-  {
-   "id": 24,
-   "title": "UAV Connectors, Wiring and Power Distribution: Selecting Electrical Interconnects for Industrial Drone Builds",
-   "status": "published",
-   "score": 78,
-   "funnel": "MOFU",
-   "file": "/blog/uav-connectors-wiring-power-distribution/",
-   "created": "2026-07-30",
-   "published": "2026-07-30"
-  },
-  {
-   "id": 25,
-   "title": "UAV Export Logistics and ITAR/EAR Shipping: Compliance, Documentation and Freight for International Drone Trade",
-   "status": "published",
-   "score": 80,
-   "funnel": "BOFU",
-   "file": "/blog/uav-export-logistics-shipping/",
-   "created": "2026-08-03",
-   "published": "2026-08-03"
-  },
-  {
-   "id": 26,
-   "title": "UAV Fleet Management Components: Telemetry, Tracking and Maintenance Infrastructure for Multi-Aircraft Operations",
-   "status": "published",
-   "score": 79,
-   "funnel": "MOFU",
-   "file": "/blog/uav-fleet-management-components/",
-   "created": "2026-08-03",
-   "published": "2026-08-03"
-  },
-  {
-   "id": 27,
-   "title": "UAV Spares and Lifecycle Planning: MTBF, Spare Kits and Total Cost of Ownership",
-   "status": "published",
-   "score": 85,
-   "funnel": "BOFU",
-   "file": "/blog/uav-spares-lifecycle-planning/",
-   "created": "2026-08-04",
-   "published": "2026-08-04"
-  },
-  {
-   "id": 28,
-   "title": "UAV Mission Planning and Flight Software: Waypoints, Geofencing and the Pre-Flight Workflow",
-   "status": "published",
-   "score": 82,
-   "funnel": "MOFU",
-   "file": "/blog/uav-mission-planning-software/",
-   "created": "2026-08-04",
-   "published": "2026-08-04"
-  }
- ]
+  "site": "ems-drone",
+  "updated": "2026-08-06",
+  "topics": [
+    {
+      "id": 21,
+      "title": "UAV Propeller Selection Guide: Diameter, Pitch, Blade Count and Efficiency Optimization",
+      "status": "published",
+      "score": 82,
+      "funnel": "MOFU",
+      "file": "/blog/uav-propeller-selection-guide/",
+      "created": "2026-07-29",
+      "published": "2026-07-29"
+    },
+    {
+      "id": 22,
+      "title": "Thermal Management for UAV Electronics: Keeping Flight Controllers, ESCs and Batteries Within Safe Limits",
+      "status": "published",
+      "score": 78,
+      "funnel": "TOFU",
+      "file": "/blog/uav-thermal-management-electronics/",
+      "created": "2026-07-29",
+      "published": "2026-07-29"
+    },
+    {
+      "id": 23,
+      "title": "UAV Edge AI and Onboard Computing: Selecting Companion Computers and AI Accelerators for Autonomous Drone Operations",
+      "status": "published",
+      "score": 85,
+      "funnel": "MOFU",
+      "file": "/blog/uav-edge-ai-onboard-computing/",
+      "created": "2026-07-30",
+      "published": "2026-07-30"
+    },
+    {
+      "id": 24,
+      "title": "UAV Connectors, Wiring and Power Distribution: Selecting Electrical Interconnects for Industrial Drone Builds",
+      "status": "published",
+      "score": 78,
+      "funnel": "MOFU",
+      "file": "/blog/uav-connectors-wiring-power-distribution/",
+      "created": "2026-07-30",
+      "published": "2026-07-30"
+    },
+    {
+      "id": 25,
+      "title": "UAV Export Logistics and ITAR/EAR Shipping: Compliance, Documentation and Freight for International Drone Trade",
+      "status": "published",
+      "score": 80,
+      "funnel": "BOFU",
+      "file": "/blog/uav-export-logistics-shipping/",
+      "created": "2026-08-03",
+      "published": "2026-08-03"
+    },
+    {
+      "id": 26,
+      "title": "UAV Fleet Management Components: Telemetry, Tracking and Maintenance Infrastructure for Multi-Aircraft Operations",
+      "status": "published",
+      "score": 79,
+      "funnel": "MOFU",
+      "file": "/blog/uav-fleet-management-components/",
+      "created": "2026-08-03",
+      "published": "2026-08-03"
+    },
+    {
+      "id": 27,
+      "title": "UAV Spares and Lifecycle Planning: MTBF, Spare Kits and Total Cost of Ownership",
+      "status": "published",
+      "score": 85,
+      "funnel": "BOFU",
+      "file": "/blog/uav-spares-lifecycle-planning/",
+      "created": "2026-08-04",
+      "published": "2026-08-04"
+    },
+    {
+      "id": 28,
+      "title": "UAV Mission Planning and Flight Software: Waypoints, Geofencing and the Pre-Flight Workflow",
+      "status": "published",
+      "score": 82,
+      "funnel": "MOFU",
+      "file": "/blog/uav-mission-planning-software/",
+      "created": "2026-08-04",
+      "published": "2026-08-04"
+    },
+    {
+      "id": 29,
+      "title": "UAV Payload Power Budgeting: Regulators, Filters and Sequencing",
+      "status": "published",
+      "score": 74,
+      "funnel": "MOFU",
+      "file": "/blog/uav-payload-power-budgeting/",
+      "created": "2026-08-05",
+      "published": "2026-08-05"
+    },
+    {
+      "id": 30,
+      "title": "UAV Component Warranty and RMA: What to Ask Before You Buy",
+      "status": "published",
+      "score": 78,
+      "funnel": "BOFU",
+      "file": "/blog/uav-warranty-rma-support/",
+      "created": "2026-08-05",
+      "published": "2026-08-05"
+    }
+  ]
 }

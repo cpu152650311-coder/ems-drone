@@ -1,0 +1,298 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>UAV Payload Power Budgeting: Regulators, Filters and Sequencing | EMS Drone</title>
+  <meta name="description" content="A power-engineering guide to UAV payload power budgeting — how to build a per-payload power budget, choose linear vs buck vs buck-boost regulators, filter switching noise away from GNSS and camera rails, sequence payload power-on to prevent reset loops, break ground loops, and the RFQ-ready payload power checklist.">
+  <link rel="canonical" href="https://ems-drone.com/blog/uav-payload-power-budgeting/">
+  <meta property="og:title" content="UAV Payload Power Budgeting: Regulators, Filters and Sequencing">
+  <meta property="og:description" content="How to budget, regulate, filter and sequence power for UAV sensor payloads — the worked power budget, regulator topology selection, noise filtering for GNSS and camera rails, inrush and sequencing failures, ground-loop isolation, and the checklist to put in the RFQ.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://ems-drone.com/blog/uav-payload-power-budgeting/">
+  <meta property="og:image" content="https://ems-drone.com/generated/og-cover.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <link rel="icon" type="image/x-icon" href="/generated/favicon.ico">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="apple-touch-icon" sizes="180x180" href="/generated/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/generated/icon-192.png">
+<link rel="icon" type="image/png" sizes="512x512" href="/generated/icon-512.png">
+  <link rel="stylesheet" href="/design-tokens.css?v=21">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "UAV Payload Power Budgeting: Regulators, Filters and Sequencing",
+  "description": "A power-engineering guide to UAV payload power budgeting — the per-payload power budget calculation, regulator topology selection, switching-noise filtering for sensitive sensor rails, power sequencing and inrush control, ground-loop isolation, and an RFQ-ready checklist.",
+  "image": "https://ems-drone.com/generated/blog-cover-payload-power.webp",
+  "author": {
+    "@type": "Organization",
+    "name": "EMS Drone"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "EMS Drone",
+    "url": "https://ems-drone.com/",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://ems-drone.com/favicon.svg"
+    }
+  },
+  "mainEntityOfPage": "https://ems-drone.com/blog/uav-payload-power-budgeting/",
+  "datePublished": "2026-08-05",
+  "dateModified": "2026-08-05"
+}
+</script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <svg aria-hidden="true" style="position:absolute;width:0;height:0;overflow:hidden">
+    <symbol id="icon-drone" viewBox="0 0 24 24" fill="none" stroke="#b8f34a" stroke-width="1.5"><circle cx="12" cy="12" r="2.6"/><path d="m10.2 10.2-4-4m7.6 4 4-4m-7.6 7.6-4 4m7.6-4 4 4"/><circle cx="4.7" cy="4.7" r="2.2"/><circle cx="19.3" cy="19.3" r="2.2"/><circle cx="4.7" cy="19.7" r="2.2"/><circle cx="19.3" cy="19.3" r="2.2"/></symbol>
+    <symbol id="icon-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12h14m-5-5 5 5-5 5"/></symbol>
+  </svg>
+
+  <header class="site-header">
+    <div class="nav-shell">
+      <a class="brand" href="/" aria-label="EMS Drone home"><span class="brand-mark"><svg aria-hidden="true"><use href="#icon-drone"/></svg></span><span>EMS Drone</span></a>
+      <button class="nav-toggle" type="button" aria-label="Open navigation" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+                                        <nav class="site-nav" aria-label="Primary navigation"><a href="/">Home</a>
+        <div class="nav-dropdown">
+          <a href="/capabilities/" class="nav-parent">Capabilities</a>
+          <div class="nav-submenu">
+            <a href="/capabilities/flight-control/">Flight Controllers</a>
+            <a href="/capabilities/esc-power/">ESC &amp; Power Systems</a>
+            <a href="/capabilities/propulsion/">Propulsion</a>
+            <a href="/capabilities/airframe/">Airframes &amp; Structures</a>
+            <a href="/capabilities/communications/">Communications &amp; RF</a>
+            <a href="/capabilities/payload/">Payloads &amp; Gimbals</a>
+          </div>
+        </div>
+        <div class="nav-dropdown">
+          <a href="/customization/" class="nav-parent">Services</a>
+          <div class="nav-submenu">
+            <a href="/customization/">Custom Engineering</a>
+            <a href="/testing/">Testing &amp; Validation</a>
+          </div>
+        </div>
+        <div class="nav-dropdown">
+          <a href="/industries/" class="nav-parent">Industries</a>
+          <div class="nav-submenu">
+            <a href="/industries/inspection/">Industrial Inspection</a>
+            <a href="/industries/mapping-survey/">Mapping &amp; Survey</a>
+            <a href="/industries/logistics/">Logistics &amp; Delivery</a>
+            <a href="/industries/agriculture/">Precision Agriculture</a>
+            <a href="/industries/research/">Research &amp; Development</a>
+          </div>
+        </div>
+        <div class="nav-dropdown">
+          <a href="/resources/" class="nav-parent">Resources</a>
+          <div class="nav-submenu">
+            <a href="/design-guides/">Design Guides</a>
+            <a href="/projects/">Engineering Projects</a>
+            <a href="/how-it-works/">How We Work</a>
+            <a href="/faq/">FAQ</a>
+            <a href="/blog/" aria-current="page">Blog</a>
+          </div>
+        </div>
+        <div class="nav-dropdown">
+          <a href="/about/" class="nav-parent">Company</a>
+          <div class="nav-submenu">
+            <a href="/about/">About</a>
+            <a href="/factory/">Factory</a>
+            <a href="/quality/">Quality</a>
+            <a href="/shipping/">Shipping</a>
+            <a href="/contact/">Contact</a>
+          </div>
+        </div>
+        <button class="btn btn-primary" data-open-inquiry>Start Your Build</button>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <header class="article-hero">
+      <div class="container reveal">
+        <span class="eyebrow"><a href="/blog/" style="color:inherit;text-decoration:none">Blog</a> · Payloads · Power</span>
+        <h1>UAV payload power budgeting: regulators, filters and power sequencing for sensor payloads</h1>
+        <p style="color:var(--muted-dark);max-width:640px">A UAV power system is sized around propulsion: the battery, the ESC current ratings and the wire gauges are chosen for the motors, and the payload is bolted on afterwards with a Y-cable and hope. That is why payload power problems are the most common intermittent faults in fielded industrial UAVs — brownouts during gimbal initialization, GNSS desensitized by a noisy buck converter, companion computers caught in a power-on reset loop, and analog sensors reading offsets caused by ground loops. This guide is the engineering discipline that prevents those failures: the per-payload power budget, the regulator topology decision, the filtering that keeps switching noise off sensitive rails, the sequencing and inrush control that stops reset loops, and the RFQ checklist that puts the whole power architecture in writing.</p>
+        <div class="article-cover">
+          <img src="/generated/blog-cover-payload-power.webp" alt="UAV payload power distribution board with buck converters, filter inductors and a sensor module being wired on an engineering workbench, dark industrial background with green and blue accent lighting, no people faces, no text, no logos" loading="lazy">
+        </div>
+      </div>
+    </header>
+
+    <article class="article-body">
+      <div class="container reveal">
+        <p>The propulsion system gets a power budget; the payload gets a Y-cable. Every integration engineer has seen the pattern: the aircraft was specified around the motors, the ESC ratings and the battery C-rate, and the payload stack — thermal camera, RTK receiver, companion computer, gimbal — was treated as a collection of data interfaces rather than a power load with its own transient behavior. The result is a class of failures that are intermittent, temperature-dependent and maddeningly hard to reproduce on the bench: a camera that resets when the gimbal starts moving, a GNSS fix that degrades when the telemetry radio transmits, an ADC channel that reads 2% high in the afternoon. All of them are power problems, and all of them are preventable with a budgeting exercise that takes an afternoon. This guide walks through it end to end, and it builds directly on the <a href="/blog/uav-battery-power-management/">UAV battery and power management guide</a> (which sizes the main pack) and the <a href="/blog/uav-connectors-wiring-power-distribution/">connectors and power distribution guide</a> (which covers the PDB and wiring that carries the payload rails).</p>
+
+        <h2>The five ways payload power fails in the field</h2>
+        <p>Before the budget math, it is worth naming the failure modes, because each one maps to a specific design decision later in this guide. Fielded industrial UAVs fail in five recurring patterns:</p>
+        <ul>
+          <li><strong>Brownout under load.</strong> The payload stack draws more than the distribution rail can deliver during a transient — typically the moment a gimbal or servo starts moving or a camera shutter mechanism engages. The rail collapses, the companion computer or flight controller resets, and the aircraft enters a boot loop in flight. The <a href="/blog/uav-sensor-fusion-redundant-navigation/">sensor fusion and redundant navigation guide</a> explains why a mid-flight reset of the navigation stack is not a nuisance but a safety event.</li>
+          <li><strong>Switching noise coupling.</strong> Every DC-DC converter on the aircraft switches at 300 kHz–2 MHz, and the ripple and radiated noise couple into sensitive payloads — GNSS front ends, image sensors, IMUs — through the shared input rail, the wiring harness or the ground plane. The symptom is a payload that works on the bench with a lab supply and misbehaves in the air.</li>
+          <li><strong>Inrush current.</strong> Payloads with large input capacitors (gimbals, video transmitters, companion computers) draw a current spike at power-on that can trip the PDB's current limit or fold back the BEC, starving the rest of the aircraft at the worst possible moment — power-on with motors armed.</li>
+          <li><strong>Power sequencing failures.</strong> When a peripheral powers up before its controller is ready, I2C and SPI buses lock into undefined states, SD cards corrupt, and the payload needs a full power cycle to recover. This is the classic "works 70% of the time" failure.</li>
+          <li><strong>Ground loops.</strong> When the payload's power return and data return take different paths back to the PDB, the voltage offset between them appears directly in analog measurements — a 50 mV ground offset on a 3.3 V ADC is a 1.5% full-scale error, which is fatal for an atmospheric pressure sensor or a load-cell payload.</li>
+        </ul>
+        <p>Each of these maps to a section below. The common thread: payload power is an engineering subsystem with its own budget, topology and test plan — not an accessory.</p>
+
+        <h2>Building the payload power budget: a worked example</h2>
+        <p>The budget starts with a table of every payload device, its continuous draw, its peak draw and its rail voltage. A representative industrial inspection stack looks like this:</p>
+        <ul>
+          <li><strong>RTK GNSS receiver:</strong> 1.2 W continuous, 1.5 W peak — clean 5 V rail required.</li>
+          <li><strong>Thermal camera:</strong> 4.5 W continuous, 6 W peak at shutter calibration — 12 V or 5 V.</li>
+          <li><strong>RGB mapping camera:</strong> 3 W continuous, 8 W peak during capture burst — 5 V.</li>
+          <li><strong>Companion computer (edge AI):</strong> 12 W continuous, 18 W peak under load — 5 V at 4 A. The <a href="/blog/uav-edge-ai-onboard-computing/">UAV edge AI and onboard computing guide</a> covers the compute side of this load.</li>
+          <li><strong>LTE modem:</strong> 5 W continuous, 9 W burst during uplink — 5 V.</li>
+          <li><strong>Gimbal:</strong> 8 W continuous, 15 W peak when slewing — 12 V.</li>
+        </ul>
+        <p>The arithmetic that matters has three numbers. <strong>Continuous total</strong> (33.7 W in this stack) sizes the average load on the battery. <strong>Peak total</strong> (57.5 W) sizes the distribution rail and the regulator output capability. <strong>Largest single transient</strong> (the gimbal's 15 W, or the camera's 8 W burst) sizes the bulk capacitance and the current-limit headroom. The design rule is: the rail must deliver continuous total × 1.25 margin, and peak total must not come within 20% of the PDB's current limit.</p>
+        <p>The budget also converts directly into flight time. At 33.7 W continuous from a 6S pack (22.2 V nominal), the payload draws 1.52 A; over a 45-minute flight that is 25.5 Wh — roughly 23% of a 6S 5000 mAh pack's 111 Wh. The same payload on a 12S aircraft draws half the current but the same power. This is why the power budget is a mission conversation, not an electronics conversation: every watt of payload power is endurance the operations team has to give up elsewhere, which is exactly the trade framework laid out in the <a href="/blog/uav-battery-power-management/">battery sizing guide</a>.</p>
+
+        <h2>Regulator topology: linear vs buck vs buck-boost, and where each wins</h2>
+        <p>Once the rails are defined, the next decision is how each rail is derived from the pack voltage. Three topologies cover nearly every UAV payload:</p>
+        <ul>
+          <li><strong>Linear regulators (LDO).</strong> Lowest noise, no switching artifacts — the output is the input minus a pass-transistor drop. The cost is efficiency: a 5 V rail derived from a 6S pack at 22.2 V dissipates 77% of the power as heat. An LDO is the right choice for low-current analog rails (a 20 mA IMU reference, an op-amp supply) and for post-regulating a switcher down to a clean final voltage. It is the wrong choice for any rail over a few hundred milliamps.</li>
+          <li><strong>Buck (step-down) converters.</strong> The workhorse of payload power: 85–95% efficient at 5 V or 12 V from any pack voltage above the rail. The cost is switching noise — ripple of 10–50 mV plus radiated harmonics at the switching frequency and its multiples. A buck needs a properly chosen output filter and careful layout, and its switching frequency should be selected to avoid beating with the payload's data clocks. For an 8–20 V input range, a fixed-frequency buck at 400–500 kHz is a common, well-understood choice.</li>
+          <li><strong>Buck-boost converters.</strong> Needed when the pack voltage crosses the rail voltage during the flight — a 4S pack at 14.8 V nominal sags to 13.2 V under load, so a 12 V payload rail needs a converter that can pass through the crossover without a dropout glitch. Buck-boost is also the standard for 5 V rails on 3S aircraft. Efficiency is a few points lower than a pure buck, and noise behavior is generally worse, so it belongs only where the voltage range genuinely requires it.</li>
+        </ul>
+        <p>Isolated DC-DC converters deserve a separate mention: when a payload must be galvanically isolated from the aircraft power (RS-485 or RS-422 links, video transmitters, high-current servo rails that could dump noise into the flight controller), an isolated module breaks the ground path at the converter, which is often simpler and more reliable than trying to filter the loop away. The <a href="/blog/uav-connectors-wiring-power-distribution/">wiring and power distribution guide</a> covers the conductor side — the AWG sizing and PDB copper weight that carry these rails without unacceptable drop.</p>
+
+        <div class="media-visual reveal" style="max-width:640px;margin:32px auto">
+          <img src="/generated/blog-inline-payload-power-regulator.webp" alt="Macro photo of UAV payload power regulators on a distribution board — buck converter modules, filter inductors and capacitors soldered on a dark PCB with green accent lighting, no people faces, no text, no logos" loading="lazy">
+          <span class="concept-badge">Concept illustration</span>
+        </div>
+
+        <h2>Filtering and noise: protecting the sensitive rails</h2>
+        <p>The noise problem is not the converter's ripple at its own frequency — it is what that ripple does to the payload's most sensitive inputs. The coupling paths are three: <strong>conducted</strong> (switching current injected into the shared input rail, seen by every device on that rail), <strong>radiated</strong> (the loop formed by the converter's wiring radiating into nearby antenna feeds and unshielded sensor cables), and <strong>ground bounce</strong> (switching current returning through the ground plane, shifting the local ground reference under the sensor).</p>
+        <p><strong>The GNSS case is the most instructive.</strong> A GNSS receiver's L1 front end at 1575.42 MHz is sensitive to interferers at that frequency and near it; a buck converter switching at 1.5 MHz does not hit L1 directly, but its harmonics and the intermodulation products with other clocks can land inside the passband and desensitize the receiver by 3–10 dB — the difference between a reliable RTK fix and one that drops in tree cover. The practical countermeasures, in order of effectiveness: keep switchers and their wiring at least 20 cm from the GNSS antenna feed; post-regulate the receiver's rail with an LDO so the receiver never sees switching ripple; add a pi filter (series inductor with a capacitor on each side) or ferrite bead on the receiver's input; and use a filtered, grounded antenna feed. The <a href="/blog/uav-gnss-anti-jamming-spoofing/">GNSS anti-jamming and spoofing guide</a> covers the RF-interference side of the same story, and the <a href="/blog/uav-emc-emi-design-compliance/">EMC/EMI design guide</a> is the full treatment of radiated and conducted compliance.</p>
+        <p><strong>Camera and IMU rails are the second priority.</strong> Image sensors require ripple under roughly 10 mV on their analog rails, or fixed-pattern noise appears in the image; IMUs can alias switching ripple into gyro bias drift. The fix is the same architecture: switcher for efficiency, then an LDO or LC filter on the final rail, with the filter placed within a few centimeters of the sensor — filtering at the PDB and then running an unfiltered wire to the camera is filtering the wrong place. The <a href="/blog/uav-camera-gimbal-selection/">camera and gimbal selection guide</a> covers the sensor-side requirements that drive these rail specifications.</p>
+
+        <div class="media-visual reveal" style="max-width:640px;margin:32px auto">
+          <img src="/generated/blog-inline-payload-power-filter.webp" alt="Oscilloscope measuring ripple on a UAV payload power rail — probe on a filter inductor, waveform trace on screen, dark engineering bench with blue and green accent light, no people faces, no text, no logos" loading="lazy">
+          <span class="concept-badge">Concept illustration</span>
+        </div>
+
+        <h2>Power sequencing and inrush: the hidden reset loop</h2>
+        <p>The most frustrating payload faults are sequencing faults, because the hardware is fine — the order of events is wrong. Two mechanisms dominate. <strong>Inrush:</strong> a gimbal with 2,000 µF of input capacitance presents a near-short at power-on; if the PDB's current limit or the BEC's fold-back engages, the rail collapses, the companion computer browns out and resets, and the camera re-initializes with a 30-second boot delay — in a 45-minute mission that is a significant fraction of the sortie burned on the ground. <strong>Sequencing:</strong> when a peripheral powers up before its controller's firmware is ready, I2C and SPI slaves can latch into undefined states (a stuck SDA line is the classic symptom), and SD-card filesystems corrupt when the card is powered while the host is mid-write. The payload then needs a full unpowered cycle to recover, which is exactly the kind of fault that grounds an aircraft for the day.</p>
+        <p>The design fixes are small and standard:</p>
+        <ul>
+          <li><strong>Load switches with controlled ramp.</strong> A MOSFET load switch (a TPS22918-class part) with a soft-start capacitor ramps the payload rail over 1–5 ms, turning the inrush spike into a controlled ramp that stays under the PDB limit. This single component eliminates most brownout-reset loops.</li>
+          <li><strong>Explicit enable sequencing.</strong> Power the controller first, let it initialize, then enable the peripherals — either through the load-switch enable pins driven by the companion computer or flight controller, or through a PDB output that the FC commands. The rule of thumb is the one-second rule: the payload must be fully booted and settled before the motors are allowed to arm.</li>
+          <li><strong>Bulk capacitance at the load.</strong> 100–470 µF of low-ESR bulk capacitance at the payload input (not at the PDB) absorbs the load's own transients locally, so the rail does not dip when the gimbal slews.</li>
+          <li><strong>Current-limit headroom.</strong> The PDB's per-output current limit should sit at least 20% above the payload's peak draw — a limit that is too tight converts a recoverable transient into a hard reset.</li>
+        </ul>
+        <p>The <a href="/blog/uav-safety-redundancy-systems/">safety and redundancy systems guide</a> explains why the power-on sequence belongs in the aircraft's safety case: an uncommanded reset at the wrong moment is not a payload annoyance, it is a hazard, and the sequence that prevents it should be tested as part of the safety validation.</p>
+
+        <div class="media-visual reveal" style="max-width:640px;margin:32px auto">
+          <img src="/generated/blog-inline-payload-power-sequencing.webp" alt="UAV payload stack on a test bench during power-on sequencing validation — companion computer, gimbal and sensor modules connected to a power distribution board with load switches, dark workshop with green accent light, no people faces, no text, no logos" loading="lazy">
+          <span class="concept-badge">Concept illustration</span>
+        </div>
+
+        <h2>Grounding and isolation: breaking the loop</h2>
+        <p>Ground loops are the quiet killer of analog payloads. The mechanism: every conductor has resistance, so the current returning from a high-current device (a gimbal motor, a video transmitter) develops a voltage drop along its return path; if a sensor's return current shares that path, the sensor's ground reference shifts by the drop. A 50 mV shift on a 3.3 V ADC is 1.5% of full scale — for a payload measuring barometric pressure, load or fine voltage, that is a measurement error, not a noise artifact.</p>
+        <ul>
+          <li><strong>Star grounding.</strong> All payload returns meet the aircraft ground at a single point (the PDB's ground bus), and each payload has its own return conductor rather than daisy-chaining returns. This keeps each device's return drop out of every other device's reference.</li>
+          <li><strong>Analog/digital separation.</strong> Analog sensor grounds and digital/power grounds join at exactly one point; the ADC reference and the sensor share the analog ground so their reference is common.</li>
+          <li><strong>Galvanic isolation where the loop is unavoidable.</strong> RS-422/RS-485 links, isolated CAN transceivers and isolated DC-DC modules break the loop at the data boundary — the <a href="/blog/uav-communication-protocols-guide/">communication protocols guide</a> covers the bus side, and the isolation decision is a power decision made at the same time.</li>
+          <li><strong>Shield discipline.</strong> Cable shields terminate at one end only (typically the source or the PDB), never both — a shield grounded at both ends carries the ground-drop current and becomes an antenna.</li>
+        </ul>
+        <p>The <a href="/blog/uav-payload-integration-guide/">payload integration guide</a> covers the mechanical and data sides of the same integration; grounding is the power side of the identical decision tree.</p>
+
+        <h2>The payload power RFQ checklist: 8 line items</h2>
+        <p>The following checklist converts the design rules into RFQ-ready requirements. Every item names the evidence the supplier should provide, because a payload power architecture that is not documented is a payload power architecture that has not been reviewed.</p>
+        <p><strong>1. Rail definition.</strong> The voltage rails, continuous and peak current per rail, and the number of independent rails the payload requires. Verification: the rail specification table in the proposal.</p>
+        <p><strong>2. Regulator topology per rail.</strong> Linear, buck, buck-boost or isolated, with the switching frequency for each switcher. Verification: the schematic-level architecture description.</p>
+        <p><strong>3. Ripple specification.</strong> Maximum output ripple per rail — for sensitive rails (GNSS, camera, IMU) this should be in the 5–15 mV range. Verification: the ripple measurement from the test report.</p>
+        <p><strong>4. Power-on sequencing.</strong> The power-on order, the enable sources and the load-switch ramp behavior. Verification: the sequencing description and the measured power-on timeline.</p>
+        <p><strong>5. Inrush and soft-start.</strong> The maximum inrush current per rail and the soft-start mechanism. Verification: the inrush measurement at first power-on.</p>
+        <p><strong>6. Grounding and isolation.</strong> The star-ground topology, analog/digital separation, and which interfaces are galvanically isolated. Verification: the grounding diagram in the integration documentation.</p>
+        <p><strong>7. Connector and conductor sizing.</strong> The power connector pinout and the wire gauge for each payload rail, consistent with the <a href="/blog/uav-connectors-wiring-power-distribution/">connector selection guide</a>. Verification: the harness drawing.</p>
+        <p><strong>8. Load-step test data.</strong> A measured load-step response for each rail (the rail's voltage deviation when the payload's peak load is applied), which is the single best predictor of brownout behavior in the field. Verification: the oscilloscope captures from the test program.</p>
+        <p>The payload power architecture closes the loop with the rest of the aircraft documentation: the <a href="/blog/uav-battery-power-management/">battery and power management</a> guide for the pack, the <a href="/blog/uav-edge-ai-onboard-computing/">onboard computing</a> guide for the biggest payload load, and the <a href="/blog/uav-emc-emi-design-compliance/">EMC/EMI</a> guide for the compliance envelope the whole power system must live inside.</p>
+
+        <p style="margin-top:42px"><a class="btn btn-primary" href="/customization/">Explore custom engineering</a> <a class="btn btn-outline" href="/blog/" style="margin-left:12px">Back to Blog</a></p>
+
+        <section class="continue-reading">
+          <h3>Continue Reading</h3>
+          <div class="continue-grid">
+            <a class="continue-card" href="/blog/uav-battery-power-management/">
+              <div class="continue-card-img"><img src="/generated/blog-cover-battery.webp" alt="Battery and Power Management Guide" loading="lazy"></div>
+              <div class="continue-card-body"><h4>UAV Battery and Power Management</h4><p>LiPo vs Li-Ion chemistry, pack sizing and BMS behavior — the source-side of the power budget this guide spends on the payload side.</p></div>
+            </a>
+            <a class="continue-card" href="/blog/uav-connectors-wiring-power-distribution/">
+              <div class="continue-card-img"><img src="/generated/blog-cover-connectors.webp" alt="Connectors, Wiring and Power Distribution Guide" loading="lazy"></div>
+              <div class="continue-card-body"><h4>UAV Connectors, Wiring &amp; Power Distribution</h4><p>PDB design, wire gauge and connector families — the physical layer that carries the payload rails without unacceptable drop.</p></div>
+            </a>
+            <a class="continue-card" href="/blog/uav-payload-integration-guide/">
+              <div class="continue-card-img"><img src="/generated/blog-cover-payload.webp" alt="Payload Integration Guide" loading="lazy"></div>
+              <div class="continue-card-body"><h4>UAV Payload Integration: Sensors, Gimbals and Release Mechanisms</h4><p>The electrical, mechanical and data sides of payload integration — the framework this power guide sits inside.</p></div>
+            </a>
+            <a class="continue-card" href="/blog/uav-edge-ai-onboard-computing/">
+              <div class="continue-card-img"><img src="/generated/blog-cover-edge-ai.webp" alt="Edge AI and Onboard Computing Guide" loading="lazy"></div>
+              <div class="continue-card-body"><h4>UAV Edge AI &amp; Onboard Computing</h4><p>Companion computers and their power-hungry load profiles — the largest single consumer in most payload budgets.</p></div>
+            </a>
+            <a class="continue-card" href="/blog/uav-emc-emi-design-compliance/">
+              <div class="continue-card-img"><img src="/generated/blog-cover-emc-emi.webp" alt="EMC and EMI Design Guide" loading="lazy"></div>
+              <div class="continue-card-body"><h4>UAV Avionics EMC/EMI Design &amp; Compliance</h4><p>The radiated and conducted noise envelope that switching converters must live inside — the compliance side of payload filtering.</p></div>
+            </a>
+          </div>
+        </section>
+      </div>
+    </article>
+
+    <section class="section section-alt" style="--cta-bg:url(/generated/blog-cta-payload-power.webp)">
+      <div class="container">
+        <div class="spec-panel reveal">
+          <div class="spec-panel-inner">
+            <div>
+              <span class="eyebrow">Payload Power Engineering</span>
+              <h2>Tell us your payload stack and aircraft power architecture — we will produce the power budget, regulator and filter design, sequencing plan and the rail specifications with measured test data.</h2>
+              <p>Share your payload list with the datasheets, your battery and PDB configuration, and the integration environment — we will specify the regulator topology per rail, the filtering for sensitive sensors, the power-on sequence and inrush protection, and document the whole architecture with load-step measurements before it flies.</p>
+            </div>
+            <div class="spec-actions">
+              <button class="btn btn-primary" type="button" data-open-inquiry>Start Your Build <svg aria-hidden="true"><use href="#icon-arrow"/></svg></button>
+              <button class="btn btn-outline" data-open-inquiry>Open RFQ Brief</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="brand" href="/" aria-label="EMS Drone home"><span class="brand-mark"><svg aria-hidden="true"><use href="#icon-drone"/></svg></span><span>EMS Drone</span></a>
+          <p>Configurable UAV components, complete systems and engineering support.</p>
+        </div>
+        <div class="footer-col"><h3>System</h3><a href="/capabilities/">Capabilities</a><a href="/customization/">Customization</a><a href="/testing/">Testing</a></div>
+        <div class="footer-col"><h3>Context</h3><a href="/industries/">Industries</a><a href="/about/">About</a><a href="/blog/">Blog</a></div>
+        <div class="footer-col"><h3>More reading</h3><a href="/blog/drone-powertrain-matching/">Powertrain guide</a><a href="/blog/uav-rf-communication-systems/">RF systems</a><a href="/contact/">RFQ Brief</a></div>
+      </div>
+      <div class="footer-bottom"><span>&copy; 2026 EMS Drone</span><span>Define &rarr; Integrate &rarr; Deploy</span></div>
+    </div>
+  </footer>
+  <div class="modal-overlay" id="inquiryModal" aria-hidden="true">
+    <div class="modal-dialog" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <button class="modal-close" type="button" aria-label="Close inquiry">&times;</button>
+      <div class="modal-aside">
+        <span class="tech-label">Engineering Intake</span>
+        <div><h3 id="modalTitle">Start with your mission.</h3><p>Tell us what you are building and where you need support: component sourcing, a matched stack or a complete UAV.</p></div>
+      </div>
+      <form class="modal-form" data-preview-form>
+        <div class="field"><label for="modal-name">Name</label><input id="modal-name" name="name" autocomplete="name" required></div>
+        <div class="field" style="margin-top:18px"><label for="modal-email">Email</label><input id="modal-email" name="email" type="email" autocomplete="email" required></div>
+        <div class="field" style="margin-top:18px"><label for="modal-message">Project brief</label><textarea id="modal-message" name="message" required placeholder="Aircraft type, payload, environment, component list or complete-system goal"></textarea></div>
+        <button class="btn btn-primary" type="submit">Submit Engineering Brief</button>
+        <div class="form-status" role="status" aria-live="polite" aria-atomic="true"></div>
+      </form>
+    </div>
+  </div>
+<script src="/site.js?v=9"></script>
+  <script src="/reveal.js?v=9"></script>
+</body>
+</html>
