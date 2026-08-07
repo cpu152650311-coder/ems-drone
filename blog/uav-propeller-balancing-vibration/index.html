@@ -1,0 +1,272 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>UAV Propeller Balancing and Vibration Analysis | EMS Drone</title>
+  <meta name="description" content="A technical guide to UAV propeller balancing and vibration — static vs dynamic balance, ISO 1940-1 balance grades, measuring vibration with IMU logs and test rigs, the field balancing procedure, resonance and the vibration budget, and the balance specification to put in the procurement document.">
+  <link rel="canonical" href="https://ems-drone.com/blog/uav-propeller-balancing-vibration/">
+  <meta property="og:title" content="UAV Propeller Balancing and Vibration Analysis">
+  <meta property="og:description" content="How to specify, measure and fix propeller imbalance on industrial UAVs — the ISO 1940-1 balance grades that matter, IMU-log and rig-based vibration measurement, the field balancing procedure, blade-pass resonance and the procurement spec for balanced propellers.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://ems-drone.com/blog/uav-propeller-balancing-vibration/">
+  <meta property="og:image" content="https://ems-drone.com/generated/og-cover.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <link rel="icon" type="image/x-icon" href="/generated/favicon.ico">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="apple-touch-icon" sizes="180x180" href="/generated/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/generated/icon-192.png">
+<link rel="icon" type="image/png" sizes="512x512" href="/generated/icon-512.png">
+  <link rel="stylesheet" href="/design-tokens.css?v=21">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "UAV Propeller Balancing and Vibration Analysis",
+  "description": "A technical guide to UAV propeller balancing and vibration — static vs dynamic balance, ISO 1940-1 balance grades, measuring vibration with IMU logs and test rigs, the field balancing procedure, resonance and the vibration budget, and the balance specification to put in the procurement document.",
+  "image": "https://ems-drone.com/generated/blog-cover-propeller-balance.webp",
+  "author": {
+    "@type": "Organization",
+    "name": "EMS Drone"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "EMS Drone",
+    "url": "https://ems-drone.com/",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://ems-drone.com/favicon.svg"
+    }
+  },
+  "mainEntityOfPage": "https://ems-drone.com/blog/uav-propeller-balancing-vibration/",
+  "datePublished": "2026-08-07",
+  "dateModified": "2026-08-07"
+}
+</script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <svg aria-hidden="true" style="position:absolute;width:0;height:0;overflow:hidden">
+    <symbol id="icon-drone" viewBox="0 0 24 24" fill="none" stroke="#b8f34a" stroke-width="1.5"><circle cx="12" cy="12" r="2.6"/><path d="m10.2 10.2-4-4m7.6 4 4-4m-7.6 7.6-4 4m7.6-4 4 4"/><circle cx="4.7" cy="4.7" r="2.2"/><circle cx="19.3" cy="19.3" r="2.2"/><circle cx="4.7" cy="19.7" r="2.2"/><circle cx="19.3" cy="19.3" r="2.2"/></symbol>
+    <symbol id="icon-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12h14m-5-5 5 5-5 5"/></symbol>
+  </svg>
+
+  <header class="site-header">
+    <div class="nav-shell">
+      <a class="brand" href="/" aria-label="EMS Drone home"><span class="brand-mark"><svg aria-hidden="true"><use href="#icon-drone"/></svg></span><span>EMS Drone</span></a>
+      <button class="nav-toggle" type="button" aria-label="Open navigation" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+                                        <nav class="site-nav" aria-label="Primary navigation"><a href="/">Home</a>
+        <div class="nav-dropdown">
+          <a href="/capabilities/" class="nav-parent">Capabilities</a>
+          <div class="nav-submenu">
+            <a href="/capabilities/flight-control/">Flight Controllers</a>
+            <a href="/capabilities/esc-power/">ESC &amp; Power Systems</a>
+            <a href="/capabilities/propulsion/">Propulsion</a>
+            <a href="/capabilities/airframe/">Airframes &amp; Structures</a>
+            <a href="/capabilities/communications/">Communications &amp; RF</a>
+            <a href="/capabilities/payload/">Payloads &amp; Gimbals</a>
+          </div>
+        </div>
+        <div class="nav-dropdown">
+          <a href="/customization/" class="nav-parent">Services</a>
+          <div class="nav-submenu">
+            <a href="/customization/">Custom Engineering</a>
+            <a href="/testing/">Testing &amp; Validation</a>
+          </div>
+        </div>
+        <div class="nav-dropdown">
+          <a href="/industries/" class="nav-parent">Industries</a>
+          <div class="nav-submenu">
+            <a href="/industries/inspection/">Industrial Inspection</a>
+            <a href="/industries/mapping-survey/">Mapping &amp; Survey</a>
+            <a href="/industries/logistics/">Logistics &amp; Delivery</a>
+            <a href="/industries/agriculture/">Precision Agriculture</a>
+            <a href="/industries/research/">Research &amp; Development</a>
+          </div>
+        </div>
+        <div class="nav-dropdown">
+          <a href="/resources/" class="nav-parent">Resources</a>
+          <div class="nav-submenu">
+            <a href="/design-guides/">Design Guides</a>
+            <a href="/projects/">Engineering Projects</a>
+            <a href="/how-it-works/">How We Work</a>
+            <a href="/faq/">FAQ</a>
+            <a href="/blog/" aria-current="page">Blog</a>
+          </div>
+        </div>
+        <div class="nav-dropdown">
+          <a href="/about/" class="nav-parent">Company</a>
+          <div class="nav-submenu">
+            <a href="/about/">About</a>
+            <a href="/factory/">Factory</a>
+            <a href="/quality/">Quality</a>
+            <a href="/shipping/">Shipping</a>
+            <a href="/contact/">Contact</a>
+          </div>
+        </div>
+        <button class="btn btn-primary" data-open-inquiry>Start Your Build</button>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <header class="article-hero">
+      <div class="container reveal">
+        <span class="eyebrow"><a href="/blog/" style="color:inherit;text-decoration:none">Blog</a> · Propulsion</span>
+        <h1>UAV propeller balancing and vibration: specifying, measuring and fixing imbalance</h1>
+        <p style="color:var(--muted-dark);max-width:640px">A propeller that looks perfect on the bench can be delivering a kilogram-scale oscillating force to the airframe every revolution, and the airframe, the IMU, the gimbal and the camera all pay for it. The math is unforgiving: a one-gram imbalance at the tip of a 24-inch propeller spinning at 6,000 RPM produces roughly twelve kilograms of centrifugal force. Most UAV teams never measure it — they buy propellers, bolt them on and accept whatever vibration the autopilot filters out. This guide is the engineering discipline for that gap: the difference between static and dynamic balance, the ISO 1940-1 balance grades that apply to UAV propellers, how to measure vibration with IMU logs and a balancing rig, where imbalance comes from across the propeller's service life, the field balancing procedure that removes the last ninety percent of vibration, and the balance specification to put in the procurement document.</p>
+        <div class="article-cover">
+          <img src="/generated/blog-cover-propeller-balance.webp" alt="Carbon fiber UAV propeller mounted on a dynamic balancing machine with a green laser measuring blade tip position in a dark engineering workshop, green accent lighting, no people faces, no text, no logos" loading="lazy">
+        </div>
+      </div>
+    </header>
+
+    <article class="article-body">
+      <div class="container reveal">
+        <p>Propeller imbalance is the most common source of vibration in a multirotor or fixed-wing UAV, and it is also the cheapest to eliminate. The <a href="/blog/uav-propeller-selection-guide/">propeller selection guide</a> covers how to choose diameter, pitch, blade count and material for a mission profile; this guide covers what happens after the propeller is chosen — how to specify its balance, measure the vibration it produces, and correct it in the field and at the factory. It sits alongside the <a href="/blog/uav-propulsion-testing-validation/">propulsion testing and validation guide</a>, which covers the thrust-stand and endurance testing that a complete propulsion system should pass before deployment.</p>
+
+        <h2>Why propeller imbalance is a system problem, not a spinning part problem</h2>
+        <p>Imbalance converts rotational energy into a sinusoidal force at the propeller's rotational frequency, and that force propagates through the motor mount into the airframe. The magnitude scales with the square of the rotational speed: the same residual imbalance that produces a barely measurable buzz at 2,000 RPM produces a destructive force at 6,000 RPM. For a two-blade propeller at 6,000 RPM the fundamental frequency is 100 Hz — right in the range where a carbon fiber arm's first bending mode lives (typically 80–150 Hz for a 650 mm quadcopter arm, as the <a href="/blog/uav-motor-topology-bldc-pmsm-pmac/">motor topology guide</a> notes in its torque-ripple discussion). When the two coincide, the airframe amplifies rather than attenuates the vibration.</p>
+        <p>The system-level costs are measurable. The IMU sees the vibration as attitude noise, which degrades position hold and increases the correction effort the flight controller must apply — the <a href="/blog/uav-safety-redundancy-systems/">safety and redundancy guide</a> explains why a saturated IMU is a failure mode, not a nuisance. The camera and gimbal see it as image blur and servo wear. The motor sees it as accelerated bearing wear, and the ESC sees it as current ripple from the motor fighting the oscillation. Every one of those components has a vibration specification in its datasheet, and propeller imbalance is the single most likely reason the airframe exceeds them.</p>
+
+        <h2>Static balance vs dynamic balance: which one your propellers actually need</h2>
+        <p>Balance comes in two forms, and the distinction decides what test equipment you need. <strong>Static balance</strong> is the center-of-gravity test: the propeller is placed on horizontal knife edges or a magnetic balancer, the heavy blade rotates to the bottom, and material is removed from (or added to) the light blade until the propeller rests in any position. Static balance removes the out-of-plane mass asymmetry but says nothing about how the mass is distributed along the hub axis.</p>
+        <p><strong>Dynamic balance</strong> is the in-plane test: the propeller is spun on a balancing machine that measures the vibration at two bearing planes and computes the correction required in each plane. A propeller can pass static balance and still be dynamically unbalanced — for example, when both blades have equal mass but the mass is distributed differently along the span, producing a couple that only appears at speed. For a small UAV propeller the practical rule is simple: <strong>static balance is sufficient for propellers under roughly 250 mm diameter; dynamic balance is required above that, and for any propeller on a precision platform (mapping, survey, inspection) regardless of size.</strong> The <a href="/blog/uav-mapping-survey-components/">mapping and survey components guide</a> is the reference for why precision platforms are the demanding case: a centimetre-level RTK solution is meaningless if the IMU is vibrating through its noise floor.</p>
+
+        <div class="media-visual reveal" style="max-width:640px;margin:32px auto">
+          <img src="/generated/blog-inline-propeller-balance-static.webp" alt="UAV propeller resting on a magnetic static balancing fixture — the heavy blade rotated to the bottom position, small balance weights and sandpaper on the bench, dark workshop with green accent light, no people faces, no text, no logos" loading="lazy">
+          <span class="concept-badge">Concept illustration</span>
+        </div>
+
+        <h2>Balance grades: what G2.5 and G6.3 mean for a UAV propeller</h2>
+        <p>The ISO 1940-1 standard defines balance quality grades by the product of residual specific unbalance and rotational speed — the quantity G, expressed in millimetres per second. The relevant grades for propellers and rotors are <strong>G6.3</strong> (typical for production propellers, fans and rotors with no special requirement) and <strong>G2.5</strong> (for rotors with strict requirements — grinding machine spindles, aircraft propellers, and precision rotating assemblies). The residual eccentricity allowed at a given speed is e = G × 1000 / ω, where ω is the rotational speed in radians per second. At 6,000 RPM, ω = 628 rad/s, so G6.3 permits a residual center-of-gravity offset of about 10 µm and G2.5 permits about 4 µm.</p>
+        <p>Those numbers translate into procurement language. A 24-inch (600 mm) carbon fiber propeller of 25 grams balanced to G2.5 at 6,000 RPM carries a residual unbalance of roughly 0.1 g·mm — below the resolution of most workshop scales, which is exactly why factory balance data matters more than a visual inspection. Nylon injection-molded propellers come out of the mold with blade-to-blade mass variation of ±3% in a production lot, as the <a href="/blog/uav-propeller-selection-guide/">propeller selection guide</a> documents, and need post-molding balancing to reach a usable grade; carbon fiber propellers with consistent layup achieve ±0.5% and hold G2.5–G6.3 depending on the manufacturer's QC. When a supplier states a balance grade, ask for the test method and the per-unit data — a grade without a measurement report is a marketing claim.</p>
+
+        <h2>Measuring vibration: from IMU logs to a balancing rig</h2>
+        <p>Before balancing propellers, measure the vibration baseline — the aircraft's own telemetry is the cheapest instrument you already own. ArduPilot and PX4 log the IMU accelerometer at the full gyro rate; the <a href="/blog/ardupilot-vs-px4-autopilot/">ArduPilot vs PX4 guide</a> covers the stacks, and both record the data you need. The procedure: hover the aircraft at cruise throttle in calm conditions, download the log, and inspect the FFT of the accelerometer axes. A sharp peak at the propeller rotational frequency (for example 100 Hz at 6,000 RPM on a two-blade propeller) is imbalance; a peak at the blade-pass frequency (200 Hz for a two-blade propeller at 6,000 RPM, 400 Hz for a four-blade) is an aerodynamic or tracking issue; broadband noise is usually motor bearing or ESC-related.</p>
+        <p>The acceptance threshold used by most flight controller vendors is <strong>vibration below 1 g RMS at the IMU, with 0.3–0.5 g as the target for smooth logs</strong>. If the baseline is above 1 g, or the rotational-frequency peak dominates the FFT, move to the bench: mount the motor on a thrust stand or rigid fixture, fit a calibrated accelerometer at the motor mount, and run the motor across the throttle range with a laser tachometer recording RPM. The <a href="/blog/uav-propulsion-testing-validation/">propulsion testing guide</a> describes the thrust-stand methodology this builds on. This measurement separates propeller imbalance from motor imbalance: spin the motor with no propeller and record the floor, then add the propeller — the delta at the rotational frequency is the propeller's contribution.</p>
+
+        <div class="media-visual reveal" style="max-width:640px;margin:32px auto">
+          <img src="/generated/blog-inline-propeller-balance-rig.webp" alt="Motor and propeller mounted on an instrumented test rig with an accelerometer at the motor mount and a laser tachometer aimed at the blade tips, data cables to a laptop showing a vibration waveform, dark engineering bench with green accent light, no people faces, no text, no logos" loading="lazy">
+          <span class="concept-badge">Concept illustration</span>
+        </div>
+
+        <h2>Where imbalance comes from: manufacturing, erosion, repair and mounting</h2>
+        <p>Imbalance is not a binary defect; it is a property that drifts over the propeller's life, and a procurement team that treats it as a one-time factory check will be surprised by field results. The sources, in the order a propeller experiences them:</p>
+        <ul>
+          <li><strong>Manufacturing.</strong> Mold parting lines, gate vestiges and inconsistent layup compression in composites create the initial imbalance. This is the source the balance grade covers — and the reason the acceptance test should be per-unit, not per-lot.</li>
+          <li><strong>Erosion and damage.</strong> Leading-edge erosion from particulate impact removes material unevenly, and the <a href="/blog/uav-propeller-selection-guide/">selection guide</a> notes that erosion also triggers micro-cracks and UV degradation of the resin matrix. A propeller that was balanced at delivery can develop a gram-scale tip imbalance after a season of operations in dusty or sandy conditions.</li>
+          <li><strong>Repair and rework.</strong> Sanding, filling and re-tipping a damaged blade changes its mass distribution. Any repaired propeller must be rebalanced — and the repair itself should be documented, because the <a href="/blog/uav-component-obsolescence-management/">obsolescence management guide</a> makes the broader point that field-modified components complicate the replacement and spares story.</li>
+          <li><strong>Mounting.</strong> The most common source of "imbalance" in the field is not the propeller at all: a collet that grips off-axis, a prop adapter with a bent shaft, a spinner that sits eccentrically, or debris under the mounting face. Always check the mounting hardware before rebalancing the propeller — the fix for a bent collet is a new collet, not tape on a blade.</li>
+          <li><strong>Moisture and temperature.</strong> Nylon absorbs moisture and changes mass and stiffness with humidity; composite propellers are far more stable. A nylon propeller balanced in a dry workshop can be measurably out of balance after a humid flight day, another argument for composite propellers on precision platforms.</li>
+        </ul>
+
+        <h2>Field balancing: the procedure that removes the last 90% of vibration</h2>
+        <p>Factory balance gets a propeller to its grade; field balancing corrects the residual interaction of propeller, collet, motor and spinner as an assembly. The procedure that works in practice:</p>
+        <p><strong>Step 1 — static check.</strong> With the propeller off the aircraft, place it on a magnetic balancer or two knife edges. Mark the heavy blade (it rotates to the bottom), and add a small strip of tape to the light blade's tip or remove material from the heavy blade's back face — a few milligrams at a time. Repeat until the propeller rests at any angle. For a 24-inch carbon fiber propeller, the correction is typically 0.1–0.5 g.</p>
+        <p><strong>Step 2 — bench dynamic check.</strong> Mount the propeller and spinner on the motor, run up to cruise RPM on the instrumented fixture, and confirm the rotational-frequency peak dropped to the motor-only floor. If a peak remains at the rotational frequency with the propeller fitted but not without it, the residual is in the propeller/hub assembly — re-check the collet and hub runout first (a hub runout of 0.05 mm produces a significant imbalance force at 6,000 RPM), then re-balance the propeller as an assembly with the spinner fitted.</p>
+        <p><strong>Step 3 — in-flight verification.</strong> Re-hover and re-log the IMU. The acceptance criteria: the rotational-frequency peak is gone from the FFT, and overall vibration is below the 0.3–0.5 g target. Log the result per aircraft, because the <a href="/blog/uav-fleet-management-components/">fleet management guide</a> shows how a per-aircraft vibration log turns a one-time fix into a maintenance trigger — when the vibration peak grows back, the propeller or its mounting has changed and it is time to inspect.</p>
+
+        <div class="media-visual reveal" style="max-width:640px;margin:32px auto">
+          <img src="/generated/blog-inline-propeller-balance-field.webp" alt="Technician field-balancing a UAV propeller on a bench with a magnetic balancer, thin balancing tape strips and a digital scale, multirrotor arm in the background, dark workshop with blue and green accent light, no people faces, no text, no logos" loading="lazy">
+          <span class="concept-badge">Concept illustration</span>
+        </div>
+
+        <h2>Resonance and the vibration budget: coupling, modes and margins</h2>
+        <p>Balance removes the forcing function; resonance decides whether the airframe amplifies what remains. Every airframe has structural modes — the first bending mode of a carbon fiber arm, the torsional mode of a folding arm latch, the mounting resonance of a gimbal or antenna mast — and the design discipline is to keep the propeller's rotational and blade-pass frequencies away from those modes across the operating throttle range. The <a href="/blog/uav-motor-topology-bldc-pmsm-pmac/">motor topology guide</a> gives the concrete example: a 3.36 kHz torque ripple from a high-ripple motor couples weakly into a 650 mm quadcopter whose arm modes sit at 80–150 Hz, but a 100 Hz propeller fundamental sitting directly on an arm mode is a different story.</p>
+        <p>The practical vibration budget has four layers: <strong>isolate</strong> (motor mounts and gimbal isolators with the correct durometer — the <a href="/blog/uav-thermal-management-electronics/">thermal management guide</a> makes the related point that soft mounts also change heat paths, so the isolation choice is coupled to the thermal design), <strong>absorb</strong> (damping material on the arm, tuned mass dampers on the gimbal), <strong>filter</strong> (the flight controller's low-pass filters on the IMU — the <a href="/blog/uav-sensor-fusion-redundant-navigation/">sensor fusion guide</a> covers the filtering architecture), and <strong>remove the source</strong> (balance the propeller). A propeller balanced to G2.5 removes the largest source; the other three layers then have a manageable input to work with instead of a saturated one.</p>
+
+        <h2>The procurement specification: balance grade, measurement and acceptance</h2>
+        <p>The specification that closes the loop with suppliers has five clauses, each with a verification method:</p>
+        <p><strong>1. Balance grade.</strong> State the ISO 1940-1 grade per propeller size — G2.5 for propellers above 250 mm diameter and for precision-platform applications, G6.3 as the minimum acceptable for small production propellers. Verification: the supplier's per-unit balance report with the test RPM.</p>
+        <p><strong>2. Balance test method.</strong> State whether static balance is acceptable (propellers under 250 mm) or dynamic balance is required (above 250 mm, and all precision-platform propellers). Verification: the test equipment description in the QC documentation, cross-checked against the <a href="/blog/uav-electronics-manufacturing-quality/">electronics manufacturing quality guide</a> for how QC documentation should be structured.</p>
+        <p><strong>3. Blade-to-blade mass tolerance.</strong> State the maximum blade-to-blade mass difference per propeller size — ±0.5% for composite propellers on precision platforms, ±3% for nylon production propellers with post-molding balancing. Verification: the per-lot mass measurement data.</p>
+        <p><strong>4. Acceptance testing.</strong> State the acceptance vibration threshold at the motor mount — below 1 g RMS at the IMU in hover, 0.3–0.5 g target — and the test procedure (motor-only floor vs propeller fitted). Verification: the test report from the <a href="/blog/uav-propulsion-testing-validation/">propulsion testing</a> program.</p>
+        <p><strong>5. Field re-balance support.</strong> State whether the supplier provides balance data for replacement and repaired propellers, and the process for re-balancing repaired units. Verification: the repair and replacement documentation in the <a href="/blog/uav-warranty-rma-support/">warranty and RMA terms</a>.</p>
+        <p>The specification is only as good as the measurement it references. A procurement team that specifies G2.5 but accepts visual inspection has written a requirement it cannot verify; a team that specifies G2.5 and audits the balance report against its own bench measurement has closed the loop — and the <a href="/blog/uav-supplier-evaluation-checklist/">supplier evaluation checklist</a> is the framework for making that audit part of the vendor score.</p>
+
+        <p style="margin-top:42px"><a class="btn btn-primary" href="/customization/">Explore custom engineering</a> <a class="btn btn-outline" href="/blog/" style="margin-left:12px">Back to Blog</a></p>
+
+        <section class="continue-reading">
+          <h3>Continue Reading</h3>
+          <div class="continue-grid">
+            <a class="continue-card" href="/blog/uav-propeller-selection-guide/">
+              <div class="continue-card-img"><img src="/generated/blog-cover-propeller-guide.webp" alt="Propeller Selection Guide" loading="lazy"></div>
+              <div class="continue-card-body"><h4>UAV Propeller Selection Guide</h4><p>Diameter, pitch, blade count and material — the selection methodology that determines what balance grade a given propeller can actually hold.</p></div>
+            </a>
+            <a class="continue-card" href="/blog/uav-propulsion-testing-validation/">
+              <div class="continue-card-img"><img src="/generated/blog-cover-propulsion-testing.webp" alt="Propulsion Testing and Validation Guide" loading="lazy"></div>
+              <div class="continue-card-body"><h4>UAV Propulsion Testing &amp; Validation</h4><p>Thrust stand, thermal endurance and propeller efficiency measurement — the test program that turns a balance specification into verified performance.</p></div>
+            </a>
+            <a class="continue-card" href="/blog/uav-motor-kv-selection-guide/">
+              <div class="continue-card-img"><img src="/generated/blog-cover-motor-kv.webp" alt="Motor KV Selection Guide" loading="lazy"></div>
+              <div class="continue-card-body"><h4>UAV Brushless Motor KV Selection</h4><p>How motor KV sets the operating RPM range — and therefore the balance grade and blade-pass frequency your propeller specification must reference.</p></div>
+            </a>
+            <a class="continue-card" href="/blog/uav-heavy-lift-propulsion-design/">
+              <div class="continue-card-img"><img src="/generated/blog-cover-heavy-lift.webp" alt="Heavy-Lift Propulsion Design Guide" loading="lazy"></div>
+              <div class="continue-card-body"><h4>UAV Heavy-Lift Propulsion Design</h4><p>Large propellers at high disc loading — where imbalance forces scale fastest and dynamic balance becomes non-negotiable.</p></div>
+            </a>
+            <a class="continue-card" href="/blog/uav-motor-topology-bldc-pmsm-pmac/">
+              <div class="continue-card-img"><img src="/generated/blog-cover-motor-topology.webp" alt="Motor Topology Guide" loading="lazy"></div>
+              <div class="continue-card-body"><h4>UAV Motor Topology: BLDC vs PMSM vs PMAC</h4><p>Torque ripple and harmonic content from the motor side — the other half of the coupled vibration problem this guide addresses.</p></div>
+            </a>
+          </div>
+        </section>
+      </div>
+    </article>
+
+    <section class="section section-alt" style="--cta-bg:url(/generated/blog-cta-propeller-balance.webp)">
+      <div class="container">
+        <div class="spec-panel reveal">
+          <div class="spec-panel-inner">
+            <div>
+              <span class="eyebrow">Propulsion Balance &amp; Vibration</span>
+              <h2>Share your airframe, motor and mission profile — we will respond with propellers matched to the thrust curve and supplied with per-unit balance data, and with the vibration acceptance criteria for your platform.</h2>
+              <p>Send us your propeller sizes, operating RPM and mission type — we will provide matched propeller sets with documented balance grades, the motor-mount vibration measurement for your stack, the field balancing procedure, and the acceptance thresholds to put in your test plan, so the propulsion system is verified before it flies.</p>
+            </div>
+            <div class="spec-actions">
+              <button class="btn btn-primary" type="button" data-open-inquiry>Start Your Build <svg aria-hidden="true"><use href="#icon-arrow"/></svg></button>
+              <button class="btn btn-outline" data-open-inquiry>Open RFQ Brief</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="brand" href="/" aria-label="EMS Drone home"><span class="brand-mark"><svg aria-hidden="true"><use href="#icon-drone"/></svg></span><span>EMS Drone</span></a>
+          <p>Configurable UAV components, complete systems and engineering support.</p>
+        </div>
+        <div class="footer-col"><h3>System</h3><a href="/capabilities/">Capabilities</a><a href="/customization/">Customization</a><a href="/testing/">Testing</a></div>
+        <div class="footer-col"><h3>Context</h3><a href="/industries/">Industries</a><a href="/about/">About</a><a href="/blog/">Blog</a></div>
+        <div class="footer-col"><h3>More reading</h3><a href="/blog/drone-powertrain-matching/">Powertrain guide</a><a href="/blog/uav-rf-communication-systems/">RF systems</a><a href="/contact/">RFQ Brief</a></div>
+      </div>
+      <div class="footer-bottom"><span>&copy; 2026 EMS Drone</span><span>Define &rarr; Integrate &rarr; Deploy</span></div>
+    </div>
+  </footer>
+  <div class="modal-overlay" id="inquiryModal" aria-hidden="true">
+    <div class="modal-dialog" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <button class="modal-close" type="button" aria-label="Close inquiry">&times;</button>
+      <div class="modal-aside">
+        <span class="tech-label">Engineering Intake</span>
+        <div><h3 id="modalTitle">Start with your mission.</h3><p>Tell us what you are building and where you need support: component sourcing, a matched stack or a complete UAV.</p></div>
+      </div>
+      <form class="modal-form" data-preview-form>
+        <div class="field"><label for="modal-name">Name</label><input id="modal-name" name="name" autocomplete="name" required></div>
+        <div class="field" style="margin-top:18px"><label for="modal-email">Email</label><input id="modal-email" name="email" type="email" autocomplete="email" required></div>
+        <div class="field" style="margin-top:18px"><label for="modal-message">Project brief</label><textarea id="modal-message" name="message" required placeholder="Aircraft type, payload, environment, component list or complete-system goal"></textarea></div>
+        <button class="btn btn-primary" type="submit">Submit Engineering Brief</button>
+        <div class="form-status" role="status" aria-live="polite" aria-atomic="true"></div>
+      </form>
+    </div>
+  </div>
+<script src="/site.js?v=9"></script>
+  <script src="/reveal.js?v=9"></script>
+</body>
+</html>

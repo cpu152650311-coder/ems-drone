@@ -1,0 +1,286 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>UAV Solar and Hybrid Power: Extending Endurance Beyond the Battery | EMS Drone</title>
+  <meta name="description" content="A technical guide to UAV solar and hybrid power systems — what photovoltaic cells actually add to a fixed wing, series hybrid generator architecture, fuel cell vs hybrid vs solar energy density, MPPT and DC-DC power electronics, battery sizing in a hybrid bus, and the trade-offs and procurement spec for extended-endurance platforms.">
+  <link rel="canonical" href="https://ems-drone.com/blog/uav-solar-hybrid-energy/">
+  <meta property="og:title" content="UAV Solar and Hybrid Power: Extending Endurance Beyond the Battery">
+  <meta property="og:description" content="How to extend UAV endurance beyond the battery — solar augmentation with MPPT, series hybrid generators, fuel cell vs hybrid vs solar energy density, power bus design, battery sizing, and the procurement specification for extended-endurance platforms.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://ems-drone.com/blog/uav-solar-hybrid-energy/">
+  <meta property="og:image" content="https://ems-drone.com/generated/og-cover.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <link rel="icon" type="image/x-icon" href="/generated/favicon.ico">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="apple-touch-icon" sizes="180x180" href="/generated/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/generated/icon-192.png">
+<link rel="icon" type="image/png" sizes="512x512" href="/generated/icon-512.png">
+  <link rel="stylesheet" href="/design-tokens.css?v=21">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "UAV Solar and Hybrid Power: Extending Endurance Beyond the Battery",
+  "description": "A technical guide to UAV solar and hybrid power systems — what photovoltaic cells actually add to a fixed wing, series hybrid generator architecture, fuel cell vs hybrid vs solar energy density, MPPT and DC-DC power electronics, battery sizing in a hybrid bus, and the trade-offs and procurement spec for extended-endurance platforms.",
+  "image": "https://ems-drone.com/generated/blog-cover-solar-hybrid.webp",
+  "author": {
+    "@type": "Organization",
+    "name": "EMS Drone"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "EMS Drone",
+    "url": "https://ems-drone.com/",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://ems-drone.com/favicon.svg"
+    }
+  },
+  "mainEntityOfPage": "https://ems-drone.com/blog/uav-solar-hybrid-energy/",
+  "datePublished": "2026-08-07",
+  "dateModified": "2026-08-07"
+}
+</script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <svg aria-hidden="true" style="position:absolute;width:0;height:0;overflow:hidden">
+    <symbol id="icon-drone" viewBox="0 0 24 24" fill="none" stroke="#b8f34a" stroke-width="1.5"><circle cx="12" cy="12" r="2.6"/><path d="m10.2 10.2-4-4m7.6 4 4-4m-7.6 7.6-4 4m7.6-4 4 4"/><circle cx="4.7" cy="4.7" r="2.2"/><circle cx="19.3" cy="19.3" r="2.2"/><circle cx="4.7" cy="19.7" r="2.2"/><circle cx="19.3" cy="19.3" r="2.2"/></symbol>
+    <symbol id="icon-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12h14m-5-5 5 5-5 5"/></symbol>
+  </svg>
+
+  <header class="site-header">
+    <div class="nav-shell">
+      <a class="brand" href="/" aria-label="EMS Drone home"><span class="brand-mark"><svg aria-hidden="true"><use href="#icon-drone"/></svg></span><span>EMS Drone</span></a>
+      <button class="nav-toggle" type="button" aria-label="Open navigation" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+                                        <nav class="site-nav" aria-label="Primary navigation"><a href="/">Home</a>
+        <div class="nav-dropdown">
+          <a href="/capabilities/" class="nav-parent">Capabilities</a>
+          <div class="nav-submenu">
+            <a href="/capabilities/flight-control/">Flight Controllers</a>
+            <a href="/capabilities/esc-power/">ESC &amp; Power Systems</a>
+            <a href="/capabilities/propulsion/">Propulsion</a>
+            <a href="/capabilities/airframe/">Airframes &amp; Structures</a>
+            <a href="/capabilities/communications/">Communications &amp; RF</a>
+            <a href="/capabilities/payload/">Payloads &amp; Gimbals</a>
+          </div>
+        </div>
+        <div class="nav-dropdown">
+          <a href="/customization/" class="nav-parent">Services</a>
+          <div class="nav-submenu">
+            <a href="/customization/">Custom Engineering</a>
+            <a href="/testing/">Testing &amp; Validation</a>
+          </div>
+        </div>
+        <div class="nav-dropdown">
+          <a href="/industries/" class="nav-parent">Industries</a>
+          <div class="nav-submenu">
+            <a href="/industries/inspection/">Industrial Inspection</a>
+            <a href="/industries/mapping-survey/">Mapping &amp; Survey</a>
+            <a href="/industries/logistics/">Logistics &amp; Delivery</a>
+            <a href="/industries/agriculture/">Precision Agriculture</a>
+            <a href="/industries/research/">Research &amp; Development</a>
+          </div>
+        </div>
+        <div class="nav-dropdown">
+          <a href="/resources/" class="nav-parent">Resources</a>
+          <div class="nav-submenu">
+            <a href="/design-guides/">Design Guides</a>
+            <a href="/projects/">Engineering Projects</a>
+            <a href="/how-it-works/">How We Work</a>
+            <a href="/faq/">FAQ</a>
+            <a href="/blog/" aria-current="page">Blog</a>
+          </div>
+        </div>
+        <div class="nav-dropdown">
+          <a href="/about/" class="nav-parent">Company</a>
+          <div class="nav-submenu">
+            <a href="/about/">About</a>
+            <a href="/factory/">Factory</a>
+            <a href="/quality/">Quality</a>
+            <a href="/shipping/">Shipping</a>
+            <a href="/contact/">Contact</a>
+          </div>
+        </div>
+        <button class="btn btn-primary" data-open-inquiry>Start Your Build</button>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <header class="article-hero">
+      <div class="container reveal">
+        <span class="eyebrow"><a href="/blog/" style="color:inherit;text-decoration:none">Blog</a> · Power Systems</span>
+        <h1>UAV solar and hybrid power: extending endurance beyond the battery</h1>
+        <p style="color:var(--muted-dark);max-width:640px">Every endurance conversation in UAV procurement eventually hits the same wall: the battery. Lithium chemistry delivers 150–250 Wh/kg, and no practical improvement in battery technology has changed that order of magnitude in a decade. The platforms that fly for eight hours instead of forty minutes do not have better batteries — they have a different energy architecture: solar cells that harvest energy during the flight, hybrid generators that convert liquid fuel into electricity at ten times the battery's effective energy density, or a combination of both. This guide covers the engineering reality of those architectures: what photovoltaic cells actually add to a fixed wing, how a series hybrid generator works and what it weighs, the energy-density comparison between fuel cells, hybrids and solar, the MPPT and DC-DC power electronics that tie them to the bus, battery sizing in a hybrid architecture, and the trade-offs — weight, drag, complexity and failure modes — that decide which approach fits a given mission.</p>
+        <div class="article-cover">
+          <img src="/generated/blog-cover-solar-hybrid.webp" alt="Fixed-wing UAV with photovoltaic cells integrated into the wing surface climbing into a dawn sky, dark blue atmosphere with warm horizon light and a green accent glow on the airframe, no people faces, no text, no logos" loading="lazy">
+        </div>
+      </div>
+    </header>
+
+    <article class="article-body">
+      <div class="container reveal">
+        <p>Endurance is not a battery spec; it is a systems-engineering result. The <a href="/blog/uav-battery-power-management/">battery and power management guide</a> covers the lithium side of the equation — chemistry, cycle life, charge management — and the <a href="/blog/uav-hydrogen-fuel-cell-propulsion/">hydrogen fuel cell guide</a> covers the fuel-cell alternative. This guide sits between them: the architectures that combine solar harvesting and generator power with a battery bus, the component choices that make them work, and the missions where the added weight and complexity pay back in flight hours. It is written for the procurement and integration teams who are evaluating an extended-endurance platform rather than designing one from scratch.</p>
+
+        <h2>Why endurance is the binding constraint in long-range operations</h2>
+        <p>Battery energy density sets a hard ceiling on endurance for electric aircraft, and the ceiling is low. A 6S LiPo pack at 180 Wh/kg delivers about 950 Wh per kilogram; a typical industrial multirotor burns 150–400 W in cruise, so a kilogram of battery buys roughly 2.5–6 hours of flight in the best case — before the reserve margin, the payload power draw and the thermal derating are subtracted. The <a href="/blog/uav-payload-power-budgeting/">payload power budgeting guide</a> shows how the payload's draw (gimbal, compute, sensors, datalink) consumes the same bus that propels the aircraft, which is why real-world endurance is usually 40–70% of the battery-only theoretical number.</p>
+        <p>The missions that need more than that share a profile: linear assets to patrol (pipelines, borders, power lines), large areas to map in a single sortie, and remote or offshore locations where the logistics of battery swaps are the real cost. For those missions the procurement question is not "which battery" but "which energy architecture" — and the answer is a trade between three: solar augmentation, a hybrid generator, or a fuel cell. The rest of this guide gives each its numbers.</p>
+
+        <h2>Solar augmentation: what photovoltaic cells actually add to a fixed wing</h2>
+        <p>Photovoltaic cells do not replace the battery; they reduce the rate at which it drains. The physics: a modern flexible CIGS or silicon-perovskite cell delivers 20–25% conversion efficiency, which means roughly 200–300 W/m² of wing surface at high noon on a clear day, 100–150 W/m² in typical daytime conditions, and effectively zero at night or under heavy cloud. A fixed-wing UAV with 1.5 m² of usable wing area is therefore harvesting on the order of 150–450 W at midday — enough to offset a large fraction of cruise power, but not to fly on solar alone except in the special stratospheric class of aircraft.</p>
+        <p>The realistic procurement number for a daytime survey or patrol platform is an endurance extension of <strong>15–30%</strong>, which matches the solar-augmentation figure the <a href="/blog/uav-environmental-monitoring-components/">environmental monitoring guide</a> cites for long-endurance remote deployments. The gain compounds with mission timing: a platform that launches at sunrise, loiters through the day and lands at dusk effectively doubles its sortie value compared to a battery-only platform of the same takeoff mass, because the harvested energy is continuously replacing what the aircraft burns. The price is paid in three places: the cells add 0.5–1 kg/m², the panel surface adds drag, and the MPPT electronics (covered below) add failure modes — the <a href="/blog/uav-environmental-monitoring-components/">environmental monitoring guide</a> makes the point that solar augmentation is a coupled trade with thrust and battery size, not a free add-on.</p>
+
+        <div class="media-visual reveal" style="max-width:640px;margin:32px auto">
+          <img src="/generated/blog-inline-solar-hybrid-wing.webp" alt="Close-up of photovoltaic cells laminated into the wing surface of a fixed-wing UAV, thin flexible solar panels with visible grid lines on dark composite wing skin, workshop background with green accent light, no people faces, no text, no logos" loading="lazy">
+          <span class="concept-badge">Concept illustration</span>
+        </div>
+
+        <h2>Hybrid-electric: the series generator that turns fuel into range</h2>
+        <p>The hybrid-electric architecture that dominates extended-endurance UAVs is the <strong>series hybrid</strong>: an internal-combustion generator (engine plus alternator) produces DC power that feeds the same battery bus the motors draw from, so the aircraft always flies electric and the engine simply recharges the battery. The configuration is attractive because the electric propulsion chain — motor, ESC, flight controller — is unchanged from a pure-electric platform, and the generator can run at its optimal RPM regardless of airspeed.</p>
+        <p>The numbers that make the architecture work are the fuel's. Liquid fuel carries roughly <strong>12,000 Wh/kg</strong> of chemical energy; even at a conservative 20–25% overall conversion efficiency (engine thermal efficiency, alternator losses, rectifier losses), a kilogram of fuel delivers 2,400–3,000 Wh to the bus — an order of magnitude better than the 180 Wh/kg of the battery it displaces. A 500 W generator module weighs 2–3 kg including the fuel system (specific power of roughly 150–250 W/kg), and with 3 liters of fuel a hybrid platform in the 15–25 kg class achieves <strong>6–12 hours</strong> of endurance where a battery-only equivalent manages 1–2. The <a href="/blog/uav-heavy-lift-propulsion-design/">heavy-lift propulsion design guide</a> covers the motor and ESC sizing that this endurance enables — heavier payloads flown for longer — and the <a href="/blog/uav-thermal-management-electronics/">thermal management guide</a> covers the cooling the engine compartment and alternator demand, which is a first-order design constraint on a hybrid airframe, not an afterthought.</p>
+
+        <div class="media-visual reveal" style="max-width:640px;margin:32px auto">
+          <img src="/generated/blog-inline-solar-hybrid-generator.webp" alt="Compact series hybrid generator module for a UAV — small internal combustion engine coupled to an alternator on a machined mount, fuel line and electrical output connector, dark engineering bench with blue and green accent light, no people faces, no text, no logos" loading="lazy">
+          <span class="concept-badge">Concept illustration</span>
+        </div>
+
+        <h2>Fuel cell vs hybrid vs solar: the energy-density comparison</h2>
+        <p>The three extended-endurance options are compared on the two numbers that matter — delivered energy per kilogram and system complexity. The table is a planning tool, not a spec: real systems vary with efficiency, partial-load behavior and packaging.</p>
+        <table>
+          <thead>
+            <tr><th>Architecture</th><th>Delivered energy density</th><th>Weight adder (15–25 kg class)</th><th>Endurance gain vs battery-only</th><th>Key constraint</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Battery only (Li-Ion)</td><td>200–250 Wh/kg</td><td>— (baseline)</td><td>1× baseline</td><td>Energy density ceiling</td></tr>
+            <tr><td>Solar augmentation</td><td>N/A (harvests in flight)</td><td>+0.5–1 kg/m² wing + MPPT</td><td>1.15–1.3× (daylight)</td><td>Daylight, clear sky, wing area</td></tr>
+            <tr><td>Series hybrid (gasoline)</td><td>2,400–3,000 Wh/kg delivered</td><td>+2–3 kg generator + fuel</td><td>4–10×</td><td>Engine reliability, thermal, fuel logistics</td></tr>
+            <tr><td>Hydrogen fuel cell</td><td>500–1,000 Wh/kg system</td><td>+ stack, tank, balance of plant</td><td>3–6×</td><td>Hydrogen supply, tank certification, cost</td></tr>
+          </tbody>
+        </table>
+        <p>The pattern is clear: the <a href="/blog/uav-hydrogen-fuel-cell-propulsion/">fuel cell guide</a> gives hydrogen the cleanest zero-emission profile and respectable density but the worst logistics (compressed or liquid hydrogen is not a field commodity), the hybrid gives the best density and the simplest fuel logistics (gasoline is available anywhere), and solar is the lightest addition with the hardest dependence on weather and time of day. For a fleet operator, the practical ranking is usually hybrid first for endurance-critical missions, solar for daytime survey where the airframe is already fixed-wing, and fuel cell for the specific cases where zero emissions or stealth matters more than cost.</p>
+
+        <h2>Power electronics for hybrid platforms: MPPT, DC-DC and the power bus</h2>
+        <p>Every non-battery energy source needs power electronics to feed the bus, and the quality of that electronics decides how much of the harvested energy reaches the motors. Three components dominate:</p>
+        <ul>
+          <li><strong>MPPT (maximum power point tracking).</strong> Solar cells have a single operating point at which they deliver peak power, and it moves with irradiance, temperature and partial shading. An MPPT controller — typically 95–98% efficient — continuously hunts that point; a fixed-voltage connection without MPPT leaves 20–40% of the panel's capability on the table. The MPPT input must match the panel string voltage and the output must match the bus voltage, which is why the <a href="/blog/uav-payload-power-budgeting/">payload power budgeting guide</a> treats the bus as a single design object rather than a collection of converters.</li>
+          <li><strong>Generator rectifier and bus interface.</strong> The alternator's three-phase output is rectified and regulated to the bus voltage. The critical spec is transient behavior: when the payload or motors draw a surge, the generator must hold the bus without droop or overshoot, and it must never back-feed the engine. A diode-OR or active-OR interface between generator, solar and battery is the standard way to keep sources isolated on one bus.</li>
+          <li><strong>DC-DC converters.</strong> The regulated rails for avionics (5 V, 12 V) and payloads sit between the main bus and the loads; on a hybrid platform they must handle a wider input range than on a pure-battery platform because the bus voltage varies with generator state. The <a href="/blog/uav-connectors-wiring-power-distribution/">connectors and power distribution guide</a> covers the wiring, fusing and connector side of this same bus architecture.</li>
+        </ul>
+
+        <div class="media-visual reveal" style="max-width:640px;margin:32px auto">
+          <img src="/generated/blog-inline-solar-hybrid-mppt.webp" alt="Power electronics stack for a hybrid UAV — MPPT controller board, DC-DC converters and a power distribution board with bus bars and connectors on a test bench, dark background with green LED indicators, no people faces, no text, no logos" loading="lazy">
+          <span class="concept-badge">Concept illustration</span>
+        </div>
+
+        <h2>Battery sizing in a hybrid architecture: the buffer, not the tank</h2>
+        <p>In a hybrid architecture the battery changes role: it stops being the energy tank and becomes the <strong>buffer</strong> that absorbs transients the generator cannot follow. The sizing rules change with it. The battery must cover the difference between peak demand (takeoff, climb, payload surges) and generator output — for a 500 W generator on a platform that peaks at 1,200 W in climb, the battery must deliver the 700 W gap for the duration of the climb plus a reserve. It must also absorb regenerative energy and provide the quiet, generator-off flight modes (stealth, no-fly-zone loiter) that many operators specify.</p>
+        <p>The practical result is a battery one-third to one-half the size of the pure-electric equivalent, sized on <strong>power rather than energy</strong> — the <a href="/blog/uav-battery-power-management/">battery management guide</a> covers the C-rate and cycle-life implications, because a hybrid battery cycles far more often than a mission battery and its cycle life becomes the maintenance driver. The <a href="/blog/uav-payload-power-budgeting/">payload power budgeting guide</a> provides the budgeting method: sum the load profile, subtract the generator and solar contributions, and the residual defines the battery's required energy and peak current. This is the calculation that turns a hybrid platform from a marketing claim into a mission plan.</p>
+
+        <h2>The trade-offs: weight, drag, complexity and failure modes</h2>
+        <p>Every architecture pays for its endurance in a currency the procurement team must budget explicitly:</p>
+        <ul>
+          <li><strong>Weight.</strong> The generator, fuel and solar cells all displace payload or battery mass. The break-even is a mission-math question: the endurance gained must exceed the endurance lost to the extra mass the aircraft must carry. For a 20 kg platform, a 2.5 kg generator buys 4–10× endurance; the trade is almost always positive for endurance-critical missions and negative for short-range operations where the mass would be better spent on payload.</li>
+          <li><strong>Drag.</strong> Solar cells on the wing add surface drag and weight at the worst location — outboard, where bending loads concentrate. The <a href="/blog/uav-airframe-materials-guide/">airframe materials guide</a> is the reference for how the wing structure must change to carry the panel mass without a stiffness penalty.</li>
+          <li><strong>Complexity and reliability.</strong> A hybrid adds an engine, fuel system, alternator, rectifier, MPPT and a more complex bus — each with its own failure modes. The <a href="/blog/uav-safety-redundancy-systems/">safety and redundancy guide</a> covers how redundancy architecture changes when the propulsion chain includes a mechanical engine, and the <a href="/blog/uav-thermal-management-electronics/">thermal management guide</a> covers the engine and electronics cooling that is a leading cause of hybrid field failures.</li>
+          <li><strong>Maintenance.</strong> Engines have hours-based maintenance intervals, fuel systems need cleaning, solar cells degrade with UV exposure and need cleaning. The <a href="/blog/uav-spares-lifecycle-planning/">spares and lifecycle planning guide</a> is the framework for converting these intervals into a parts and labor plan.</li>
+        </ul>
+        <p>The failure-mode summary for procurement: a battery-only platform fails electrically and predictably; a solar platform fails softly (endurance shrinks with weather); a hybrid platform fails mechanically and needs the same maintenance discipline as any combustion asset; a fuel cell platform fails on logistics before it fails on hardware. Each fleet's operating environment picks the answer.</p>
+
+        <h2>Procurement: specifying a hybrid-capable power system</h2>
+        <p>When the mission math favors an extended-endurance architecture, the RFQ should carry six clauses:</p>
+        <p><strong>1. Mission profile and energy budget.</strong> The flight profile (climb, cruise, loiter, descent) with power draw per phase and the target endurance. Verification: the supplier's energy budget calculation, cross-checked with the method in the <a href="/blog/uav-payload-power-budgeting/">payload power budgeting guide</a>.</p>
+        <p><strong>2. Architecture declaration.</strong> Whether the platform is battery-only, solar-augmented, series hybrid or fuel cell, and the delivered energy density in Wh/kg at the bus. Verification: the system block diagram and the measured (not theoretical) efficiency figures.</p>
+        <p><strong>3. Generator performance.</strong> Continuous and peak output, specific fuel consumption in g/kWh, start time, and the transient response when loads surge. Verification: the generator test report.</p>
+        <p><strong>4. Power electronics efficiency.</strong> MPPT efficiency across the operating irradiance range, DC-DC efficiency at the operating points, and bus voltage tolerance. Verification: the measured efficiency curves.</p>
+        <p><strong>5. Thermal management.</strong> The cooling solution for the engine, alternator and electronics, and the operating temperature band. Verification: the thermal test data — the <a href="/blog/uav-thermal-management-electronics/">thermal management guide</a> is the reference for the test method.</p>
+        <p><strong>6. Maintenance and support.</strong> The hours-based maintenance schedule, the spares kit for the generator and fuel system, and the support commitment. Verification: the maintenance plan, aligned with the <a href="/blog/uav-spares-lifecycle-planning/">spares and lifecycle planning</a> framework.</p>
+        <p>The <a href="/blog/uav-certification-compliance-guide/">certification and compliance guide</a> adds the regulatory layer: a combustion engine changes the transport and import classification of the platform, fuel transport is regulated on both ends of the shipment, and the compliance documentation must cover the generator as well as the airframe — the extended endurance is only valuable if the platform is legal to deploy where the mission operates.</p>
+
+        <p style="margin-top:42px"><a class="btn btn-primary" href="/customization/">Explore custom engineering</a> <a class="btn btn-outline" href="/blog/" style="margin-left:12px">Back to Blog</a></p>
+
+        <section class="continue-reading">
+          <h3>Continue Reading</h3>
+          <div class="continue-grid">
+            <a class="continue-card" href="/blog/uav-hydrogen-fuel-cell-propulsion/">
+              <div class="continue-card-img"><img src="/generated/blog-cover-hydrogen-fuel-cell.webp" alt="Hydrogen Fuel Cell Propulsion Guide" loading="lazy"></div>
+              <div class="continue-card-body"><h4>UAV Hydrogen Fuel Cell Propulsion</h4><p>The fuel-cell alternative to the hybrid generator — stack, tank and balance-of-plant architecture with its own energy-density and logistics trade-offs.</p></div>
+            </a>
+            <a class="continue-card" href="/blog/uav-battery-power-management/">
+              <div class="continue-card-img"><img src="/generated/blog-cover-battery.webp" alt="Battery and Power Management Guide" loading="lazy"></div>
+              <div class="continue-card-body"><h4>UAV Battery and Power Management</h4><p>LiPo vs Li-Ion chemistry, cycle life and charge management — the lithium baseline every extended-endurance architecture builds on.</p></div>
+            </a>
+            <a class="continue-card" href="/blog/uav-environmental-monitoring-components/">
+              <div class="continue-card-img"><img src="/generated/blog-cover-environmental.webp" alt="Environmental Monitoring Components Guide" loading="lazy"></div>
+              <div class="continue-card-body"><h4>UAV Components for Environmental Monitoring</h4><p>Solar-assisted long-endurance airframes in real remote deployments — where augmentation pays back and where it does not.</p></div>
+            </a>
+            <a class="continue-card" href="/blog/uav-payload-power-budgeting/">
+              <div class="continue-card-img"><img src="/generated/blog-cover-payload-power.webp" alt="Payload Power Budgeting Guide" loading="lazy"></div>
+              <div class="continue-card-body"><h4>UAV Payload Power Budgeting</h4><p>Regulators, filters and sequencing on the shared bus — the method for sizing the battery buffer in a hybrid architecture.</p></div>
+            </a>
+            <a class="continue-card" href="/blog/uav-thermal-management-electronics/">
+              <div class="continue-card-img"><img src="/generated/blog-cover-thermal-management.webp" alt="Thermal Management Guide" loading="lazy"></div>
+              <div class="continue-card-body"><h4>Thermal Management for UAV Electronics</h4><p>Engine, alternator and electronics cooling — the first-order design constraint on hybrid and solar-augmented airframes.</p></div>
+            </a>
+          </div>
+        </section>
+      </div>
+    </article>
+
+    <section class="section section-alt" style="--cta-bg:url(/generated/blog-cta-solar-hybrid.webp)">
+      <div class="container">
+        <div class="spec-panel reveal">
+          <div class="spec-panel-inner">
+            <div>
+              <span class="eyebrow">Extended-Endurance Power</span>
+              <h2>Share your mission profile and endurance target — we will respond with the energy architecture that meets it: the generator or solar sizing, the power electronics chain, the battery buffer calculation and the component list for the bus.</h2>
+              <p>Send us the flight profile, payload draw and target endurance — we will provide the architecture comparison, the delivered energy density at the bus, the MPPT and DC-DC selection, the battery sizing for the hybrid bus, the thermal solution, and the maintenance and spares plan, so the endurance decision is made on measured numbers, not marketing claims.</p>
+            </div>
+            <div class="spec-actions">
+              <button class="btn btn-primary" type="button" data-open-inquiry>Start Your Build <svg aria-hidden="true"><use href="#icon-arrow"/></svg></button>
+              <button class="btn btn-outline" data-open-inquiry>Open RFQ Brief</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="brand" href="/" aria-label="EMS Drone home"><span class="brand-mark"><svg aria-hidden="true"><use href="#icon-drone"/></svg></span><span>EMS Drone</span></a>
+          <p>Configurable UAV components, complete systems and engineering support.</p>
+        </div>
+        <div class="footer-col"><h3>System</h3><a href="/capabilities/">Capabilities</a><a href="/customization/">Customization</a><a href="/testing/">Testing</a></div>
+        <div class="footer-col"><h3>Context</h3><a href="/industries/">Industries</a><a href="/about/">About</a><a href="/blog/">Blog</a></div>
+        <div class="footer-col"><h3>More reading</h3><a href="/blog/drone-powertrain-matching/">Powertrain guide</a><a href="/blog/uav-rf-communication-systems/">RF systems</a><a href="/contact/">RFQ Brief</a></div>
+      </div>
+      <div class="footer-bottom"><span>&copy; 2026 EMS Drone</span><span>Define &rarr; Integrate &rarr; Deploy</span></div>
+    </div>
+  </footer>
+  <div class="modal-overlay" id="inquiryModal" aria-hidden="true">
+    <div class="modal-dialog" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <button class="modal-close" type="button" aria-label="Close inquiry">&times;</button>
+      <div class="modal-aside">
+        <span class="tech-label">Engineering Intake</span>
+        <div><h3 id="modalTitle">Start with your mission.</h3><p>Tell us what you are building and where you need support: component sourcing, a matched stack or a complete UAV.</p></div>
+      </div>
+      <form class="modal-form" data-preview-form>
+        <div class="field"><label for="modal-name">Name</label><input id="modal-name" name="name" autocomplete="name" required></div>
+        <div class="field" style="margin-top:18px"><label for="modal-email">Email</label><input id="modal-email" name="email" type="email" autocomplete="email" required></div>
+        <div class="field" style="margin-top:18px"><label for="modal-message">Project brief</label><textarea id="modal-message" name="message" required placeholder="Aircraft type, payload, environment, component list or complete-system goal"></textarea></div>
+        <button class="btn btn-primary" type="submit">Submit Engineering Brief</button>
+        <div class="form-status" role="status" aria-live="polite" aria-atomic="true"></div>
+      </form>
+    </div>
+  </div>
+<script src="/site.js?v=9"></script>
+  <script src="/reveal.js?v=9"></script>
+</body>
+</html>

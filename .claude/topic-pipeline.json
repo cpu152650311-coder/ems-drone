@@ -1,6 +1,6 @@
 {
   "site": "ems-drone",
-  "updated": "2026-08-06",
+  "updated": "2026-08-07",
   "topics": [
     {
       "id": 21,
@@ -101,6 +101,26 @@
       "file": "/blog/uav-warranty-rma-support/",
       "created": "2026-08-05",
       "published": "2026-08-05"
+    },
+    {
+      "id": 11,
+      "title": "UAV Propeller Balancing and Vibration Analysis",
+      "status": "published",
+      "score": 82,
+      "funnel": "MOFU",
+      "file": "/blog/uav-propeller-balancing-vibration/",
+      "created": "2026-08-07",
+      "published": "2026-08-07"
+    },
+    {
+      "id": 12,
+      "title": "UAV Solar and Hybrid Power: Extending Endurance Beyond the Battery",
+      "status": "published",
+      "score": 74,
+      "funnel": "MOFU",
+      "file": "/blog/uav-solar-hybrid-energy/",
+      "created": "2026-08-07",
+      "published": "2026-08-07"
     }
   ]
 }
