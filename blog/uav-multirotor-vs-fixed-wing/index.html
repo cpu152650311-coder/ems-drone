@@ -1,0 +1,307 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Multirotor vs Fixed-Wing UAV: Choosing the Right Airframe for Your Mission | EMS Drone</title>
+  <meta name="description" content="A procurement decision guide to multirotor vs fixed-wing UAV airframes — hover vs cruise efficiency physics, endurance and range numbers, payload and wind envelopes, the component stack differences, a mission-by-mission decision matrix, TCO comparison, and the RFQ checklist for specifying the right platform.">
+  <link rel="canonical" href="https://ems-drone.com/blog/uav-multirotor-vs-fixed-wing/">
+  <meta property="og:title" content="Multirotor vs Fixed-Wing UAV: Choosing the Right Airframe for Your Mission">
+  <meta property="og:description" content="How to choose between multirotor and fixed-wing UAV architectures — hover vs cruise physics, endurance and range numbers, payload and wind envelopes, component stack differences, a mission decision matrix and the RFQ checklist.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://ems-drone.com/blog/uav-multirotor-vs-fixed-wing/">
+  <meta property="og:image" content="https://ems-drone.com/generated/og-cover.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <link rel="icon" type="image/x-icon" href="/generated/favicon.ico">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="apple-touch-icon" sizes="180x180" href="/generated/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/generated/icon-192.png">
+<link rel="icon" type="image/png" sizes="512x512" href="/generated/icon-512.png">
+  <link rel="stylesheet" href="/design-tokens.css?v=21">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Multirotor vs Fixed-Wing UAV: Choosing the Right Airframe for Your Mission",
+  "description": "A procurement decision guide to multirotor vs fixed-wing UAV airframes — hover vs cruise efficiency physics, endurance and range numbers, payload and wind envelopes, the component stack differences, a mission-by-mission decision matrix, TCO comparison, and the RFQ checklist for specifying the right platform.",
+  "image": "https://ems-drone.com/generated/blog-cover-multirotor-fixed-wing.webp",
+  "author": {
+    "@type": "Organization",
+    "name": "EMS Drone"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "EMS Drone",
+    "url": "https://ems-drone.com/",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://ems-drone.com/favicon.svg"
+    }
+  },
+  "mainEntityOfPage": "https://ems-drone.com/blog/uav-multirotor-vs-fixed-wing/",
+  "datePublished": "2026-08-08",
+  "dateModified": "2026-08-08"
+}
+</script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <svg aria-hidden="true" style="position:absolute;width:0;height:0;overflow:hidden">
+    <symbol id="icon-drone" viewBox="0 0 24 24" fill="none" stroke="#b8f34a" stroke-width="1.5"><circle cx="12" cy="12" r="2.6"/><path d="m10.2 10.2-4-4m7.6 4 4-4m-7.6 7.6-4 4m7.6-4 4 4"/><circle cx="4.7" cy="4.7" r="2.2"/><circle cx="19.3" cy="19.3" r="2.2"/><circle cx="4.7" cy="19.7" r="2.2"/><circle cx="19.3" cy="19.3" r="2.2"/></symbol>
+    <symbol id="icon-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12h14m-5-5 5 5-5 5"/></symbol>
+  </svg>
+
+  <header class="site-header">
+    <div class="nav-shell">
+      <a class="brand" href="/" aria-label="EMS Drone home"><span class="brand-mark"><svg aria-hidden="true"><use href="#icon-drone"/></svg></span><span>EMS Drone</span></a>
+      <button class="nav-toggle" type="button" aria-label="Open navigation" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+                                        <nav class="site-nav" aria-label="Primary navigation"><a href="/">Home</a>
+        <div class="nav-dropdown">
+          <a href="/capabilities/" class="nav-parent">Capabilities</a>
+          <div class="nav-submenu">
+            <a href="/capabilities/flight-control/">Flight Controllers</a>
+            <a href="/capabilities/esc-power/">ESC &amp; Power Systems</a>
+            <a href="/capabilities/propulsion/">Propulsion</a>
+            <a href="/capabilities/airframe/">Airframes &amp; Structures</a>
+            <a href="/capabilities/communications/">Communications &amp; RF</a>
+            <a href="/capabilities/payload/">Payloads &amp; Gimbals</a>
+          </div>
+        </div>
+        <div class="nav-dropdown">
+          <a href="/customization/" class="nav-parent">Services</a>
+          <div class="nav-submenu">
+            <a href="/customization/">Custom Engineering</a>
+            <a href="/testing/">Testing &amp; Validation</a>
+          </div>
+        </div>
+        <div class="nav-dropdown">
+          <a href="/industries/" class="nav-parent">Industries</a>
+          <div class="nav-submenu">
+            <a href="/industries/inspection/">Industrial Inspection</a>
+            <a href="/industries/mapping-survey/">Mapping &amp; Survey</a>
+            <a href="/industries/logistics/">Logistics &amp; Delivery</a>
+            <a href="/industries/agriculture/">Precision Agriculture</a>
+            <a href="/industries/research/">Research &amp; Development</a>
+          </div>
+        </div>
+        <div class="nav-dropdown">
+          <a href="/resources/" class="nav-parent">Resources</a>
+          <div class="nav-submenu">
+            <a href="/design-guides/">Design Guides</a>
+            <a href="/projects/">Engineering Projects</a>
+            <a href="/how-it-works/">How We Work</a>
+            <a href="/faq/">FAQ</a>
+            <a href="/blog/" aria-current="page">Blog</a>
+          </div>
+        </div>
+        <div class="nav-dropdown">
+          <a href="/about/" class="nav-parent">Company</a>
+          <div class="nav-submenu">
+            <a href="/about/">About</a>
+            <a href="/factory/">Factory</a>
+            <a href="/quality/">Quality</a>
+            <a href="/shipping/">Shipping</a>
+            <a href="/contact/">Contact</a>
+          </div>
+        </div>
+        <button class="btn btn-primary" data-open-inquiry>Start Your Build</button>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <header class="article-hero">
+      <div class="container reveal">
+        <span class="eyebrow"><a href="/blog/" style="color:inherit;text-decoration:none">Blog</a> · Airframes &amp; Structures</span>
+        <h1>Multirotor vs fixed-wing UAV: choosing the right airframe for your mission</h1>
+        <p style="color:var(--muted-dark);max-width:640px">"Multirotor or fixed-wing?" is the first procurement decision on any UAV program, and it is the one most often answered by habit instead of physics. A multirotor hovers and lands anywhere but burns energy fighting gravity in cruise; a fixed wing flies for hours on the same battery but needs a runway, a catapult or a bungee to start and stop. This guide turns the choice into a decision process: the efficiency physics that separate the two architectures, the endurance and range numbers for comparable payload classes, the payload and wind envelopes, the component stack differences that follow from the airframe choice, a mission-by-mission decision matrix, the total cost of operation comparison, and the RFQ clauses that pin the decision to data.</p>
+        <div class="article-cover">
+          <img src="/generated/blog-cover-multirotor-fixed-wing.webp" alt="Industrial UAV hangar scene with a multirotor quadcopter and a fixed-wing aircraft on separate workbenches, dark engineering environment with signal green and aero blue accent lighting, no people faces, no text, no logos" loading="lazy">
+        </div>
+      </div>
+    </header>
+
+    <article class="article-body">
+      <div class="container reveal">
+        <p>The airframe architecture decides almost everything downstream: the flight controller firmware mode, the motor and propeller sizing, the ESC requirements, the energy budget, the launch and recovery equipment, and even the certification path. Choosing it by habit — "everyone flies quads, so we fly a quad" — is how programs end up with a 30-minute platform on a mission that needs three hours on station. The <a href="/blog/uav-component-build-vs-buy/">build vs buy guide</a> frames the sourcing side of this decision; this guide covers the architecture side: what changes, by how much, and how to pick before the component selection begins.</p>
+
+        <h2>The physics that separate the architectures: hover vs cruise efficiency</h2>
+        <p>The dividing line between multirotor and fixed-wing performance is the difference between two ways of producing lift. A multirotor produces lift by accelerating air downward through the propeller disc — the efficiency of that process is captured by disc loading, and the physics is unforgiving: the power required to hover scales as thrust to the 1.5 power divided by the square root of the disc area. Doubling the hover time requires roughly four times the battery energy unless the disc area grows. A fixed wing produces lift from the airflow over the wing surface, and the efficiency of that process is captured by the lift-to-drag ratio: the aircraft trades a small amount of altitude for forward speed, and the wing carries the weight almost for free.</p>
+        <p>The numbers that matter for procurement: a well-matched multirotor propulsion system delivers roughly <strong>6–10 g/W</strong> of static thrust in hover, which translates to a cruise efficiency of about 4–6 km of range per 100 Wh per kilogram of aircraft. A fixed-wing aircraft of the same mass flies at a lift-to-drag ratio of <strong>8–15</strong>, which translates to 15–30 km per 100 Wh per kilogram — a three-to-six-fold range advantage on the same energy. That gap is not a tuning problem; it is the fundamental reason the two architectures exist. The <a href="/blog/uav-airframe-materials-guide/">airframe materials guide</a> covers the structural side of the same trade — the wing structure that makes the fixed-wing advantage possible, and the frame stiffness that a multirotor needs to carry motor loads.</p>
+
+        <div class="media-visual reveal" style="max-width:640px;margin:32px auto">
+          <img src="/generated/blog-inline-multirotor-fixed-wing-hover.webp" alt="Multirotor UAV hovering over a concrete test pad with visible downwash on the surface, dark industrial hangar environment, signal green accent lighting on the frame, no people faces, no text, no logos" loading="lazy">
+          <span class="concept-badge">Concept illustration</span>
+        </div>
+
+        <h2>Endurance and range: what the numbers actually look like</h2>
+        <p>Endurance claims live and die on the mission profile, so the honest comparison is per payload class with a defined cruise speed and reserve. For a 5 kg all-up platform carrying a 1 kg payload, the practical envelope looks like this:</p>
+        <table>
+          <thead>
+            <tr><th>Metric (5 kg class, 1 kg payload)</th><th>Multirotor</th><th>Fixed wing</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Flight endurance (battery electric)</td><td>20–40 minutes</td><td>90–240 minutes</td></tr>
+            <tr><td>Typical cruise speed</td><td>8–15 m/s</td><td>18–30 m/s</td></tr>
+            <tr><td>Range (battery electric, no wind)</td><td>10–25 km</td><td>80–200 km</td></tr>
+            <tr><td>Hover capability</td><td>Full (any time)</td><td>None (VTOL variants only)</td></tr>
+            <tr><td>Launch / recovery</td><td>Vertical, any terrain</td><td>Runway, catapult, bungee or net</td></tr>
+            <tr><td>Wind tolerance (safe ops)</td><td>8–12 m/s gusts</td><td>12–18 m/s (higher in cruise)</td></tr>
+          </tbody>
+        </table>
+        <p>These are planning numbers, not specs: real systems vary with battery chemistry, payload drag and altitude. The <a href="/blog/uav-battery-power-management/">battery and power management guide</a> covers the energy-density side — a fixed wing's endurance advantage widens further with Li-Ion cells, since the low cruise current lets the aircraft use the energy-optimized chemistry that a multirotor's high hover current cannot tolerate. For a mission that needs to stay on station, the fixed wing is not slightly better; it is in a different class. The <a href="/blog/uav-hydrogen-fuel-cell-propulsion/">fuel cell guide</a> and the <a href="/blog/uav-solar-hybrid-energy/">solar and hybrid power guide</a> show what happens when endurance targets exceed what any battery can deliver — both of those architectures are almost exclusively fixed-wing platforms, because the energy mass they carry only pays off in cruise.</p>
+
+        <h2>Payload and operating envelope: hover, wind, altitude and launch constraints</h2>
+        <p>Endurance is the fixed wing's argument, but the multirotor wins every mission that needs the aircraft to stop in the air. Inspection of a bridge, a cell tower or a turbine blade, precise hovering for sensor alignment, delivery where the touchdown zone is a tabletop — these missions are structurally impossible for a fixed wing without a VTOL conversion. The operating envelope differences that decide:</p>
+        <ul>
+          <li><strong>Hover and low-speed control.</strong> A multirotor holds position within a metre in moderate wind; a fixed wing has a stall speed (typically 15–20 m/s for a small platform) below which it cannot fly at all. Any mission with a stationary sensor phase belongs to the multirotor or a VTOL.</li>
+          <li><strong>Wind and gusts.</strong> Multirotors fight gusts directly through the propulsion system — thrust authority is the limit, typically 8–12 m/s safe-operating wind for a 5 kg class. A fixed wing rides gusts through its airspeed margin and can operate in 12–18 m/s, with the caveat that landing crosswinds are the limiting phase.</li>
+          <li><strong>Altitude and density.</strong> Both lose thrust with altitude, but a fixed wing's wing loading penalty is softer — the aircraft simply flies faster. Above 3,000 m, fixed-wing platforms hold their payload capability better than multirotors of the same mass.</li>
+          <li><strong>Launch and recovery.</strong> This is the hidden program cost. Multirotor: zero infrastructure. Fixed wing: a runway, a catapult or a bungee launcher, and a recovery method (belly landing, parachute, net) — each with its own training, maintenance and failure modes. The <a href="/blog/uav-vtol-transition-components/">VTOL transition guide</a> covers the middle path: a fixed-wing airframe with multirotor takeoff, which buys the endurance with the mechanical complexity of a transition phase.</li>
+        </ul>
+        <p>The launch constraint is the one buyers underestimate. A survey operator with a catapult and a crew of two can cover a mapping area in a day that a multirotor operator covers in a week — but the same crew spends 20 minutes per launch setting up. The <a href="/blog/uav-mapping-survey-components/">mapping and survey guide</a> quantifies this for the survey workflow specifically: area coverage rate is the metric that matters, and it favors the fixed wing by the same three-to-six ratio as the range figure.</p>
+
+        <div class="media-visual reveal" style="max-width:640px;margin:32px auto">
+          <img src="/generated/blog-inline-multirotor-fixed-wing-cruise.webp" alt="Fixed-wing UAV in level cruise over agricultural fields at dusk, long straight wing with clean airflow, dark blue sky with green horizon glow, no people faces, no text, no logos" loading="lazy">
+          <span class="concept-badge">Concept illustration</span>
+        </div>
+
+        <h2>Component stack differences: what the airframe choice changes</h2>
+        <p>The airframe decision propagates through the entire bill of materials. A procurement team that has already chosen components for one architecture cannot carry them to the other:</p>
+        <ul>
+          <li><strong>Flight controller.</strong> Multirotor and fixed-wing are different firmware modes — ArduPilot and PX4 both support both, but the control laws, the mixer and the tuning parameters are entirely different. The <a href="/blog/ardupilot-vs-px4-autopilot/">ArduPilot vs PX4 guide</a> covers the selection, and the <a href="/blog/flight-controller-esc-matching/">FC–ESC matching guide</a> covers the signal chain that both modes share.</li>
+          <li><strong>Motors and propellers.</strong> A multirotor needs high static thrust per watt: larger discs, moderate pitch, KV matched to hover. A fixed wing needs cruise efficiency: smaller discs turning faster at low load, with the propeller selected for the cruise airspeed band rather than static thrust. The <a href="/blog/uav-motor-kv-selection-guide/">motor KV guide</a> and the <a href="/blog/uav-propeller-selection-guide/">propeller selection guide</a> cover the two sizing regimes — they are not interchangeable.</li>
+          <li><strong>ESC and power.</strong> Multirotor ESCs run continuous high current in hover and see rapid throttle variation; fixed-wing ESCs run at a lower, steadier load in cruise with a brief high-current climb phase. The current ratings, the cooling and the firmware (BLHeli_32 vs AM32 vs FOC) all differ. The <a href="/blog/esc-firmware-selection-guide/">ESC firmware guide</a> is the reference for the difference.</li>
+          <li><strong>Airframe structure.</strong> A multirotor frame is a stiff central structure carrying point loads; a fixed wing is a bending structure with the wing spar as the critical element. The <a href="/blog/uav-airframe-materials-guide/">airframe materials guide</a> compares carbon fiber, aluminum and G10 for both roles.</li>
+          <li><strong>Communications and payload.</strong> The range difference changes the datalink requirement: a 150 km fixed-wing mission needs a different RF system (or a cellular relay) than a 15 km multirotor sortie. The <a href="/blog/uav-rf-communication-systems/">RF communication guide</a> and the <a href="/blog/uav-payload-integration-guide/">payload integration guide</a> cover the consequences.</li>
+        </ul>
+        <p>The procurement consequence is simple: the architecture decision is a restart point. Changing from multirotor to fixed wing after components are selected means re-selecting the propulsion, the power system and often the flight controller — which is why the decision must come first and be justified by mission data, not preference.</p>
+
+        <div class="media-visual reveal" style="max-width:640px;margin:32px auto">
+          <img src="/generated/blog-inline-multirotor-fixed-wing-stack.webp" alt="UAV propulsion component stack on an engineering bench — brushless motor, ESC, propeller and flight controller arranged as a matched set, dark workbench with signal green and aero blue accent lighting, no people faces, no text, no logos" loading="lazy">
+          <span class="concept-badge">Concept illustration</span>
+        </div>
+
+        <h2>Mission-by-mission decision matrix</h2>
+        <p>Applied to the verticals this site serves, the decision matrix looks like this — architecture first, then the component guides for the chosen path:</p>
+        <table>
+          <thead>
+            <tr><th>Mission profile</th><th>Recommended architecture</th><th>Why</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Structural / close-range inspection (bridges, towers, turbines)</td><td>Multirotor</td><td>Hover and precise positioning are the mission</td></tr>
+            <tr><td>Large-area mapping and survey</td><td>Fixed wing (or VTOL)</td><td>Area coverage rate scales with range and endurance</td></tr>
+            <tr><td>Delivery within 10 km</td><td>Multirotor</td><td>Point-to-point hover landing; no launch infrastructure</td></tr>
+            <tr><td>Delivery beyond 30 km</td><td>Fixed wing + parachute / VTOL</td><td>Only the fixed wing carries the energy</td></tr>
+            <tr><td>Agriculture spraying</td><td>Multirotor (or VTOL for large fields)</td><td>Low-altitude hover control over uneven terrain; spray boom stability</td></tr>
+            <tr><td>Pipeline / border / linear patrol</td><td>Fixed wing</td><td>Hours on station at cruise speed along a line</td></tr>
+            <tr><td>Public safety: search and locate</td><td>Multirotor first response + fixed-wing search</td><td>Hover for the rescue phase, endurance for the search phase</td></tr>
+            <tr><td>Research / sensor R&D flights</td><td>Multirotor (prototyping) or fixed wing (data flights)</td><td>Hover for sensor characterization; endurance for data collection</td></tr>
+          </tbody>
+        </table>
+        <p>The industry-specific guides — <a href="/blog/uav-industrial-inspection-components/">inspection</a>, <a href="/blog/uav-logistics-delivery-components/">logistics</a>, <a href="/blog/uav-agriculture-spraying-components/">agriculture</a> and <a href="/blog/uav-public-safety-components/">public safety</a> — each apply this matrix to their workflow in detail. The common thread: whenever the mission has a stationary phase, the multirotor wins; whenever the mission is defined by area or distance, the fixed wing wins; whenever both phases matter equally, the VTOL is the answer, at the price of the transition complexity the <a href="/blog/uav-vtol-transition-components/">VTOL guide</a> documents.</p>
+
+        <h2>Cost and maintenance: the total cost of operation comparison</h2>
+        <p>The purchase price is the smallest line item in a UAV program. The operating cost comparison between the architectures is driven by three factors:</p>
+        <ul>
+          <li><strong>Energy cost per sortie.</strong> The fixed wing's efficiency advantage is a direct energy saving: a 5 kg multirotor burns 300–600 Wh per hour of flight; a fixed wing of the same mass burns 100–250 Wh per hour. Across a 100-sortie-per-year fleet, the difference is meaningful but rarely decisive — energy is the cheapest input.</li>
+          <li><strong>Launch and recovery labor.</strong> This is where the fixed wing pays back its endurance: one crew with a catapult covers multi-hour missions, but every launch and recovery is a small logistics operation with its own failure modes. The multirotor's zero-infrastructure launch is its quiet cost advantage.</li>
+          <li><strong>Failure modes and maintenance.</strong> A multirotor's repeated high-current cycles stress batteries, ESCs and motors — the <a href="/blog/uav-spares-lifecycle-planning/">spares and lifecycle guide</a> covers how battery cycle life and ESC wear dominate multirotor TCO. A fixed wing's hard landing, prop strike and launch-stress damage dominate its cost profile — which is why structural inspection and repair matter more, a topic covered in the <a href="/blog/uav-composite-ndt-inspection/">composite inspection guide</a>.</li>
+        </ul>
+        <p>The honest TCO summary: a multirotor is cheaper to start operating and cheaper per sortie at low sortie rates; a fixed wing amortizes its launcher and training investment quickly once sortie rates and mission areas grow. The <a href="/blog/uav-supplier-evaluation-checklist/">supplier evaluation checklist</a> and the <a href="/blog/uav-warranty-rma-support/">warranty and RMA guide</a> are the references for comparing the two supply chains themselves.</p>
+
+        <h2>Procurement: the RFQ clauses that pin the decision to data</h2>
+        <p>When the mission analysis points at one architecture, the RFQ should carry six clauses that prevent the specification from drifting back to habit:</p>
+        <p><strong>1. Mission profile with per-phase power draw.</strong> The climb, cruise, loiter and descent segments with power per phase and the required endurance per phase. Verification: the supplier's energy budget calculation against the method in the <a href="/blog/uav-payload-power-budgeting/">payload power budgeting guide</a>.</p>
+        <p><strong>2. Architecture declaration with the efficiency numbers.</strong> The platform's hover figure of merit (g/W) for multirotors, or lift-to-drag ratio and cruise power draw for fixed wings — measured, not theoretical.</p>
+        <p><strong>3. Launch and recovery plan.</strong> The equipment, crew size, setup time and the training requirement. Verification: a demonstrated launch sequence, not a diagram.</p>
+        <p><strong>4. Wind envelope with the limiting phase stated.</strong> The safe-operating wind for the mission phases, with the landing or recovery phase explicitly identified as the constraint.</p>
+        <p><strong>5. Component traceability.</strong> The FC firmware mode, motor and propeller sizing, ESC ratings and battery chemistry — each with the datasheet and the test evidence. The <a href="/blog/uav-propulsion-testing-validation/">propulsion testing guide</a> is the reference for what the test evidence should contain.</p>
+        <p><strong>6. Certification and import classification.</strong> Fixed-wing platforms with longer range change the regulatory conversation — beyond visual line of sight, airspace authorization and, for export, the classification of the platform. The <a href="/blog/uav-certification-compliance-guide/">certification and compliance guide</a> and the <a href="/blog/uav-remote-id-bvlos-components/">Remote ID and BVLOS guide</a> cover the obligations before the RFQ is sent.</p>
+        <p>The decision, in one line: choose the architecture that matches the mission's stationary phase and area coverage requirements, then let the physics set the numbers, and put those numbers in the RFQ. EMS Drone supplies both architectures as component stacks and complete platforms — send the mission profile and we will respond with the architecture comparison, the propulsion matching and the component list for the platform that fits.</p>
+
+        <p style="margin-top:42px"><a class="btn btn-primary" href="/customization/">Explore custom engineering</a> <a class="btn btn-outline" href="/blog/" style="margin-left:12px">Back to Blog</a></p>
+
+        <section class="continue-reading">
+          <h3>Continue Reading</h3>
+          <div class="continue-grid">
+            <a class="continue-card" href="/blog/uav-vtol-transition-components/">
+              <div class="continue-card-img"><img src="/generated/blog-cover-vtol-transition.webp" alt="VTOL Transition Components Guide" loading="lazy"></div>
+              <div class="continue-card-body"><h4>UAV VTOL Transition Components</h4><p>The middle path between multirotor and fixed-wing — tilt actuators, dual propulsion and the transition flight phase.</p></div>
+            </a>
+            <a class="continue-card" href="/blog/uav-airframe-materials-guide/">
+              <div class="continue-card-img"><img src="/generated/blog-cover-airframe.webp" alt="Airframe Materials Guide" loading="lazy"></div>
+              <div class="continue-card-body"><h4>Carbon Fiber vs Aluminum vs G10: UAV Airframe Materials</h4><p>The structural materials behind both architectures — where stiffness, weight and manufacturing cost each win.</p></div>
+            </a>
+            <a class="continue-card" href="/blog/uav-mapping-survey-components/">
+              <div class="continue-card-img"><img src="/generated/blog-cover-mapping.webp" alt="Mapping and Survey Components Guide" loading="lazy"></div>
+              <div class="continue-card-body"><h4>UAV Components for Mapping and Surveying</h4><p>The survey workflow where fixed-wing endurance converts directly into area coverage per sortie.</p></div>
+            </a>
+            <a class="continue-card" href="/blog/uav-heavy-lift-propulsion-design/">
+              <div class="continue-card-img"><img src="/generated/blog-cover-heavy-lift.webp" alt="Heavy-Lift Propulsion Design Guide" loading="lazy"></div>
+              <div class="continue-card-body"><h4>UAV Heavy-Lift Propulsion Design</h4><p>Motor, ESC and propeller sizing for the multirotor payload classes — hover thrust math in detail.</p></div>
+            </a>
+            <a class="continue-card" href="/blog/uav-component-build-vs-buy/">
+              <div class="continue-card-img"><img src="/generated/blog-cover-build-vs-buy.webp" alt="Build vs Buy Guide" loading="lazy"></div>
+              <div class="continue-card-body"><h4>UAV Component Sourcing: Build vs Buy</h4><p>The sourcing decision that follows the architecture decision — what to integrate, what to buy matched.</p></div>
+            </a>
+          </div>
+        </section>
+      </div>
+    </article>
+
+    <section class="section section-alt" style="--cta-bg:url(/generated/blog-cta-multirotor-fixed-wing.webp)">
+      <div class="container">
+        <div class="spec-panel reveal">
+          <div class="spec-panel-inner">
+            <div>
+              <span class="eyebrow">Airframe Architecture</span>
+              <h2>Share your mission profile — we will respond with the architecture that fits it: the multirotor vs fixed-wing comparison on your numbers, the propulsion matching, the launch and recovery plan, and the component list for the platform.</h2>
+              <p>Send us the mission phases, payload and endurance target — we will provide the architecture recommendation with the hover and cruise efficiency figures, the endurance and range calculation, the wind envelope, the component stack differences, the launch and recovery plan, and the RFQ checklist, so the decision is made on measured numbers rather than habit.</p>
+            </div>
+            <div class="spec-actions">
+              <button class="btn btn-primary" type="button" data-open-inquiry>Start Your Build <svg aria-hidden="true"><use href="#icon-arrow"/></svg></button>
+              <button class="btn btn-outline" data-open-inquiry>Open RFQ Brief</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="brand" href="/" aria-label="EMS Drone home"><span class="brand-mark"><svg aria-hidden="true"><use href="#icon-drone"/></svg></span><span>EMS Drone</span></a>
+          <p>Configurable UAV components, complete systems and engineering support.</p>
+        </div>
+        <div class="footer-col"><h3>System</h3><a href="/capabilities/">Capabilities</a><a href="/customization/">Customization</a><a href="/testing/">Testing</a></div>
+        <div class="footer-col"><h3>Context</h3><a href="/industries/">Industries</a><a href="/about/">About</a><a href="/blog/">Blog</a></div>
+        <div class="footer-col"><h3>More reading</h3><a href="/blog/drone-powertrain-matching/">Powertrain guide</a><a href="/blog/uav-rf-communication-systems/">RF systems</a><a href="/contact/">RFQ Brief</a></div>
+      </div>
+      <div class="footer-bottom"><span>&copy; 2026 EMS Drone</span><span>Define &rarr; Integrate &rarr; Deploy</span></div>
+    </div>
+  </footer>
+  <div class="modal-overlay" id="inquiryModal" aria-hidden="true">
+    <div class="modal-dialog" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <button class="modal-close" type="button" aria-label="Close inquiry">&times;</button>
+      <div class="modal-aside">
+        <span class="tech-label">Engineering Intake</span>
+        <div><h3 id="modalTitle">Start with your mission.</h3><p>Tell us what you are building and where you need support: component sourcing, a matched stack or a complete UAV.</p></div>
+      </div>
+      <form class="modal-form" data-preview-form>
+        <div class="field"><label for="modal-name">Name</label><input id="modal-name" name="name" autocomplete="name" required></div>
+        <div class="field" style="margin-top:18px"><label for="modal-email">Email</label><input id="modal-email" name="email" type="email" autocomplete="email" required></div>
+        <div class="field" style="margin-top:18px"><label for="modal-message">Project brief</label><textarea id="modal-message" name="message" required placeholder="Aircraft type, payload, environment, component list or complete-system goal"></textarea></div>
+        <button class="btn btn-primary" type="submit">Submit Engineering Brief</button>
+        <div class="form-status" role="status" aria-live="polite" aria-atomic="true"></div>
+      </form>
+    </div>
+  </div>
+<script src="/site.js?v=9"></script>
+  <script src="/reveal.js?v=9"></script>
+</body>
+</html>

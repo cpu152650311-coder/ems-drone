@@ -1,0 +1,298 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>UAV Composite Airframe Inspection: NDT Methods for Carbon Fiber Drones | EMS Drone</title>
+  <meta name="description" content="A technical guide to non-destructive testing (NDT) of UAV composite airframes — the defect classes that matter in carbon fiber structures, tap testing, ultrasonic A/B/C-scan, thermography, shearography and X-ray/CT methods, the detection capability of each, inspection intervals for fleet maintenance, and the procurement clauses that make an airframe inspectable.">
+  <link rel="canonical" href="https://ems-drone.com/blog/uav-composite-ndt-inspection/">
+  <meta property="og:title" content="UAV Composite Airframe Inspection: NDT Methods for Carbon Fiber Drones">
+  <meta property="og:description" content="How to inspect carbon fiber UAV airframes without destroying them — delamination and void defect classes, tap testing, ultrasonic A/B/C-scan, thermography, shearography and X-ray/CT, detection limits, inspection intervals and procurement clauses.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://ems-drone.com/blog/uav-composite-ndt-inspection/">
+  <meta property="og:image" content="https://ems-drone.com/generated/og-cover.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <link rel="icon" type="image/x-icon" href="/generated/favicon.ico">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="apple-touch-icon" sizes="180x180" href="/generated/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/generated/icon-192.png">
+<link rel="icon" type="image/png" sizes="512x512" href="/generated/icon-512.png">
+  <link rel="stylesheet" href="/design-tokens.css?v=21">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "UAV Composite Airframe Inspection: NDT Methods for Carbon Fiber Drones",
+  "description": "A technical guide to non-destructive testing (NDT) of UAV composite airframes — the defect classes that matter in carbon fiber structures, tap testing, ultrasonic A/B/C-scan, thermography, shearography and X-ray/CT methods, the detection capability of each, inspection intervals for fleet maintenance, and the procurement clauses that make an airframe inspectable.",
+  "image": "https://ems-drone.com/generated/blog-cover-composite-ndt.webp",
+  "author": {
+    "@type": "Organization",
+    "name": "EMS Drone"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "EMS Drone",
+    "url": "https://ems-drone.com/",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://ems-drone.com/favicon.svg"
+    }
+  },
+  "mainEntityOfPage": "https://ems-drone.com/blog/uav-composite-ndt-inspection/",
+  "datePublished": "2026-08-08",
+  "dateModified": "2026-08-08"
+}
+</script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <svg aria-hidden="true" style="position:absolute;width:0;height:0;overflow:hidden">
+    <symbol id="icon-drone" viewBox="0 0 24 24" fill="none" stroke="#b8f34a" stroke-width="1.5"><circle cx="12" cy="12" r="2.6"/><path d="m10.2 10.2-4-4m7.6 4 4-4m-7.6 7.6-4 4m7.6-4 4 4"/><circle cx="4.7" cy="4.7" r="2.2"/><circle cx="19.3" cy="19.3" r="2.2"/><circle cx="4.7" cy="19.7" r="2.2"/><circle cx="19.3" cy="19.3" r="2.2"/></symbol>
+    <symbol id="icon-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12h14m-5-5 5 5-5 5"/></symbol>
+  </svg>
+
+  <header class="site-header">
+    <div class="nav-shell">
+      <a class="brand" href="/" aria-label="EMS Drone home"><span class="brand-mark"><svg aria-hidden="true"><use href="#icon-drone"/></svg></span><span>EMS Drone</span></a>
+      <button class="nav-toggle" type="button" aria-label="Open navigation" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+                                        <nav class="site-nav" aria-label="Primary navigation"><a href="/">Home</a>
+        <div class="nav-dropdown">
+          <a href="/capabilities/" class="nav-parent">Capabilities</a>
+          <div class="nav-submenu">
+            <a href="/capabilities/flight-control/">Flight Controllers</a>
+            <a href="/capabilities/esc-power/">ESC &amp; Power Systems</a>
+            <a href="/capabilities/propulsion/">Propulsion</a>
+            <a href="/capabilities/airframe/">Airframes &amp; Structures</a>
+            <a href="/capabilities/communications/">Communications &amp; RF</a>
+            <a href="/capabilities/payload/">Payloads &amp; Gimbals</a>
+          </div>
+        </div>
+        <div class="nav-dropdown">
+          <a href="/customization/" class="nav-parent">Services</a>
+          <div class="nav-submenu">
+            <a href="/customization/">Custom Engineering</a>
+            <a href="/testing/">Testing &amp; Validation</a>
+          </div>
+        </div>
+        <div class="nav-dropdown">
+          <a href="/industries/" class="nav-parent">Industries</a>
+          <div class="nav-submenu">
+            <a href="/industries/inspection/">Industrial Inspection</a>
+            <a href="/industries/mapping-survey/">Mapping &amp; Survey</a>
+            <a href="/industries/logistics/">Logistics &amp; Delivery</a>
+            <a href="/industries/agriculture/">Precision Agriculture</a>
+            <a href="/industries/research/">Research &amp; Development</a>
+          </div>
+        </div>
+        <div class="nav-dropdown">
+          <a href="/resources/" class="nav-parent">Resources</a>
+          <div class="nav-submenu">
+            <a href="/design-guides/">Design Guides</a>
+            <a href="/projects/">Engineering Projects</a>
+            <a href="/how-it-works/">How We Work</a>
+            <a href="/faq/">FAQ</a>
+            <a href="/blog/" aria-current="page">Blog</a>
+          </div>
+        </div>
+        <div class="nav-dropdown">
+          <a href="/about/" class="nav-parent">Company</a>
+          <div class="nav-submenu">
+            <a href="/about/">About</a>
+            <a href="/factory/">Factory</a>
+            <a href="/quality/">Quality</a>
+            <a href="/shipping/">Shipping</a>
+            <a href="/contact/">Contact</a>
+          </div>
+        </div>
+        <button class="btn btn-primary" data-open-inquiry>Start Your Build</button>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <header class="article-hero">
+      <div class="container reveal">
+        <span class="eyebrow"><a href="/blog/" style="color:inherit;text-decoration:none">Blog</a> · Airframes &amp; Structures</span>
+        <h1>UAV composite airframe inspection: NDT methods for carbon fiber drones</h1>
+        <p style="color:var(--muted-dark);max-width:640px">Carbon fiber airframes fail invisibly. A multirotor arm or a wing spar can lose a third of its residual strength to an impact that leaves no visible mark — a hangar door bump, a hard landing, a prop strike — and the crack only appears on camera mid-flight. Non-destructive testing (NDT) is how fleet operators find that damage before it finds them. This guide covers the defect classes that matter in composite UAV structures, the practical inspection methods from tap testing to ultrasonic A/B/C-scan to thermography and X-ray/CT, what each method can and cannot detect, how to schedule inspection intervals into a maintenance program, and the procurement clauses that make an airframe inspectable in the first place.</p>
+        <div class="article-cover">
+          <img src="/generated/blog-cover-composite-ndt.webp" alt="Close-up of a carbon fiber UAV airframe arm on an inspection bench with an ultrasonic probe, dark engineering environment with green accent lighting, no people faces, no text, no logos" loading="lazy">
+        </div>
+      </div>
+    </header>
+
+    <article class="article-body">
+      <div class="container reveal">
+        <p>Composite structures are the material of choice for UAV airframes because they deliver the stiffness-to-weight ratio that endurance demands — the <a href="/blog/uav-airframe-materials-guide/">airframe materials guide</a> compares carbon fiber, aluminum and G10 in detail. But the same laminated structure that makes carbon fiber strong also makes it hard to inspect: damage is internal, invisible from the surface, and does not announce itself with a bent part the way a metal component does. This guide is written for the maintenance and procurement teams who own that problem.</p>
+
+        <h2>Why composite airframes need NDT: the defect classes that matter</h2>
+        <p>Every composite airframe accumulates damage in service, and the damage types that threaten flight safety share one property: they are internal. The defect classes that matter for UAV structures:</p>
+        <ul>
+          <li><strong>Delamination.</strong> Separation between adjacent plies of the laminate — the most common fatigue and impact damage mode in thin skins. A 10 mm delamination in a loaded wing spar region can reduce compression strength by 30–50% without any visible surface mark.</li>
+          <li><strong>Impact damage (barely visible impact damage, BVID).</strong> A low-energy impact — dropped tool, hangar bump, prop strike, landing strike — that leaves a barely visible dent or nothing at all, while the internal plies split and the core crushes. This is the class that grounds aircraft, because it is invisible and progressive.</li>
+          <li><strong>Voids and porosity.</strong> Air trapped during manufacture between plies or in the resin. Small distributed porosity reduces strength modestly but accelerates moisture ingress; large voids are stress concentrators.</li>
+          <li><strong>Disbond.</strong> Separation between the skin and the core (foam or honeycomb) in sandwich panels — the classic failure of control surfaces, hatch covers and tail booms after moisture ingress or repeated flexing.</li>
+          <li><strong>Fiber breakage.</strong> Actual fiber fracture from overload or severe impact — usually visible only once the surface ply is damaged, but internal fiber kinking from compression overload is not.</li>
+        </ul>
+        <p>The consequence for a UAV fleet is asymmetric: a metal part bends and gets replaced; a composite part can fly for dozens of sorties at degraded strength, accumulating damage until a fatigue cycle exceeds the reduced margin. The <a href="/blog/uav-propulsion-testing-validation/">propulsion testing guide</a> covers the thrust-side validation that pairs with this structural side, and the <a href="/blog/uav-safety-redundancy-systems/">safety and redundancy guide</a> covers why structural margin is part of the redundancy argument — redundant electronics cannot save an airframe that sheds a wing in flight.</p>
+
+        <h2>Tap testing: the field baseline that every operator should run</h2>
+        <p>Tap testing (coin tap, or manual tap testing) is the oldest, cheapest and most portable NDT method, and it is still the right first line for UAV fleets. The principle: a tap on a sound laminate rings with a sharp, high-pitched tone; a tap over a delamination, disbond or crushed core produces a dull, low-frequency thud, because the local stiffness has dropped. A trained operator can detect disbonds and near-surface delamination of roughly 10–25 mm diameter in thin skins, and the whole check of a small airframe takes minutes with a coin or a small tap hammer.</p>
+        <p>What tap testing cannot do: it has no depth resolution (a defect at ply 2 and a defect at ply 8 sound similar), it is subjective (operator-dependent, no quantitative record), and it misses porosity, voids deep in thick laminates and fiber breakage. It is a screening method, not a measurement method. The disciplined version for fleets is a defined tap grid per airframe — every inspection checks the same 30–60 points at the same spacing, and any change in tone on a previously sound point triggers a deeper inspection. The <a href="/blog/uav-spares-lifecycle-planning/">spares and lifecycle planning guide</a> is the framework for scheduling this baseline check into the fleet maintenance calendar, because the interval discipline matters more than the method.</p>
+
+        <div class="media-visual reveal" style="max-width:640px;margin:32px auto">
+          <img src="/generated/blog-inline-composite-ndt-tap.webp" alt="Technician performing tap testing on a carbon fiber UAV wing skin with a small inspection hammer, dark workshop bench with green accent light, focus on the composite surface, no people faces, no text, no logos" loading="lazy">
+          <span class="concept-badge">Concept illustration</span>
+        </div>
+
+        <h2>Ultrasonic testing: A-scan, B-scan and C-scan</h2>
+        <p>Ultrasonic testing (UT) is the workhorse of composite NDT and the method to move to when tap testing flags a defect or the asset is high-value. A transducer sends a high-frequency pulse (typically 1–10 MHz) into the laminate; the pulse reflects off the back wall and off any internal interface — a delamination, void or disbond reflects early and strongly. The three scan modes serve different purposes:</p>
+        <ul>
+          <li><strong>A-scan.</strong> The single-point time-amplitude display. The operator reads the depth of a reflection directly — the classic tool for confirming and locating a tap-test indication. Portable, cheap, and the natural next step after tap testing.</li>
+          <li><strong>B-scan.</strong> A cross-section image along a line — depth on one axis, position on the other. Useful for mapping the extent of a disbond along a spar or a leading edge.</li>
+          <li><strong>C-scan.</strong> The full two-dimensional map of a panel — a top-down image in which each pixel shows the attenuation or reflection at that point, typically color-coded. C-scan is the definitive method for documenting the full extent of delamination or porosity over a surface, and it is what suppliers use for acceptance inspection of new airframes.</li>
+        </ul>
+        <p>The detection limits for UT in thin UAV laminates (1–4 mm skins): delamination of 5 mm and larger in A-scan with a skilled operator, 3–5 mm reliably in C-scan with a proper scan rig, and distributed porosity down to about 1–2% void content by attenuation measurement. Coupling matters — a gel or water couplant is required between transducer and surface, which is why field UT on a dusty airframe is a two-step process: clean, then scan. The <a href="/blog/uav-electronics-manufacturing-quality/">electronics manufacturing quality guide</a> makes the parallel point for PCBs — X-ray and automated optical inspection on the board side — but the composite airframe needs its own inspection chain, and UT is its core.</p>
+
+        <div class="media-visual reveal" style="max-width:640px;margin:32px auto">
+          <img src="/generated/blog-inline-composite-ndt-ultrasonic.webp" alt="Ultrasonic C-scan inspection of a carbon fiber UAV wing panel with a manual probe and coupling gel, scan grid visible on the composite surface, dark workshop with green and blue accent lighting, no people faces, no text, no logos" loading="lazy">
+          <span class="concept-badge">Concept illustration</span>
+        </div>
+
+        <h2>Thermography and shearography: large-area screening</h2>
+        <p>When the inspection target is a whole wing or fuselage half, point methods become too slow, and the two large-area methods come into play:</p>
+        <p><strong>Thermography</strong> (infrared testing) flashes the surface with heat (a halogen or flash lamp) and records the cooling transient with an IR camera. Defects act as insulation: a delamination or disbond retains heat longer than sound structure, showing as a hot spot in the thermal sequence. Modern systems detect disbonds and near-surface delamination of roughly 5–15 mm in thin skins, and a full wing inspection takes minutes instead of hours. The limitations: depth penetration is limited (a few millimeters below the surface for quantitative work), and the method prefers thin, single-skin structures — the typical UAV airframe profile, which is why thermography is gaining ground in drone maintenance.</p>
+        <p><strong>Shearography</strong> (speckle pattern interferometry) loads the part slightly — vacuum or thermal load — and measures the resulting surface strain field with a laser interferometer. Any subsurface defect distorts the strain field and appears as a fringe anomaly. Shearography is the aerospace-standard method for honeycomb sandwich disbond detection and can cover a large panel in a single image. It is more sensitive than thermography for disbond in sandwich structures, but the equipment is heavier and the interpretation is a specialist skill — appropriate for depots and suppliers rather than field operators.</p>
+        <p>The procurement-relevant pattern: tap testing for routine fleet checks, UT for confirmed indications and acceptance inspection, thermography for periodic whole-structure screening, shearography for sandwich-panel assets and supplier acceptance. The <a href="/blog/uav-environmental-monitoring-components/">environmental monitoring guide</a> and the <a href="/blog/uav-industrial-inspection-components/">industrial inspection guide</a> cover the airborne inspection side of the same story — the aircraft that carries cameras to inspect infrastructure needs its own structure inspected with the same discipline.</p>
+
+        <div class="media-visual reveal" style="max-width:640px;margin:32px auto">
+          <img src="/generated/blog-inline-composite-ndt-thermal.webp" alt="Thermography inspection of a carbon fiber UAV wing — infrared camera image displayed on a laptop beside the wing panel, heat signature gradient visible on the composite surface, dark workshop with green accent lighting, no people faces, no text, no logos" loading="lazy">
+          <span class="concept-badge">Concept illustration</span>
+        </div>
+
+        <h2>X-ray and CT: seeing the full internal structure</h2>
+        <p>X-ray radiography and computed tomography (CT) are the highest-fidelity composite inspection methods, and they are the acceptance standard for the most critical flight structures. Radiography detects density differences — voids, porosity, fiber distribution anomalies and metallic inclusions — and is fast and cheap per image. CT reconstructs a full 3D volume and can measure void content, fiber orientation and ply-by-ply structure with sub-millimetre resolution, which makes it the definitive method for failure analysis and for qualifying new airframe designs or new suppliers.</p>
+        <p>The limits are practical: CT requires a lab, a radiation license in most jurisdictions, and an airframe component small enough to fit the scanner volume — most UAV spars, arms and fuselage sections do fit, but a whole 3 m fixed-wing aircraft does not. The cost per scan is orders of magnitude above tap testing, so CT is reserved for three moments: supplier acceptance of a new design, failure investigation after an incident, and periodic audit of a small sample from a fleet. The <a href="/blog/uav-component-obsolescence-management/">obsolescence management guide</a> makes the same sampling argument from the component side — for a fleet that flies for years, the inspection budget follows the same logic as the spares budget: planned, sampled, and tied to the asset's criticality.</p>
+
+        <h2>Choosing the method: detection capability and cost</h2>
+        <p>The method selection is a four-way trade between detection capability, portability, cost per inspection and the skill required. For a UAV fleet, the practical ladder:</p>
+        <table>
+          <thead>
+            <tr><th>Method</th><th>Best at detecting</th><th>Detection limit (thin laminate)</th><th>Portability</th><th>Cost per airframe</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Tap testing</td><td>Disbond, near-surface delamination</td><td>10–25 mm</td><td>Coin / tap hammer</td><td>Minutes, no equipment</td></tr>
+            <tr><td>Ultrasonic A-scan</td><td>Delamination depth, voids</td><td>5 mm+ (operator-dependent)</td><td>Handheld</td><td>Low</td></tr>
+            <tr><td>Ultrasonic C-scan</td><td>Full delamination / porosity map</td><td>3–5 mm</td><td>Scan rig</td><td>Moderate</td></tr>
+            <tr><td>Thermography</td><td>Disbond, near-surface defects, large areas</td><td>5–15 mm</td><td>IR camera</td><td>Moderate</td></tr>
+            <tr><td>Shearography</td><td>Sandwich disbond, large panels</td><td>Sub-mm strain anomalies</td><td>Lab / depot</td><td>High</td></tr>
+            <tr><td>X-ray / CT</td><td>Voids, porosity, internal structure, failure analysis</td><td>&lt;1 mm (CT)</td><td>Lab only</td><td>High</td></tr>
+          </tbody>
+        </table>
+        <p>The operational recommendation for most UAV fleets: tap testing on a fixed grid after every hard landing and on a calendar interval (monthly for daily-flown aircraft), A-scan confirmation of any tap-test change, annual thermography screening of high-value airframes, and CT acceptance or failure analysis for new designs and incidents. The <a href="/blog/uav-mission-planning-software/">mission planning guide</a> is the reminder that inspection records belong in the fleet database beside flight logs — a fleet that tracks flight hours and landings per airframe can schedule inspections by event and usage, not just by calendar.</p>
+
+        <h2>Inspection intervals: building NDT into the maintenance program</h2>
+        <p>Composite inspection has no universal interval; it follows the aircraft's exposure. The drivers are: hard landings and ground impacts (the dominant damage source for multirotors), prop strikes, disassembly and handling cycles, exposure to UV and moisture, and the flight hours accumulated at high load. A practical interval framework:</p>
+        <ul>
+          <li><strong>Event-driven.</strong> Tap test the affected area after any hard landing, prop strike, hangar impact or disassembly mishap — before the next flight, not at the next scheduled service.</li>
+          <li><strong>Calendar-driven.</strong> Full tap-grid sweep monthly for daily-flown aircraft, quarterly for weekly-flown aircraft. The <a href="/blog/uav-spares-lifecycle-planning/">spares and lifecycle guide</a> covers how to fold this into the MTBF-based maintenance plan rather than treating it as an ad-hoc task.</li>
+          <li><strong>Annual.</strong> Thermography or C-scan screening of high-value airframes — the fleet's flagship aircraft, the ones carrying expensive payloads or flying beyond visual line of sight.</li>
+          <li><strong>Post-incident.</strong> Any unexplained vibration, trim change, or a flight incident with suspected structural loading triggers a full inspection before return to service — the aviation rule that no UAV fleet should skip because "the aircraft still flies."</li>
+        </ul>
+        <p>The <a href="/blog/uav-fleet-management-components/">fleet management guide</a> is the operational framework that carries these intervals — the telemetry and maintenance-logging infrastructure that records landings and events so the inspection trigger is automatic. And when an airframe fails inspection or reaches its damage threshold, the <a href="/blog/uav-spares-lifecycle-planning/">lifecycle planning</a> decision applies: repair, replace the component, or retire the airframe — the same cost analysis as any other critical part.</p>
+
+        <h2>Procurement: clauses that make an airframe inspectable</h2>
+        <p>The most effective NDT program starts at procurement, because inspectability is a design property. Six clauses belong in the RFQ for composite airframes:</p>
+        <p><strong>1. Manufacturing acceptance data.</strong> Every airframe ships with its C-scan (or equivalent) acceptance record, showing void content and the absence of delamination above the agreed threshold. Verification: the scan report with the scan grid and acceptance criteria stated.</p>
+        <p><strong>2. Layup and material disclosure.</strong> The ply schedule, resin system, cure cycle and core material — because NDT interpretation depends on knowing what is inside. Verification: the material and process specification, aligned with the <a href="/blog/uav-airframe-materials-guide/">airframe materials guide</a>.</p>
+        <p><strong>3. Damage tolerance statement.</strong> The manufacturer's statement of allowable damage: what impact energy leaves no detectable damage, what damage is detectable but allowable, and what requires repair. Verification: the damage tolerance test data — this is the number that turns a tap-test thud into a go/no-go decision.</p>
+        <p><strong>4. Repair documentation.</strong> The manufacturer's repair manual — the materials, the cure process and the post-repair inspection method for each repairable area. Verification: the repair procedure document reviewed before acceptance.</p>
+        <p><strong>5. Inspection accessibility.</strong> The design must allow inspection: removable panels, accessible spar caps, drain holes that also serve as inspection ports. Verification: the maintenance manual demonstrates access to every critical bond line.</p>
+        <p><strong>6. Support for the inspection chain.</strong> The supplier's NDT capability and turnaround for depot-level inspections (C-scan, shearography, CT). Verification: the supplier's NDT procedure and facility list — the <a href="/blog/uav-supplier-evaluation-checklist/">supplier evaluation checklist</a> is the framework for scoring this response.</p>
+        <p>The <a href="/blog/uav-certification-compliance-guide/">certification and compliance guide</a> adds the regulatory layer: for BVLOS operations and larger platforms, the airworthiness authority increasingly asks for the inspection and maintenance program as part of the operations approval — an airframe with a documented, scheduled NDT program is easier to certify than one with none. A composite airframe is a high-performance structure with invisible failure modes; the inspection program is not overhead, it is the price of the material's advantages.</p>
+
+        <p style="margin-top:42px"><a class="btn btn-primary" href="/customization/">Explore custom engineering</a> <a class="btn btn-outline" href="/blog/" style="margin-left:12px">Back to Blog</a></p>
+
+        <section class="continue-reading">
+          <h3>Continue Reading</h3>
+          <div class="continue-grid">
+            <a class="continue-card" href="/blog/uav-airframe-materials-guide/">
+              <div class="continue-card-img"><img src="/generated/blog-cover-airframe.webp" alt="Airframe Materials Guide" loading="lazy"></div>
+              <div class="continue-card-body"><h4>Carbon Fiber vs Aluminum vs G10: UAV Airframe Materials</h4><p>The material science behind composite airframes — stiffness, weight, manufacturing and the damage behavior that NDT exists to catch.</p></div>
+            </a>
+            <a class="continue-card" href="/blog/uav-spares-lifecycle-planning/">
+              <div class="continue-card-img"><img src="/generated/blog-cover-spares-lifecycle.webp" alt="Spares and Lifecycle Planning Guide" loading="lazy"></div>
+              <div class="continue-card-body"><h4>UAV Spares and Lifecycle Planning</h4><p>MTBF, spare kits and TCO — the maintenance framework that inspection intervals plug into.</p></div>
+            </a>
+            <a class="continue-card" href="/blog/uav-safety-redundancy-systems/">
+              <div class="continue-card-img"><img src="/generated/blog-cover-safety-redundancy.webp" alt="Safety and Redundancy Guide" loading="lazy"></div>
+              <div class="continue-card-body"><h4>UAV Safety and Redundancy Systems</h4><p>Why structural integrity is part of the redundancy argument — electronics redundancy cannot save a failed airframe.</p></div>
+            </a>
+            <a class="continue-card" href="/blog/uav-propulsion-testing-validation/">
+              <div class="continue-card-img"><img src="/generated/blog-cover-propulsion-testing.webp" alt="Propulsion Testing Guide" loading="lazy"></div>
+              <div class="continue-card-body"><h4>UAV Propulsion Testing and Validation</h4><p>Thrust stand, thermal and lifetime validation — the propulsion-side testing that pairs with structural inspection.</p></div>
+            </a>
+            <a class="continue-card" href="/blog/uav-fleet-management-components/">
+              <div class="continue-card-img"><img src="/generated/blog-cover-fleet-management.webp" alt="Fleet Management Guide" loading="lazy"></div>
+              <div class="continue-card-body"><h4>UAV Fleet Management Components</h4><p>Telemetry, tracking and maintenance logging — the operational infrastructure that triggers inspections by event and usage.</p></div>
+            </a>
+          </div>
+        </section>
+      </div>
+    </article>
+
+    <section class="section section-alt" style="--cta-bg:url(/generated/blog-cta-composite-ndt.webp)">
+      <div class="container">
+        <div class="spec-panel reveal">
+          <div class="spec-panel-inner">
+            <div>
+              <span class="eyebrow">Composite Airframe Integrity</span>
+              <h2>Tell us your airframe program — we will respond with the structural inspection plan that fits it: the material and layup documentation, the damage tolerance statement, the repair documentation, and the airframe specification that makes NDT practical from day one.</h2>
+              <p>Send us the airframe type, the operating environment and the fleet size — we will provide the inspection-ready airframe specification, the manufacturing acceptance data requirement, the damage tolerance numbers, the repair documentation, and the maintenance program that keeps the composite structure within its strength margin for the life of the fleet.</p>
+            </div>
+            <div class="spec-actions">
+              <button class="btn btn-primary" type="button" data-open-inquiry>Start Your Build <svg aria-hidden="true"><use href="#icon-arrow"/></svg></button>
+              <button class="btn btn-outline" data-open-inquiry>Open RFQ Brief</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="brand" href="/" aria-label="EMS Drone home"><span class="brand-mark"><svg aria-hidden="true"><use href="#icon-drone"/></svg></span><span>EMS Drone</span></a>
+          <p>Configurable UAV components, complete systems and engineering support.</p>
+        </div>
+        <div class="footer-col"><h3>System</h3><a href="/capabilities/">Capabilities</a><a href="/customization/">Customization</a><a href="/testing/">Testing</a></div>
+        <div class="footer-col"><h3>Context</h3><a href="/industries/">Industries</a><a href="/about/">About</a><a href="/blog/">Blog</a></div>
+        <div class="footer-col"><h3>More reading</h3><a href="/blog/drone-powertrain-matching/">Powertrain guide</a><a href="/blog/uav-rf-communication-systems/">RF systems</a><a href="/contact/">RFQ Brief</a></div>
+      </div>
+      <div class="footer-bottom"><span>&copy; 2026 EMS Drone</span><span>Define &rarr; Integrate &rarr; Deploy</span></div>
+    </div>
+  </footer>
+  <div class="modal-overlay" id="inquiryModal" aria-hidden="true">
+    <div class="modal-dialog" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <button class="modal-close" type="button" aria-label="Close inquiry">&times;</button>
+      <div class="modal-aside">
+        <span class="tech-label">Engineering Intake</span>
+        <div><h3 id="modalTitle">Start with your mission.</h3><p>Tell us what you are building and where you need support: component sourcing, a matched stack or a complete UAV.</p></div>
+      </div>
+      <form class="modal-form" data-preview-form>
+        <div class="field"><label for="modal-name">Name</label><input id="modal-name" name="name" autocomplete="name" required></div>
+        <div class="field" style="margin-top:18px"><label for="modal-email">Email</label><input id="modal-email" name="email" type="email" autocomplete="email" required></div>
+        <div class="field" style="margin-top:18px"><label for="modal-message">Project brief</label><textarea id="modal-message" name="message" required placeholder="Aircraft type, payload, environment, component list or complete-system goal"></textarea></div>
+        <button class="btn btn-primary" type="submit">Submit Engineering Brief</button>
+        <div class="form-status" role="status" aria-live="polite" aria-atomic="true"></div>
+      </form>
+    </div>
+  </div>
+<script src="/site.js?v=9"></script>
+  <script src="/reveal.js?v=9"></script>
+</body>
+</html>
