@@ -1,6 +1,6 @@
 {
   "site": "ems-drone",
-  "updated": "2026-08-07",
+  "updated": "2026-08-08",
   "topics": [
     {
       "id": 21,
@@ -121,6 +121,26 @@
       "file": "/blog/uav-solar-hybrid-energy/",
       "created": "2026-08-07",
       "published": "2026-08-07"
+    },
+    {
+      "id": 31,
+      "title": "Multirotor vs Fixed-Wing UAV: Choosing the Right Airframe for Your Mission",
+      "status": "published",
+      "score": 84,
+      "funnel": "MOFU",
+      "file": "/blog/uav-multirotor-vs-fixed-wing/",
+      "created": "2026-08-08",
+      "published": "2026-08-08"
+    },
+    {
+      "id": 32,
+      "title": "UAV Composite Airframe Inspection: NDT Methods for Carbon Fiber Drones",
+      "status": "published",
+      "score": 78,
+      "funnel": "TOFU",
+      "file": "/blog/uav-composite-ndt-inspection/",
+      "created": "2026-08-08",
+      "published": "2026-08-08"
     }
   ]
 }
